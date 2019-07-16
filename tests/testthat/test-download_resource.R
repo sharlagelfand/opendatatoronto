@@ -1,6 +1,6 @@
 context("download_resource")
 
-test_that("unsupported formats return error that the must be downloaded from Portal directly.", {
+test_that("download_resource returns error that unsupported formats must be downloaded from Portal directly.", {
   expect_error(
     download_resource(
       url = "test_url",
