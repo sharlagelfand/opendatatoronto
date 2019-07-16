@@ -35,30 +35,3 @@ get_package_resources <- function(package_id) {
     tibble::as_tibble(res[, c("name", "id", "format", "created", "url")])
   }
 }
-
-check_package_id <- function(package_id) {
-  if (!is.character(package_id)) {
-    stop("`package_id` must be a character vector.",
-      call. = FALSE
-    )
-  }
-  else if (length(package_id) != 1) {
-    stop("`package_id` must be a length 1 character vector.",
-      call. = FALSE
-    )
-  }
-  else {
-    package_id
-  }
-}
-
-check_package_show_results <- function(res) {
-  if (class(res) == "try-error" && grepl("404", res)) {
-    stop("`package_id` was not found.",
-      call. = FALSE
-    )
-  }
-  else {
-    res
-  }
-}

@@ -30,15 +30,3 @@ download_resource <- function(url, format, store = "session", path = "file") {
     tibble::as_tibble(res)
   }
 }
-
-check_format <- function(format) {
-  format <- toupper(format)
-  if (!(format %in% c("CSV", "XLS", "XLSX", "XML", "JSON", "SHP", "ZIP", "GEOJSON"))) {
-    stop(paste(format, "`format` can't be downloaded via package; please visit Open Data Portal directly to download. \n Supported `format`s are: CSV, XLS, XLSX, XML, JSON, SHP, ZIP, GEOJSON"),
-      call. = FALSE
-    )
-  }
-  else {
-    format
-  }
-}
