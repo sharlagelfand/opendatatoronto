@@ -1,8 +1,11 @@
 #' List packages.
 #'
-#' @param limit (numeric) The maximum number of packages to return (optional, default: 31)
+#' @param limit The maximum number of packages to return (default is 31).
 #'
 #' @export
+#' @examples \dontrun{
+#' get_packages(5)
+#' }
 get_packages <- function(limit = 31) {
   limit <- check_limit(limit)
 
