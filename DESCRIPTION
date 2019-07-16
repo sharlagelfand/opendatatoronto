@@ -1,0 +1,21 @@
+Package: opendatatoronto
+Title: Client for the Toronto Open Data Portal API
+Version: 0.0.0.9000
+Authors@R: 
+    person(given = "Sharla",
+           family = "Gelfand",
+           role = c("aut", "cre"),
+           email = "sharla.gelfadn@gmail.com")
+Description: Client for the Toronto Open Data Portal API. Includes interface to 
+    list and show packages, and show and download resources.
+License: MIT + file LICENSE
+Encoding: UTF-8
+LazyData: true
+Depends: R (>= 2.10)
+RoxygenNote: 6.1.1
+Imports: 
+    ckanr,
+    tibble
+Remotes: ropensci/ckanr/
+Suggests: 
+    testthat

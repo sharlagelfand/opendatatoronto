@@ -1,0 +1,66 @@
+---
+output: github_document
+---
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "man/figures/README-",
+  out.width = "100%",
+  message = FALSE
+)
+```
+# opendatatoronto
+
+<!-- badges: start -->
+<!-- badges: end -->
+
+`opendatatoronto` is an R interface to the [City of Toronto Open Data Portal](https://portal0.cf.opendata.inter.sandbox-toronto.ca/). The goal of the package is to help read data directly into R without needing to manually download it via the portal.
+
+## Installation
+
+You can install the development version from GitHub with:
+
+``` r
+# install.packages("remotes")
+remotes::install_github("sharlagelfand/opendatatoronto")
+```
+
+## Example
+
+In the Portal, datasets are called **packages**. You can see a list of available packages by using `get_packages()`:
+
+```{r get-packages-example}
+library(opendatatoronto)
+packages <- get_packages(limit = 50)
+packages
+```
+
+Within a package, there are a number of **resources** - e.g. CSV, XSLX, JSON, SHP files, and more. Resources are the actual "data".
+
+For a given package, you can get a list of resources using `get_package_resources()`:
+
+```{r get-marriage-license-resources}
+library(dplyr)
+
+marriage_licence_packages <- packages %>%
+  filter(title == "Marriage Licence Statistics")
+
+marriage_licence_resources <- get_package_resources(marriage_licence_packages[["id"]])
+
+marriage_licence_resources
+```
+
+Finally (and most usefully!), you can download the resource (i.e., the actual data) directly into R using `download_resource()`:
+
+```{r download-marriage-licenses}
+marriage_licence_statistics <- download_resource(
+  url = marriage_licence_resources[["url"]],
+  format = marriage_licence_resources[["format"]]
+)
+
+marriage_licence_statistics
+```
