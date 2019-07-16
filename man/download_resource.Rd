@@ -7,7 +7,7 @@
 download_resource(url, format, store = "session", path = "file")
 }
 \arguments{
-\item{url}{URL for the resource}
+\item{url}{URL of the resource}
 
 \item{format}{Format of the resource}
 
@@ -17,4 +17,10 @@ download_resource(url, format, store = "session", path = "file")
 }
 \description{
 Download a resource
+}
+\examples{
+\dontrun{
+res <- get_package_resources("832a5967-15a8-4dce-aad5-36d2d45f9d04")
+download_resource(url = res[1, "url"], format = res[1, "format"])
+}
 }

@@ -7,8 +7,13 @@
 get_packages(limit = 31)
 }
 \arguments{
-\item{limit}{(numeric) The maximum number of packages to return (optional, default: 31)}
+\item{limit}{The maximum number of packages to return (default is 31).}
 }
 \description{
 List packages.
+}
+\examples{
+\dontrun{
+get_packages(5)
+}
 }

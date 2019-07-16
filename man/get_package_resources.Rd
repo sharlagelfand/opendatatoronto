@@ -2,13 +2,13 @@
 % Please edit documentation in R/get_package_resources.R
 \name{get_package_resources}
 \alias{get_package_resources}
-\title{Get Resources for a Package}
+\title{Get resource for a package}
 \usage{
 get_package_resources(package_id)
 }
 \arguments{
-\item{package_id}{Package ID}
+\item{package_id}{The ID of the package whose resources you are getting.}
 }
 \description{
-Get Resources for a Package
+Get resource for a package
 }
