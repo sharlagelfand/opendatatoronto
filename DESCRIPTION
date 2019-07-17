@@ -16,7 +16,7 @@ RoxygenNote: 6.1.1
 Imports: 
     ckanr,
     tibble
-Remotes: ropensci/ckanr/
+Remotes: ropensci/ckanr
 Suggests: 
     testthat,
     covr

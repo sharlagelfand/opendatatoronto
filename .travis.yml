@@ -4,3 +4,4 @@ language: R
 cache: packages
 after_success:
   - Rscript -e 'covr::codecov()'
+r_github_packages: ropensci/ckanr
