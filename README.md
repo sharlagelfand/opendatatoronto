@@ -7,6 +7,8 @@
 
 [![Travis build
 status](https://travis-ci.org/sharlagelfand/opendatatoronto.svg?branch=master)](https://travis-ci.org/sharlagelfand/opendatatoronto)
+[![Codecov test
+coverage](https://codecov.io/gh/sharlagelfand/opendatatoronto/branch/master/graph/badge.svg)](https://codecov.io/gh/sharlagelfand/opendatatoronto?branch=master)
 <!-- badges: end -->
 
 `opendatatoronto` is an R interface to the [City of Toronto Open Data

@@ -18,4 +18,5 @@ Imports:
     tibble
 Remotes: ropensci/ckanr/
 Suggests: 
-    testthat
+    testthat,
+    covr
