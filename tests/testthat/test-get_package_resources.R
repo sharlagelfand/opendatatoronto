@@ -25,6 +25,6 @@ test_that("get_package_resources returns the right output formats.", {
   expect_is(output$name, "character")
   expect_is(output$id, "character")
   expect_is(output$format, "character")
-  expect_is(output$created, "date")
+  expect_is(output$created, "character")
   expect_is(output$url, "character")
 })
