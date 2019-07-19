@@ -21,6 +21,6 @@ Download a resource into your R session
 \examples{
 \dontrun{
 res <- list_package_resources("832a5967-15a8-4dce-aad5-36d2d45f9d04")
-list_resource(url = res[1, "url"], format = res[1, "format"])
+get_resource(url = res[1, "url"], format = res[1, "format"])
 }
 }
