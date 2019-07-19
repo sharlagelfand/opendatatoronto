@@ -1,8 +1,8 @@
-context("download_resource")
+context("get_resource")
 
-test_that("download_resource returns error that unsupported formats must be downloaded from Portal directly.", {
+test_that("get_resource returns error that unsupported formats must be downloaded from Portal directly.", {
   expect_error(
-    download_resource(
+    get_resource(
       url = "test_url",
       format = "DOCX"
     ),
@@ -10,7 +10,7 @@ test_that("download_resource returns error that unsupported formats must be down
   )
 
   expect_error(
-    download_resource(
+    get_resource(
       url = "test_url",
       format = "DOC"
     ),

@@ -4,9 +4,9 @@
 #'
 #' @export
 #' @examples \dontrun{
-#' get_packages(5)
+#' list_packages(5)
 #' }
-get_packages <- function(limit = 31) {
+list_packages <- function(limit = 31) {
   limit <- check_limit(limit)
 
   packages <- ckanr::package_list_current(limit = limit, url = opendatatoronto_ckan_url, as = "table")

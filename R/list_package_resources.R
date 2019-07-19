@@ -1,12 +1,12 @@
-#' Get resource for a package
+#' List resources for a package
 #'
-#' @param package_id The ID of the package whose resources you are getting.
+#' @param package_id The ID of the package whose resources you are listing.
 #'
 #' @export
-#' @example \dontrun{
-#' get_package_resources("0241552c-a22e-470e-ad5b-aa7f35ec2fa3")
+#' @examples \dontrun{
+#' list_package_resources("0241552c-a22e-470e-ad5b-aa7f35ec2fa3")
 #' }
-get_package_resources <- function(package_id) {
+list_package_resources <- function(package_id) {
   package_id <- check_package_id(package_id)
 
   package_res <- try(

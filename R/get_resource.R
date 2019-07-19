@@ -1,4 +1,4 @@
-#' Download a resource
+#' Download a resource into your R session
 #'
 #' @param url URL of the resource
 #' @param format Format of the resource
@@ -7,10 +7,10 @@
 #'
 #' @export
 #' @examples \dontrun{
-#' res <- get_package_resources("832a5967-15a8-4dce-aad5-36d2d45f9d04")
-#' download_resource(url = res[1, "url"], format = res[1, "format"])
+#' res <- list_package_resources("832a5967-15a8-4dce-aad5-36d2d45f9d04")
+#' list_resource(url = res[1, "url"], format = res[1, "format"])
 #' }
-download_resource <- function(url, format, store = "session", path = "file") {
+get_resource <- function(url, format, store = "session", path = "file") {
   format <- check_format(format)
 
   if (format == "GEOJSON") {

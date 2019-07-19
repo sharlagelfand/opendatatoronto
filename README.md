@@ -34,25 +34,25 @@ remotes::install_github("sharlagelfand/opendatatoronto")
 ## Example
 
 In the Portal, datasets are called **packages**. You can see a list of
-available packages by using `get_packages()`:
+available packages by using `list_packages()`:
 
 ``` r
 library(opendatatoronto)
-packages <- get_packages(limit = 50)
+packages <- list_packages(limit = 50)
 packages
 #> # A tibble: 50 x 7
 #>    title   id      topics   excerpt   dataset_category formats refresh_rate
 #>    <chr>   <chr>   <chr>    <chr>     <chr>            <list>  <chr>       
-#>  1 Polls … 05c63a… City go… Polls ar… Table            <chr [… Daily       
-#>  2 Chemic… c3729f… Environ… This dat… Website          <chr [… Daily       
-#>  3 BodySa… 5eaa37… City go… This dat… Table            <chr [… Daily       
-#>  4 Street… c7934f… City go… Transit … Map              <chr [… Semi-annual…
-#>  5 Street… 586a1e… City go… Publicat… Map              <chr [… Semi-annual…
-#>  6 Street… 1021a7… City go… Public w… Map              <chr [… Semi-annual…
-#>  7 Street… 8af26e… City go… Poster s… Map              <chr [… Semi-annual…
-#>  8 Street… e85c1a… City go… Poster b… Map              <chr [… Semi-annual…
-#>  9 Street… 6ed67d… City go… Litter R… Map              <chr [… Semi-annual…
-#> 10 Street… e33453… City go… Informat… Map              <chr [… Semi-annual…
+#>  1 Chemic… c3729f… Environ… This dat… Website          <chr [… Daily       
+#>  2 BodySa… 5eaa37… City go… This dat… Table            <chr [… Daily       
+#>  3 Street… c7934f… City go… Transit … Map              <chr [… Semi-annual…
+#>  4 Street… 586a1e… City go… Publicat… Map              <chr [… Semi-annual…
+#>  5 Street… 1021a7… City go… Public w… Map              <chr [… Semi-annual…
+#>  6 Street… 8af26e… City go… Poster s… Map              <chr [… Semi-annual…
+#>  7 Street… e85c1a… City go… Poster b… Map              <chr [… Semi-annual…
+#>  8 Street… 6ed67d… City go… Litter R… Map              <chr [… Semi-annual…
+#>  9 Street… e33453… City go… Informat… Map              <chr [… Semi-annual…
+#> 10 Street… 024155… Transpo… "Bike Pa… Map              <chr [… Daily       
 #> # … with 40 more rows
 ```
 
@@ -60,7 +60,7 @@ Within a package, there are a number of **resources** - e.g. CSV, XSLX,
 JSON, SHP files, and more. Resources are the actual “data”.
 
 For a given package, you can get a list of resources using
-`get_package_resources()`:
+`list_package_resources()`:
 
 ``` r
 library(dplyr)
@@ -68,7 +68,7 @@ library(dplyr)
 marriage_licence_packages <- packages %>%
   filter(title == "Marriage Licence Statistics")
 
-marriage_licence_resources <- get_package_resources(marriage_licence_packages[["id"]])
+marriage_licence_resources <- list_package_resources(marriage_licence_packages[["id"]])
 
 marriage_licence_resources
 #> # A tibble: 1 x 5
@@ -81,7 +81,7 @@ Finally (and most usefully\!), you can download the resource (i.e., the
 actual data) directly into R using `download_resource()`:
 
 ``` r
-marriage_licence_statistics <- download_resource(
+marriage_licence_statistics <- get_resource(
   url = marriage_licence_resources[["url"]],
   format = marriage_licence_resources[["format"]]
 )
