@@ -4,16 +4,12 @@
 \alias{get_resource}
 \title{Download a resource into your R session}
 \usage{
-get_resource(url, format, store = "session", path = "file")
+get_resource(url, format)
 }
 \arguments{
 \item{url}{URL of the resource}
 
 \item{format}{Format of the resource}
-
-\item{store}{One of session (default) or disk. session stores in R session, and disk saves the file to disk.}
-
-\item{path}{If store = disk, you must give a path to store the file to}
 }
 \description{
 Download a resource into your R session
