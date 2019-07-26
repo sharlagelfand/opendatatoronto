@@ -1,4 +1,4 @@
-opendatatoronto_ckan_url <- "https://ckan0.cf.opendata.inter.sandbox-toronto.ca/"
+opendatatoronto_ckan_url <- "https://ckan0.cf.opendata.inter.prod-toronto.ca/"
 
 check_limit <- function(limit) {
   if (length(limit) != 1) {
@@ -36,7 +36,7 @@ check_package_id <- function(package_id) {
 }
 
 check_package_show_results <- function(res) {
-  if (class(res) == "try-error" && grepl("404", res)) {
+  if (class(res) == "try-error" && (grepl("404", res) || grepl("403", res))) {
     stop("`package_id` was not found.",
          call. = FALSE
     )

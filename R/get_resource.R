@@ -15,4 +15,11 @@ get_resource <- function(url, format) {
   res <- ckanr::ckan_fetch(x = url, store = "session", format = format)
 
   tibble::as_tibble(res)
+
+  # if(is.data.frame(res)){
+  #   tibble::as_tibble(res)
+  # }
+  # else {
+  #   lapply(X = res, FUN = tibble::as_tibble)
+  #   }
 }

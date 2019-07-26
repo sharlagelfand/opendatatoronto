@@ -20,7 +20,7 @@ test_that("list_package_resources returns an error if the package_id can't be fo
 
 test_that("list_package_resources returns the right output formats.", {
   skip_on_cran()
-  output <- list_package_resources("680d4f11-9bb2-4efe-9b13-50b34d8eba10")
+  output <- list_package_resources("263f54b6-5c60-434f-8958-4e11248f08ff")
   expect_is(output, "tbl_df")
   expect_is(output$name, "character")
   expect_is(output$id, "character")
