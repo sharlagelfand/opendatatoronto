@@ -30,22 +30,19 @@ get_resource <- function(resource) {
 
   if (inherits(res, "sf")) {
     res
-  }
-  else if (is.data.frame(res)) {
+  } else if (is.data.frame(res)) {
     tibble::as_tibble(res)
-  }
-  else {
+  } else {
     lapply(X = res, FUN = tibble::as_tibble)
   }
 }
 
 check_id_in_resource <- function(resource) {
   if (!("id" %in% names(resource))) {
-    stop('The resource object must contain a column "id".',
-      call. = FALSE
+    stop('`resource` must contain a column "id".',
+         call. = FALSE
     )
-  }
-  else {
+  } else {
     resource
   }
 }
@@ -55,14 +52,17 @@ as_resource_id <- function(resource) {
     if (nrow(resource) == 1) {
       resource <- check_id_in_resource(resource)
       resource_id <- resource[["id"]]
-    }
-    else {
-      stop("`resource` can't be longer than 1 row.",
-        call. = FALSE
+    } else {
+      stop("`resource` must be a 1 row data frame or a length 1 character vector.",
+           call. = FALSE
       )
     }
+  } else if (!(is.vector(resource) && length(resource) == 1 && is.character(resource))) {
+    stop("`resource` must be a 1 row data frame or a length 1 character vector.",
+         call. = FALSE
+    )
   } else {
-    resource_id <- resource
+    resource
   }
 }
 
