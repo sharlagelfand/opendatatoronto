@@ -63,8 +63,7 @@ Finally (and most usefully!), you can download the resource (i.e., the actual da
 
 ```{r get-marriage-licenses}
 marriage_licence_statistics <- get_resource(
-  url = marriage_licence_resources[["url"]],
-  format = marriage_licence_resources[["format"]]
+  resource = marriage_licence_resources[1, ]
 )
 
 marriage_licence_statistics

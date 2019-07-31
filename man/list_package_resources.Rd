@@ -14,6 +14,6 @@ List resources for a package
 }
 \examples{
 \dontrun{
-list_package_resources("0241552c-a22e-470e-ad5b-aa7f35ec2fa3")
+list_package_resources("1db34737-ffad-489d-a590-9171d500d453")
 }
 }

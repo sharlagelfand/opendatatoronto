@@ -19,7 +19,8 @@ Imports:
     tibble
 Suggests: 
     covr,
-    testthat
+    testthat,
+    sf
 Remotes: 
     ropensci/ckanr
 Encoding: UTF-8

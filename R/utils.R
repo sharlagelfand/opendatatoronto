@@ -3,15 +3,15 @@ opendatatoronto_ckan_url <- "https://ckan0.cf.opendata.inter.prod-toronto.ca/"
 check_limit <- function(limit) {
   if (length(limit) != 1) {
     stop("`limit` must be a length 1 positive integer vector.",
-         call. = FALSE
+      call. = FALSE
     )
   }
   else if (!is.numeric(limit) ||
-           !(limit %% 1 == 0) ||
-           limit <= 0 ||
-           limit == Inf) {
+    !(limit %% 1 == 0) ||
+    limit <= 0 ||
+    limit == Inf) {
     stop("`limit` must be a positive integer.",
-         call. = FALSE
+      call. = FALSE
     )
   }
   else {
@@ -22,12 +22,12 @@ check_limit <- function(limit) {
 check_package_id <- function(package_id) {
   if (!is.character(package_id)) {
     stop("`package_id` must be a character vector.",
-         call. = FALSE
+      call. = FALSE
     )
   }
   else if (length(package_id) != 1) {
     stop("`package_id` must be a length 1 character vector.",
-         call. = FALSE
+      call. = FALSE
     )
   }
   else {
@@ -35,10 +35,10 @@ check_package_id <- function(package_id) {
   }
 }
 
-check_package_show_results <- function(res) {
+check_package_show_results <- function(res, package_id) {
   if (class(res) == "try-error" && (grepl("404", res) || grepl("403", res))) {
-    stop("`package_id` was not found.",
-         call. = FALSE
+    stop(paste0('package "', package_id, '" was not found.'),
+      call. = FALSE
     )
   }
   else {
@@ -50,7 +50,7 @@ check_format <- function(format) {
   format <- toupper(format)
   if (!(format %in% c("CSV", "XLS", "XLSX", "XML", "JSON", "SHP", "ZIP", "GEOJSON"))) {
     stop(paste(format, "`format` can't be downloaded via package; please visit Open Data Portal directly to download. \n Supported `format`s are: CSV, XLS, XLSX, XML, JSON, SHP, ZIP", "GEOJSON"),
-         call. = FALSE
+      call. = FALSE
     )
   }
   else {

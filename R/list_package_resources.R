@@ -3,8 +3,9 @@
 #' @param package_id The ID of the package whose resources you are listing.
 #'
 #' @export
-#' @examples \dontrun{
-#' list_package_resources("0241552c-a22e-470e-ad5b-aa7f35ec2fa3")
+#' @examples
+#' \dontrun{
+#' list_package_resources("1db34737-ffad-489d-a590-9171d500d453")
 #' }
 list_package_resources <- function(package_id) {
   package_id <- check_package_id(package_id)
@@ -14,24 +15,18 @@ list_package_resources <- function(package_id) {
     silent = TRUE
   )
 
-  package_res <- check_package_show_results(package_res)
+  package_res <- check_package_show_results(package_res, package_id)
 
   if (package_res[["num_resources"]] == 0) {
     tibble::tibble(
       name = character(),
       id = character(),
-      format = character(),
-      created = character(),
-      url = character(),
-      datastore_active = character()
+      format = character()
     )
   }
   else {
     resources <- package_res[["resources"]]
-    res <- resources[, c("name", "id", "format", "created", "url", "datastore_active")]
-
-    res[["url"]] <- ifelse(res[["datastore_active"]], paste0("https://ckan0.cf.opendata.inter.sandbox-toronto.ca/download_resource/", res[["id"]]), res[["url"]])
-
-    tibble::as_tibble(res[, c("name", "id", "format", "created", "url")])
+    res <- resources[, c("name", "id", "format")]
+    tibble::as_tibble(res)
   }
 }

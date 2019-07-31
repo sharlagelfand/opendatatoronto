@@ -43,16 +43,16 @@ packages
 #> # A tibble: 100 x 7
 #>    title   id      topics   excerpt   dataset_category formats refresh_rate
 #>    <chr>   <chr>   <chr>    <chr>     <chr>            <chr>   <chr>       
-#>  1 BodySa… c4052f… City go… This dat… Table            WEB,CS… Daily       
+#>  1 Street… 74f636… City go… Publicat… Map              CSV,GE… Semi-annual…
 #>  2 Street… 1db347… City go… Transit … Map              CSV,GE… Semi-annual…
-#>  3 Street… 74f636… City go… Publicat… Map              CSV,GE… Semi-annual…
+#>  3 Street… ccfdb1… City go… Poster s… Map              CSV,GE… Semi-annual…
 #>  4 Street… 821fed… City go… Public w… Map              CSV,GE… Semi-annual…
-#>  5 Street… ccfdb1… City go… Poster s… Map              CSV,GE… Semi-annual…
-#>  6 Street… cf706a… City go… Poster b… Map              CSV,GE… Semi-annual…
-#>  7 Street… 99b1f3… City go… Informat… Map              CSV,GE… Semi-annual…
-#>  8 Street… 71e6c2… Transpo… "Bike Pa… Map              CSV,GE… Daily       
-#>  9 Street… 0c4eb9… City go… Bench lo… Map              CSV,GE… Semi-annual…
-#> 10 Polls … 7bce9b… City go… Polls ar… Table            XLSX,C… Daily       
+#>  5 Chemic… ae8eeb… Environ… This dat… Table            WEB,XL… Daily       
+#>  6 Commun… 5709d6… City go… This is … Map              SHP,CS… As available
+#>  7 Stillb… 93b2ff… Health   This dat… Table            CSV,JS… Monthly     
+#>  8 BodySa… c4052f… City go… This dat… Table            WEB,CS… Daily       
+#>  9 Street… cf706a… City go… Poster b… Map              CSV,GE… Semi-annual…
+#> 10 Street… 394435… City go… Litter R… Map              CSV,GE… Semi-annual…
 #> # … with 90 more rows
 ```
 
@@ -71,10 +71,10 @@ marriage_licence_packages <- packages %>%
 marriage_licence_resources <- list_package_resources(marriage_licence_packages[["id"]])
 
 marriage_licence_resources
-#> # A tibble: 1 x 5
-#>   name          id             format created      url                     
-#>   <chr>         <chr>          <chr>  <chr>        <chr>                   
-#> 1 Marriage Lic… 4d985c1d-9c7e… CSV    2019-07-23T… https://ckan0.cf.openda…
+#> # A tibble: 1 x 2
+#>   name                             id                                  
+#>   <chr>                            <chr>                               
+#> 1 Marriage Licence Statistics Data 4d985c1d-9c7e-4f74-9864-73214f45eb4a
 ```
 
 Finally (and most usefully\!), you can download the resource (i.e., the
@@ -82,14 +82,13 @@ actual data) directly into R using `download_resource()`:
 
 ``` r
 marriage_licence_statistics <- get_resource(
-  url = marriage_licence_resources[["url"]],
-  format = marriage_licence_resources[["format"]]
+  resource_id = marriage_licence_resources[1, ]
 )
 
 marriage_licence_statistics
-#> # A tibble: 408 x 4
-#>     X_id CIVIC_CENTRE MARRIAGE_LICENSES TIME_PERIOD
-#>    <int> <fct>                    <int> <fct>      
+#> # A tibble: 100 x 4
+#>    `_id` CIVIC_CENTRE MARRIAGE_LICENSES TIME_PERIOD
+#>    <int> <chr>                    <int> <chr>      
 #>  1     1 ET                          80 2011-01    
 #>  2     2 NY                         136 2011-01    
 #>  3     3 SC                         159 2011-01    
@@ -100,5 +99,5 @@ marriage_licence_statistics
 #>  8     8 TO                         383 2011-02    
 #>  9     9 ET                         177 2011-03    
 #> 10    10 NY                         231 2011-03    
-#> # … with 398 more rows
+#> # … with 90 more rows
 ```

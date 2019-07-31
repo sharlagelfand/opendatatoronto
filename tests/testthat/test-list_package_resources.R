@@ -24,7 +24,4 @@ test_that("list_package_resources returns the right output formats.", {
   expect_is(output, "tbl_df")
   expect_is(output$name, "character")
   expect_is(output$id, "character")
-  expect_is(output$format, "character")
-  expect_is(output$created, "character")
-  expect_is(output$url, "character")
 })
