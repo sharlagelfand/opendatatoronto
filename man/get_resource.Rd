@@ -7,7 +7,7 @@
 get_resource(resource)
 }
 \arguments{
-\item{resource}{A way to identify the resource. Either a resource ID (passed as a vector directly) or a single resource resulting from \code{\link{list_package_resources}}}
+\item{resource}{A way to identify the resource. Either a resource ID (passed as a character vector directly) or a single resource resulting from \code{\link{list_package_resources}}}
 }
 \description{
 Download a resource into your R session

@@ -1,6 +1,6 @@
 #' Download a resource into your R session
 #'
-#' @param resource A way to identify the resource. Either a resource ID (passed as a vector directly) or a single resource resulting from \code{\link{list_package_resources}}
+#' @param resource A way to identify the resource. Either a resource ID (passed as a character vector directly) or a single resource resulting from \code{\link{list_package_resources}}
 #' @export
 #' @examples
 #' \dontrun{
@@ -51,7 +51,7 @@ as_resource_id <- function(resource) {
   if (is.data.frame(resource)) {
     if (nrow(resource) == 1) {
       resource <- check_id_in_resource(resource)
-      resource_id <- resource[["id"]]
+      resource[["id"]]
     } else {
       stop("`resource` must be a 1 row data frame or a length 1 character vector.",
            call. = FALSE

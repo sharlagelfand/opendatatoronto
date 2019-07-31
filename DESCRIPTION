@@ -5,7 +5,7 @@ Authors@R:
     c(person(given = "Sharla",
            family = "Gelfand",
            role = c("aut", "cre"),
-           email = "sharla.gelfadn@gmail.com"),
+           email = "sharla.gelfand@gmail.com"),
       person(given = "City of Toronto",
              role = c("cph", "fnd")))
 Description: Client for the Toronto Open Data Portal API.
