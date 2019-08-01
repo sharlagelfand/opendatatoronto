@@ -54,17 +54,17 @@ library(dplyr)
 marriage_licence_packages <- packages %>%
   filter(title == "Marriage Licence Statistics")
 
-marriage_licence_resources <- list_package_resources(marriage_licence_packages[["id"]])
+marriage_licence_resources <- marriage_licence_packages %>%
+  list_package_resources()
 
 marriage_licence_resources
 ```
 
-Finally (and most usefully!), you can download the resource (i.e., the actual data) directly into R using `download_resource()`:
+Finally (and most usefully!), you can download the resource (i.e., the actual data) directly into R using `get_resource()`:
 
 ```{r get-marriage-licenses}
-marriage_licence_statistics <- get_resource(
-  resource = marriage_licence_resources[1, ]
-)
+marriage_licence_statistics <- marriage_licence_resources %>%
+  get_resource()
 
 marriage_licence_statistics
 ```
