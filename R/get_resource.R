@@ -10,7 +10,7 @@
 #' get_resource("b9214fd7-60d1-45f3-8463-a6bd9828f8bf")
 #' }
 get_resource <- function(resource) {
-  resource_id <- as_resource_id(resource)
+  resource_id <- as_id(resource)
 
   resource_res <- try(
     ckanr::resource_show(resource_id, url = opendatatoronto_ckan_url, as = "list"),
@@ -38,25 +38,6 @@ get_resource <- function(resource) {
 }
 
 # Helpers
-
-as_resource_id <- function(resource) {
-  if (is.data.frame(resource)) {
-    if (nrow(resource) == 1) {
-      resource <- check_id_in_resource(resource)
-      as.character(resource[["id"]])
-    } else {
-      stop("`resource` must be a 1 row data frame or a length 1 character vector.",
-           call. = FALSE
-      )
-    }
-  } else if (!(is.vector(resource) && length(resource) == 1 && is.character(resource))) {
-    stop("`resource` must be a 1 row data frame or a length 1 character vector.",
-         call. = FALSE
-    )
-  } else {
-    resource
-  }
-}
 
 check_id_in_resource <- function(resource) {
   if (!("id" %in% names(resource))) {

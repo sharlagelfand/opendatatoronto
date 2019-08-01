@@ -4,10 +4,10 @@
 \alias{list_package_resources}
 \title{List resources for a package}
 \usage{
-list_package_resources(package_id)
+list_package_resources(package)
 }
 \arguments{
-\item{package_id}{The ID of the package whose resources you are listing.}
+\item{package}{A way to identify the package. Either a package ID (passed as a character vector directly) or a single package resulting from \code{\link{list_packages}}}
 }
 \description{
 List resources for a package

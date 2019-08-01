@@ -1,16 +1,5 @@
 context("test-list_package_resources")
 
-test_that("list_package_resources returns an error if package_id is not a length 1 character vector", {
-  expect_error(
-    list_package_resources(1234),
-    "must be a character vector"
-  )
-  expect_error(
-    list_package_resources(c("1234", "5678")),
-    "must be a length 1 character vector"
-  )
-})
-
 test_that("list_package_resources returns an error if the package_id can't be found.", {
   expect_error(
     list_package_resources("1234"),

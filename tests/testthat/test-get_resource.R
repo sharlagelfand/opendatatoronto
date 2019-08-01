@@ -15,35 +15,6 @@ test_that('check_id_in_resource returns the "id" column when present.', {
   )
 })
 
-test_that("as_resource_id throws error when passed a data frame that is not 1 row.", {
-  expect_error(
-    as_resource_id(
-      data.frame(id = c(1, 2))
-      ),
-    "`resource` must be a 1 row data frame or a length 1 character vector."
-  )
-  expect_error(
-    as_resource_id(
-      data.frame(id = character())
-    ),
-    "`resource` must be a 1 row data frame or a length 1 character vector."
-  )
-})
-
-test_that("as_resource_id throws error when passed a character vector that is not length 1.", {
-  expect_error(
-    as_resource_id(
-      c("a", "b")
-    ),
-    "`resource` must be a 1 row data frame or a length 1 character vector."
-  )
-  expect_error(
-    as_resource_id(1),
-    "`resource` must be a 1 row data frame or a length 1 character vector."
-  )
-}
-)
-
 test_that("check_resource_found errors when the resource doesn't exist.", {
   res <- try(ckanr::resource_show("12345"), silent = TRUE)
   expect_error(
@@ -65,5 +36,4 @@ test_that("check_format throws an error when format is not one of CSV, XLS, XLSX
   expect_equal(check_format("SHP"), "SHP")
   expect_equal(check_format("ZIP"), "ZIP")
   expect_equal(check_format("GEOJSON"), "GEOJSON")
-}
-)
+})
