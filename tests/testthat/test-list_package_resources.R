@@ -14,3 +14,9 @@ test_that("list_package_resources returns the right output formats.", {
   expect_is(output$name, "character")
   expect_is(output$id, "character")
 })
+
+test_that("list_package_resources returns a zero row tibble when the package has no resources.", {
+  skip_on_cran()
+  output <- list_package_resources("8c1f526a-aa13-49af-80bc-69a1c7e3b2ad")
+  expect_equal(nrow(output), 0)
+})
