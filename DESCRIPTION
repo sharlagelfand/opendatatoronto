@@ -22,9 +22,13 @@ Suggests:
     testthat,
     sf,
     readxl,
-    xml2
+    xml2,
+    knitr,
+    rmarkdown,
+    geojsonsf
 Remotes: 
     ropensci/ckanr
 Encoding: UTF-8
 LazyData: true
 RoxygenNote: 6.1.1
+VignetteBuilder: knitr

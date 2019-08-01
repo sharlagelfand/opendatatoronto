@@ -101,10 +101,18 @@ check_geometry_resource <- function(res, resource_id) {
 }
 
 check_for_sf <- function(res, resource_id) {
-  if (!requireNamespace("sf", quietly = TRUE)) {
-    warning(paste0('The `sf` package is required to get resource "', resource_id, '" as an `sf` object. Without it, the resource is returned as a tibble.'), call. = FALSE)
+  if (!requireNamespace("sf", quietly = TRUE) && !requireNamespace("geojsonsf", quietly = TRUE)) {
+    warning(paste0('The `sf` and `geojsonsf` packages are required to return the GeoJSON resource "', resource_id, '" as an `sf` object. Without them, the resource is returned as a tibble where the geometry is a character field.'), call. = FALSE)
+    res
+  } else if (!requireNamespace("sf", quietly = TRUE)) {
+    warning(paste0('The `sf` package is required to return the GeoJSON resource "', resource_id, '" as an `sf` object. Without it, the resource is returned as a tibble where the geometry is a character field.'), call. = FALSE)
+    res
+  } else if (!requireNamespace("geojsonsf", quietly = TRUE)) {
+    warning(paste0('The `geojsonsf` package is required to parse the geometry of the GeoJSON resource "', resource_id, '". Without it, the resource is returned as a tibble where the geometry is a character field.'), call. = FALSE)
     res
   } else {
-    sf::st_as_sf(res, coords = c("LONGITUDE", "LATITUDE"), remove = FALSE, crs = 4326)
+    sf_geometry <- geojsonsf::geojson_sf(res[["geometry"]])
+    res[["geometry"]] <- sf_geometry[["geometry"]]
+    sf::st_as_sf(res, sf_column_name = "geometry", crs = 4326)
   }
 }
