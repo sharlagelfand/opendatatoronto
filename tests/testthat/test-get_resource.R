@@ -37,3 +37,17 @@ test_that("check_format throws an error when format is not one of CSV, XLS, XLSX
   expect_equal(check_format("ZIP"), "ZIP")
   expect_equal(check_format("GEOJSON"), "GEOJSON")
 })
+
+test_that("get_resource returns the right output formats.", {
+  skip_on_cran()
+  output <- get_resource("4d985c1d-9c7e-4f74-9864-73214f45eb4a")
+  expect_is(output, "tbl_df")
+  expect_is(output, "tbl")
+  expect_is(output, "data.frame")
+
+  output <- get_resource("bb21e1b8-a466-41c6-8bc3-3c362cb1ed55")
+  expect_is(output, "list")
+
+  output <- get_resource("684fdd81-dc1f-4636-a33d-0ede4f390684")
+  expect_is(output, "sf")
+})
