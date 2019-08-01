@@ -20,7 +20,9 @@ Imports:
 Suggests: 
     covr,
     testthat,
-    sf
+    sf,
+    readxl,
+    xml2
 Remotes: 
     ropensci/ckanr
 Encoding: UTF-8
