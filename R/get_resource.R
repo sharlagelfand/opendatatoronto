@@ -17,7 +17,7 @@ get_resource <- function(resource) {
     silent = TRUE
   )
 
-  resource_res <- check_resource_show_results(resource_res, resource_id)
+  resource_res <- check_resource_found(resource_res, resource_id)
 
   format <- check_format(resource_res[["format"]])
 
@@ -37,21 +37,13 @@ get_resource <- function(resource) {
   }
 }
 
-check_id_in_resource <- function(resource) {
-  if (!("id" %in% names(resource))) {
-    stop('`resource` must contain a column "id".',
-         call. = FALSE
-    )
-  } else {
-    resource
-  }
-}
+# Helpers
 
 as_resource_id <- function(resource) {
   if (is.data.frame(resource)) {
     if (nrow(resource) == 1) {
       resource <- check_id_in_resource(resource)
-      resource[["id"]]
+      as.character(resource[["id"]])
     } else {
       stop("`resource` must be a 1 row data frame or a length 1 character vector.",
            call. = FALSE
@@ -66,15 +58,35 @@ as_resource_id <- function(resource) {
   }
 }
 
-check_resource_show_results <- function(res, resource_id) {
-  if (class(res) == "try-error" &&
-    (grepl("404", res) || grepl("403", res))) {
-    stop(paste0('resource "', resource_id, '" was not found.'),
+check_id_in_resource <- function(resource) {
+  if (!("id" %in% names(resource))) {
+    stop('`resource` must contain a column "id".',
+         call. = FALSE
+    )
+  } else {
+    resource
+  }
+}
+
+check_resource_found <- function(res, resource_id) {
+  if (class(res) == "try-error" && (grepl("404", res) || grepl("403", res))) {
+    stop(paste0('`resource` "', resource_id, '" was not found.'),
       call. = FALSE
+    )
+  } else {
+    res
+  }
+}
+
+check_format <- function(format) {
+  format <- toupper(format)
+  if (!(format %in% c("CSV", "XLS", "XLSX", "XML", "JSON", "SHP", "ZIP", "GEOJSON"))) {
+    stop(paste(format, "`format` can't be downloaded via package; please visit Open Data Portal directly to download. \n Supported `format`s are: CSV, XLS, XLSX, XML, JSON, SHP, ZIP", "GEOJSON"),
+         call. = FALSE
     )
   }
   else {
-    res
+    format
   }
 }
 
