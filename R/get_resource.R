@@ -94,20 +94,28 @@ get_datastore_resource <- function(resource_id) {
 check_geometry_resource <- function(res, resource_id) {
   if ("LATITUDE" %in% toupper(colnames(res)) && "LONGITUDE" %in% toupper(colnames(res))) {
     res <- tibble::as_tibble(res)
-    res <- check_for_sf(res, resource_id)
+    res <- check_for_sf_geojsonsf(res, resource_id)
   } else {
     res
   }
 }
 
-check_for_sf <- function(res, resource_id) {
-  if (!requireNamespace("sf", quietly = TRUE) && !requireNamespace("geojsonsf", quietly = TRUE)) {
+is_sf_installed <- function() {
+  requireNamespace("sf", quietly = TRUE)
+}
+
+is_geojsonsf_installed <- function() {
+  requireNamespace("geojsonsf", quietly = TRUE)
+}
+
+check_for_sf_geojsonsf <- function(res, resource_id) {
+  if (!is_sf_installed() && !is_geojsonsf_installed()) {
     warning(paste0('The `sf` and `geojsonsf` packages are required to return the GeoJSON resource "', resource_id, '" as an `sf` object. Without them, the resource is returned as a tibble where the geometry is a character field.'), call. = FALSE)
     res
-  } else if (!requireNamespace("sf", quietly = TRUE)) {
+  } else if (!is_sf_installed()) {
     warning(paste0('The `sf` package is required to return the GeoJSON resource "', resource_id, '" as an `sf` object. Without it, the resource is returned as a tibble where the geometry is a character field.'), call. = FALSE)
     res
-  } else if (!requireNamespace("geojsonsf", quietly = TRUE)) {
+  } else if (!is_geojsonsf_installed()) {
     warning(paste0('The `geojsonsf` package is required to parse the geometry of the GeoJSON resource "', resource_id, '". Without it, the resource is returned as a tibble where the geometry is a character field.'), call. = FALSE)
     res
   } else {
