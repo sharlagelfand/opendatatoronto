@@ -49,11 +49,33 @@ packages
 #>  4 Stre… 821f… City … Public… Map              CSV,GE… Semi-annual…
 #>  5 Stre… ccfd… City … Poster… Map              CSV,GE… Semi-annual…
 #>  6 Stre… cf70… City … Poster… Map              CSV,GE… Semi-annual…
-#>  7 Stre… 3944… City … Litter… Map              CSV,GE… Semi-annual…
-#>  8 Stre… 99b1… City … Inform… Map              CSV,GE… Semi-annual…
-#>  9 Stre… 71e6… Trans… "Bike … Map              CSV,GE… Daily       
-#> 10 Stre… 0c4e… City … Bench … Map              CSV,GE… Semi-annual…
+#>  7 Stre… 99b1… City … Inform… Map              CSV,GE… Semi-annual…
+#>  8 Stre… 71e6… Trans… "Bike … Map              CSV,GE… Daily       
+#>  9 Stre… 0c4e… City … Bench … Map              CSV,GE… Semi-annual…
+#> 10 Poll… 7bce… City … Polls … Table            XLSX,C… Daily       
 #> # … with 90 more rows, and 1 more variable: num_resources <int>
+```
+
+You can also search packages by title:
+
+``` r
+ttc_packages <- search_packages("ttc")
+
+ttc_packages
+#> # A tibble: 10 x 8
+#>    title id    topics excerpt dataset_category formats refresh_rate
+#>    <chr> <chr> <chr>  <chr>   <chr>            <chr>   <chr>       
+#>  1 TTC … 996c… Trans… TTC Su… Document         XLSX    Monthly     
+#>  2 TTC … b68c… Trans… TTC St… Document         XLSX    Monthly     
+#>  3 TTC … 7795… Trans… Data c… Document         ZIP     Real-time   
+#>  4 TTC … 4eb6… Trans… This d… Document         XLSX    Annually    
+#>  5 TTC … ef35… Trans… This d… Document         XLSX    Annually    
+#>  6 TTC … d9dc… Trans… This d… Document         XLSX    As available
+#>  7 TTC … 8217… Trans… The NV… Document         PDF     Real-time   
+#>  8 TTC … e271… Trans… TTC Bu… Document         XLSX    Monthly     
+#>  9 TTC … 1444… Trans… This d… Website          WEB,XLS Quarterly   
+#> 10 TTC … d2a7… Trans… This d… Website          WEB,XLS Quarterly   
+#> # … with 1 more variable: num_resources <int>
 ```
 
 Within a package, there are a number of **resources** - e.g. CSV, XSLX,
@@ -72,10 +94,10 @@ marriage_licence_resources <- marriage_licence_packages %>%
   list_package_resources()
 
 marriage_licence_resources
-#> # A tibble: 1 x 3
-#>   name                            format id                                
-#>   <chr>                           <chr>  <chr>                             
-#> 1 Marriage Licence Statistics Da… CSV    4d985c1d-9c7e-4f74-9864-73214f45e…
+#> # A tibble: 1 x 4
+#>   name                  format id                      last_modified       
+#>   <chr>                 <chr>  <chr>                   <chr>               
+#> 1 Marriage Licence Sta… CSV    4d985c1d-9c7e-4f74-986… 2019-08-01T10:10:02…
 ```
 
 Finally (and most usefully\!), you can download the resource (i.e., the
@@ -86,18 +108,18 @@ marriage_licence_statistics <- marriage_licence_resources %>%
   get_resource()
 
 marriage_licence_statistics
-#> # A tibble: 408 x 4
+#> # A tibble: 412 x 4
 #>    `_id` CIVIC_CENTRE MARRIAGE_LICENSES TIME_PERIOD
 #>    <int> <chr>                    <int> <chr>      
-#>  1     1 ET                          80 2011-01    
-#>  2     2 NY                         136 2011-01    
-#>  3     3 SC                         159 2011-01    
-#>  4     4 TO                         367 2011-01    
-#>  5     5 ET                         109 2011-02    
-#>  6     6 NY                         150 2011-02    
-#>  7     7 SC                         154 2011-02    
-#>  8     8 TO                         383 2011-02    
-#>  9     9 ET                         177 2011-03    
-#> 10    10 NY                         231 2011-03    
-#> # … with 398 more rows
+#>  1   409 ET                          80 2011-01    
+#>  2   410 NY                         136 2011-01    
+#>  3   411 SC                         159 2011-01    
+#>  4   412 TO                         367 2011-01    
+#>  5   413 ET                         109 2011-02    
+#>  6   414 NY                         150 2011-02    
+#>  7   415 SC                         154 2011-02    
+#>  8   416 TO                         383 2011-02    
+#>  9   417 ET                         177 2011-03    
+#> 10   418 NY                         231 2011-03    
+#> # … with 402 more rows
 ```

@@ -16,7 +16,10 @@ Depends:
     R (>= 2.10)
 Imports: 
     ckanr,
-    tibble
+    tibble,
+    httr,
+    jsonlite,
+    magrittr
 Suggests: 
     covr,
     testthat,
@@ -25,7 +28,11 @@ Suggests:
     xml2,
     knitr,
     rmarkdown,
-    geojsonsf
+    geojsonsf,
+    cancensus,
+    dplyr,
+    ggplot2,
+    purrr
 Remotes: 
     ropensci/ckanr
 Encoding: UTF-8

@@ -44,6 +44,14 @@ packages <- list_packages(limit = 100)
 packages
 ```
 
+You can also search packages by title:
+
+```{r search-packages-example}
+ttc_packages <- search_packages("ttc")
+
+ttc_packages
+```
+
 Within a package, there are a number of **resources** - e.g. CSV, XSLX, JSON, SHP files, and more. Resources are the actual "data".
 
 For a given package, you can get a list of resources using `list_package_resources()`:
