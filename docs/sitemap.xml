@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://sharlagelfand.github.io/opendatatoronto//index.html</loc>
+  </url>
+  <url>
+    <loc>https://sharlagelfand.github.io/opendatatoronto//reference/get_resource.html</loc>
+  </url>
+  <url>
+    <loc>https://sharlagelfand.github.io/opendatatoronto//reference/list_package_resources.html</loc>
+  </url>
+  <url>
+    <loc>https://sharlagelfand.github.io/opendatatoronto//reference/list_packages.html</loc>
+  </url>
+  <url>
+    <loc>https://sharlagelfand.github.io/opendatatoronto//reference/pipe.html</loc>
+  </url>
+  <url>
+    <loc>https://sharlagelfand.github.io/opendatatoronto//reference/search_packages.html</loc>
+  </url>
+  <url>
+    <loc>https://sharlagelfand.github.io/opendatatoronto//articles/multifile_zip_resources.html</loc>
+  </url>
+  <url>
+    <loc>https://sharlagelfand.github.io/opendatatoronto//articles/multiple_resources_purrr.html</loc>
+  </url>
+  <url>
+    <loc>https://sharlagelfand.github.io/opendatatoronto//articles/multisheet_resources.html</loc>
+  </url>
+  <url>
+    <loc>https://sharlagelfand.github.io/opendatatoronto//articles/opendatatoronto.html</loc>
+  </url>
+  <url>
+    <loc>https://sharlagelfand.github.io/opendatatoronto//articles/spatial_data.html</loc>
+  </url>
+</urlset>
