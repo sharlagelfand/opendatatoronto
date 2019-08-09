@@ -1,0 +1,71 @@
+---
+title: "Retrieving Multiple Resources Using purrr"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{multiple_resources_purrr}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+It may be useful to retrieve multiple or all of the resources for a package. For example, the [TTC Subway Delay Data](https://open.toronto.ca/dataset/ttc-subway-delay-data/) is released monthly, with a new file each month.
+
+```{r setup}
+library(opendatatoronto)
+
+ttc_subway_delays_resources <- search_packages("TTC Subway Delay Data") %>%
+  list_package_resources()
+
+ttc_subway_delays_resources
+```
+
+It would be cumbersome to retrieve them one at a time, e.g. via 
+
+```{r, eval = FALSE}
+library(dplyr)
+
+delays_jan_2019 <- ttc_subway_delays_resources %>%
+  filter(name == "ttc-subway-delay-january-2019") %>%
+  get_resource()
+
+delays_feb_2019 <- ttc_subway_delays_resources %>%
+  filter(name == "ttc-subway-delay-february-2019") %>%
+  get_resource()
+```
+
+and so on.
+
+Instead, you can iterate through the different resources using the [`purrr` package](https://purrr.tidyverse.org/) and get them in a nested tibble:
+
+```{r include = FALSE}
+library(dplyr)
+```
+
+```{r}
+library(purrr)
+
+ttc_subway_delays_2019 <- ttc_subway_delays_resources %>%
+  filter(grepl("2019", name)) %>%
+  mutate(data = map(id, get_resource))
+
+ttc_subway_delays_2019
+```
+
+All of these resources contain equivalent data, with the same column names
+
+```{r}
+map(ttc_subway_delays_2019[["data"]], colnames)
+```
+
+so the data can easily be unnested and combined:
+
+```{r}
+bind_rows(ttc_subway_delays_2019[["data"]])
+```
+

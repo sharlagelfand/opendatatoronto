@@ -1,0 +1,33 @@
+---
+title: "Multi-file ZIP Resources"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{multifile_zip_resources}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+When a resource is a ZIP file containing multiple files, the result is a named list. For example, the dataset on the [Annual Summary of Reportable Communicable Diseases](https://open.toronto.ca/dataset/annual-summary-of-reportable-communicable-diseases/):
+
+```{r setup}
+library(opendatatoronto)
+
+summary_diseases <- search_packages("Annual Summary of Reportable Communicable Diseases") %>%
+  list_package_resources() %>%
+  get_resource()
+
+str(summary_diseases, max.level = 1)
+```
+
+To access a single file, you can pull out the element by name:
+
+```{r}
+summary_diseases[["RatesbyDisease2007_2017.csv"]]
+```

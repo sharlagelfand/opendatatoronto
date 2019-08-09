@@ -1,0 +1,49 @@
+---
+title: "Spatial Data"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Spatial Data}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  message = FALSE
+)
+```
+
+There is a ton (!) of spatial data on the portal. To access spatial data, you may need the `sf` and `geojsonsf` packages, depending on the resource.
+
+We can look at [bicycle parking](https://open.toronto.ca/dataset/bicycle-parking-racks/) in Toronto. The result is an `sf` object with WGS84 projection.
+
+```{r setup}
+library(opendatatoronto)
+library(dplyr)
+
+bike_parking_racks <- search_packages("Bicycle Parking Racks") %>%
+  list_package_resources() %>%
+  filter(name == "Bicycle Parking Racks Data") %>%
+  get_resource()
+
+bike_parking_racks
+```
+
+Using the [`cancensus` package](https://github.com/mountainMath/cancensus), we can plot the bike racks along with a map of Toronto!
+
+```{r fig.width = 7}
+library(ggplot2)
+library(cancensus)
+
+toronto <- get_census(
+  dataset = "CA16", regions = list(CMA = "35535"),
+  level = "CSD", geo_format = "sf", quiet = TRUE
+)
+
+ggplot() +
+  geom_sf(data = toronto) +
+  geom_sf(data = bike_parking_racks) +
+  theme_minimal()
+```

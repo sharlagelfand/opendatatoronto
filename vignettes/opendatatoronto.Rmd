@@ -1,0 +1,70 @@
+---
+title: "Package overview"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{opendatatoronto_package}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  message = FALSE
+)
+```
+
+This vignette provides a brief overview of the functions in `opendatatoronto`. Other vignettes go into greater detail on usage.
+
+`opendatatoronto` is a package for accessing the [City of Toronto Open Data portal](https://open.toronto.ca/) from within R.
+
+In the portal, datasets are called **packages**. You can see a list of available packages by using `list_packages()`:
+
+```{r list-packages-example}
+library(opendatatoronto)
+
+packages <- list_packages(limit = 50)
+
+packages
+```
+
+Or, you can search packages by title using `search_packages()`:
+
+```{r}
+apartment_packages <- search_packages("Apartment")
+
+apartment_packages
+```
+
+Within a package, there are a number of **resources** - e.g. CSV, XSLX, JSON, SHP files, and more. Resources are the actual "data".
+
+For a given package, you can get a list of resources using `list_package_resources()`:
+
+```{r list-apartment-building-registration-resources}
+library(dplyr)
+
+apartment_building_registration_package <- apartment_packages %>%
+  filter(title == "Apartment Building Registration")
+
+apartment_building_registration_resources <- apartment_building_registration_package %>%
+  list_package_resources()
+
+apartment_building_registration_resources
+```
+
+Finally (and most usefully!), you can download the resource (i.e., the actual data) directly into R using `get_resource()`:
+
+```{r get-apartment-building-registration}
+apartment_building_registration_data <- apartment_building_registration_resources %>%
+  get_resource()
+
+apartment_building_registration_data
+```
+
+The `opendatatoronto` package can currenly handle the download of CSV, XLS/XLSX, XML, JSON, SHP, and GeoJSON resources, as well as ZIP resources that contain multiple files. For more information, see the following vignettes:
+
+* [Multi-sheet XLS/XLSX resources](multisheet_resources.html)
+* [Multi-file ZIP resources](multifile_zip_resources.html)
+* [Spatial data](spatial_data.html)
+* [Retrieving multiple resources using purrr](multiple_resources_purrr.html)

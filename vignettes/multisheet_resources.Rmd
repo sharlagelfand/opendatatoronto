@@ -1,0 +1,95 @@
+---
+title: "Multi-sheet XLS/XLSX resources"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Multi-sheet XLS/XLSX resources}
+  %\VignetteEngine{knitr::rmarkdown}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  message = FALSE
+)
+```
+
+Excel files (XLS and XLSX) are a common form of data on the City of Toronto Open Data Portal.
+
+In cases where the file only contains one sheet, the resource is returned as a tibble. For example, this data set on [TTC Ridership Analysis from 1985 to 2018](https://open.toronto.ca/dataset/ttc-ridership-analysis/):
+
+```{r setup}
+library(opendatatoronto)
+
+search_packages("TTC Ridership Analysis") %>%
+  list_package_resources() %>%
+  get_resource()
+```
+
+When the file contains multiple sheets, the resource is returned as a named list, where the names are the names of the sheets, as in the dataset on [Wellbeing Toronto Demographics](https://open.toronto.ca/dataset/wellbeing-toronto-demographics/):
+
+```{r}
+library(dplyr)
+
+wellbeing_toronto_demographics <- search_packages("Wellbeing Toronto - Demographics") %>%
+  filter(title == "Wellbeing Toronto - Demographics") %>%
+  list_package_resources() %>%
+  filter(name == "wellbeing-toronto-demographics") %>%
+  get_resource()
+
+str(wellbeing_toronto_demographics, max.level = 1)
+```
+
+To access the relevant sheet, pull out the list element:
+
+```{r}
+wellbeing_toronto_demographics[["IndicatorMetaData"]]
+```
+
+There are also cases where the file contains multiple sheets and it would be helpful to have them all together as a single data set. For exampe, the [2019 TTC Bus Delay Data](https://open.toronto.ca/dataset/ttc-bus-delay-data/):
+
+```{r}
+ttc_bus_delays_2019 <- search_packages("TTC Bus Delay Data") %>%
+  list_package_resources() %>%
+  filter(name == "ttc-bus-delay-data-2019") %>%
+  get_resource()
+```
+
+The result of is a list with an element for every month of data, each of which is a tibble:
+
+```{r}
+str(ttc_bus_delays_2019, max.level = 1)
+```
+
+Note that the data for for the element `Apr 2019` has one more variable than the rest (11 versus 10):
+
+```{r}
+sapply(ttc_bus_delays_2019, colnames)
+```
+
+It seems that the `Apr 2019` data has gained a variable `Incident ID`, and that the variables `Min Gap` and `Min Delay`, present in all the other months, have been renamed to `Gap` and `Delay`, respectively.
+
+We can rename these two variables:
+
+```{r}
+ttc_bus_delays_2019[["Apr 2019"]] <- ttc_bus_delays_2019[["Apr 2019"]] %>%
+  rename(`Min Gap` = Gap, `Min Delay` = Delay)
+```
+
+and combine all of the elements into a single tibble using `dplyr::bind_rows()`:
+
+```{r}
+ttc_bus_delays_2019_combined <- bind_rows(ttc_bus_delays_2019)
+
+ttc_bus_delays_2019_combined
+```
+
+Unfortunately, it looks like the `Time` variable got Excel™ed, and will need some data cleaning.
+
+For interests sake, it appears that `Incident ID` is a lookup ID for the type of incident -- only present in the `Apr 2019` data, but interesting nonetheless!
+
+```{r}
+ttc_bus_delays_2019_combined %>%
+  filter(!is.na(`Incident ID`)) %>%
+  distinct(`Incident ID`, Incident)
+```
