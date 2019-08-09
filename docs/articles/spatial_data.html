@@ -6,10 +6,11 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Spatial Data • opendatatoronto</title>
-<!-- jquery --><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script><!-- Bootstrap --><link href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.3.7/simplex/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
+<!-- jquery --><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script><!-- Bootstrap --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha256-916EbMg70RQy9LHiGkXzG8hSg9EdNy97GazNG/aiY1w=" crossorigin="anonymous">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha256-U5ZEeKfGNOja007MMD3YBI0A3OSZOQbeG6z2f2Y0hu8=" crossorigin="anonymous"></script><!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous">
 <!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" integrity="sha256-FiZwavyI2V6+EXO1U+xzLG3IKldpiTFf3153ea9zikQ=" crossorigin="anonymous"></script><!-- sticky kit --><script src="https://cdnjs.cloudflare.com/ajax/libs/sticky-kit/1.1.3/sticky-kit.min.js" integrity="sha256-c4Rlo1ZozqTPE2RLuvbusY3+SU1pQaJC0TjuhygMipw=" crossorigin="anonymous"></script><!-- pkgdown --><link href="../pkgdown.css" rel="stylesheet">
-<script src="../pkgdown.js"></script><meta property="og:title" content="Spatial Data">
+<script src="../pkgdown.js"></script><link href="../extra.css" rel="stylesheet">
+<meta property="og:title" content="Spatial Data">
 <meta property="og:description" content="">
 <meta name="twitter:card" content="summary">
 <!-- mathjax --><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js" integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/config/TeX-AMS-MML_HTMLorMML.js" integrity="sha256-84DKXVJXs0/F8OTMzX4UR909+jtl4G7SPypPavF+GfA=" crossorigin="anonymous"></script><!--[if lt IE 9]>
@@ -94,55 +95,57 @@
     
 <p>There is a ton (!) of spatial data on the portal. To access spatial data, you may need the <code>sf</code> and <code>geojsonsf</code> packages, depending on the resource.</p>
 <p>We can look at <a href="https://open.toronto.ca/dataset/bicycle-parking-racks/">bicycle parking</a> in Toronto. The result is an <code>sf</code> object with WGS84 projection.</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/library">library</a></span>(opendatatoronto)</a>
-<a class="sourceLine" id="cb1-2" data-line-number="2"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/library">library</a></span>(dplyr)</a>
-<a class="sourceLine" id="cb1-3" data-line-number="3"></a>
-<a class="sourceLine" id="cb1-4" data-line-number="4">bike_parking_racks &lt;-<span class="st"> </span><span class="kw"><a href="../reference/search_packages.html">search_packages</a></span>(<span class="st">"Bicycle Parking Racks"</span>) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb1-5" data-line-number="5"><span class="st">  </span><span class="kw"><a href="../reference/list_package_resources.html">list_package_resources</a></span>() <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb1-6" data-line-number="6"><span class="st">  </span><span class="kw"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span>(name <span class="op">==</span><span class="st"> "Bicycle Parking Racks Data"</span>) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb1-7" data-line-number="7"><span class="st">  </span><span class="kw"><a href="../reference/get_resource.html">get_resource</a></span>()</a>
-<a class="sourceLine" id="cb1-8" data-line-number="8"></a>
-<a class="sourceLine" id="cb1-9" data-line-number="9">bike_parking_racks</a>
-<a class="sourceLine" id="cb1-10" data-line-number="10"><span class="co">#&gt; Simple feature collection with 241 features and 30 fields</span></a>
-<a class="sourceLine" id="cb1-11" data-line-number="11"><span class="co">#&gt; geometry type:  POINT</span></a>
-<a class="sourceLine" id="cb1-12" data-line-number="12"><span class="co">#&gt; dimension:      XY</span></a>
-<a class="sourceLine" id="cb1-13" data-line-number="13"><span class="co">#&gt; bbox:           xmin: -79.59575 ymin: 43.60367 xmax: -79.25724 ymax: 43.82303</span></a>
-<a class="sourceLine" id="cb1-14" data-line-number="14"><span class="co">#&gt; epsg (SRID):    4326</span></a>
-<a class="sourceLine" id="cb1-15" data-line-number="15"><span class="co">#&gt; proj4string:    +proj=longlat +datum=WGS84 +no_defs</span></a>
-<a class="sourceLine" id="cb1-16" data-line-number="16"><span class="co">#&gt; # A tibble: 241 x 31</span></a>
-<a class="sourceLine" id="cb1-17" data-line-number="17"><span class="co">#&gt;    `_id` ADDRESS_POINT_ID ADDRESS_NUMBER LINEAR_NAME_FULL ADDRESS_FULL</span></a>
-<a class="sourceLine" id="cb1-18" data-line-number="18"><span class="co">#&gt;    &lt;int&gt;            &lt;int&gt; &lt;chr&gt;          &lt;chr&gt;            &lt;chr&gt;       </span></a>
-<a class="sourceLine" id="cb1-19" data-line-number="19"><span class="co">#&gt;  1     1            51630 5              Bartonville Ave… 5 Bartonvil…</span></a>
-<a class="sourceLine" id="cb1-20" data-line-number="20"><span class="co">#&gt;  2     2           310564 150            Borough Dr       150 Borough…</span></a>
-<a class="sourceLine" id="cb1-21" data-line-number="21"><span class="co">#&gt;  3     3           367443 71             New Forest Sq    71 New Fore…</span></a>
-<a class="sourceLine" id="cb1-22" data-line-number="22"><span class="co">#&gt;  4     4           379258 95             River Grove Dr   95 River Gr…</span></a>
-<a class="sourceLine" id="cb1-23" data-line-number="23"><span class="co">#&gt;  5     5           394585 24             Victoria Park A… 24 Victoria…</span></a>
-<a class="sourceLine" id="cb1-24" data-line-number="24"><span class="co">#&gt;  6     6           772775 315            Bloor St W       315 Bloor S…</span></a>
-<a class="sourceLine" id="cb1-25" data-line-number="25"><span class="co">#&gt;  7     7           772800 398            Bloor St W       398 Bloor S…</span></a>
-<a class="sourceLine" id="cb1-26" data-line-number="26"><span class="co">#&gt;  8     8           772833 481            Bloor St W       481 Bloor S…</span></a>
-<a class="sourceLine" id="cb1-27" data-line-number="27"><span class="co">#&gt;  9     9           772852 509            Bloor St W       509 Bloor S…</span></a>
-<a class="sourceLine" id="cb1-28" data-line-number="28"><span class="co">#&gt; 10    10           772899 612            Bloor St W       612 Bloor S…</span></a>
-<a class="sourceLine" id="cb1-29" data-line-number="29"><span class="co">#&gt; # … with 231 more rows, and 26 more variables: POSTAL_CODE &lt;chr&gt;,</span></a>
-<a class="sourceLine" id="cb1-30" data-line-number="30"><span class="co">#&gt; #   MUNICIPALITY &lt;chr&gt;, CITY &lt;chr&gt;, CENTRELINE_ID &lt;int&gt;, LO_NUM &lt;int&gt;,</span></a>
-<a class="sourceLine" id="cb1-31" data-line-number="31"><span class="co">#&gt; #   LO_NUM_SUF &lt;chr&gt;, HI_NUM &lt;int&gt;, HI_NUM_SUF &lt;lgl&gt;,</span></a>
-<a class="sourceLine" id="cb1-32" data-line-number="32"><span class="co">#&gt; #   LINEAR_NAME_ID &lt;int&gt;, WARD_NAME &lt;chr&gt;, X &lt;dbl&gt;, Y &lt;dbl&gt;,</span></a>
-<a class="sourceLine" id="cb1-33" data-line-number="33"><span class="co">#&gt; #   LONGITUDE &lt;dbl&gt;, LATITUDE &lt;dbl&gt;, MI_PRINX &lt;int&gt;, OBJECTID &lt;int&gt;,</span></a>
-<a class="sourceLine" id="cb1-34" data-line-number="34"><span class="co">#&gt; #   CAPACITY &lt;int&gt;, MULTIMODAL &lt;chr&gt;, SEASONAL &lt;chr&gt;, SHELTERED &lt;chr&gt;,</span></a>
-<a class="sourceLine" id="cb1-35" data-line-number="35"><span class="co">#&gt; #   SURFACE &lt;chr&gt;, STATUS &lt;chr&gt;, LOCATION &lt;chr&gt;, NOTES &lt;chr&gt;,</span></a>
-<a class="sourceLine" id="cb1-36" data-line-number="36"><span class="co">#&gt; #   MAP_CLASS &lt;chr&gt;, geometry &lt;POINT [°]&gt;</span></a></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" title="1"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/library">library</a></span>(opendatatoronto)</a>
+<a class="sourceLine" id="cb1-2" title="2"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/library">library</a></span>(dplyr)</a>
+<a class="sourceLine" id="cb1-3" title="3"></a>
+<a class="sourceLine" id="cb1-4" title="4">bike_parking_racks &lt;-<span class="st"> </span><span class="kw"><a href="../reference/search_packages.html">search_packages</a></span>(<span class="st">"Bicycle Parking Racks"</span>) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb1-5" title="5"><span class="st">  </span><span class="kw"><a href="../reference/list_package_resources.html">list_package_resources</a></span>() <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb1-6" title="6"><span class="st">  </span><span class="kw"><a href="https://www.rdocumentation.org/packages/stats/topics/filter">filter</a></span>(name <span class="op">==</span><span class="st"> "Bicycle Parking Racks Data"</span>) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb1-7" title="7"><span class="st">  </span><span class="kw"><a href="../reference/get_resource.html">get_resource</a></span>()</a>
+<a class="sourceLine" id="cb1-8" title="8"></a>
+<a class="sourceLine" id="cb1-9" title="9">bike_parking_racks</a>
+<a class="sourceLine" id="cb1-10" title="10"><span class="co">#&gt; Simple feature collection with 241 features and 30 fields</span></a>
+<a class="sourceLine" id="cb1-11" title="11"><span class="co">#&gt; geometry type:  POINT</span></a>
+<a class="sourceLine" id="cb1-12" title="12"><span class="co">#&gt; dimension:      XY</span></a>
+<a class="sourceLine" id="cb1-13" title="13"><span class="co">#&gt; bbox:           xmin: -79.59575 ymin: 43.60367 xmax: -79.25724 ymax: 43.82303</span></a>
+<a class="sourceLine" id="cb1-14" title="14"><span class="co">#&gt; epsg (SRID):    4326</span></a>
+<a class="sourceLine" id="cb1-15" title="15"><span class="co">#&gt; proj4string:    +proj=longlat +datum=WGS84 +no_defs</span></a>
+<a class="sourceLine" id="cb1-16" title="16"><span class="co">#&gt; # A tibble: 241 x 31</span></a>
+<a class="sourceLine" id="cb1-17" title="17"><span class="co">#&gt;    `_id` ADDRESS_POINT_ID ADDRESS_NUMBER LINEAR_NAME_FULL ADDRESS_FULL</span></a>
+<a class="sourceLine" id="cb1-18" title="18"><span class="co">#&gt;    &lt;int&gt;            &lt;int&gt; &lt;chr&gt;          &lt;chr&gt;            &lt;chr&gt;       </span></a>
+<a class="sourceLine" id="cb1-19" title="19"><span class="co">#&gt;  1     1            51630 5              Bartonville Ave~ 5 Bartonvil~</span></a>
+<a class="sourceLine" id="cb1-20" title="20"><span class="co">#&gt;  2     2           310564 150            Borough Dr       150 Borough~</span></a>
+<a class="sourceLine" id="cb1-21" title="21"><span class="co">#&gt;  3     3           367443 71             New Forest Sq    71 New Fore~</span></a>
+<a class="sourceLine" id="cb1-22" title="22"><span class="co">#&gt;  4     4           379258 95             River Grove Dr   95 River Gr~</span></a>
+<a class="sourceLine" id="cb1-23" title="23"><span class="co">#&gt;  5     5           394585 24             Victoria Park A~ 24 Victoria~</span></a>
+<a class="sourceLine" id="cb1-24" title="24"><span class="co">#&gt;  6     6           772775 315            Bloor St W       315 Bloor S~</span></a>
+<a class="sourceLine" id="cb1-25" title="25"><span class="co">#&gt;  7     7           772800 398            Bloor St W       398 Bloor S~</span></a>
+<a class="sourceLine" id="cb1-26" title="26"><span class="co">#&gt;  8     8           772833 481            Bloor St W       481 Bloor S~</span></a>
+<a class="sourceLine" id="cb1-27" title="27"><span class="co">#&gt;  9     9           772852 509            Bloor St W       509 Bloor S~</span></a>
+<a class="sourceLine" id="cb1-28" title="28"><span class="co">#&gt; 10    10           772899 612            Bloor St W       612 Bloor S~</span></a>
+<a class="sourceLine" id="cb1-29" title="29"><span class="co">#&gt; # ... with 231 more rows, and 26 more variables: POSTAL_CODE &lt;chr&gt;,</span></a>
+<a class="sourceLine" id="cb1-30" title="30"><span class="co">#&gt; #   MUNICIPALITY &lt;chr&gt;, CITY &lt;chr&gt;, CENTRELINE_ID &lt;int&gt;, LO_NUM &lt;int&gt;,</span></a>
+<a class="sourceLine" id="cb1-31" title="31"><span class="co">#&gt; #   LO_NUM_SUF &lt;chr&gt;, HI_NUM &lt;int&gt;, HI_NUM_SUF &lt;lgl&gt;,</span></a>
+<a class="sourceLine" id="cb1-32" title="32"><span class="co">#&gt; #   LINEAR_NAME_ID &lt;int&gt;, WARD_NAME &lt;chr&gt;, X &lt;dbl&gt;, Y &lt;dbl&gt;,</span></a>
+<a class="sourceLine" id="cb1-33" title="33"><span class="co">#&gt; #   LONGITUDE &lt;dbl&gt;, LATITUDE &lt;dbl&gt;, MI_PRINX &lt;int&gt;, OBJECTID &lt;int&gt;,</span></a>
+<a class="sourceLine" id="cb1-34" title="34"><span class="co">#&gt; #   CAPACITY &lt;int&gt;, MULTIMODAL &lt;chr&gt;, SEASONAL &lt;chr&gt;, SHELTERED &lt;chr&gt;,</span></a>
+<a class="sourceLine" id="cb1-35" title="35"><span class="co">#&gt; #   SURFACE &lt;chr&gt;, STATUS &lt;chr&gt;, LOCATION &lt;chr&gt;, NOTES &lt;chr&gt;,</span></a>
+<a class="sourceLine" id="cb1-36" title="36"><span class="co">#&gt; #   MAP_CLASS &lt;chr&gt;, geometry &lt;POINT [Â°]&gt;</span></a></code></pre></div>
 <p>Using the <a href="https://github.com/mountainMath/cancensus"><code>cancensus</code> package</a>, we can plot the bike racks along with a map of Toronto!</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/library">library</a></span>(ggplot2)</a>
-<a class="sourceLine" id="cb2-2" data-line-number="2"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/library">library</a></span>(cancensus)</a>
-<a class="sourceLine" id="cb2-3" data-line-number="3"></a>
-<a class="sourceLine" id="cb2-4" data-line-number="4">toronto &lt;-<span class="st"> </span><span class="kw"><a href="https://www.rdocumentation.org/packages/cancensus/topics/get_census">get_census</a></span>(</a>
-<a class="sourceLine" id="cb2-5" data-line-number="5">  <span class="dt">dataset =</span> <span class="st">"CA16"</span>, <span class="dt">regions =</span> <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/list">list</a></span>(<span class="dt">CMA =</span> <span class="st">"35535"</span>),</a>
-<a class="sourceLine" id="cb2-6" data-line-number="6">  <span class="dt">level =</span> <span class="st">"CSD"</span>, <span class="dt">geo_format =</span> <span class="st">"sf"</span>, <span class="dt">quiet =</span> <span class="ot">TRUE</span></a>
-<a class="sourceLine" id="cb2-7" data-line-number="7">)</a>
-<a class="sourceLine" id="cb2-8" data-line-number="8"></a>
-<a class="sourceLine" id="cb2-9" data-line-number="9"><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span>() <span class="op">+</span></a>
-<a class="sourceLine" id="cb2-10" data-line-number="10"><span class="st">  </span><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/ggsf.html">geom_sf</a></span>(<span class="dt">data =</span> toronto) <span class="op">+</span></a>
-<a class="sourceLine" id="cb2-11" data-line-number="11"><span class="st">  </span><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/ggsf.html">geom_sf</a></span>(<span class="dt">data =</span> bike_parking_racks) <span class="op">+</span></a>
-<a class="sourceLine" id="cb2-12" data-line-number="12"><span class="st">  </span><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_minimal</a></span>()</a></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" title="1"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/library">library</a></span>(ggplot2)</a>
+<a class="sourceLine" id="cb2-2" title="2"><span class="co">#&gt; Warning: package 'ggplot2' was built under R version 3.5.2</span></a>
+<a class="sourceLine" id="cb2-3" title="3"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/library">library</a></span>(cancensus)</a>
+<a class="sourceLine" id="cb2-4" title="4"><span class="co">#&gt; Warning: package 'cancensus' was built under R version 3.5.3</span></a>
+<a class="sourceLine" id="cb2-5" title="5"></a>
+<a class="sourceLine" id="cb2-6" title="6">toronto &lt;-<span class="st"> </span><span class="kw">get_census</span>(</a>
+<a class="sourceLine" id="cb2-7" title="7">  <span class="dt">dataset =</span> <span class="st">"CA16"</span>, <span class="dt">regions =</span> <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/list">list</a></span>(<span class="dt">CMA =</span> <span class="st">"35535"</span>),</a>
+<a class="sourceLine" id="cb2-8" title="8">  <span class="dt">level =</span> <span class="st">"CSD"</span>, <span class="dt">geo_format =</span> <span class="st">"sf"</span>, <span class="dt">quiet =</span> <span class="ot">TRUE</span></a>
+<a class="sourceLine" id="cb2-9" title="9">)</a>
+<a class="sourceLine" id="cb2-10" title="10"></a>
+<a class="sourceLine" id="cb2-11" title="11"><span class="kw">ggplot</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb2-12" title="12"><span class="st">  </span><span class="kw">geom_sf</span>(<span class="dt">data =</span> toronto) <span class="op">+</span></a>
+<a class="sourceLine" id="cb2-13" title="13"><span class="st">  </span><span class="kw">geom_sf</span>(<span class="dt">data =</span> bike_parking_racks) <span class="op">+</span></a>
+<a class="sourceLine" id="cb2-14" title="14"><span class="st">  </span><span class="kw">theme_minimal</span>()</a></code></pre></div>
 <p><img src="spatial_data_files/figure-html/unnamed-chunk-2-1.png" width="672"></p>
   </div>
 
