@@ -6,10 +6,11 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Retrieving Multiple Resources Using purrr • opendatatoronto</title>
-<!-- jquery --><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script><!-- Bootstrap --><link href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.3.7/simplex/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
+<!-- jquery --><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script><!-- Bootstrap --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha256-916EbMg70RQy9LHiGkXzG8hSg9EdNy97GazNG/aiY1w=" crossorigin="anonymous">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha256-U5ZEeKfGNOja007MMD3YBI0A3OSZOQbeG6z2f2Y0hu8=" crossorigin="anonymous"></script><!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous">
 <!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" integrity="sha256-FiZwavyI2V6+EXO1U+xzLG3IKldpiTFf3153ea9zikQ=" crossorigin="anonymous"></script><!-- sticky kit --><script src="https://cdnjs.cloudflare.com/ajax/libs/sticky-kit/1.1.3/sticky-kit.min.js" integrity="sha256-c4Rlo1ZozqTPE2RLuvbusY3+SU1pQaJC0TjuhygMipw=" crossorigin="anonymous"></script><!-- pkgdown --><link href="../pkgdown.css" rel="stylesheet">
-<script src="../pkgdown.js"></script><meta property="og:title" content="Retrieving Multiple Resources Using purrr">
+<script src="../pkgdown.js"></script><link href="../extra.css" rel="stylesheet">
+<meta property="og:title" content="Retrieving Multiple Resources Using purrr">
 <meta property="og:description" content="">
 <meta name="twitter:card" content="summary">
 <!-- mathjax --><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js" integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/config/TeX-AMS-MML_HTMLorMML.js" integrity="sha256-84DKXVJXs0/F8OTMzX4UR909+jtl4G7SPypPavF+GfA=" crossorigin="anonymous"></script><!--[if lt IE 9]>
@@ -19,7 +20,7 @@
 </head>
 <body>
     <div class="container template-article">
-      <header><div class="navbar navbar-default navbar-fixed-top" role="navigation">
+      <header><div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
   <div class="container">
     <div class="navbar-header">
       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false">
@@ -93,91 +94,91 @@
     
     
 <p>It may be useful to retrieve multiple or all of the resources for a package. For example, the <a href="https://open.toronto.ca/dataset/ttc-subway-delay-data/">TTC Subway Delay Data</a> is released monthly, with a new file each month.</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/library">library</a></span>(opendatatoronto)</a>
-<a class="sourceLine" id="cb1-2" data-line-number="2"></a>
-<a class="sourceLine" id="cb1-3" data-line-number="3">ttc_subway_delays_resources &lt;-<span class="st"> </span><span class="kw"><a href="../reference/search_packages.html">search_packages</a></span>(<span class="st">"TTC Subway Delay Data"</span>) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb1-4" data-line-number="4"><span class="st">  </span><span class="kw"><a href="../reference/list_package_resources.html">list_package_resources</a></span>()</a>
-<a class="sourceLine" id="cb1-5" data-line-number="5"></a>
-<a class="sourceLine" id="cb1-6" data-line-number="6">ttc_subway_delays_resources</a>
-<a class="sourceLine" id="cb1-7" data-line-number="7"><span class="co">#&gt; # A tibble: 28 x 4</span></a>
-<a class="sourceLine" id="cb1-8" data-line-number="8"><span class="co">#&gt;    name                   format id                     last_modified      </span></a>
-<a class="sourceLine" id="cb1-9" data-line-number="9"><span class="co">#&gt;    &lt;chr&gt;                  &lt;chr&gt;  &lt;chr&gt;                  &lt;chr&gt;              </span></a>
-<a class="sourceLine" id="cb1-10" data-line-number="10"><span class="co">#&gt;  1 ttc-subway-delay-codes XLSX   fece136b-224a-412a-b1… 2019-07-23T18:12:2…</span></a>
-<a class="sourceLine" id="cb1-11" data-line-number="11"><span class="co">#&gt;  2 ttc-subway-delay-jan-… XLSX   6664420f-316f-4f94-9b… 2019-07-23T18:12:3…</span></a>
-<a class="sourceLine" id="cb1-12" data-line-number="12"><span class="co">#&gt;  3 ttc-subway-delay-may-… XLSX   d1159888-0035-45a0-b2… 2019-07-23T18:12:3…</span></a>
-<a class="sourceLine" id="cb1-13" data-line-number="13"><span class="co">#&gt;  4 ttc-subway-delay-june… XLSX   240d8e8c-d300-4f91-b9… 2019-07-23T18:12:3…</span></a>
-<a class="sourceLine" id="cb1-14" data-line-number="14"><span class="co">#&gt;  5 ttc-subway-delay-july… XLSX   98d4ac77-aa9f-40a3-97… 2019-07-23T18:12:3…</span></a>
-<a class="sourceLine" id="cb1-15" data-line-number="15"><span class="co">#&gt;  6 ttc-subway-delay-augu… XLSX   92e7649a-cf2f-4ac7-98… 2019-07-23T18:12:3…</span></a>
-<a class="sourceLine" id="cb1-16" data-line-number="16"><span class="co">#&gt;  7 ttc-subway-delay-sept… XLSX   61412f10-656b-4992-9a… 2019-07-23T18:12:3…</span></a>
-<a class="sourceLine" id="cb1-17" data-line-number="17"><span class="co">#&gt;  8 ttc-subway-delay-octo… XLSX   69a6db37-7982-49c7-8d… 2019-07-23T18:12:3…</span></a>
-<a class="sourceLine" id="cb1-18" data-line-number="18"><span class="co">#&gt;  9 ttc-subway-delay-nove… XLSX   10080217-8022-41c0-a8… 2019-07-23T18:12:3…</span></a>
-<a class="sourceLine" id="cb1-19" data-line-number="19"><span class="co">#&gt; 10 ttc-subway-delay-dece… XLSX   a731c4bb-630a-4530-b5… 2019-07-23T18:12:3…</span></a>
-<a class="sourceLine" id="cb1-20" data-line-number="20"><span class="co">#&gt; # … with 18 more rows</span></a></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" title="1"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/library">library</a></span>(opendatatoronto)</a>
+<a class="sourceLine" id="cb1-2" title="2"></a>
+<a class="sourceLine" id="cb1-3" title="3">ttc_subway_delays_resources &lt;-<span class="st"> </span><span class="kw"><a href="../reference/search_packages.html">search_packages</a></span>(<span class="st">"TTC Subway Delay Data"</span>) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb1-4" title="4"><span class="st">  </span><span class="kw"><a href="../reference/list_package_resources.html">list_package_resources</a></span>()</a>
+<a class="sourceLine" id="cb1-5" title="5"></a>
+<a class="sourceLine" id="cb1-6" title="6">ttc_subway_delays_resources</a>
+<a class="sourceLine" id="cb1-7" title="7"><span class="co">#&gt; # A tibble: 28 x 4</span></a>
+<a class="sourceLine" id="cb1-8" title="8"><span class="co">#&gt;    name                   format id                     last_modified      </span></a>
+<a class="sourceLine" id="cb1-9" title="9"><span class="co">#&gt;    &lt;chr&gt;                  &lt;chr&gt;  &lt;chr&gt;                  &lt;chr&gt;              </span></a>
+<a class="sourceLine" id="cb1-10" title="10"><span class="co">#&gt;  1 ttc-subway-delay-codes XLSX   fece136b-224a-412a-b1~ 2019-07-23T18:12:2~</span></a>
+<a class="sourceLine" id="cb1-11" title="11"><span class="co">#&gt;  2 ttc-subway-delay-jan-~ XLSX   6664420f-316f-4f94-9b~ 2019-07-23T18:12:3~</span></a>
+<a class="sourceLine" id="cb1-12" title="12"><span class="co">#&gt;  3 ttc-subway-delay-may-~ XLSX   d1159888-0035-45a0-b2~ 2019-07-23T18:12:3~</span></a>
+<a class="sourceLine" id="cb1-13" title="13"><span class="co">#&gt;  4 ttc-subway-delay-june~ XLSX   240d8e8c-d300-4f91-b9~ 2019-07-23T18:12:3~</span></a>
+<a class="sourceLine" id="cb1-14" title="14"><span class="co">#&gt;  5 ttc-subway-delay-july~ XLSX   98d4ac77-aa9f-40a3-97~ 2019-07-23T18:12:3~</span></a>
+<a class="sourceLine" id="cb1-15" title="15"><span class="co">#&gt;  6 ttc-subway-delay-augu~ XLSX   92e7649a-cf2f-4ac7-98~ 2019-07-23T18:12:3~</span></a>
+<a class="sourceLine" id="cb1-16" title="16"><span class="co">#&gt;  7 ttc-subway-delay-sept~ XLSX   61412f10-656b-4992-9a~ 2019-07-23T18:12:3~</span></a>
+<a class="sourceLine" id="cb1-17" title="17"><span class="co">#&gt;  8 ttc-subway-delay-octo~ XLSX   69a6db37-7982-49c7-8d~ 2019-07-23T18:12:3~</span></a>
+<a class="sourceLine" id="cb1-18" title="18"><span class="co">#&gt;  9 ttc-subway-delay-nove~ XLSX   10080217-8022-41c0-a8~ 2019-07-23T18:12:3~</span></a>
+<a class="sourceLine" id="cb1-19" title="19"><span class="co">#&gt; 10 ttc-subway-delay-dece~ XLSX   a731c4bb-630a-4530-b5~ 2019-07-23T18:12:3~</span></a>
+<a class="sourceLine" id="cb1-20" title="20"><span class="co">#&gt; # ... with 18 more rows</span></a></code></pre></div>
 <p>It would be cumbersome to retrieve them one at a time, e.g. via</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/library">library</a></span>(dplyr)</a>
-<a class="sourceLine" id="cb2-2" data-line-number="2"></a>
-<a class="sourceLine" id="cb2-3" data-line-number="3">delays_jan_<span class="dv">2019</span> &lt;-<span class="st"> </span>ttc_subway_delays_resources <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb2-4" data-line-number="4"><span class="st">  </span><span class="kw"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span>(name <span class="op">==</span><span class="st"> "ttc-subway-delay-january-2019"</span>) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb2-5" data-line-number="5"><span class="st">  </span><span class="kw"><a href="../reference/get_resource.html">get_resource</a></span>()</a>
-<a class="sourceLine" id="cb2-6" data-line-number="6"></a>
-<a class="sourceLine" id="cb2-7" data-line-number="7">delays_feb_<span class="dv">2019</span> &lt;-<span class="st"> </span>ttc_subway_delays_resources <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb2-8" data-line-number="8"><span class="st">  </span><span class="kw"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span>(name <span class="op">==</span><span class="st"> "ttc-subway-delay-february-2019"</span>) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb2-9" data-line-number="9"><span class="st">  </span><span class="kw"><a href="../reference/get_resource.html">get_resource</a></span>()</a></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" title="1"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/library">library</a></span>(dplyr)</a>
+<a class="sourceLine" id="cb2-2" title="2"></a>
+<a class="sourceLine" id="cb2-3" title="3">delays_jan_<span class="dv">2019</span> &lt;-<span class="st"> </span>ttc_subway_delays_resources <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb2-4" title="4"><span class="st">  </span><span class="kw"><a href="https://www.rdocumentation.org/packages/stats/topics/filter">filter</a></span>(name <span class="op">==</span><span class="st"> "ttc-subway-delay-january-2019"</span>) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb2-5" title="5"><span class="st">  </span><span class="kw"><a href="../reference/get_resource.html">get_resource</a></span>()</a>
+<a class="sourceLine" id="cb2-6" title="6"></a>
+<a class="sourceLine" id="cb2-7" title="7">delays_feb_<span class="dv">2019</span> &lt;-<span class="st"> </span>ttc_subway_delays_resources <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb2-8" title="8"><span class="st">  </span><span class="kw"><a href="https://www.rdocumentation.org/packages/stats/topics/filter">filter</a></span>(name <span class="op">==</span><span class="st"> "ttc-subway-delay-february-2019"</span>) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb2-9" title="9"><span class="st">  </span><span class="kw"><a href="../reference/get_resource.html">get_resource</a></span>()</a></code></pre></div>
 <p>and so on.</p>
 <p>Instead, you can iterate through the different resources using the <a href="https://purrr.tidyverse.org/"><code>purrr</code> package</a> and get them in a nested tibble:</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" data-line-number="1"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/library">library</a></span>(purrr)</a>
-<a class="sourceLine" id="cb3-2" data-line-number="2"></a>
-<a class="sourceLine" id="cb3-3" data-line-number="3">ttc_subway_delays_<span class="dv">2019</span> &lt;-<span class="st"> </span>ttc_subway_delays_resources <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb3-4" data-line-number="4"><span class="st">  </span><span class="kw"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span>(<span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/grep">grepl</a></span>(<span class="st">"2019"</span>, name)) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb3-5" data-line-number="5"><span class="st">  </span><span class="kw"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span>(<span class="dt">data =</span> <span class="kw"><a href="https://purrr.tidyverse.org/reference/map.html">map</a></span>(id, get_resource))</a>
-<a class="sourceLine" id="cb3-6" data-line-number="6"></a>
-<a class="sourceLine" id="cb3-7" data-line-number="7">ttc_subway_delays_<span class="dv">2019</span></a>
-<a class="sourceLine" id="cb3-8" data-line-number="8"><span class="co">#&gt; # A tibble: 5 x 5</span></a>
-<a class="sourceLine" id="cb3-9" data-line-number="9"><span class="co">#&gt;   name             format id                 last_modified      data       </span></a>
-<a class="sourceLine" id="cb3-10" data-line-number="10"><span class="co">#&gt;   &lt;chr&gt;            &lt;chr&gt;  &lt;chr&gt;              &lt;chr&gt;              &lt;list&gt;     </span></a>
-<a class="sourceLine" id="cb3-11" data-line-number="11"><span class="co">#&gt; 1 ttc-subway-dela… XLSX   9a824dba-20cc-40b… 2019-07-23T18:12:… &lt;tibble [1…</span></a>
-<a class="sourceLine" id="cb3-12" data-line-number="12"><span class="co">#&gt; 2 ttc-subway-dela… XLSX   e6bac74e-2da2-442… 2019-07-23T18:12:… &lt;tibble [1…</span></a>
-<a class="sourceLine" id="cb3-13" data-line-number="13"><span class="co">#&gt; 3 ttc-subway-dela… XLSX   0511879f-3233-4a4… 2019-07-24T19:12:… &lt;tibble [1…</span></a>
-<a class="sourceLine" id="cb3-14" data-line-number="14"><span class="co">#&gt; 4 ttc-subway-dela… XLSX   447b4a5a-f696-4f0… 2019-07-24T19:13:… &lt;tibble [1…</span></a>
-<a class="sourceLine" id="cb3-15" data-line-number="15"><span class="co">#&gt; 5 ttc-subway-dela… XLSX   a302fcab-81a1-414… 2019-07-24T19:14:… &lt;tibble [1…</span></a></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" title="1"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/library">library</a></span>(purrr)</a>
+<a class="sourceLine" id="cb3-2" title="2"></a>
+<a class="sourceLine" id="cb3-3" title="3">ttc_subway_delays_<span class="dv">2019</span> &lt;-<span class="st"> </span>ttc_subway_delays_resources <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb3-4" title="4"><span class="st">  </span><span class="kw"><a href="https://www.rdocumentation.org/packages/stats/topics/filter">filter</a></span>(<span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/grep">grepl</a></span>(<span class="st">"2019"</span>, name)) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb3-5" title="5"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">data =</span> <span class="kw">map</span>(id, get_resource))</a>
+<a class="sourceLine" id="cb3-6" title="6"></a>
+<a class="sourceLine" id="cb3-7" title="7">ttc_subway_delays_<span class="dv">2019</span></a>
+<a class="sourceLine" id="cb3-8" title="8"><span class="co">#&gt; # A tibble: 5 x 5</span></a>
+<a class="sourceLine" id="cb3-9" title="9"><span class="co">#&gt;   name             format id                 last_modified      data       </span></a>
+<a class="sourceLine" id="cb3-10" title="10"><span class="co">#&gt;   &lt;chr&gt;            &lt;chr&gt;  &lt;chr&gt;              &lt;chr&gt;              &lt;list&gt;     </span></a>
+<a class="sourceLine" id="cb3-11" title="11"><span class="co">#&gt; 1 ttc-subway-dela~ XLSX   9a824dba-20cc-40b~ 2019-07-23T18:12:~ &lt;tibble [1~</span></a>
+<a class="sourceLine" id="cb3-12" title="12"><span class="co">#&gt; 2 ttc-subway-dela~ XLSX   e6bac74e-2da2-442~ 2019-07-23T18:12:~ &lt;tibble [1~</span></a>
+<a class="sourceLine" id="cb3-13" title="13"><span class="co">#&gt; 3 ttc-subway-dela~ XLSX   0511879f-3233-4a4~ 2019-07-24T19:12:~ &lt;tibble [1~</span></a>
+<a class="sourceLine" id="cb3-14" title="14"><span class="co">#&gt; 4 ttc-subway-dela~ XLSX   447b4a5a-f696-4f0~ 2019-07-24T19:13:~ &lt;tibble [1~</span></a>
+<a class="sourceLine" id="cb3-15" title="15"><span class="co">#&gt; 5 ttc-subway-dela~ XLSX   a302fcab-81a1-414~ 2019-07-24T19:14:~ &lt;tibble [1~</span></a></code></pre></div>
 <p>All of these resources contain equivalent data, with the same column names</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" data-line-number="1"><span class="kw"><a href="https://purrr.tidyverse.org/reference/map.html">map</a></span>(ttc_subway_delays_<span class="dv">2019</span>[[<span class="st">"data"</span>]], colnames)</a>
-<a class="sourceLine" id="cb4-2" data-line-number="2"><span class="co">#&gt; [[1]]</span></a>
-<a class="sourceLine" id="cb4-3" data-line-number="3"><span class="co">#&gt;  [1] "Date"      "Time"      "Day"       "Station"   "Code"     </span></a>
-<a class="sourceLine" id="cb4-4" data-line-number="4"><span class="co">#&gt;  [6] "Min Delay" "Min Gap"   "Bound"     "Line"      "Vehicle"  </span></a>
-<a class="sourceLine" id="cb4-5" data-line-number="5"><span class="co">#&gt; </span></a>
-<a class="sourceLine" id="cb4-6" data-line-number="6"><span class="co">#&gt; [[2]]</span></a>
-<a class="sourceLine" id="cb4-7" data-line-number="7"><span class="co">#&gt;  [1] "Date"      "Time"      "Day"       "Station"   "Code"     </span></a>
-<a class="sourceLine" id="cb4-8" data-line-number="8"><span class="co">#&gt;  [6] "Min Delay" "Min Gap"   "Bound"     "Line"      "Vehicle"  </span></a>
-<a class="sourceLine" id="cb4-9" data-line-number="9"><span class="co">#&gt; </span></a>
-<a class="sourceLine" id="cb4-10" data-line-number="10"><span class="co">#&gt; [[3]]</span></a>
-<a class="sourceLine" id="cb4-11" data-line-number="11"><span class="co">#&gt;  [1] "Date"      "Time"      "Day"       "Station"   "Code"     </span></a>
-<a class="sourceLine" id="cb4-12" data-line-number="12"><span class="co">#&gt;  [6] "Min Delay" "Min Gap"   "Bound"     "Line"      "Vehicle"  </span></a>
-<a class="sourceLine" id="cb4-13" data-line-number="13"><span class="co">#&gt; </span></a>
-<a class="sourceLine" id="cb4-14" data-line-number="14"><span class="co">#&gt; [[4]]</span></a>
-<a class="sourceLine" id="cb4-15" data-line-number="15"><span class="co">#&gt;  [1] "Date"      "Time"      "Day"       "Station"   "Code"     </span></a>
-<a class="sourceLine" id="cb4-16" data-line-number="16"><span class="co">#&gt;  [6] "Min Delay" "Min Gap"   "Bound"     "Line"      "Vehicle"  </span></a>
-<a class="sourceLine" id="cb4-17" data-line-number="17"><span class="co">#&gt; </span></a>
-<a class="sourceLine" id="cb4-18" data-line-number="18"><span class="co">#&gt; [[5]]</span></a>
-<a class="sourceLine" id="cb4-19" data-line-number="19"><span class="co">#&gt;  [1] "Date"      "Time"      "Day"       "Station"   "Code"     </span></a>
-<a class="sourceLine" id="cb4-20" data-line-number="20"><span class="co">#&gt;  [6] "Min Delay" "Min Gap"   "Bound"     "Line"      "Vehicle"</span></a></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" title="1"><span class="kw">map</span>(ttc_subway_delays_<span class="dv">2019</span>[[<span class="st">"data"</span>]], colnames)</a>
+<a class="sourceLine" id="cb4-2" title="2"><span class="co">#&gt; [[1]]</span></a>
+<a class="sourceLine" id="cb4-3" title="3"><span class="co">#&gt;  [1] "Date"      "Time"      "Day"       "Station"   "Code"     </span></a>
+<a class="sourceLine" id="cb4-4" title="4"><span class="co">#&gt;  [6] "Min Delay" "Min Gap"   "Bound"     "Line"      "Vehicle"  </span></a>
+<a class="sourceLine" id="cb4-5" title="5"><span class="co">#&gt; </span></a>
+<a class="sourceLine" id="cb4-6" title="6"><span class="co">#&gt; [[2]]</span></a>
+<a class="sourceLine" id="cb4-7" title="7"><span class="co">#&gt;  [1] "Date"      "Time"      "Day"       "Station"   "Code"     </span></a>
+<a class="sourceLine" id="cb4-8" title="8"><span class="co">#&gt;  [6] "Min Delay" "Min Gap"   "Bound"     "Line"      "Vehicle"  </span></a>
+<a class="sourceLine" id="cb4-9" title="9"><span class="co">#&gt; </span></a>
+<a class="sourceLine" id="cb4-10" title="10"><span class="co">#&gt; [[3]]</span></a>
+<a class="sourceLine" id="cb4-11" title="11"><span class="co">#&gt;  [1] "Date"      "Time"      "Day"       "Station"   "Code"     </span></a>
+<a class="sourceLine" id="cb4-12" title="12"><span class="co">#&gt;  [6] "Min Delay" "Min Gap"   "Bound"     "Line"      "Vehicle"  </span></a>
+<a class="sourceLine" id="cb4-13" title="13"><span class="co">#&gt; </span></a>
+<a class="sourceLine" id="cb4-14" title="14"><span class="co">#&gt; [[4]]</span></a>
+<a class="sourceLine" id="cb4-15" title="15"><span class="co">#&gt;  [1] "Date"      "Time"      "Day"       "Station"   "Code"     </span></a>
+<a class="sourceLine" id="cb4-16" title="16"><span class="co">#&gt;  [6] "Min Delay" "Min Gap"   "Bound"     "Line"      "Vehicle"  </span></a>
+<a class="sourceLine" id="cb4-17" title="17"><span class="co">#&gt; </span></a>
+<a class="sourceLine" id="cb4-18" title="18"><span class="co">#&gt; [[5]]</span></a>
+<a class="sourceLine" id="cb4-19" title="19"><span class="co">#&gt;  [1] "Date"      "Time"      "Day"       "Station"   "Code"     </span></a>
+<a class="sourceLine" id="cb4-20" title="20"><span class="co">#&gt;  [6] "Min Delay" "Min Gap"   "Bound"     "Line"      "Vehicle"</span></a></code></pre></div>
 <p>so the data can easily be unnested and combined:</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" data-line-number="1"><span class="kw"><a href="https://dplyr.tidyverse.org/reference/bind.html">bind_rows</a></span>(ttc_subway_delays_<span class="dv">2019</span>[[<span class="st">"data"</span>]])</a>
-<a class="sourceLine" id="cb5-2" data-line-number="2"><span class="co">#&gt; # A tibble: 8,227 x 10</span></a>
-<a class="sourceLine" id="cb5-3" data-line-number="3"><span class="co">#&gt;    Date                Time  Day   Station Code  `Min Delay` `Min Gap`</span></a>
-<a class="sourceLine" id="cb5-4" data-line-number="4"><span class="co">#&gt;    &lt;dttm&gt;              &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;   &lt;chr&gt;       &lt;dbl&gt;     &lt;dbl&gt;</span></a>
-<a class="sourceLine" id="cb5-5" data-line-number="5"><span class="co">#&gt;  1 2019-01-01 00:00:00 01:08 Tues… YORK M… PUSI            0         0</span></a>
-<a class="sourceLine" id="cb5-6" data-line-number="6"><span class="co">#&gt;  2 2019-01-01 00:00:00 02:14 Tues… ST AND… PUMST           0         0</span></a>
-<a class="sourceLine" id="cb5-7" data-line-number="7"><span class="co">#&gt;  3 2019-01-01 00:00:00 02:16 Tues… JANE S… TUSC            0         0</span></a>
-<a class="sourceLine" id="cb5-8" data-line-number="8"><span class="co">#&gt;  4 2019-01-01 00:00:00 02:27 Tues… BLOOR … SUO             0         0</span></a>
-<a class="sourceLine" id="cb5-9" data-line-number="9"><span class="co">#&gt;  5 2019-01-01 00:00:00 03:03 Tues… DUPONT… MUATC          11        16</span></a>
-<a class="sourceLine" id="cb5-10" data-line-number="10"><span class="co">#&gt;  6 2019-01-01 00:00:00 03:08 Tues… EGLINT… EUATC          11        16</span></a>
-<a class="sourceLine" id="cb5-11" data-line-number="11"><span class="co">#&gt;  7 2019-01-01 00:00:00 03:09 Tues… DUPONT… EUATC           6        11</span></a>
-<a class="sourceLine" id="cb5-12" data-line-number="12"><span class="co">#&gt;  8 2019-01-01 00:00:00 03:26 Tues… ST CLA… EUATC           4         9</span></a>
-<a class="sourceLine" id="cb5-13" data-line-number="13"><span class="co">#&gt;  9 2019-01-01 00:00:00 03:37 Tues… KENNED… TUMVS           0         0</span></a>
-<a class="sourceLine" id="cb5-14" data-line-number="14"><span class="co">#&gt; 10 2019-01-01 00:00:00 08:04 Tues… DAVISV… MUNOA           5        10</span></a>
-<a class="sourceLine" id="cb5-15" data-line-number="15"><span class="co">#&gt; # … with 8,217 more rows, and 3 more variables: Bound &lt;chr&gt;, Line &lt;chr&gt;,</span></a>
-<a class="sourceLine" id="cb5-16" data-line-number="16"><span class="co">#&gt; #   Vehicle &lt;dbl&gt;</span></a></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" title="1"><span class="kw">bind_rows</span>(ttc_subway_delays_<span class="dv">2019</span>[[<span class="st">"data"</span>]])</a>
+<a class="sourceLine" id="cb5-2" title="2"><span class="co">#&gt; # A tibble: 8,227 x 10</span></a>
+<a class="sourceLine" id="cb5-3" title="3"><span class="co">#&gt;    Date                Time  Day   Station Code  `Min Delay` `Min Gap`</span></a>
+<a class="sourceLine" id="cb5-4" title="4"><span class="co">#&gt;    &lt;dttm&gt;              &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;   &lt;chr&gt;       &lt;dbl&gt;     &lt;dbl&gt;</span></a>
+<a class="sourceLine" id="cb5-5" title="5"><span class="co">#&gt;  1 2019-01-01 00:00:00 01:08 Tues~ YORK M~ PUSI            0         0</span></a>
+<a class="sourceLine" id="cb5-6" title="6"><span class="co">#&gt;  2 2019-01-01 00:00:00 02:14 Tues~ ST AND~ PUMST           0         0</span></a>
+<a class="sourceLine" id="cb5-7" title="7"><span class="co">#&gt;  3 2019-01-01 00:00:00 02:16 Tues~ JANE S~ TUSC            0         0</span></a>
+<a class="sourceLine" id="cb5-8" title="8"><span class="co">#&gt;  4 2019-01-01 00:00:00 02:27 Tues~ BLOOR ~ SUO             0         0</span></a>
+<a class="sourceLine" id="cb5-9" title="9"><span class="co">#&gt;  5 2019-01-01 00:00:00 03:03 Tues~ DUPONT~ MUATC          11        16</span></a>
+<a class="sourceLine" id="cb5-10" title="10"><span class="co">#&gt;  6 2019-01-01 00:00:00 03:08 Tues~ EGLINT~ EUATC          11        16</span></a>
+<a class="sourceLine" id="cb5-11" title="11"><span class="co">#&gt;  7 2019-01-01 00:00:00 03:09 Tues~ DUPONT~ EUATC           6        11</span></a>
+<a class="sourceLine" id="cb5-12" title="12"><span class="co">#&gt;  8 2019-01-01 00:00:00 03:26 Tues~ ST CLA~ EUATC           4         9</span></a>
+<a class="sourceLine" id="cb5-13" title="13"><span class="co">#&gt;  9 2019-01-01 00:00:00 03:37 Tues~ KENNED~ TUMVS           0         0</span></a>
+<a class="sourceLine" id="cb5-14" title="14"><span class="co">#&gt; 10 2019-01-01 00:00:00 08:04 Tues~ DAVISV~ MUNOA           5        10</span></a>
+<a class="sourceLine" id="cb5-15" title="15"><span class="co">#&gt; # ... with 8,217 more rows, and 3 more variables: Bound &lt;chr&gt;, Line &lt;chr&gt;,</span></a>
+<a class="sourceLine" id="cb5-16" title="16"><span class="co">#&gt; #   Vehicle &lt;dbl&gt;</span></a></code></pre></div>
   </div>
 
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">

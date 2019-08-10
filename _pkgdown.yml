@@ -1,5 +1,0 @@
-destination: docs
-url: https://sharlagelfand.github.io/opendatatoronto/
-template:
-  params:
-    bootswatch: simplex

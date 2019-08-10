@@ -1,0 +1,4 @@
+destination: docs
+url: https://sharlagelfand.github.io/opendatatoronto/
+navbar:
+  type: inverse

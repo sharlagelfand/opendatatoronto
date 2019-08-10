@@ -15,7 +15,7 @@ License: MIT + file LICENSE
 Depends: 
     R (>= 2.10)
 Imports: 
-    ckanr,
+    ckanr (>= 0.3.3.9100),
     tibble,
     httr,
     jsonlite,
