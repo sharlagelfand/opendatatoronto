@@ -9,11 +9,9 @@
 #' search_packages("ttc")
 #' }
 search_packages <- function(title, limit = 1000) {
-  resp <- httr::GET(file.path(sub("/$", "", opendatatoronto_ckan_url), "api/3/action/package_search"), query = list(fq = paste0("title:", '"', title, '"'), rows = limit))
+  packages <- ckanr::package_search(fq = paste0("title:", '"', title, '"'), rows = limit, url = opendatatoronto_ckan_url, as = "table")
 
-  content <- jsonlite::fromJSON(httr::content(resp, "text"), simplifyVector = TRUE)
-
-  if (content[["result"]][["count"]] == 0) {
+  if (nrow(packages[["results"]]) == 0) {
     tibble::tibble(
       title = character(),
       id = character(),
@@ -25,7 +23,7 @@ search_packages <- function(title, limit = 1000) {
       num_resource = character()
     )
   } else {
-    res <- tibble::as_tibble(content[["result"]][["results"]])
+    res <- tibble::as_tibble(packages[["results"]])
     res[, c("title", "id", "topics", "excerpt", "dataset_category", "formats", "refresh_rate", "num_resources")]
   }
 }
