@@ -11,7 +11,7 @@
 search_packages <- function(title, limit = 1000) {
   packages <- ckanr::package_search(fq = paste0("title:", '"', title, '"'), rows = limit, url = opendatatoronto_ckan_url, as = "table")
 
-  if (nrow(packages[["results"]]) == 0) {
+  if (length(packages[["results"]]) == 0) {
     tibble::tibble(
       title = character(),
       id = character(),
