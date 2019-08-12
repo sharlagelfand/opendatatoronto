@@ -40,7 +40,7 @@
 <li>
   <a href="../index.html">
     <span class="fa fa-home fa-lg"></span>
-
+     
   </a>
 </li>
 <li>
@@ -52,7 +52,7 @@
 <li class="dropdown">
   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
     Articles
-
+     
     <span class="caret"></span>
   </a>
   <ul class="dropdown-menu" role="menu">
@@ -79,20 +79,20 @@
 </div>
 <!--/.navbar -->
 
-
+      
       </header><div class="row">
   <div class="col-md-9 contents">
-    <div class="page-header">
+    <div class="page-header toc-ignore">
       <h1>Package overview</h1>
-
-
-
+            
+      
+      
       <div class="hidden name"><code>opendatatoronto.Rmd</code></div>
 
     </div>
 
-
-
+    
+    
 <p>This vignette provides a brief overview of the functions in <code>opendatatoronto</code>. Other vignettes go into greater detail on usage.</p>
 <p><code>opendatatoronto</code> is a package for accessing the <a href="https://open.toronto.ca/">City of Toronto Open Data portal</a> from within R.</p>
 <p>In the portal, datasets are called <strong>packages</strong>. You can see a list of available packages by using <code><a href="../reference/list_packages.html">list_packages()</a></code>:</p>
@@ -104,16 +104,16 @@
 <a class="sourceLine" id="cb1-6" title="6"><span class="co">#&gt; # A tibble: 50 x 8</span></a>
 <a class="sourceLine" id="cb1-7" title="7"><span class="co">#&gt;    title id    topics excerpt dataset_category formats refresh_rate</span></a>
 <a class="sourceLine" id="cb1-8" title="8"><span class="co">#&gt;    &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;  &lt;chr&gt;   &lt;chr&gt;            &lt;chr&gt;   &lt;chr&gt;       </span></a>
-<a class="sourceLine" id="cb1-9" title="9"><span class="co">#&gt;  1 TTC ~ 7795~ Trans~ Data c~ Document         ZIP     Real-time   </span></a>
-<a class="sourceLine" id="cb1-10" title="10"><span class="co">#&gt;  2 Chem~ ae8e~ Envir~ This d~ Table            WEB,XL~ Daily       </span></a>
-<a class="sourceLine" id="cb1-11" title="11"><span class="co">#&gt;  3 Body~ c405~ City ~ This d~ Table            WEB,CS~ Daily       </span></a>
-<a class="sourceLine" id="cb1-12" title="12"><span class="co">#&gt;  4 Stre~ 1db3~ City ~ Transi~ Map              CSV,GE~ Semi-annual~</span></a>
-<a class="sourceLine" id="cb1-13" title="13"><span class="co">#&gt;  5 Stre~ 74f6~ City ~ Public~ Map              CSV,GE~ Semi-annual~</span></a>
-<a class="sourceLine" id="cb1-14" title="14"><span class="co">#&gt;  6 Stre~ 821f~ City ~ Public~ Map              CSV,GE~ Semi-annual~</span></a>
-<a class="sourceLine" id="cb1-15" title="15"><span class="co">#&gt;  7 Stre~ ccfd~ City ~ Poster~ Map              CSV,GE~ Semi-annual~</span></a>
-<a class="sourceLine" id="cb1-16" title="16"><span class="co">#&gt;  8 Stre~ cf70~ City ~ Poster~ Map              CSV,GE~ Semi-annual~</span></a>
-<a class="sourceLine" id="cb1-17" title="17"><span class="co">#&gt;  9 Stre~ 99b1~ City ~ Inform~ Map              CSV,GE~ Semi-annual~</span></a>
-<a class="sourceLine" id="cb1-18" title="18"><span class="co">#&gt; 10 Stre~ 71e6~ Trans~ "Bike ~ Map              CSV,GE~ Daily       </span></a>
+<a class="sourceLine" id="cb1-9" title="9"><span class="co">#&gt;  1 Body~ c405~ City ~ This d~ Table            WEB,CS~ Daily       </span></a>
+<a class="sourceLine" id="cb1-10" title="10"><span class="co">#&gt;  2 Stre~ 1db3~ City ~ Transi~ Map              CSV,GE~ Semi-annual~</span></a>
+<a class="sourceLine" id="cb1-11" title="11"><span class="co">#&gt;  3 Stre~ 74f6~ City ~ Public~ Map              CSV,GE~ Semi-annual~</span></a>
+<a class="sourceLine" id="cb1-12" title="12"><span class="co">#&gt;  4 Stre~ 821f~ City ~ Public~ Map              CSV,GE~ Semi-annual~</span></a>
+<a class="sourceLine" id="cb1-13" title="13"><span class="co">#&gt;  5 Stre~ ccfd~ City ~ Poster~ Map              CSV,GE~ Semi-annual~</span></a>
+<a class="sourceLine" id="cb1-14" title="14"><span class="co">#&gt;  6 Stre~ cf70~ City ~ Poster~ Map              CSV,GE~ Semi-annual~</span></a>
+<a class="sourceLine" id="cb1-15" title="15"><span class="co">#&gt;  7 Stre~ 3944~ City ~ Litter~ Map              CSV,GE~ Semi-annual~</span></a>
+<a class="sourceLine" id="cb1-16" title="16"><span class="co">#&gt;  8 Stre~ 99b1~ City ~ Inform~ Map              CSV,GE~ Semi-annual~</span></a>
+<a class="sourceLine" id="cb1-17" title="17"><span class="co">#&gt;  9 Stre~ 71e6~ Trans~ "Bike ~ Map              CSV,GE~ Daily       </span></a>
+<a class="sourceLine" id="cb1-18" title="18"><span class="co">#&gt; 10 Stre~ 0c4e~ City ~ Bench ~ Map              CSV,GE~ Semi-annual~</span></a>
 <a class="sourceLine" id="cb1-19" title="19"><span class="co">#&gt; # ... with 40 more rows, and 1 more variable: num_resources &lt;int&gt;</span></a></code></pre></div>
 <p>Or, you can search packages by title using <code><a href="../reference/search_packages.html">search_packages()</a></code>:</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" title="1">apartment_packages &lt;-<span class="st"> </span><span class="kw"><a href="../reference/search_packages.html">search_packages</a></span>(<span class="st">"Apartment"</span>)</a>
@@ -197,7 +197,7 @@
       </footer>
 </div>
 
-
+  
 
   </body>
 </html>

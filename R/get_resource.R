@@ -33,7 +33,9 @@ get_resource <- function(resource) {
   } else if (is.data.frame(res)) {
     tibble::as_tibble(res)
   } else {
-    lapply(X = res, FUN = tibble::as_tibble)
+    res <- lapply(X = res, FUN = tibble::as_tibble)
+    names(res) <- basename(names(res))
+    res
   }
 }
 
