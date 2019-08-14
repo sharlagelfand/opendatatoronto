@@ -1,8 +1,8 @@
 ---
-title: "Spatial Data"
+title: "Working with spatial data from the portal"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{Spatial Data}
+  %\VignetteIndexEntry{Working with spatial data from the portal}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
@@ -15,7 +15,7 @@ knitr::opts_chunk$set(
 )
 ```
 
-There is a ton (!) of spatial data on the portal. To access spatial data, you may need the `sf` and `geojsonsf` packages, depending on the resource.
+There is a ton of spatial data on the [City of Toronto Open Data Portal](https://open.toronto.ca). Spatial resources are retrieved the same way as all other resources, by using `get_resource()`, and may require the `sf` and `geojsonsf` packages.
 
 We can look at [bicycle parking](https://open.toronto.ca/dataset/bicycle-parking-racks/) in Toronto. The result is an `sf` object with WGS84 projection.
 

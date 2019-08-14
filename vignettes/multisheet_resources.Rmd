@@ -1,8 +1,8 @@
 ---
-title: "Multi-sheet XLS/XLSX resources"
+title: "Retrieving multi-sheet XLS/XLSX resources"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{Multi-sheet XLS/XLSX resources}
+  %\VignetteIndexEntry{Retrieving multi-sheet XLS/XLSX resources}
   %\VignetteEngine{knitr::rmarkdown}
 ---
 
@@ -14,7 +14,7 @@ knitr::opts_chunk$set(
 )
 ```
 
-Excel files (XLS and XLSX) are a common form of data on the City of Toronto Open Data Portal.
+Excel files (XLS and XLSX) are a common form of data on the [City of Toronto Open Data Portal](https://open.toronto.ca).
 
 In cases where the file only contains one sheet, the resource is returned as a tibble. For example, this data set on [TTC Ridership Analysis from 1985 to 2018](https://open.toronto.ca/dataset/ttc-ridership-analysis/):
 
@@ -46,7 +46,7 @@ To access the relevant sheet, pull out the list element:
 wellbeing_toronto_demographics[["IndicatorMetaData"]]
 ```
 
-There are also cases where the file contains multiple sheets and it would be helpful to have them all together as a single data set. For exampe, the [2019 TTC Bus Delay Data](https://open.toronto.ca/dataset/ttc-bus-delay-data/):
+There are also cases where the file contains multiple sheets and it would be helpful to have them all together as a single data set. For example, the [2019 TTC Bus Delay Data](https://open.toronto.ca/dataset/ttc-bus-delay-data/):
 
 ```{r}
 ttc_bus_delays_2019 <- search_packages("TTC Bus Delay Data") %>%

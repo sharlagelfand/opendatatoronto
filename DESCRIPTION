@@ -8,10 +8,12 @@ Authors@R:
            email = "sharla.gelfand@gmail.com"),
       person(given = "City of Toronto",
              role = c("cph", "fnd")))
-Description: Client for the Toronto Open Data Portal API.
-    Includes interface to list and search packages, and list and download 
-    resources into R.
+Description: Client for the  City of Toronto Open Data Portal API (<https://open.toronto.ca>).
+  Includes interface to list and search packages, and list and download 
+  resources into R.
 License: MIT + file LICENSE
+URL: https://sharlagelfand.github.io/opendatatoronto/, https://github.com/sharlagelfand/opendatatoronto/
+BugReports: https://github.com/sharlagelfand/opendatatoronto/issues
 Depends: 
     R (>= 2.10)
 Imports: 

@@ -1,8 +1,8 @@
 ---
-title: "Multi-file ZIP Resources"
+title: "Retrieving multi-file ZIP resources"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{multifile_zip_resources}
+  %\VignetteIndexEntry{Retrieving multi-file ZIP resources}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
@@ -15,7 +15,9 @@ knitr::opts_chunk$set(
 )
 ```
 
-When a resource is a ZIP file containing multiple files, the result is a named list. For example, the dataset on the [Annual Summary of Reportable Communicable Diseases](https://open.toronto.ca/dataset/annual-summary-of-reportable-communicable-diseases/):
+Some resources from the [City of Toronto Open Data Portal](https://open.toronto.ca) are ZIP files containing multiple files. When a resource like this is retrieved using `get_resource()`, the result is a list with elements named after each file.
+
+For example, the dataset on the [Annual Summary of Reportable Communicable Diseases](https://open.toronto.ca/dataset/annual-summary-of-reportable-communicable-diseases/):
 
 ```{r setup}
 library(opendatatoronto)

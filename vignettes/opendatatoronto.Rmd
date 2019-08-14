@@ -1,8 +1,8 @@
 ---
-title: "Package overview"
+title: "Introduction to opendatatoronto"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{opendatatoronto_package}
+  %\VignetteIndexEntry{Introduction to opendatatoronto}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
@@ -14,8 +14,6 @@ knitr::opts_chunk$set(
   message = FALSE
 )
 ```
-
-This vignette provides a brief overview of the functions in `opendatatoronto`. Other vignettes go into greater detail on usage.
 
 `opendatatoronto` is a package for accessing the [City of Toronto Open Data portal](https://open.toronto.ca/) from within R.
 
@@ -62,7 +60,7 @@ apartment_building_registration_data <- apartment_building_registration_resource
 apartment_building_registration_data
 ```
 
-The `opendatatoronto` package can currenly handle the download of CSV, XLS/XLSX, XML, JSON, SHP, and GeoJSON resources, as well as ZIP resources that contain multiple files. For more information, see the following vignettes:
+The `opendatatoronto` package can currently handle the download of CSV, XLS/XLSX, XML, JSON, SHP, and GeoJSON resources, as well as ZIP resources that contain multiple files. For more information, see the following vignettes:
 
 * [Multi-sheet XLS/XLSX resources](multisheet_resources.html)
 * [Multi-file ZIP resources](multifile_zip_resources.html)

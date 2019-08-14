@@ -11,3 +11,7 @@ addons:
     packages:
       - libudunits2-dev
       - libgdal-dev
+r:
+  - oldrel
+  - release
+  - devel
