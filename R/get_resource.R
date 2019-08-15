@@ -34,7 +34,7 @@ get_resource <- function(resource) {
     tibble::as_tibble(res)
   } else {
     res <- lapply(X = res, FUN = tibble::as_tibble)
-    names(res) <- basename(names(res))
+    names(res) <- names(res)
     res
   }
 }
