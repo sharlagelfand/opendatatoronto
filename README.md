@@ -22,6 +22,21 @@ Portal](https://portal0.cf.opendata.inter.sandbox-toronto.ca/). The goal
 of the package is to help read data directly into R without needing to
 manually download it via the portal.
 
+For more information, please visit the [package
+website](https://sharlagelfand.github.io/opendatatoronto/) and
+vignettes:
+
+  - [Introduction to
+    `opendatatoronto`](https://sharlagelfand.github.io/opendatatoronto/articles/opendatatoronto.html)
+  - [Retrieving multi-sheet XLS/XLSX
+    resources](https://sharlagelfand.github.io/opendatatoronto/articles/multisheet_resources.html)
+  - [Retrieving multi-file ZIP
+    resources](https://sharlagelfand.github.io/opendatatoronto/articles/multifile_zip_resources.html)
+  - [Retrieving multiple resources using
+    `purrr`](https://sharlagelfand.github.io/opendatatoronto/articles/multiple_resources_purrr.html)
+  - [Working with spatial data from the
+    portal](https://sharlagelfand.github.io/opendatatoronto/articles/spatial_data.html)
+
 ## Installation
 
 You can install the development version from GitHub with:
@@ -43,16 +58,16 @@ packages
 #> # A tibble: 100 x 8
 #>    title id    topics excerpt dataset_category formats refresh_rate
 #>    <chr> <chr> <chr>  <chr>   <chr>            <chr>   <chr>       
-#>  1 Body… c405… City … This d… Table            WEB,CS… Daily       
-#>  2 Stre… 1db3… City … Transi… Map              CSV,GE… Semi-annual…
-#>  3 Stre… 74f6… City … Public… Map              CSV,GE… Semi-annual…
-#>  4 Stre… 821f… City … Public… Map              CSV,GE… Semi-annual…
-#>  5 Stre… ccfd… City … Poster… Map              CSV,GE… Semi-annual…
-#>  6 Stre… cf70… City … Poster… Map              CSV,GE… Semi-annual…
-#>  7 Stre… 99b1… City … Inform… Map              CSV,GE… Semi-annual…
-#>  8 Stre… 71e6… Trans… "Bike … Map              CSV,GE… Daily       
-#>  9 Stre… 0c4e… City … Bench … Map              CSV,GE… Semi-annual…
-#> 10 Poll… 7bce… City … Polls … Table            XLSX,C… Daily       
+#>  1 Impe… dd97… Devel… "Perme… Document         ZIP     As available
+#>  2 TTC … 996c… Trans… TTC Su… Document         XLSX    Monthly     
+#>  3 TTC … b68c… Trans… TTC St… Document         XLSX    Monthly     
+#>  4 TTC … e271… Trans… TTC Bu… Document         XLSX    Monthly     
+#>  5 City… 5e7a… City … The Ci… Map              SHP,WE… Semi-annual…
+#>  6 Road… 2265… Trans… "This … Document         JSON,W… Real-time   
+#>  7 Free… 854b… City … FOI re… Document         XLS,XL… Quarterly   
+#>  8 Sexu… d20b… Healt… This d… Document         XLSX    As available
+#>  9 Mont… ec1f… Health "This … Document         XLSX    Monthly     
+#> 10 Clim… dfbc… Envir… Result… Document         XLS,XL… As available
 #> # … with 90 more rows, and 1 more variable: num_resources <int>
 ```
 
@@ -62,19 +77,23 @@ You can also search packages by title:
 ttc_packages <- search_packages("ttc")
 
 ttc_packages
-#> # A tibble: 10 x 8
+#> # A tibble: 14 x 8
 #>    title id    topics excerpt dataset_category formats refresh_rate
 #>    <chr> <chr> <chr>  <chr>   <chr>            <chr>   <chr>       
 #>  1 TTC … 996c… Trans… TTC Su… Document         XLSX    Monthly     
 #>  2 TTC … b68c… Trans… TTC St… Document         XLSX    Monthly     
-#>  3 TTC … 7795… Trans… Data c… Document         ZIP     Real-time   
-#>  4 TTC … 4eb6… Trans… This d… Document         XLSX    Annually    
-#>  5 TTC … ef35… Trans… This d… Document         XLSX    Annually    
-#>  6 TTC … d9dc… Trans… This d… Document         XLSX    As available
-#>  7 TTC … 8217… Trans… The NV… Document         PDF     Real-time   
-#>  8 TTC … e271… Trans… TTC Bu… Document         XLSX    Monthly     
+#>  3 TTC … e271… Trans… TTC Bu… Document         XLSX    Monthly     
+#>  4 TTC … 7795… Trans… Data c… Document         ZIP     Real-time   
+#>  5 TTC … 4eb6… Trans… This d… Document         XLSX    Annually    
+#>  6 TTC … ef35… Trans… This d… Document         XLSX    Annually    
+#>  7 TTC … d9dc… Trans… This d… Document         XLSX    As available
+#>  8 TTC … 8217… Trans… The NV… Document         PDF     Real-time   
 #>  9 TTC … 1444… Trans… This d… Website          WEB,XLS Quarterly   
 #> 10 TTC … d2a7… Trans… This d… Website          WEB,XLS Quarterly   
+#> 11 TTC … 4b80… Trans… This d… Website          WEB,XLS Quarterly   
+#> 12 TTC … aedd… Trans… This d… Website          WEB,XLS Quarterly   
+#> 13 TTC … 2c4c… Finan… This d… Website          WEB,XLS Quarterly   
+#> 14 TTC … c01c… <NA>   "This … Document         SHP     As available
 #> # … with 1 more variable: num_resources <int>
 ```
 
@@ -123,3 +142,7 @@ marriage_licence_statistics
 #> 10   418 NY                         231 2011-03    
 #> # … with 402 more rows
 ```
+
+Please note that the ‘opendatatoronto’ project is released with a
+[Contributor Code of Conduct](CODE_OF_CONDUCT.md). By contributing to
+this project, you agree to abide by its terms.
