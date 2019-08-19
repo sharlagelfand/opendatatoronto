@@ -129,16 +129,16 @@
 <a class="sourceLine" id="cb2-4" data-line-number="4"><span class="co">#&gt; # A tibble: 100 x 8</span></a>
 <a class="sourceLine" id="cb2-5" data-line-number="5"><span class="co">#&gt;    title id    topics excerpt dataset_category formats refresh_rate</span></a>
 <a class="sourceLine" id="cb2-6" data-line-number="6"><span class="co">#&gt;    &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;  &lt;chr&gt;   &lt;chr&gt;            &lt;chr&gt;   &lt;chr&gt;       </span></a>
-<a class="sourceLine" id="cb2-7" data-line-number="7"><span class="co">#&gt;  1 Outb… 80ce… Healt… This d… Document         XLS,XL… Weekly      </span></a>
+<a class="sourceLine" id="cb2-7" data-line-number="7"><span class="co">#&gt;  1 Prio… 32b3… Busin… Neighb… Document         WEB,ZIP As available</span></a>
 <a class="sourceLine" id="cb2-8" data-line-number="8"><span class="co">#&gt;  2 Body… c405… City … This d… Table            WEB,CS… Daily       </span></a>
 <a class="sourceLine" id="cb2-9" data-line-number="9"><span class="co">#&gt;  3 Stre… 1db3… City … Transi… Map              CSV,GE… Semi-annual…</span></a>
 <a class="sourceLine" id="cb2-10" data-line-number="10"><span class="co">#&gt;  4 Stre… 74f6… City … Public… Map              CSV,GE… Semi-annual…</span></a>
 <a class="sourceLine" id="cb2-11" data-line-number="11"><span class="co">#&gt;  5 Stre… 821f… City … Public… Map              CSV,GE… Semi-annual…</span></a>
 <a class="sourceLine" id="cb2-12" data-line-number="12"><span class="co">#&gt;  6 Stre… ccfd… City … Poster… Map              CSV,GE… Semi-annual…</span></a>
 <a class="sourceLine" id="cb2-13" data-line-number="13"><span class="co">#&gt;  7 Stre… cf70… City … Poster… Map              CSV,GE… Semi-annual…</span></a>
-<a class="sourceLine" id="cb2-14" data-line-number="14"><span class="co">#&gt;  8 Stre… 3944… City … Litter… Map              CSV,GE… Semi-annual…</span></a>
-<a class="sourceLine" id="cb2-15" data-line-number="15"><span class="co">#&gt;  9 Stre… 99b1… City … Inform… Map              CSV,GE… Semi-annual…</span></a>
-<a class="sourceLine" id="cb2-16" data-line-number="16"><span class="co">#&gt; 10 Stre… 71e6… Trans… "Bike … Map              CSV,GE… Daily       </span></a>
+<a class="sourceLine" id="cb2-14" data-line-number="14"><span class="co">#&gt;  8 Stre… 99b1… City … Inform… Map              CSV,GE… Semi-annual…</span></a>
+<a class="sourceLine" id="cb2-15" data-line-number="15"><span class="co">#&gt;  9 Stre… 71e6… Trans… "Bike … Map              CSV,GE… Daily       </span></a>
+<a class="sourceLine" id="cb2-16" data-line-number="16"><span class="co">#&gt; 10 Stre… 0c4e… City … Bench … Map              CSV,GE… Semi-annual…</span></a>
 <a class="sourceLine" id="cb2-17" data-line-number="17"><span class="co">#&gt; # … with 90 more rows, and 1 more variable: num_resources &lt;int&gt;</span></a></code></pre></div>
 <p>You can also search packages by title:</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" data-line-number="1">ttc_packages &lt;-<span class="st"> </span><span class="kw"><a href="reference/search_packages.html">search_packages</a></span>(<span class="st">"ttc"</span>)</a>
@@ -147,14 +147,14 @@
 <a class="sourceLine" id="cb3-4" data-line-number="4"><span class="co">#&gt; # A tibble: 14 x 8</span></a>
 <a class="sourceLine" id="cb3-5" data-line-number="5"><span class="co">#&gt;    title id    topics excerpt dataset_category formats refresh_rate</span></a>
 <a class="sourceLine" id="cb3-6" data-line-number="6"><span class="co">#&gt;    &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;  &lt;chr&gt;   &lt;chr&gt;            &lt;chr&gt;   &lt;chr&gt;       </span></a>
-<a class="sourceLine" id="cb3-7" data-line-number="7"><span class="co">#&gt;  1 TTC … 7795… Trans… Data c… Document         ZIP     Real-time   </span></a>
-<a class="sourceLine" id="cb3-8" data-line-number="8"><span class="co">#&gt;  2 TTC … 996c… Trans… TTC Su… Document         XLSX    Monthly     </span></a>
-<a class="sourceLine" id="cb3-9" data-line-number="9"><span class="co">#&gt;  3 TTC … b68c… Trans… TTC St… Document         XLSX    Monthly     </span></a>
-<a class="sourceLine" id="cb3-10" data-line-number="10"><span class="co">#&gt;  4 TTC … 4eb6… Trans… This d… Document         XLSX    Annually    </span></a>
-<a class="sourceLine" id="cb3-11" data-line-number="11"><span class="co">#&gt;  5 TTC … ef35… Trans… This d… Document         XLSX    Annually    </span></a>
-<a class="sourceLine" id="cb3-12" data-line-number="12"><span class="co">#&gt;  6 TTC … d9dc… Trans… This d… Document         XLSX    As available</span></a>
-<a class="sourceLine" id="cb3-13" data-line-number="13"><span class="co">#&gt;  7 TTC … 8217… Trans… The NV… Document         PDF     Real-time   </span></a>
-<a class="sourceLine" id="cb3-14" data-line-number="14"><span class="co">#&gt;  8 TTC … e271… Trans… TTC Bu… Document         XLSX    Monthly     </span></a>
+<a class="sourceLine" id="cb3-7" data-line-number="7"><span class="co">#&gt;  1 TTC … 996c… Trans… TTC Su… Document         XLSX    Monthly     </span></a>
+<a class="sourceLine" id="cb3-8" data-line-number="8"><span class="co">#&gt;  2 TTC … b68c… Trans… TTC St… Document         XLSX    Monthly     </span></a>
+<a class="sourceLine" id="cb3-9" data-line-number="9"><span class="co">#&gt;  3 TTC … e271… Trans… TTC Bu… Document         XLSX    Monthly     </span></a>
+<a class="sourceLine" id="cb3-10" data-line-number="10"><span class="co">#&gt;  4 TTC … 7795… Trans… Data c… Document         ZIP     Real-time   </span></a>
+<a class="sourceLine" id="cb3-11" data-line-number="11"><span class="co">#&gt;  5 TTC … 4eb6… Trans… This d… Document         XLSX    Annually    </span></a>
+<a class="sourceLine" id="cb3-12" data-line-number="12"><span class="co">#&gt;  6 TTC … ef35… Trans… This d… Document         XLSX    Annually    </span></a>
+<a class="sourceLine" id="cb3-13" data-line-number="13"><span class="co">#&gt;  7 TTC … d9dc… Trans… This d… Document         XLSX    As available</span></a>
+<a class="sourceLine" id="cb3-14" data-line-number="14"><span class="co">#&gt;  8 TTC … 8217… Trans… The NV… Document         PDF     Real-time   </span></a>
 <a class="sourceLine" id="cb3-15" data-line-number="15"><span class="co">#&gt;  9 TTC … 1444… Trans… This d… Website          WEB,XLS Quarterly   </span></a>
 <a class="sourceLine" id="cb3-16" data-line-number="16"><span class="co">#&gt; 10 TTC … d2a7… Trans… This d… Website          WEB,XLS Quarterly   </span></a>
 <a class="sourceLine" id="cb3-17" data-line-number="17"><span class="co">#&gt; 11 TTC … 4b80… Trans… This d… Website          WEB,XLS Quarterly   </span></a>

@@ -2,7 +2,7 @@
 % Please edit documentation in R/list_packages.R
 \name{list_packages}
 \alias{list_packages}
-\title{List packages.}
+\title{List packages}
 \usage{
 list_packages(limit = 31)
 }
@@ -10,7 +10,7 @@ list_packages(limit = 31)
 \item{limit}{The maximum number of packages to return (default is 31).}
 }
 \description{
-List packages.
+List packages
 }
 \examples{
 \dontrun{

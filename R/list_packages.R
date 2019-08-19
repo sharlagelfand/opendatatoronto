@@ -1,4 +1,4 @@
-#' List packages.
+#' List packages
 #'
 #' @param limit The maximum number of packages to return (default is 31).
 #'
