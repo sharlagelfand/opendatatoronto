@@ -2,3 +2,20 @@ destination: docs
 url: https://sharlagelfand.github.io/opendatatoronto/
 navbar:
   type: inverse
+
+reference:
+  - title: List or search packages and resources
+    contents:
+    - list_packages
+    - list_package_resources
+    - search_packages
+  - title: Get resources into R
+    contents:
+    - get_resource
+  - title: Browse Portal
+    contents:
+    - browse_portal
+    - browse_package
+    - browse_resource
+
+

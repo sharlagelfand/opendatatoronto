@@ -6,11 +6,11 @@
 #'
 #' @examples
 #' \dontrun{
-#' open_portal()
+#' browse_portal()
 #' }
-open_portal <- function(browser = getOption("browser")) {
-  if(interactive()){
-    utils::browseURL(url = "https://open.toronto.ca/", browser = browser)
+browse_portal <- function() {
+  if (interactive()) {
+    utils::browseURL(url = "https://open.toronto.ca/", browser = getOption("browser"))
   }
 
   invisible("https://open.toronto.ca/")

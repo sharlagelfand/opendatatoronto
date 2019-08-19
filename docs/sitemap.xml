@@ -4,6 +4,15 @@
     <loc>https://sharlagelfand.github.io/opendatatoronto//index.html</loc>
   </url>
   <url>
+    <loc>https://sharlagelfand.github.io/opendatatoronto//reference/browse_package.html</loc>
+  </url>
+  <url>
+    <loc>https://sharlagelfand.github.io/opendatatoronto//reference/browse_portal.html</loc>
+  </url>
+  <url>
+    <loc>https://sharlagelfand.github.io/opendatatoronto//reference/browse_resource.html</loc>
+  </url>
+  <url>
     <loc>https://sharlagelfand.github.io/opendatatoronto//reference/get_resource.html</loc>
   </url>
   <url>
@@ -11,9 +20,6 @@
   </url>
   <url>
     <loc>https://sharlagelfand.github.io/opendatatoronto//reference/list_packages.html</loc>
-  </url>
-  <url>
-    <loc>https://sharlagelfand.github.io/opendatatoronto//reference/open_portal.html</loc>
   </url>
   <url>
     <loc>https://sharlagelfand.github.io/opendatatoronto//reference/pipe.html</loc>

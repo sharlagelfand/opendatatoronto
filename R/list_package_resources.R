@@ -1,6 +1,6 @@
 #' List resources for a package
 #'
-#' @param package A way to identify the package. Either a package ID (passed as a character vector directly) or a single package resulting from \code{\link{list_packages}}
+#' @param package A way to identify the package. Either a package ID (passed as a character vector directly) or a single package resulting from \code{\link{list_packages}} or \code{\link{search_packages}}
 #'
 #' @export
 #' @examples
