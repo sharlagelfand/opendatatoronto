@@ -33,7 +33,7 @@ browse_package <- function(package) {
 
 parse_package_title <- function(x) {
   lower <- tolower(x)
-  dash <- stringr::str_replace_all(lower, pattern = "[^a-zA-Z\\d]", replacement = "-") # replace all non-alphanumeric with -'s
-  remove_repeated <- stringr::str_replace_all(dash, pattern = "(-)\\1+", replacement = "-") # only one - in a row
-  stringr::str_replace_all(remove_repeated, pattern = "-$", replacement = "") # ends with -
+  dash <- gsub(lower, pattern = "[^a-zA-Z\\d]", replacement = "-", x = lower) # replace all non-alphanumeric with -'s
+  remove_repeated <- gsub(pattern = "(-)\\1+", replacement = "-", x = dash) # only one - in a row
+  gsub(pattern = "-$", replacement = "", x = remove_repeated) # ends with -
 }
