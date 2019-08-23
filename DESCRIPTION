@@ -1,5 +1,5 @@
 Package: opendatatoronto
-Title: Access the Toronto Open Data Portal API
+Title: Access the City of Toronto Open Data Portal API
 Version: 0.0.0.9002
 Authors@R: 
     c(person(given = "Sharla",
@@ -8,9 +8,8 @@ Authors@R:
            email = "sharla.gelfand@gmail.com"),
       person(given = "City of Toronto",
              role = c("cph", "fnd")))
-Description: Client for the  City of Toronto Open Data Portal API (<https://open.toronto.ca>).
-  Includes interface to list and search packages, and list and download 
-  resources into R.
+Description: Search and retrieve data from the City of Toronto Open Data Portal
+    (<https://open.toronto.ca>) directly from R.
 License: MIT + file LICENSE
 URL: https://sharlagelfand.github.io/opendatatoronto/, https://github.com/sharlagelfand/opendatatoronto/
 BugReports: https://github.com/sharlagelfand/opendatatoronto/issues
