@@ -21,8 +21,7 @@ In cases where the file only contains one sheet, the resource is returned as a t
 ```{r setup}
 library(opendatatoronto)
 
-search_packages("TTC Ridership Analysis") %>%
-  list_package_resources() %>%
+list_package_resources("https://open.toronto.ca/dataset/ttc-ridership-analysis/") %>%
   get_resource()
 ```
 
@@ -31,9 +30,7 @@ When the file contains multiple sheets, the resource is returned as a named list
 ```{r}
 library(dplyr)
 
-wellbeing_toronto_demographics <- search_packages("Wellbeing Toronto - Demographics") %>%
-  filter(title == "Wellbeing Toronto - Demographics") %>%
-  list_package_resources() %>%
+wellbeing_toronto_demographics <- list_package_resources("https://open.toronto.ca/dataset/wellbeing-toronto-demographics/") %>%
   filter(name == "wellbeing-toronto-demographics") %>%
   get_resource()
 

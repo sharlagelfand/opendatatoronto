@@ -128,16 +128,16 @@
 <a class="sourceLine" id="cb2-4" data-line-number="4"><span class="co">#&gt; # A tibble: 100 x 8</span></a>
 <a class="sourceLine" id="cb2-5" data-line-number="5"><span class="co">#&gt;    title id    topics excerpt dataset_category formats refresh_rate</span></a>
 <a class="sourceLine" id="cb2-6" data-line-number="6"><span class="co">#&gt;    &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;  &lt;chr&gt;   &lt;chr&gt;            &lt;chr&gt;   &lt;chr&gt;       </span></a>
-<a class="sourceLine" id="cb2-7" data-line-number="7"><span class="co">#&gt;  1 Chem… ae8e… Envir… This d… Table            WEB,XL… Daily       </span></a>
-<a class="sourceLine" id="cb2-8" data-line-number="8"><span class="co">#&gt;  2 Apar… 83d5… Locat… This d… Table            CSV,JS… Annually    </span></a>
-<a class="sourceLine" id="cb2-9" data-line-number="9"><span class="co">#&gt;  3 Immu… 99ff… Health "This … Document         XLSX,C… Annually    </span></a>
-<a class="sourceLine" id="cb2-10" data-line-number="10"><span class="co">#&gt;  4 Body… c405… City … This d… Table            WEB,CS… Daily       </span></a>
-<a class="sourceLine" id="cb2-11" data-line-number="11"><span class="co">#&gt;  5 Stre… 1db3… City … Transi… Map              CSV,GE… Semi-annual…</span></a>
-<a class="sourceLine" id="cb2-12" data-line-number="12"><span class="co">#&gt;  6 Stre… 74f6… City … Public… Map              CSV,GE… Semi-annual…</span></a>
-<a class="sourceLine" id="cb2-13" data-line-number="13"><span class="co">#&gt;  7 Stre… 821f… City … Public… Map              CSV,GE… Semi-annual…</span></a>
-<a class="sourceLine" id="cb2-14" data-line-number="14"><span class="co">#&gt;  8 Stre… ccfd… City … Poster… Map              CSV,GE… Semi-annual…</span></a>
-<a class="sourceLine" id="cb2-15" data-line-number="15"><span class="co">#&gt;  9 Stre… cf70… City … Poster… Map              CSV,GE… Semi-annual…</span></a>
-<a class="sourceLine" id="cb2-16" data-line-number="16"><span class="co">#&gt; 10 Stre… 99b1… City … Inform… Map              CSV,GE… Semi-annual…</span></a>
+<a class="sourceLine" id="cb2-7" data-line-number="7"><span class="co">#&gt;  1 Apar… 4ef8… Locat… This d… Table            CSV,JS… Annually    </span></a>
+<a class="sourceLine" id="cb2-8" data-line-number="8"><span class="co">#&gt;  2 311 … 2e54… City … The da… Document         XLSX,Z… Monthly     </span></a>
+<a class="sourceLine" id="cb2-9" data-line-number="9"><span class="co">#&gt;  3 Body… c405… City … This d… Table            WEB,CS… Daily       </span></a>
+<a class="sourceLine" id="cb2-10" data-line-number="10"><span class="co">#&gt;  4 Stre… 1db3… City … Transi… Map              CSV,GE… Semi-annual…</span></a>
+<a class="sourceLine" id="cb2-11" data-line-number="11"><span class="co">#&gt;  5 Stre… 74f6… City … Public… Map              CSV,GE… Semi-annual…</span></a>
+<a class="sourceLine" id="cb2-12" data-line-number="12"><span class="co">#&gt;  6 Stre… 821f… City … Public… Map              CSV,GE… Semi-annual…</span></a>
+<a class="sourceLine" id="cb2-13" data-line-number="13"><span class="co">#&gt;  7 Stre… ccfd… City … Poster… Map              CSV,GE… Semi-annual…</span></a>
+<a class="sourceLine" id="cb2-14" data-line-number="14"><span class="co">#&gt;  8 Stre… cf70… City … Poster… Map              CSV,GE… Semi-annual…</span></a>
+<a class="sourceLine" id="cb2-15" data-line-number="15"><span class="co">#&gt;  9 Stre… 99b1… City … Inform… Map              CSV,GE… Semi-annual…</span></a>
+<a class="sourceLine" id="cb2-16" data-line-number="16"><span class="co">#&gt; 10 Stre… 71e6… Trans… "Bike … Map              CSV,GE… Daily       </span></a>
 <a class="sourceLine" id="cb2-17" data-line-number="17"><span class="co">#&gt; # … with 90 more rows, and 1 more variable: num_resources &lt;int&gt;</span></a></code></pre></div>
 <p>You can also search packages by title:</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" data-line-number="1">ttc_packages &lt;-<span class="st"> </span><span class="kw"><a href="reference/search_packages.html">search_packages</a></span>(<span class="st">"ttc"</span>)</a>
@@ -162,11 +162,11 @@
 <a class="sourceLine" id="cb3-20" data-line-number="20"><span class="co">#&gt; 14 TTC … c01c… &lt;NA&gt;   "This … Document         SHP     As available</span></a>
 <a class="sourceLine" id="cb3-21" data-line-number="21"><span class="co">#&gt; # … with 1 more variable: num_resources &lt;int&gt;</span></a></code></pre></div>
 <p>Within a package, there are a number of <strong>resources</strong> - e.g. CSV, XSLX, JSON, SHP files, and more. Resources are the actual “data”.</p>
-<p>For a given package, you can get a list of resources using <code><a href="reference/list_package_resources.html">list_package_resources()</a></code>:</p>
+<p>For a given package, you can get a list of resources using <code><a href="reference/list_package_resources.html">list_package_resources()</a></code>. You can pass it the package id (which is contained in <code>marriage_license_packages</code> below):</p>
 <div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" data-line-number="1"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(dplyr)</a>
 <a class="sourceLine" id="cb4-2" data-line-number="2"></a>
 <a class="sourceLine" id="cb4-3" data-line-number="3">marriage_licence_packages &lt;-<span class="st"> </span>packages <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb4-4" data-line-number="4"><span class="st">  </span><span class="kw"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span>(title <span class="op">==</span><span class="st"> "Marriage Licence Statistics"</span>)</a>
+<a class="sourceLine" id="cb4-4" data-line-number="4"><span class="st">  </span><span class="kw"><a href="https://rdrr.io/pkg/dplyr/man/filter.html">filter</a></span>(title <span class="op">==</span><span class="st"> "Marriage Licence Statistics"</span>)</a>
 <a class="sourceLine" id="cb4-5" data-line-number="5"></a>
 <a class="sourceLine" id="cb4-6" data-line-number="6">marriage_licence_resources &lt;-<span class="st"> </span>marriage_licence_packages <span class="op">%&gt;%</span></a>
 <a class="sourceLine" id="cb4-7" data-line-number="7"><span class="st">  </span><span class="kw"><a href="reference/list_package_resources.html">list_package_resources</a></span>()</a>
@@ -176,25 +176,32 @@
 <a class="sourceLine" id="cb4-11" data-line-number="11"><span class="co">#&gt;   name                  format id                      last_modified       </span></a>
 <a class="sourceLine" id="cb4-12" data-line-number="12"><span class="co">#&gt;   &lt;chr&gt;                 &lt;chr&gt;  &lt;chr&gt;                   &lt;chr&gt;               </span></a>
 <a class="sourceLine" id="cb4-13" data-line-number="13"><span class="co">#&gt; 1 Marriage Licence Sta… CSV    4d985c1d-9c7e-4f74-986… 2019-08-01T10:10:02…</span></a></code></pre></div>
+<p>But you can also get a list of resources by using the package’s URL from the Portal:</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" data-line-number="1"><span class="kw"><a href="reference/list_package_resources.html">list_package_resources</a></span>(<span class="st">"https://open.toronto.ca/dataset/sexual-health-clinic-locations-hours-and-services/"</span>)</a>
+<a class="sourceLine" id="cb5-2" data-line-number="2"><span class="co">#&gt; # A tibble: 2 x 4</span></a>
+<a class="sourceLine" id="cb5-3" data-line-number="3"><span class="co">#&gt;   name                        format id                  last_modified     </span></a>
+<a class="sourceLine" id="cb5-4" data-line-number="4"><span class="co">#&gt;   &lt;chr&gt;                       &lt;chr&gt;  &lt;chr&gt;               &lt;chr&gt;             </span></a>
+<a class="sourceLine" id="cb5-5" data-line-number="5"><span class="co">#&gt; 1 sexual-health-clinic-locat… XLSX   e958dd45-9426-4298… 2019-08-15T15:56:…</span></a>
+<a class="sourceLine" id="cb5-6" data-line-number="6"><span class="co">#&gt; 2 Sexual-health-clinic-locat… XLSX   2edcc4a3-c095-4ce3… 2019-08-15T15:56:…</span></a></code></pre></div>
 <p>Finally (and most usefully!), you can download the resource (i.e., the actual data) directly into R using <code><a href="reference/get_resource.html">get_resource()</a></code>:</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" data-line-number="1">marriage_licence_statistics &lt;-<span class="st"> </span>marriage_licence_resources <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb5-2" data-line-number="2"><span class="st">  </span><span class="kw"><a href="reference/get_resource.html">get_resource</a></span>()</a>
-<a class="sourceLine" id="cb5-3" data-line-number="3"></a>
-<a class="sourceLine" id="cb5-4" data-line-number="4">marriage_licence_statistics</a>
-<a class="sourceLine" id="cb5-5" data-line-number="5"><span class="co">#&gt; # A tibble: 412 x 4</span></a>
-<a class="sourceLine" id="cb5-6" data-line-number="6"><span class="co">#&gt;    `_id` CIVIC_CENTRE MARRIAGE_LICENSES TIME_PERIOD</span></a>
-<a class="sourceLine" id="cb5-7" data-line-number="7"><span class="co">#&gt;    &lt;int&gt; &lt;chr&gt;                    &lt;int&gt; &lt;chr&gt;      </span></a>
-<a class="sourceLine" id="cb5-8" data-line-number="8"><span class="co">#&gt;  1   409 ET                          80 2011-01    </span></a>
-<a class="sourceLine" id="cb5-9" data-line-number="9"><span class="co">#&gt;  2   410 NY                         136 2011-01    </span></a>
-<a class="sourceLine" id="cb5-10" data-line-number="10"><span class="co">#&gt;  3   411 SC                         159 2011-01    </span></a>
-<a class="sourceLine" id="cb5-11" data-line-number="11"><span class="co">#&gt;  4   412 TO                         367 2011-01    </span></a>
-<a class="sourceLine" id="cb5-12" data-line-number="12"><span class="co">#&gt;  5   413 ET                         109 2011-02    </span></a>
-<a class="sourceLine" id="cb5-13" data-line-number="13"><span class="co">#&gt;  6   414 NY                         150 2011-02    </span></a>
-<a class="sourceLine" id="cb5-14" data-line-number="14"><span class="co">#&gt;  7   415 SC                         154 2011-02    </span></a>
-<a class="sourceLine" id="cb5-15" data-line-number="15"><span class="co">#&gt;  8   416 TO                         383 2011-02    </span></a>
-<a class="sourceLine" id="cb5-16" data-line-number="16"><span class="co">#&gt;  9   417 ET                         177 2011-03    </span></a>
-<a class="sourceLine" id="cb5-17" data-line-number="17"><span class="co">#&gt; 10   418 NY                         231 2011-03    </span></a>
-<a class="sourceLine" id="cb5-18" data-line-number="18"><span class="co">#&gt; # … with 402 more rows</span></a></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb6-1" data-line-number="1">marriage_licence_statistics &lt;-<span class="st"> </span>marriage_licence_resources <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb6-2" data-line-number="2"><span class="st">  </span><span class="kw"><a href="reference/get_resource.html">get_resource</a></span>()</a>
+<a class="sourceLine" id="cb6-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb6-4" data-line-number="4">marriage_licence_statistics</a>
+<a class="sourceLine" id="cb6-5" data-line-number="5"><span class="co">#&gt; # A tibble: 412 x 4</span></a>
+<a class="sourceLine" id="cb6-6" data-line-number="6"><span class="co">#&gt;    `_id` CIVIC_CENTRE MARRIAGE_LICENSES TIME_PERIOD</span></a>
+<a class="sourceLine" id="cb6-7" data-line-number="7"><span class="co">#&gt;    &lt;int&gt; &lt;chr&gt;                    &lt;int&gt; &lt;chr&gt;      </span></a>
+<a class="sourceLine" id="cb6-8" data-line-number="8"><span class="co">#&gt;  1   409 ET                          80 2011-01    </span></a>
+<a class="sourceLine" id="cb6-9" data-line-number="9"><span class="co">#&gt;  2   410 NY                         136 2011-01    </span></a>
+<a class="sourceLine" id="cb6-10" data-line-number="10"><span class="co">#&gt;  3   411 SC                         159 2011-01    </span></a>
+<a class="sourceLine" id="cb6-11" data-line-number="11"><span class="co">#&gt;  4   412 TO                         367 2011-01    </span></a>
+<a class="sourceLine" id="cb6-12" data-line-number="12"><span class="co">#&gt;  5   413 ET                         109 2011-02    </span></a>
+<a class="sourceLine" id="cb6-13" data-line-number="13"><span class="co">#&gt;  6   414 NY                         150 2011-02    </span></a>
+<a class="sourceLine" id="cb6-14" data-line-number="14"><span class="co">#&gt;  7   415 SC                         154 2011-02    </span></a>
+<a class="sourceLine" id="cb6-15" data-line-number="15"><span class="co">#&gt;  8   416 TO                         383 2011-02    </span></a>
+<a class="sourceLine" id="cb6-16" data-line-number="16"><span class="co">#&gt;  9   417 ET                         177 2011-03    </span></a>
+<a class="sourceLine" id="cb6-17" data-line-number="17"><span class="co">#&gt; 10   418 NY                         231 2011-03    </span></a>
+<a class="sourceLine" id="cb6-18" data-line-number="18"><span class="co">#&gt; # … with 402 more rows</span></a></code></pre></div>
 <p>Please note that the ‘opendatatoronto’ project is released with a <a href="CODE_OF_CONDUCT.html">Contributor Code of Conduct</a>. By contributing to this project, you agree to abide by its terms.</p>
 </div>
 </div>

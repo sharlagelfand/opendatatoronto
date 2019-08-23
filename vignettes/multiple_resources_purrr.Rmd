@@ -19,8 +19,7 @@ It may be useful to retrieve multiple or all of the resources for a package. For
 ```{r setup}
 library(opendatatoronto)
 
-ttc_subway_delays_resources <- search_packages("TTC Subway Delay Data") %>%
-  list_package_resources()
+ttc_subway_delays_resources <- list_package_resources("https://open.toronto.ca/dataset/ttc-subway-delay-data/")
 
 ttc_subway_delays_resources
 ```

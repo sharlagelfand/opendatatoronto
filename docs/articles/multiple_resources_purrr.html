@@ -105,41 +105,40 @@
 <p>It may be useful to retrieve multiple or all of the resources for a package. For example, the <a href="https://open.toronto.ca/dataset/ttc-subway-delay-data/">TTC Subway Delay Data</a> is released monthly, with a new file each month.</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(opendatatoronto)</a>
 <a class="sourceLine" id="cb1-2" data-line-number="2"></a>
-<a class="sourceLine" id="cb1-3" data-line-number="3">ttc_subway_delays_resources &lt;-<span class="st"> </span><span class="kw"><a href="../reference/search_packages.html">search_packages</a></span>(<span class="st">"TTC Subway Delay Data"</span>) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb1-4" data-line-number="4"><span class="st">  </span><span class="kw"><a href="../reference/list_package_resources.html">list_package_resources</a></span>()</a>
-<a class="sourceLine" id="cb1-5" data-line-number="5"></a>
-<a class="sourceLine" id="cb1-6" data-line-number="6">ttc_subway_delays_resources</a>
-<a class="sourceLine" id="cb1-7" data-line-number="7"><span class="co">#&gt; # A tibble: 29 x 4</span></a>
-<a class="sourceLine" id="cb1-8" data-line-number="8"><span class="co">#&gt;    name                   format id                     last_modified      </span></a>
-<a class="sourceLine" id="cb1-9" data-line-number="9"><span class="co">#&gt;    &lt;chr&gt;                  &lt;chr&gt;  &lt;chr&gt;                  &lt;chr&gt;              </span></a>
-<a class="sourceLine" id="cb1-10" data-line-number="10"><span class="co">#&gt;  1 ttc-subway-delay-codes XLSX   fece136b-224a-412a-b1… 2019-08-15T16:25:1…</span></a>
-<a class="sourceLine" id="cb1-11" data-line-number="11"><span class="co">#&gt;  2 ttc-subway-delay-jan-… XLSX   6664420f-316f-4f94-9b… 2019-08-15T16:25:1…</span></a>
-<a class="sourceLine" id="cb1-12" data-line-number="12"><span class="co">#&gt;  3 ttc-subway-delay-may-… XLSX   d1159888-0035-45a0-b2… 2019-08-15T16:25:1…</span></a>
-<a class="sourceLine" id="cb1-13" data-line-number="13"><span class="co">#&gt;  4 ttc-subway-delay-june… XLSX   240d8e8c-d300-4f91-b9… 2019-08-15T16:25:1…</span></a>
-<a class="sourceLine" id="cb1-14" data-line-number="14"><span class="co">#&gt;  5 ttc-subway-delay-july… XLSX   98d4ac77-aa9f-40a3-97… 2019-08-15T16:25:2…</span></a>
-<a class="sourceLine" id="cb1-15" data-line-number="15"><span class="co">#&gt;  6 ttc-subway-delay-augu… XLSX   92e7649a-cf2f-4ac7-98… 2019-08-15T16:25:2…</span></a>
-<a class="sourceLine" id="cb1-16" data-line-number="16"><span class="co">#&gt;  7 ttc-subway-delay-sept… XLSX   61412f10-656b-4992-9a… 2019-08-15T16:25:2…</span></a>
-<a class="sourceLine" id="cb1-17" data-line-number="17"><span class="co">#&gt;  8 ttc-subway-delay-octo… XLSX   69a6db37-7982-49c7-8d… 2019-08-15T16:25:2…</span></a>
-<a class="sourceLine" id="cb1-18" data-line-number="18"><span class="co">#&gt;  9 ttc-subway-delay-nove… XLSX   10080217-8022-41c0-a8… 2019-08-15T16:25:2…</span></a>
-<a class="sourceLine" id="cb1-19" data-line-number="19"><span class="co">#&gt; 10 ttc-subway-delay-dece… XLSX   a731c4bb-630a-4530-b5… 2019-08-15T16:25:2…</span></a>
-<a class="sourceLine" id="cb1-20" data-line-number="20"><span class="co">#&gt; # … with 19 more rows</span></a></code></pre></div>
+<a class="sourceLine" id="cb1-3" data-line-number="3">ttc_subway_delays_resources &lt;-<span class="st"> </span><span class="kw"><a href="../reference/list_package_resources.html">list_package_resources</a></span>(<span class="st">"https://open.toronto.ca/dataset/ttc-subway-delay-data/"</span>)</a>
+<a class="sourceLine" id="cb1-4" data-line-number="4"></a>
+<a class="sourceLine" id="cb1-5" data-line-number="5">ttc_subway_delays_resources</a>
+<a class="sourceLine" id="cb1-6" data-line-number="6"><span class="co">#&gt; # A tibble: 29 x 4</span></a>
+<a class="sourceLine" id="cb1-7" data-line-number="7"><span class="co">#&gt;    name                   format id                     last_modified      </span></a>
+<a class="sourceLine" id="cb1-8" data-line-number="8"><span class="co">#&gt;    &lt;chr&gt;                  &lt;chr&gt;  &lt;chr&gt;                  &lt;chr&gt;              </span></a>
+<a class="sourceLine" id="cb1-9" data-line-number="9"><span class="co">#&gt;  1 ttc-subway-delay-codes XLSX   fece136b-224a-412a-b1… 2019-08-15T16:25:1…</span></a>
+<a class="sourceLine" id="cb1-10" data-line-number="10"><span class="co">#&gt;  2 ttc-subway-delay-jan-… XLSX   6664420f-316f-4f94-9b… 2019-08-15T16:25:1…</span></a>
+<a class="sourceLine" id="cb1-11" data-line-number="11"><span class="co">#&gt;  3 ttc-subway-delay-may-… XLSX   d1159888-0035-45a0-b2… 2019-08-15T16:25:1…</span></a>
+<a class="sourceLine" id="cb1-12" data-line-number="12"><span class="co">#&gt;  4 ttc-subway-delay-june… XLSX   240d8e8c-d300-4f91-b9… 2019-08-15T16:25:1…</span></a>
+<a class="sourceLine" id="cb1-13" data-line-number="13"><span class="co">#&gt;  5 ttc-subway-delay-july… XLSX   98d4ac77-aa9f-40a3-97… 2019-08-15T16:25:2…</span></a>
+<a class="sourceLine" id="cb1-14" data-line-number="14"><span class="co">#&gt;  6 ttc-subway-delay-augu… XLSX   92e7649a-cf2f-4ac7-98… 2019-08-15T16:25:2…</span></a>
+<a class="sourceLine" id="cb1-15" data-line-number="15"><span class="co">#&gt;  7 ttc-subway-delay-sept… XLSX   61412f10-656b-4992-9a… 2019-08-15T16:25:2…</span></a>
+<a class="sourceLine" id="cb1-16" data-line-number="16"><span class="co">#&gt;  8 ttc-subway-delay-octo… XLSX   69a6db37-7982-49c7-8d… 2019-08-15T16:25:2…</span></a>
+<a class="sourceLine" id="cb1-17" data-line-number="17"><span class="co">#&gt;  9 ttc-subway-delay-nove… XLSX   10080217-8022-41c0-a8… 2019-08-15T16:25:2…</span></a>
+<a class="sourceLine" id="cb1-18" data-line-number="18"><span class="co">#&gt; 10 ttc-subway-delay-dece… XLSX   a731c4bb-630a-4530-b5… 2019-08-15T16:25:2…</span></a>
+<a class="sourceLine" id="cb1-19" data-line-number="19"><span class="co">#&gt; # … with 19 more rows</span></a></code></pre></div>
 <p>It would be cumbersome to retrieve them one at a time, e.g. via</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(dplyr)</a>
 <a class="sourceLine" id="cb2-2" data-line-number="2"></a>
 <a class="sourceLine" id="cb2-3" data-line-number="3">delays_jan_<span class="dv">2019</span> &lt;-<span class="st"> </span>ttc_subway_delays_resources <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb2-4" data-line-number="4"><span class="st">  </span><span class="kw"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span>(name <span class="op">==</span><span class="st"> "ttc-subway-delay-january-2019"</span>) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb2-4" data-line-number="4"><span class="st">  </span><span class="kw"><a href="https://rdrr.io/pkg/dplyr/man/filter.html">filter</a></span>(name <span class="op">==</span><span class="st"> "ttc-subway-delay-january-2019"</span>) <span class="op">%&gt;%</span></a>
 <a class="sourceLine" id="cb2-5" data-line-number="5"><span class="st">  </span><span class="kw"><a href="../reference/get_resource.html">get_resource</a></span>()</a>
 <a class="sourceLine" id="cb2-6" data-line-number="6"></a>
 <a class="sourceLine" id="cb2-7" data-line-number="7">delays_feb_<span class="dv">2019</span> &lt;-<span class="st"> </span>ttc_subway_delays_resources <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb2-8" data-line-number="8"><span class="st">  </span><span class="kw"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span>(name <span class="op">==</span><span class="st"> "ttc-subway-delay-february-2019"</span>) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb2-8" data-line-number="8"><span class="st">  </span><span class="kw"><a href="https://rdrr.io/pkg/dplyr/man/filter.html">filter</a></span>(name <span class="op">==</span><span class="st"> "ttc-subway-delay-february-2019"</span>) <span class="op">%&gt;%</span></a>
 <a class="sourceLine" id="cb2-9" data-line-number="9"><span class="st">  </span><span class="kw"><a href="../reference/get_resource.html">get_resource</a></span>()</a></code></pre></div>
 <p>and so on.</p>
 <p>Instead, you can iterate through the different resources using the <a href="https://purrr.tidyverse.org/"><code>purrr</code> package</a> and get them in a nested tibble:</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" data-line-number="1"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(purrr)</a>
 <a class="sourceLine" id="cb3-2" data-line-number="2"></a>
 <a class="sourceLine" id="cb3-3" data-line-number="3">ttc_subway_delays_<span class="dv">2019</span> &lt;-<span class="st"> </span>ttc_subway_delays_resources <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb3-4" data-line-number="4"><span class="st">  </span><span class="kw"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span>(<span class="kw"><a href="https://rdrr.io/r/base/grep.html">grepl</a></span>(<span class="st">"2019"</span>, name)) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb3-5" data-line-number="5"><span class="st">  </span><span class="kw"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span>(<span class="dt">data =</span> <span class="kw"><a href="https://purrr.tidyverse.org/reference/map.html">map</a></span>(id, get_resource))</a>
+<a class="sourceLine" id="cb3-4" data-line-number="4"><span class="st">  </span><span class="kw"><a href="https://rdrr.io/pkg/dplyr/man/filter.html">filter</a></span>(<span class="kw"><a href="https://rdrr.io/r/base/grep.html">grepl</a></span>(<span class="st">"2019"</span>, name)) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb3-5" data-line-number="5"><span class="st">  </span><span class="kw"><a href="https://rdrr.io/pkg/dplyr/man/mutate.html">mutate</a></span>(<span class="dt">data =</span> <span class="kw"><a href="https://purrr.tidyverse.org/reference/map.html">map</a></span>(id, get_resource))</a>
 <a class="sourceLine" id="cb3-6" data-line-number="6"></a>
 <a class="sourceLine" id="cb3-7" data-line-number="7">ttc_subway_delays_<span class="dv">2019</span></a>
 <a class="sourceLine" id="cb3-8" data-line-number="8"><span class="co">#&gt; # A tibble: 6 x 5</span></a>
@@ -177,7 +176,7 @@
 <a class="sourceLine" id="cb4-23" data-line-number="23"><span class="co">#&gt;  [1] "Date"      "Time"      "Day"       "Station"   "Code"     </span></a>
 <a class="sourceLine" id="cb4-24" data-line-number="24"><span class="co">#&gt;  [6] "Min Delay" "Min Gap"   "Bound"     "Line"      "Vehicle"</span></a></code></pre></div>
 <p>so the data can easily be unnested and combined:</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" data-line-number="1"><span class="kw"><a href="https://dplyr.tidyverse.org/reference/bind.html">bind_rows</a></span>(ttc_subway_delays_<span class="dv">2019</span>[[<span class="st">"data"</span>]])</a>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" data-line-number="1"><span class="kw"><a href="https://rdrr.io/pkg/dplyr/man/bind.html">bind_rows</a></span>(ttc_subway_delays_<span class="dv">2019</span>[[<span class="st">"data"</span>]])</a>
 <a class="sourceLine" id="cb5-2" data-line-number="2"><span class="co">#&gt; # A tibble: 9,831 x 10</span></a>
 <a class="sourceLine" id="cb5-3" data-line-number="3"><span class="co">#&gt;    Date                Time  Day   Station Code  `Min Delay` `Min Gap`</span></a>
 <a class="sourceLine" id="cb5-4" data-line-number="4"><span class="co">#&gt;    &lt;dttm&gt;              &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;   &lt;chr&gt;       &lt;dbl&gt;     &lt;dbl&gt;</span></a>

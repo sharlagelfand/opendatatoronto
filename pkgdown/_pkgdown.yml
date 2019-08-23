@@ -9,7 +9,6 @@ reference:
     - list_packages
     - list_package_resources
     - search_packages
-    - package_id_from_url
   - title: Get resources into R
     contents:
     - get_resource

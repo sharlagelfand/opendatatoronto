@@ -62,7 +62,7 @@ ttc_packages
 
 Within a package, there are a number of **resources** - e.g. CSV, XSLX, JSON, SHP files, and more. Resources are the actual "data".
 
-For a given package, you can get a list of resources using `list_package_resources()`:
+For a given package, you can get a list of resources using `list_package_resources()`. You can pass it the package id (which is contained in `marriage_license_packages` below):
 
 ```{r list-marriage-license-resources}
 library(dplyr)
@@ -74,6 +74,12 @@ marriage_licence_resources <- marriage_licence_packages %>%
   list_package_resources()
 
 marriage_licence_resources
+```
+
+But you can also get a list of resources by using the package's URL from the Portal:
+
+```{r list-resources-url}
+list_package_resources("https://open.toronto.ca/dataset/sexual-health-clinic-locations-hours-and-services/")
 ```
 
 Finally (and most usefully!), you can download the resource (i.e., the actual data) directly into R using `get_resource()`:

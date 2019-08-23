@@ -4,15 +4,13 @@
 #'
 #' @param package_url Package URL from the City of Toronto Open Data Portal
 #'
-#' @export
-#'
 #' @examples
 #' \dontrun{
 #' package_id_from_url("https://open.toronto.ca/dataset/ttc-subway-delay-data")
 #' }
 package_id_from_url <- function(package_url) {
-  if(!grepl("https://open.toronto.ca/dataset/", package_url)) {
-    stop("Package URL must contain open.toronto.ca/dataset/",
+  if(!grepl("open.toronto.ca/dataset/", package_url)) {
+    stop("Package URL must start with open.toronto.ca/dataset/",
          call. = FALSE)
   }
 

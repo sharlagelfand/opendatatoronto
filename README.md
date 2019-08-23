@@ -58,8 +58,8 @@ packages
 #> # A tibble: 100 x 8
 #>    title id    topics excerpt dataset_category formats refresh_rate
 #>    <chr> <chr> <chr>  <chr>   <chr>            <chr>   <chr>       
-#>  1 Apar… 83d5… Locat… This d… Table            CSV,JS… Annually    
-#>  2 Immu… 99ff… Health "This … Document         XLSX,C… Annually    
+#>  1 Apar… 4ef8… Locat… This d… Table            CSV,JS… Annually    
+#>  2 311 … 2e54… City … The da… Document         XLSX,Z… Monthly     
 #>  3 Body… c405… City … This d… Table            WEB,CS… Daily       
 #>  4 Stre… 1db3… City … Transi… Map              CSV,GE… Semi-annual…
 #>  5 Stre… 74f6… City … Public… Map              CSV,GE… Semi-annual…
@@ -101,7 +101,8 @@ Within a package, there are a number of **resources** - e.g. CSV, XSLX,
 JSON, SHP files, and more. Resources are the actual “data”.
 
 For a given package, you can get a list of resources using
-`list_package_resources()`:
+`list_package_resources()`. You can pass it the package id (which is
+contained in `marriage_license_packages` below):
 
 ``` r
 library(dplyr)
@@ -117,6 +118,19 @@ marriage_licence_resources
 #>   name                  format id                      last_modified       
 #>   <chr>                 <chr>  <chr>                   <chr>               
 #> 1 Marriage Licence Sta… CSV    4d985c1d-9c7e-4f74-986… 2019-08-01T10:10:02…
+```
+
+But you can also get a list of resources by using the package’s URL from
+the
+Portal:
+
+``` r
+list_package_resources("https://open.toronto.ca/dataset/sexual-health-clinic-locations-hours-and-services/")
+#> # A tibble: 2 x 4
+#>   name                        format id                  last_modified     
+#>   <chr>                       <chr>  <chr>               <chr>             
+#> 1 sexual-health-clinic-locat… XLSX   e958dd45-9426-4298… 2019-08-15T15:56:…
+#> 2 Sexual-health-clinic-locat… XLSX   2edcc4a3-c095-4ce3… 2019-08-15T15:56:…
 ```
 
 Finally (and most usefully\!), you can download the resource (i.e., the

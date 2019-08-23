@@ -16,6 +16,8 @@ as_id <- function(x) {
     stop(paste0("`", object_name, "` must be a 1 row data frame or a length 1 character vector."),
       call. = FALSE
     )
+  } else if (grepl("open.toronto.ca/dataset/", x)) {
+    package_id_from_url(x)
   } else {
     x
   }
