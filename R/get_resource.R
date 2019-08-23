@@ -17,7 +17,7 @@ get_resource <- function(resource) {
     silent = TRUE
   )
 
-  resource_res <- check_resource_found(resource_res, resource_id)
+  resource_res <- check_found(resource_res, resource_id, "resource")
 
   format <- check_format(resource_res[["format"]])
 
@@ -35,28 +35,6 @@ get_resource <- function(resource) {
   } else {
     res <- lapply(X = res, FUN = tibble::as_tibble)
     names(res) <- names(res)
-    res
-  }
-}
-
-# Helpers
-
-check_id_in_resource <- function(resource) {
-  if (!("id" %in% names(resource))) {
-    stop('`resource` must contain a column "id".',
-      call. = FALSE
-    )
-  } else {
-    resource
-  }
-}
-
-check_resource_found <- function(res, resource_id) {
-  if (class(res) == "try-error" && (grepl("404", res) || grepl("403", res))) {
-    stop(paste0('`resource` "', resource_id, '" was not found.'),
-      call. = FALSE
-    )
-  } else {
     res
   }
 }

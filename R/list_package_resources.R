@@ -17,7 +17,7 @@ list_package_resources <- function(package) {
     silent = TRUE
   )
 
-  package_res <- check_package_found(package_res, package_id)
+  package_res <- check_found(package_res, package_id, "package")
 
   if (package_res[["num_resources"]] == 0) {
     tibble::tibble(
@@ -29,17 +29,5 @@ list_package_resources <- function(package) {
     resources <- package_res[["resources"]]
     res <- resources[, c("name", "format", "id", "last_modified")]
     tibble::as_tibble(res)
-  }
-}
-
-# Helpers
-
-check_package_found <- function(res, package_id) {
-  if (class(res) == "try-error" && (grepl("404", res) || grepl("403", res))) {
-    stop(paste0('`package` "', package_id, '" was not found.'),
-      call. = FALSE
-    )
-  } else {
-    res
   }
 }

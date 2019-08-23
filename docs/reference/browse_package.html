@@ -68,7 +68,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">opendatatoronto</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.0.9002</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.0.9003</span>
       </span>
     </div>
 
@@ -147,7 +147,7 @@
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
       <th>package</th>
-      <td><p>A way to identify the package. Either a package ID (passed as a character vector directly) or a single package resulting from <code><a href='list_packages.html'>list_packages</a></code> or <code><a href='search_packages.html'>search_packages</a></code></p></td>
+      <td><p>A way to identify the package. Either a package ID (passed as a character vector directly), a single package resulting from <code><a href='list_packages.html'>list_packages</a></code> or <code><a href='search_packages.html'>search_packages</a></code>, or the package's URL from the portal</p></td>
     </tr>
     </table>
     
@@ -156,6 +156,7 @@
     <pre class="examples"><span class='co'># NOT RUN {</span>
 <span class='no'>ttc_subway_delays</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='search_packages.html'>search_packages</a></span>(<span class='st'>"ttc subway delay"</span>)
 <span class='fu'>browse_package</span>(<span class='no'>ttc_subway_delays</span>)
+<span class='fu'>browse_package</span>(<span class='st'>"https://open.toronto.ca/dataset/business-improvement-areas/"</span>)
 <span class='co'># }</span></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">

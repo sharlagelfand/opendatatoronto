@@ -20,7 +20,7 @@ browse_portal <- function() {
 #'
 #' Opens a browser to the package's page on the City of Toronto Open Data Portal.
 #'
-#' @param package A way to identify the package. Either a package ID (passed as a character vector directly) or a single package resulting from \code{\link{list_packages}} or \code{\link{search_packages}}
+#' @param package A way to identify the package. Either a package ID (passed as a character vector directly), a single package resulting from \code{\link{list_packages}} or \code{\link{search_packages}}, or the package's URL from the portal
 #'
 #' @export
 #'
@@ -28,6 +28,7 @@ browse_portal <- function() {
 #' \dontrun{
 #' ttc_subway_delays <- search_packages("ttc subway delay")
 #' browse_package(ttc_subway_delays)
+#' browse_package("https://open.toronto.ca/dataset/business-improvement-areas/")
 #' }
 browse_package <- function(package) {
   package_id <- as_id(package)
@@ -36,7 +37,7 @@ browse_package <- function(package) {
     ckanr::package_show(id = package_id, url = opendatatoronto_ckan_url, as = "list"),
     silent = TRUE
   )
-  package_res <- check_package_found(package_res, package_id)
+  package_res <- check_found(package_res, package_id, "package")
 
   package_title <- package_res[["title"]]
 
@@ -70,14 +71,7 @@ browse_resource <- function(resource) {
     ckanr::resource_show(id = resource_id, url = opendatatoronto_ckan_url, as = "list"),
     silent = TRUE
   )
-  resource_res <- check_resource_found(resource_res, resource_id)
+  resource_res <- check_found(resource_res, resource_id, "resource")
 
   browse_package(resource_res[["package_id"]])
-}
-
-parse_package_title <- function(x) {
-  lower <- tolower(x)
-  dash <- gsub(lower, pattern = "[^[:alnum:]]", replacement = "-", x = lower) # replace all non-alphanumeric with -'s
-  remove_repeated <- gsub(pattern = "(-)\\1+", replacement = "-", x = dash) # only one - in a row
-  gsub(pattern = "-$", replacement = "", x = remove_repeated) # ends with -
 }

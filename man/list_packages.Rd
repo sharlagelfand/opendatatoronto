@@ -4,10 +4,10 @@
 \alias{list_packages}
 \title{List packages}
 \usage{
-list_packages(limit = 31)
+list_packages(limit = 50)
 }
 \arguments{
-\item{limit}{The maximum number of packages to return (default is 31).}
+\item{limit}{The maximum number of packages to return. The default is 50.}
 }
 \description{
 List packages
