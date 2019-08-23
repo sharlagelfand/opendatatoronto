@@ -42,11 +42,11 @@ vignettes:
 You can install the development version from GitHub with:
 
 ``` r
-# install.packages("remotes")
-remotes::install_github("sharlagelfand/opendatatoronto")
+# install.packages("devtools")
+devtools::install_github("sharlagelfand/opendatatoronto")
 ```
 
-## Example
+## Usage
 
 In the Portal, datasets are called **packages**. You can see a list of
 available packages by using `list_packages()`:
@@ -58,16 +58,16 @@ packages
 #> # A tibble: 100 x 8
 #>    title id    topics excerpt dataset_category formats refresh_rate
 #>    <chr> <chr> <chr>  <chr>   <chr>            <chr>   <chr>       
-#>  1 Impe… dd97… Devel… "Perme… Document         ZIP     As available
-#>  2 TTC … 996c… Trans… TTC Su… Document         XLSX    Monthly     
-#>  3 TTC … b68c… Trans… TTC St… Document         XLSX    Monthly     
-#>  4 TTC … e271… Trans… TTC Bu… Document         XLSX    Monthly     
-#>  5 City… 5e7a… City … The Ci… Map              SHP,WE… Semi-annual…
-#>  6 Road… 2265… Trans… "This … Document         JSON,W… Real-time   
-#>  7 Free… 854b… City … FOI re… Document         XLS,XL… Quarterly   
-#>  8 Sexu… d20b… Healt… This d… Document         XLSX    As available
-#>  9 Mont… ec1f… Health "This … Document         XLSX    Monthly     
-#> 10 Clim… dfbc… Envir… Result… Document         XLS,XL… As available
+#>  1 Apar… 83d5… Locat… This d… Table            CSV,JS… Annually    
+#>  2 Immu… 99ff… Health "This … Document         XLSX,C… Annually    
+#>  3 Body… c405… City … This d… Table            WEB,CS… Daily       
+#>  4 Stre… 1db3… City … Transi… Map              CSV,GE… Semi-annual…
+#>  5 Stre… 74f6… City … Public… Map              CSV,GE… Semi-annual…
+#>  6 Stre… 821f… City … Public… Map              CSV,GE… Semi-annual…
+#>  7 Stre… ccfd… City … Poster… Map              CSV,GE… Semi-annual…
+#>  8 Stre… cf70… City … Poster… Map              CSV,GE… Semi-annual…
+#>  9 Stre… 99b1… City … Inform… Map              CSV,GE… Semi-annual…
+#> 10 Stre… 71e6… Trans… "Bike … Map              CSV,GE… Daily       
 #> # … with 90 more rows, and 1 more variable: num_resources <int>
 ```
 
