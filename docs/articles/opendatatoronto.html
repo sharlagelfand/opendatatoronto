@@ -61,7 +61,7 @@
       <a href="../articles/multifile_zip_resources.html">Retrieving multi-file ZIP resources</a>
     </li>
     <li>
-      <a href="../articles/multiple_resources_purrr.html">Retrieving Multiple Resources Using purrr</a>
+      <a href="../articles/multiple_resources_purrr.html">Retrieving multiple resources using purrr</a>
     </li>
     <li>
       <a href="../articles/multisheet_resources.html">Retrieving multi-sheet XLS/XLSX resources</a>
@@ -112,14 +112,14 @@
 <a class="sourceLine" id="cb1-6" data-line-number="6"><span class="co">#&gt; # A tibble: 50 x 8</span></a>
 <a class="sourceLine" id="cb1-7" data-line-number="7"><span class="co">#&gt;    title id    topics excerpt dataset_category formats refresh_rate</span></a>
 <a class="sourceLine" id="cb1-8" data-line-number="8"><span class="co">#&gt;    &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;  &lt;chr&gt;   &lt;chr&gt;            &lt;chr&gt;   &lt;chr&gt;       </span></a>
-<a class="sourceLine" id="cb1-9" data-line-number="9"><span class="co">#&gt;  1 Outb… 80ce… Healt… This d… Document         XLS,XL… Weekly      </span></a>
-<a class="sourceLine" id="cb1-10" data-line-number="10"><span class="co">#&gt;  2 Body… c405… City … This d… Table            WEB,CS… Daily       </span></a>
-<a class="sourceLine" id="cb1-11" data-line-number="11"><span class="co">#&gt;  3 Stre… 1db3… City … Transi… Map              CSV,GE… Semi-annual…</span></a>
-<a class="sourceLine" id="cb1-12" data-line-number="12"><span class="co">#&gt;  4 Stre… 74f6… City … Public… Map              CSV,GE… Semi-annual…</span></a>
-<a class="sourceLine" id="cb1-13" data-line-number="13"><span class="co">#&gt;  5 Stre… 821f… City … Public… Map              CSV,GE… Semi-annual…</span></a>
-<a class="sourceLine" id="cb1-14" data-line-number="14"><span class="co">#&gt;  6 Stre… ccfd… City … Poster… Map              CSV,GE… Semi-annual…</span></a>
-<a class="sourceLine" id="cb1-15" data-line-number="15"><span class="co">#&gt;  7 Stre… cf70… City … Poster… Map              CSV,GE… Semi-annual…</span></a>
-<a class="sourceLine" id="cb1-16" data-line-number="16"><span class="co">#&gt;  8 Stre… 3944… City … Litter… Map              CSV,GE… Semi-annual…</span></a>
+<a class="sourceLine" id="cb1-9" data-line-number="9"><span class="co">#&gt;  1 Apar… 83d5… Locat… This d… Table            CSV,JS… Annually    </span></a>
+<a class="sourceLine" id="cb1-10" data-line-number="10"><span class="co">#&gt;  2 Immu… 99ff… Health "This … Document         XLSX,C… Annually    </span></a>
+<a class="sourceLine" id="cb1-11" data-line-number="11"><span class="co">#&gt;  3 Body… c405… City … This d… Table            WEB,CS… Daily       </span></a>
+<a class="sourceLine" id="cb1-12" data-line-number="12"><span class="co">#&gt;  4 Stre… 1db3… City … Transi… Map              CSV,GE… Semi-annual…</span></a>
+<a class="sourceLine" id="cb1-13" data-line-number="13"><span class="co">#&gt;  5 Stre… 74f6… City … Public… Map              CSV,GE… Semi-annual…</span></a>
+<a class="sourceLine" id="cb1-14" data-line-number="14"><span class="co">#&gt;  6 Stre… 821f… City … Public… Map              CSV,GE… Semi-annual…</span></a>
+<a class="sourceLine" id="cb1-15" data-line-number="15"><span class="co">#&gt;  7 Stre… ccfd… City … Poster… Map              CSV,GE… Semi-annual…</span></a>
+<a class="sourceLine" id="cb1-16" data-line-number="16"><span class="co">#&gt;  8 Stre… cf70… City … Poster… Map              CSV,GE… Semi-annual…</span></a>
 <a class="sourceLine" id="cb1-17" data-line-number="17"><span class="co">#&gt;  9 Stre… 99b1… City … Inform… Map              CSV,GE… Semi-annual…</span></a>
 <a class="sourceLine" id="cb1-18" data-line-number="18"><span class="co">#&gt; 10 Stre… 71e6… Trans… "Bike … Map              CSV,GE… Daily       </span></a>
 <a class="sourceLine" id="cb1-19" data-line-number="19"><span class="co">#&gt; # … with 40 more rows, and 1 more variable: num_resources &lt;int&gt;</span></a></code></pre></div>
@@ -127,11 +127,12 @@
 <div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" data-line-number="1">apartment_packages &lt;-<span class="st"> </span><span class="kw"><a href="../reference/search_packages.html">search_packages</a></span>(<span class="st">"Apartment"</span>)</a>
 <a class="sourceLine" id="cb2-2" data-line-number="2"></a>
 <a class="sourceLine" id="cb2-3" data-line-number="3">apartment_packages</a>
-<a class="sourceLine" id="cb2-4" data-line-number="4"><span class="co">#&gt; # A tibble: 1 x 8</span></a>
+<a class="sourceLine" id="cb2-4" data-line-number="4"><span class="co">#&gt; # A tibble: 2 x 8</span></a>
 <a class="sourceLine" id="cb2-5" data-line-number="5"><span class="co">#&gt;   title id    topics excerpt dataset_category formats refresh_rate</span></a>
 <a class="sourceLine" id="cb2-6" data-line-number="6"><span class="co">#&gt;   &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;  &lt;chr&gt;   &lt;chr&gt;            &lt;chr&gt;   &lt;chr&gt;       </span></a>
-<a class="sourceLine" id="cb2-7" data-line-number="7"><span class="co">#&gt; 1 Apar… 2b98… Busin… "This … Table            CSV,JS… Monthly     </span></a>
-<a class="sourceLine" id="cb2-8" data-line-number="8"><span class="co">#&gt; # … with 1 more variable: num_resources &lt;int&gt;</span></a></code></pre></div>
+<a class="sourceLine" id="cb2-7" data-line-number="7"><span class="co">#&gt; 1 Apar… 83d5… Locat… This d… Table            CSV,JS… Annually    </span></a>
+<a class="sourceLine" id="cb2-8" data-line-number="8"><span class="co">#&gt; 2 Apar… 2b98… Busin… "This … Table            CSV,JS… Monthly     </span></a>
+<a class="sourceLine" id="cb2-9" data-line-number="9"><span class="co">#&gt; # … with 1 more variable: num_resources &lt;int&gt;</span></a></code></pre></div>
 <p>Within a package, there are a number of <strong>resources</strong> - e.g. CSV, XSLX, JSON, SHP files, and more. Resources are the actual “data”.</p>
 <p>For a given package, you can get a list of resources using <code><a href="../reference/list_package_resources.html">list_package_resources()</a></code>:</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" data-line-number="1"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(dplyr)</a>
@@ -182,10 +183,10 @@
 <a class="sourceLine" id="cb4-32" data-line-number="32"><span class="co">#&gt; #   WINDOW_TYPE &lt;chr&gt;, YEAR_BUILT &lt;chr&gt;, YEAR_REGISTERED &lt;chr&gt;</span></a></code></pre></div>
 <p>The <code>opendatatoronto</code> package can currently handle the download of CSV, XLS/XLSX, XML, JSON, SHP, and GeoJSON resources, as well as ZIP resources that contain multiple files. For more information, see the following vignettes:</p>
 <ul>
-<li><a href="multisheet_resources.html">Multi-sheet XLS/XLSX resources</a></li>
-<li><a href="multifile_zip_resources.html">Multi-file ZIP resources</a></li>
-<li><a href="spatial_data.html">Spatial data</a></li>
-<li><a href="multiple_resources_purrr.html">Retrieving multiple resources using purrr</a></li>
+<li><a href="multisheet_resources.html">Retrieving multi-sheet XLS/XLSX resources</a></li>
+<li><a href="multifile_zip_resources.html">Retrieving multi-file ZIP resources</a></li>
+<li><a href="multiple_resources_purrr.html">Retrieving multiple resources using <code>purrr</code></a></li>
+<li><a href="spatial_data.html">Working with spatial data from the portal</a></li>
 </ul>
 </div>
 

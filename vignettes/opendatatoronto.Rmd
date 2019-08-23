@@ -62,7 +62,7 @@ apartment_building_registration_data
 
 The `opendatatoronto` package can currently handle the download of CSV, XLS/XLSX, XML, JSON, SHP, and GeoJSON resources, as well as ZIP resources that contain multiple files. For more information, see the following vignettes:
 
-* [Multi-sheet XLS/XLSX resources](multisheet_resources.html)
-* [Multi-file ZIP resources](multifile_zip_resources.html)
-* [Spatial data](spatial_data.html)
-* [Retrieving multiple resources using purrr](multiple_resources_purrr.html)
+* [Retrieving multi-sheet XLS/XLSX resources](multisheet_resources.html)
+* [Retrieving multi-file ZIP resources](multifile_zip_resources.html)
+* [Retrieving multiple resources using `purrr`](multiple_resources_purrr.html)
+* [Working with spatial data from the portal](spatial_data.html)

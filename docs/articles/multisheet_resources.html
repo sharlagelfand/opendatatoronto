@@ -61,7 +61,7 @@
       <a href="../articles/multifile_zip_resources.html">Retrieving multi-file ZIP resources</a>
     </li>
     <li>
-      <a href="../articles/multiple_resources_purrr.html">Retrieving Multiple Resources Using purrr</a>
+      <a href="../articles/multiple_resources_purrr.html">Retrieving multiple resources using purrr</a>
     </li>
     <li>
       <a href="../articles/multisheet_resources.html">Retrieving multi-sheet XLS/XLSX resources</a>
@@ -166,12 +166,13 @@
 <a class="sourceLine" id="cb4-4" data-line-number="4"><span class="st">  </span><span class="kw"><a href="../reference/get_resource.html">get_resource</a></span>()</a></code></pre></div>
 <p>The result of is a list with an element for every month of data, each of which is a tibble:</p>
 <div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" data-line-number="1"><span class="kw"><a href="https://rdrr.io/r/utils/str.html">str</a></span>(ttc_bus_delays_<span class="dv">2019</span>, <span class="dt">max.level =</span> <span class="dv">1</span>)</a>
-<a class="sourceLine" id="cb5-2" data-line-number="2"><span class="co">#&gt; List of 5</span></a>
+<a class="sourceLine" id="cb5-2" data-line-number="2"><span class="co">#&gt; List of 6</span></a>
 <a class="sourceLine" id="cb5-3" data-line-number="3"><span class="co">#&gt;  $ Jan 2019 :Classes 'tbl_df', 'tbl' and 'data.frame':   6743 obs. of  10 variables:</span></a>
 <a class="sourceLine" id="cb5-4" data-line-number="4"><span class="co">#&gt;  $ Feb 2019 :Classes 'tbl_df', 'tbl' and 'data.frame':   6958 obs. of  10 variables:</span></a>
 <a class="sourceLine" id="cb5-5" data-line-number="5"><span class="co">#&gt;  $ Mar 2019 :Classes 'tbl_df', 'tbl' and 'data.frame':   5712 obs. of  10 variables:</span></a>
 <a class="sourceLine" id="cb5-6" data-line-number="6"><span class="co">#&gt;  $ Apr 2019 :Classes 'tbl_df', 'tbl' and 'data.frame':   5144 obs. of  11 variables:</span></a>
-<a class="sourceLine" id="cb5-7" data-line-number="7"><span class="co">#&gt;  $ May 2019 :Classes 'tbl_df', 'tbl' and 'data.frame':   5023 obs. of  10 variables:</span></a></code></pre></div>
+<a class="sourceLine" id="cb5-7" data-line-number="7"><span class="co">#&gt;  $ May 2019 :Classes 'tbl_df', 'tbl' and 'data.frame':   5023 obs. of  10 variables:</span></a>
+<a class="sourceLine" id="cb5-8" data-line-number="8"><span class="co">#&gt;  $ June 2019:Classes 'tbl_df', 'tbl' and 'data.frame':   5232 obs. of  10 variables:</span></a></code></pre></div>
 <p>Note that the data for for the element <code>Apr 2019</code> has one more variable than the rest (11 versus 10):</p>
 <div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb6-1" data-line-number="1"><span class="kw"><a href="https://rdrr.io/r/base/lapply.html">sapply</a></span>(ttc_bus_delays_<span class="dv">2019</span>, colnames)</a>
 <a class="sourceLine" id="cb6-2" data-line-number="2"><span class="co">#&gt; $`Jan 2019`</span></a>
@@ -193,7 +194,11 @@
 <a class="sourceLine" id="cb6-18" data-line-number="18"><span class="co">#&gt; </span></a>
 <a class="sourceLine" id="cb6-19" data-line-number="19"><span class="co">#&gt; $`May 2019 `</span></a>
 <a class="sourceLine" id="cb6-20" data-line-number="20"><span class="co">#&gt;  [1] "Report Date" "Route"       "Time"        "Day"         "Location"   </span></a>
-<a class="sourceLine" id="cb6-21" data-line-number="21"><span class="co">#&gt;  [6] "Incident"    "Min Delay"   "Min Gap"     "Direction"   "Vehicle"</span></a></code></pre></div>
+<a class="sourceLine" id="cb6-21" data-line-number="21"><span class="co">#&gt;  [6] "Incident"    "Min Delay"   "Min Gap"     "Direction"   "Vehicle"    </span></a>
+<a class="sourceLine" id="cb6-22" data-line-number="22"><span class="co">#&gt; </span></a>
+<a class="sourceLine" id="cb6-23" data-line-number="23"><span class="co">#&gt; $`June 2019`</span></a>
+<a class="sourceLine" id="cb6-24" data-line-number="24"><span class="co">#&gt;  [1] "Report Date" "Route"       "Time"        "Day"         "Location"   </span></a>
+<a class="sourceLine" id="cb6-25" data-line-number="25"><span class="co">#&gt;  [6] "Incident"    "Delay"       "Gap"         "Direction"   "Vehicle"</span></a></code></pre></div>
 <p>It seems that the <code>Apr 2019</code> data has gained a variable <code>Incident ID</code>, and that the variables <code>Min Gap</code> and <code>Min Delay</code>, present in all the other months, have been renamed to <code>Gap</code> and <code>Delay</code>, respectively.</p>
 <p>We can rename these two variables:</p>
 <div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb7-1" data-line-number="1">ttc_bus_delays_<span class="dv">2019</span>[[<span class="st">"Apr 2019"</span>]] &lt;-<span class="st"> </span>ttc_bus_delays_<span class="dv">2019</span>[[<span class="st">"Apr 2019"</span>]] <span class="op">%&gt;%</span></a>
@@ -202,7 +207,7 @@
 <div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb8-1" data-line-number="1">ttc_bus_delays_<span class="dv">2019</span>_combined &lt;-<span class="st"> </span><span class="kw"><a href="https://dplyr.tidyverse.org/reference/bind.html">bind_rows</a></span>(ttc_bus_delays_<span class="dv">2019</span>)</a>
 <a class="sourceLine" id="cb8-2" data-line-number="2"></a>
 <a class="sourceLine" id="cb8-3" data-line-number="3">ttc_bus_delays_<span class="dv">2019</span>_combined</a>
-<a class="sourceLine" id="cb8-4" data-line-number="4"><span class="co">#&gt; # A tibble: 29,580 x 11</span></a>
+<a class="sourceLine" id="cb8-4" data-line-number="4"><span class="co">#&gt; # A tibble: 34,812 x 13</span></a>
 <a class="sourceLine" id="cb8-5" data-line-number="5"><span class="co">#&gt;    `Report Date`       Route Time                Day   Location Incident</span></a>
 <a class="sourceLine" id="cb8-6" data-line-number="6"><span class="co">#&gt;    &lt;dttm&gt;              &lt;dbl&gt; &lt;dttm&gt;              &lt;chr&gt; &lt;chr&gt;    &lt;chr&gt;   </span></a>
 <a class="sourceLine" id="cb8-7" data-line-number="7"><span class="co">#&gt;  1 2019-01-01 00:00:00    39 1899-12-31 00:13:00 Tues… NECR     Mechani…</span></a>
@@ -215,8 +220,9 @@
 <a class="sourceLine" id="cb8-14" data-line-number="14"><span class="co">#&gt;  8 2019-01-01 00:00:00    53 1899-12-31 02:19:00 Tues… FSTN     Utilize…</span></a>
 <a class="sourceLine" id="cb8-15" data-line-number="15"><span class="co">#&gt;  9 2019-01-01 00:00:00   112 1899-12-31 02:33:00 Tues… Kipling… Mechani…</span></a>
 <a class="sourceLine" id="cb8-16" data-line-number="16"><span class="co">#&gt; 10 2019-01-01 00:00:00    85 1899-12-31 02:57:00 Tues… DONS     Mechani…</span></a>
-<a class="sourceLine" id="cb8-17" data-line-number="17"><span class="co">#&gt; # … with 29,570 more rows, and 5 more variables: `Min Delay` &lt;dbl&gt;, `Min</span></a>
-<a class="sourceLine" id="cb8-18" data-line-number="18"><span class="co">#&gt; #   Gap` &lt;dbl&gt;, Direction &lt;chr&gt;, Vehicle &lt;dbl&gt;, `Incident ID` &lt;dbl&gt;</span></a></code></pre></div>
+<a class="sourceLine" id="cb8-17" data-line-number="17"><span class="co">#&gt; # … with 34,802 more rows, and 7 more variables: `Min Delay` &lt;dbl&gt;, `Min</span></a>
+<a class="sourceLine" id="cb8-18" data-line-number="18"><span class="co">#&gt; #   Gap` &lt;dbl&gt;, Direction &lt;chr&gt;, Vehicle &lt;dbl&gt;, `Incident ID` &lt;dbl&gt;,</span></a>
+<a class="sourceLine" id="cb8-19" data-line-number="19"><span class="co">#&gt; #   Delay &lt;dbl&gt;, Gap &lt;dbl&gt;</span></a></code></pre></div>
 <p>Unfortunately, it looks like the <code>Time</code> variable got Excel™ed, and will need some data cleaning.</p>
 <p>For interests sake, it appears that <code>Incident ID</code> is a lookup ID for the type of incident – only present in the <code>Apr 2019</code> data, but interesting nonetheless!</p>
 <div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb9-1" data-line-number="1">ttc_bus_delays_<span class="dv">2019</span>_combined <span class="op">%&gt;%</span></a>

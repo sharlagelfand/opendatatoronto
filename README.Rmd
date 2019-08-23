@@ -38,11 +38,11 @@ For more information, please visit the [package website](https://sharlagelfand.g
 You can install the development version from GitHub with:
 
 ``` r
-# install.packages("remotes")
-remotes::install_github("sharlagelfand/opendatatoronto")
+# install.packages("devtools")
+devtools::install_github("sharlagelfand/opendatatoronto")
 ```
 
-## Example
+## Usage
 
 In the Portal, datasets are called **packages**. You can see a list of available packages by using `list_packages()`:
 

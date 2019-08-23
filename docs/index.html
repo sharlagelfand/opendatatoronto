@@ -63,7 +63,7 @@
       <a href="articles/multifile_zip_resources.html">Retrieving multi-file ZIP resources</a>
     </li>
     <li>
-      <a href="articles/multiple_resources_purrr.html">Retrieving Multiple Resources Using purrr</a>
+      <a href="articles/multiple_resources_purrr.html">Retrieving multiple resources using purrr</a>
     </li>
     <li>
       <a href="articles/multisheet_resources.html">Retrieving multi-sheet XLS/XLSX resources</a>
@@ -116,12 +116,12 @@
 <h2 class="hasAnchor">
 <a href="#installation" class="anchor"></a>Installation</h2>
 <p>You can install the development version from GitHub with:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="co"># install.packages("remotes")</span></a>
-<a class="sourceLine" id="cb1-2" data-line-number="2">remotes<span class="op">::</span><span class="kw"><a href="https://rdrr.io/pkg/remotes/man/install_github.html">install_github</a></span>(<span class="st">"sharlagelfand/opendatatoronto"</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="co"># install.packages("devtools")</span></a>
+<a class="sourceLine" id="cb1-2" data-line-number="2">devtools<span class="op">::</span><span class="kw"><a href="https://rdrr.io/pkg/devtools/man/reexports.html">install_github</a></span>(<span class="st">"sharlagelfand/opendatatoronto"</span>)</a></code></pre></div>
 </div>
-<div id="example" class="section level2">
+<div id="usage" class="section level2">
 <h2 class="hasAnchor">
-<a href="#example" class="anchor"></a>Example</h2>
+<a href="#usage" class="anchor"></a>Usage</h2>
 <p>In the Portal, datasets are called <strong>packages</strong>. You can see a list of available packages by using <code><a href="reference/list_packages.html">list_packages()</a></code>:</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(opendatatoronto)</a>
 <a class="sourceLine" id="cb2-2" data-line-number="2">packages &lt;-<span class="st"> </span><span class="kw"><a href="reference/list_packages.html">list_packages</a></span>(<span class="dt">limit =</span> <span class="dv">100</span>)</a>
@@ -129,8 +129,8 @@
 <a class="sourceLine" id="cb2-4" data-line-number="4"><span class="co">#&gt; # A tibble: 100 x 8</span></a>
 <a class="sourceLine" id="cb2-5" data-line-number="5"><span class="co">#&gt;    title id    topics excerpt dataset_category formats refresh_rate</span></a>
 <a class="sourceLine" id="cb2-6" data-line-number="6"><span class="co">#&gt;    &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;  &lt;chr&gt;   &lt;chr&gt;            &lt;chr&gt;   &lt;chr&gt;       </span></a>
-<a class="sourceLine" id="cb2-7" data-line-number="7"><span class="co">#&gt;  1 Chem… ae8e… Envir… This d… Table            WEB,XL… Daily       </span></a>
-<a class="sourceLine" id="cb2-8" data-line-number="8"><span class="co">#&gt;  2 Prio… 32b3… Busin… Neighb… Document         WEB,ZIP As available</span></a>
+<a class="sourceLine" id="cb2-7" data-line-number="7"><span class="co">#&gt;  1 Apar… 83d5… Locat… This d… Table            CSV,JS… Annually    </span></a>
+<a class="sourceLine" id="cb2-8" data-line-number="8"><span class="co">#&gt;  2 Immu… 99ff… Health "This … Document         XLSX,C… Annually    </span></a>
 <a class="sourceLine" id="cb2-9" data-line-number="9"><span class="co">#&gt;  3 Body… c405… City … This d… Table            WEB,CS… Daily       </span></a>
 <a class="sourceLine" id="cb2-10" data-line-number="10"><span class="co">#&gt;  4 Stre… 1db3… City … Transi… Map              CSV,GE… Semi-annual…</span></a>
 <a class="sourceLine" id="cb2-11" data-line-number="11"><span class="co">#&gt;  5 Stre… 74f6… City … Public… Map              CSV,GE… Semi-annual…</span></a>
