@@ -17,4 +17,5 @@ test_that("parse_package_title replaces non-alphanumeric characters with '-', co
   expect_equal(parse_package_title("HERE IS ANOTHER"), "here-is-another")
   expect_equal(parse_package_title("and another one!"), "and-another-one")
   expect_equal(parse_package_title("one    more for good measure"), "one-more-for-good-measure")
+  expect_equal(parse_package_title("1234 better check some numbers more!"), "1234-better-check-some-numbers-more")
 })

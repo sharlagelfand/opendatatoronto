@@ -77,7 +77,7 @@ browse_resource <- function(resource) {
 
 parse_package_title <- function(x) {
   lower <- tolower(x)
-  dash <- gsub(lower, pattern = "[^a-zA-Z\\d]", replacement = "-", x = lower) # replace all non-alphanumeric with -'s
+  dash <- gsub(lower, pattern = "[^[:alnum:]]", replacement = "-", x = lower) # replace all non-alphanumeric with -'s
   remove_repeated <- gsub(pattern = "(-)\\1+", replacement = "-", x = dash) # only one - in a row
   gsub(pattern = "-$", replacement = "", x = remove_repeated) # ends with -
 }
