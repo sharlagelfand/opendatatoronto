@@ -12,26 +12,27 @@ search_packages <- function(title, limit = 1000) {
   packages <- ckanr::package_search(fq = paste0("title:", '"', title, '"'), rows = limit, url = opendatatoronto_ckan_url, as = "table")
 
   res_init <- tibble::tibble(
-      title = character(),
-      id = character(),
-      topics = character(),
-      excerpt = character(),
-      dataset_category = character(),
-      formats = character(),
-      refresh_rate = character(),
-      num_resources = integer()
-    )
+    title = character(),
+    id = character(),
+    topics = character(),
+    excerpt = character(),
+    dataset_category = character(),
+    formats = character(),
+    refresh_rate = character(),
+    num_resources = integer()
+  )
 
   if (length(packages[["results"]]) == 0) {
     res_init
   } else {
     res <- tibble::as_tibble(packages[["results"]])
     res <- res[, names(res) %in% names(res_init)]
-    for(i in names(res_init)) {
-      if(is.null(res[[i]])) {
+    for (i in names(res_init)) {
+      if (is.null(res[[i]])) {
         res[[i]] <- switch(class(res_init[[i]]),
-                           character = NA_character_,
-                           integer = NA_integer_)
+          character = NA_character_,
+          integer = NA_integer_
+        )
       }
     }
     res <- rbind(res_init, res)

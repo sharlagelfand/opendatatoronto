@@ -6,7 +6,7 @@
 #' @examples
 #' \dontrun{
 #' list_package_resources("1db34737-ffad-489d-a590-9171d500d453")
-#'
+#' 
 #' list_package_resources("https://open.toronto.ca/dataset/ttc-subway-delay-data")
 #' }
 list_package_resources <- function(package) {
