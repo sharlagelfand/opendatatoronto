@@ -17,9 +17,10 @@ search_packages <- function(title, limit = 1000) {
     topics = character(),
     excerpt = character(),
     dataset_category = character(),
+    num_resources = integer(),
     formats = character(),
     refresh_rate = character(),
-    num_resources = integer()
+    last_refreshed = as.Date(character())
   )
 
   if (length(packages[["results"]]) == 0) {
@@ -31,11 +32,13 @@ search_packages <- function(title, limit = 1000) {
       if (is.null(res[[i]])) {
         res[[i]] <- switch(class(res_init[[i]]),
           character = NA_character_,
-          integer = NA_integer_
+          integer = NA_integer_,
+          date = NA
         )
       }
     }
     res <- rbind(res_init, res)
-    res[, c("title", "id", "topics", "excerpt", "dataset_category", "formats", "refresh_rate", "num_resources")]
+    res[["last_refreshed"]] <- as.Date(res[["last_refreshed"]])
+    res[, c("title", "id", "topics", "excerpt", "dataset_category", "num_resources", "formats", "refresh_rate", "last_refreshed")]
   }
 }

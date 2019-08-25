@@ -1,8 +1,8 @@
-context("test-search_packages")
+context("test-show_package")
 
-test_that("search_packages has the correct return format.", {
+test_that("show_package has the correct return format.", {
   skip_on_cran()
-  output <- search_packages("dsjhjsghkldg")
+  output <- show_package("c01c6d71-de1f-493d-91ba-364ce64884ac")
   expect_is(output, "tbl_df")
   expect_equal(names(output), c("title", "id", "topics", "excerpt", "dataset_category", "num_resources", "formats", "refresh_rate", "last_refreshed"))
   expect_is(output$title, "character")
@@ -15,7 +15,7 @@ test_that("search_packages has the correct return format.", {
   expect_is(output$num_resources, "integer")
   expect_is(output$last_refreshed, "Date")
 
-  output <- search_packages("ttc", limit = 1)
+  output <- show_package("https://open.toronto.ca/dataset/apartment-building-evaluation/")
   expect_is(output, "tbl_df")
   expect_equal(names(output), c("title", "id", "topics", "excerpt", "dataset_category", "num_resources", "formats", "refresh_rate", "last_refreshed"))
   expect_is(output$title, "character")
@@ -28,7 +28,7 @@ test_that("search_packages has the correct return format.", {
   expect_is(output$num_resources, "integer")
   expect_is(output$last_refreshed, "Date")
 
-  output <- search_packages("ttc-subway-shapefiles", limit = 1)
+  output <- show_package("ttc-subway-shapefiles")
   expect_is(output, "tbl_df")
   expect_equal(names(output), c("title", "id", "topics", "excerpt", "dataset_category", "num_resources", "formats", "refresh_rate", "last_refreshed"))
   expect_is(output$title, "character")
