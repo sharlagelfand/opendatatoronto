@@ -4,7 +4,7 @@ test_that("show_package has the correct return format.", {
   skip_on_cran()
   output <- show_package("c01c6d71-de1f-493d-91ba-364ce64884ac")
   expect_is(output, "tbl_df")
-  expect_equal(names(output), c("title", "id", "topics", "excerpt", "dataset_category", "num_resources", "formats", "refresh_rate", "last_refreshed"))
+  expect_equal(names(output), package_cols)
   expect_is(output$title, "character")
   expect_is(output$id, "character")
   expect_is(output$topics, "character")
@@ -17,7 +17,7 @@ test_that("show_package has the correct return format.", {
 
   output <- show_package("https://open.toronto.ca/dataset/apartment-building-evaluation/")
   expect_is(output, "tbl_df")
-  expect_equal(names(output), c("title", "id", "topics", "excerpt", "dataset_category", "num_resources", "formats", "refresh_rate", "last_refreshed"))
+  expect_equal(names(output), package_cols)
   expect_is(output$title, "character")
   expect_is(output$id, "character")
   expect_is(output$topics, "character")
@@ -30,7 +30,7 @@ test_that("show_package has the correct return format.", {
 
   output <- show_package("ttc-subway-shapefiles")
   expect_is(output, "tbl_df")
-  expect_equal(names(output), c("title", "id", "topics", "excerpt", "dataset_category", "num_resources", "formats", "refresh_rate", "last_refreshed"))
+  expect_equal(names(output), package_cols)
   expect_is(output$title, "character")
   expect_is(output$id, "character")
   expect_is(output$topics, "character")

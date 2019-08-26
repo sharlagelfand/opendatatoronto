@@ -4,7 +4,7 @@ test_that("list_packages returns the right output formats.", {
   skip_on_cran()
   output <- list_packages(1)
   expect_is(output, "tbl_df")
-  expect_equal(names(output), c("title", "id", "topics", "excerpt", "dataset_category", "num_resources", "formats", "refresh_rate", "last_refreshed"))
+  expect_equal(names(output), package_cols)
   expect_is(output$title, "character")
   expect_is(output$id, "character")
   expect_is(output$topics, "character")

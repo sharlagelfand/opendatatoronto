@@ -17,10 +17,5 @@ show_package <- function(package) {
 
   package_res <- check_found(package_res, package, "package")
 
-  res <- package_res[c("title", "id", "topics", "excerpt", "dataset_category", "num_resources", "formats", "refresh_rate", "last_refreshed")]
-  names(res) <- c("title", "id", "topics", "excerpt", "dataset_category", "num_resources", "formats", "refresh_rate", "last_refreshed")
-  res <- lapply(res, function(x) ifelse(is.null(x), NA, x))
-  res[["last_refreshed"]] <- as.Date(res[["last_refreshed"]])
-
-  tibble::as_tibble(res)
-  }
+  complete_package_res(package_res)
+}
