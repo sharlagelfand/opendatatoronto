@@ -1,5 +1,7 @@
 #' Search packages by title
 #'
+#' Search packages by title. Returns a tibble of matching packages along with package metadata, including \code{title}, \code{id}, \code{topics}, \code{dataset_category}, \code{num_resources} (the number of resources in the package), \code{formats} (the different formats of the resources), \code{refresh_rate} (how often the package is refreshed), and \code{last_refreshed} (the date it was last refreshed).
+#'
 #' @param title Title to search (case-insensitive).
 #' @param limit Maximum number of packages to return. The default (and the maximum possible value) is 1000.
 #'

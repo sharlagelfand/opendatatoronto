@@ -10,7 +10,7 @@ list_package_resources(package)
 \item{package}{A way to identify the package. Either a package ID (passed as a character vector directly), a single package resulting from \code{\link{list_packages}} or \code{\link{search_packages}}, or the package's URL from the portal}
 }
 \description{
-List resources for a package
+List resources for a package on the portal. Returns a tibble of resources along with metadata, including \code{name}, \code{id}, \code{format} (the format of the resource file), and \code{last_modified} (the date the resource was last modified).
 }
 \examples{
 \dontrun{

@@ -49,26 +49,30 @@ devtools::install_github("sharlagelfand/opendatatoronto")
 ## Usage
 
 In the Portal, datasets are called **packages**. You can see a list of
-available packages by using `list_packages()`:
+available packages by using `list_packages()`. This will show metadata
+about the package, including what topics (i.e. tags) the package covers,
+a description of it, how many resources there are (and their formats),
+how often it is is refreshed and when it was last refreshed.
 
 ``` r
 library(opendatatoronto)
 packages <- list_packages(limit = 100)
 packages
-#> # A tibble: 100 x 8
-#>    title id    topics excerpt dataset_category formats refresh_rate
-#>    <chr> <chr> <chr>  <chr>   <chr>            <chr>   <chr>       
-#>  1 Apar… 4ef8… Locat… This d… Table            CSV,JS… Annually    
-#>  2 311 … 2e54… City … The da… Document         XLSX,Z… Monthly     
-#>  3 Body… c405… City … This d… Table            WEB,CS… Daily       
-#>  4 Stre… 1db3… City … Transi… Map              CSV,GE… Semi-annual…
-#>  5 Stre… 74f6… City … Public… Map              CSV,GE… Semi-annual…
-#>  6 Stre… 821f… City … Public… Map              CSV,GE… Semi-annual…
-#>  7 Stre… ccfd… City … Poster… Map              CSV,GE… Semi-annual…
-#>  8 Stre… cf70… City … Poster… Map              CSV,GE… Semi-annual…
-#>  9 Stre… 99b1… City … Inform… Map              CSV,GE… Semi-annual…
-#> 10 Stre… 71e6… Trans… "Bike … Map              CSV,GE… Daily       
-#> # … with 90 more rows, and 1 more variable: num_resources <int>
+#> # A tibble: 100 x 9
+#>    title id    topics excerpt dataset_category num_resources formats
+#>    <chr> <chr> <chr>  <chr>   <chr>                    <int> <chr>  
+#>  1 Body… c405… City … This d… Table                        2 WEB,CS…
+#>  2 Stre… 1db3… City … Transi… Map                          1 CSV,GE…
+#>  3 Stre… 821f… City … Public… Map                          1 CSV,GE…
+#>  4 Stre… ccfd… City … Poster… Map                          1 CSV,GE…
+#>  5 Stre… 99b1… City … Inform… Map                          1 CSV,GE…
+#>  6 Stre… 71e6… Trans… "Bike … Map                          1 CSV,GE…
+#>  7 Stre… 0c4e… City … Bench … Map                          1 CSV,GE…
+#>  8 Poll… 7bce… City … Polls … Table                        2 XLSX,C…
+#>  9 Chem… ae8e… Envir… This d… Table                        3 WEB,XL…
+#> 10 Apar… 4ef8… Locat… This d… Table                        1 CSV,JS…
+#> # … with 90 more rows, and 2 more variables: refresh_rate <chr>,
+#> #   last_refreshed <date>
 ```
 
 You can also search packages by title:
@@ -77,24 +81,35 @@ You can also search packages by title:
 ttc_packages <- search_packages("ttc")
 
 ttc_packages
-#> # A tibble: 14 x 8
-#>    title id    topics excerpt dataset_category formats refresh_rate
-#>    <chr> <chr> <chr>  <chr>   <chr>            <chr>   <chr>       
-#>  1 TTC … 996c… Trans… TTC Su… Document         XLSX    Monthly     
-#>  2 TTC … b68c… Trans… TTC St… Document         XLSX    Monthly     
-#>  3 TTC … e271… Trans… TTC Bu… Document         XLSX    Monthly     
-#>  4 TTC … 7795… Trans… Data c… Document         ZIP     Real-time   
-#>  5 TTC … 4eb6… Trans… This d… Document         XLSX    Annually    
-#>  6 TTC … ef35… Trans… This d… Document         XLSX    Annually    
-#>  7 TTC … d9dc… Trans… This d… Document         XLSX    As available
-#>  8 TTC … 8217… Trans… The NV… Document         PDF     Real-time   
-#>  9 TTC … 1444… Trans… This d… Website          WEB,XLS Quarterly   
-#> 10 TTC … d2a7… Trans… This d… Website          WEB,XLS Quarterly   
-#> 11 TTC … 4b80… Trans… This d… Website          WEB,XLS Quarterly   
-#> 12 TTC … aedd… Trans… This d… Website          WEB,XLS Quarterly   
-#> 13 TTC … 2c4c… Finan… This d… Website          WEB,XLS Quarterly   
-#> 14 TTC … c01c… <NA>   "This … Document         SHP     As available
-#> # … with 1 more variable: num_resources <int>
+#> # A tibble: 14 x 9
+#>    title id    topics excerpt dataset_category num_resources formats
+#>    <chr> <chr> <chr>  <chr>   <chr>                    <int> <chr>  
+#>  1 TTC … 996c… Trans… TTC Su… Document                    29 XLSX   
+#>  2 TTC … b68c… Trans… TTC St… Document                     7 XLSX   
+#>  3 TTC … e271… Trans… TTC Bu… Document                     7 XLSX   
+#>  4 TTC … 7795… Trans… Data c… Document                     1 ZIP    
+#>  5 TTC … 4eb6… Trans… This d… Document                     5 XLSX   
+#>  6 TTC … ef35… Trans… This d… Document                     1 XLSX   
+#>  7 TTC … d9dc… Trans… This d… Document                     1 XLSX   
+#>  8 TTC … 8217… Trans… The NV… Document                     1 PDF    
+#>  9 TTC … 1444… Trans… This d… Website                      2 WEB,XLS
+#> 10 TTC … d2a7… Trans… This d… Website                      2 WEB,XLS
+#> 11 TTC … 4b80… Trans… This d… Website                      2 WEB,XLS
+#> 12 TTC … aedd… Trans… This d… Website                      2 WEB,XLS
+#> 13 TTC … 2c4c… Finan… This d… Website                      2 WEB,XLS
+#> 14 TTC … c01c… <NA>   "This … Document                     1 SHP    
+#> # … with 2 more variables: refresh_rate <chr>, last_refreshed <date>
+```
+
+Or see metadata for a specific package:
+
+``` r
+show_package("996cfe8d-fb35-40ce-b569-698d51fc683b")
+#> # A tibble: 1 x 9
+#>   title id    topics excerpt dataset_category num_resources formats
+#>   <chr> <chr> <chr>  <chr>   <chr>                    <int> <chr>  
+#> 1 TTC … 996c… Trans… TTC Su… Document                    29 XLSX   
+#> # … with 2 more variables: refresh_rate <chr>, last_refreshed <date>
 ```
 
 Within a package, there are a number of **resources** - e.g. CSV, XSLX,
@@ -115,9 +130,9 @@ marriage_licence_resources <- marriage_licence_packages %>%
 
 marriage_licence_resources
 #> # A tibble: 1 x 4
-#>   name                  format id                      last_modified       
-#>   <chr>                 <chr>  <chr>                   <chr>               
-#> 1 Marriage Licence Sta… CSV    4d985c1d-9c7e-4f74-986… 2019-08-01T10:10:02…
+#>   name                      id                         format last_modified
+#>   <chr>                     <chr>                      <chr>  <date>       
+#> 1 Marriage Licence Statist… 4d985c1d-9c7e-4f74-9864-7… CSV    2019-08-01
 ```
 
 But you can also get a list of resources by using the package’s URL from
@@ -127,10 +142,10 @@ Portal:
 ``` r
 list_package_resources("https://open.toronto.ca/dataset/sexual-health-clinic-locations-hours-and-services/")
 #> # A tibble: 2 x 4
-#>   name                        format id                  last_modified     
-#>   <chr>                       <chr>  <chr>               <chr>             
-#> 1 sexual-health-clinic-locat… XLSX   e958dd45-9426-4298… 2019-08-15T15:56:…
-#> 2 Sexual-health-clinic-locat… XLSX   2edcc4a3-c095-4ce3… 2019-08-15T15:56:…
+#>   name                            id                   format last_modified
+#>   <chr>                           <chr>                <chr>  <date>       
+#> 1 sexual-health-clinic-locations… e958dd45-9426-4298-… XLSX   2019-08-15   
+#> 2 Sexual-health-clinic-locations… 2edcc4a3-c095-4ce3-… XLSX   2019-08-15
 ```
 
 Finally (and most usefully\!), you can download the resource (i.e., the

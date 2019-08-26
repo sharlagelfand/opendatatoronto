@@ -2,7 +2,7 @@
 % Please edit documentation in R/show_package.R
 \name{show_package}
 \alias{show_package}
-\title{Show information on a package}
+\title{Show a package's metadata.}
 \usage{
 show_package(package)
 }
@@ -10,7 +10,7 @@ show_package(package)
 \item{package}{A way to identify the package. Either a package ID (passed as a character vector directly) or the package's URL from the portal}
 }
 \description{
-Show information on a package
+Show a package's metadata, including \code{title}, \code{id}, \code{topics}, \code{dataset_category}, \code{num_resources} (the number of resources in the package), \code{formats} (the different formats of the resources), \code{refresh_rate} (how often the package is refreshed), and \code{last_refreshed} (the date it was last refreshed).
 }
 \examples{
 \dontrun{

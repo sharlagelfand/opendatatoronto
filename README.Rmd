@@ -44,7 +44,7 @@ devtools::install_github("sharlagelfand/opendatatoronto")
 
 ## Usage
 
-In the Portal, datasets are called **packages**. You can see a list of available packages by using `list_packages()`:
+In the Portal, datasets are called **packages**. You can see a list of available packages by using `list_packages()`. This will show metadata about the package, including what topics (i.e. tags) the package covers, a description of it, how many resources there are (and their formats), how often it is is refreshed and when it was last refreshed.
 
 ```{r list-packages-example}
 library(opendatatoronto)
@@ -58,6 +58,12 @@ You can also search packages by title:
 ttc_packages <- search_packages("ttc")
 
 ttc_packages
+```
+
+Or see metadata for a specific package:
+
+```{r show-packages-example}
+show_package("996cfe8d-fb35-40ce-b569-698d51fc683b")
 ```
 
 Within a package, there are a number of **resources** - e.g. CSV, XSLX, JSON, SHP files, and more. Resources are the actual "data".

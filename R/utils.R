@@ -56,16 +56,6 @@ check_found <- function(res, id, name) {
   }
 }
 
-#' Get package ID from package portal URL
-#'
-#' Get the \code{package_id} associated with a given package's URL on the City of Toronto Open Data Portal.
-#'
-#' @param package_url Package URL from the City of Toronto Open Data Portal
-#'
-#' @examples
-#' \dontrun{
-#' package_id_from_url("https://open.toronto.ca/dataset/ttc-subway-delay-data")
-#' }
 package_id_from_url <- function(package_url) {
   if (!grepl("open.toronto.ca/dataset/", package_url)) {
     stop("Package URL must start with open.toronto.ca/dataset/",
