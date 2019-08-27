@@ -70,7 +70,7 @@ test_that('check_id_in_df returns an error when passed a data frame that doesn\'
   )
 })
 
-test_that('check_id_in_resource returns the "id" column when present.', {
+test_that('check_id_in_df returns the "id" column when present.', {
   res <- check_id_in_df(data.frame(id = 5))
   expect_equal(
     names(res),
