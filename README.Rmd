@@ -1,5 +1,6 @@
 ---
-output: github_document
+output: 
+  github_document
 ---
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
@@ -48,7 +49,7 @@ In the Portal, datasets are called **packages**. You can see a list of available
 
 ```{r list-packages-example}
 library(opendatatoronto)
-packages <- list_packages(limit = 1000)
+packages <- list_packages(limit = 100)
 packages
 ```
 
