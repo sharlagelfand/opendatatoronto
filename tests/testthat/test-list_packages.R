@@ -8,6 +8,7 @@ test_that("list_packages returns the right output formats.", {
   expect_is(output$title, "character")
   expect_is(output$id, "character")
   expect_is(output$topics, "character")
+  expect_is(output$civic_issues,"character")
   expect_is(output$excerpt, "character")
   expect_is(output$dataset_category, "character")
   expect_is(output$formats, "character")
