@@ -33,7 +33,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="index.html">opendatatoronto</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.0.9005</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.0.9006</span>
       </span>
     </div>
 
@@ -121,69 +121,68 @@
 <div id="usage" class="section level2">
 <h2 class="hasAnchor">
 <a href="#usage" class="anchor"></a>Usage</h2>
-<p>In the Portal, datasets are called <strong>packages</strong>. You can see a list of available packages by using <code><a href="reference/list_packages.html">list_packages()</a></code>. This will show metadata about the package, including what topics (i.e. tags) the package covers, a description of it, how many resources there are (and their formats), how often it is is refreshed and when it was last refreshed.</p>
+<p>In the Portal, datasets are called <strong>packages</strong>. You can see a list of available packages by using <code><a href="reference/list_packages.html">list_packages()</a></code>. This will show metadata about the package, including what topics (i.e. tags) the package covers, any civic issues it addresses, a description of it, how many resources there are (and their formats), how often it is is refreshed and when it was last refreshed.</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(opendatatoronto)</a>
-<a class="sourceLine" id="cb2-2" data-line-number="2">packages &lt;-<span class="st"> </span><span class="kw"><a href="reference/list_packages.html">list_packages</a></span>(<span class="dt">limit =</span> <span class="dv">100</span>)</a>
+<a class="sourceLine" id="cb2-2" data-line-number="2">packages &lt;-<span class="st"> </span><span class="kw"><a href="reference/list_packages.html">list_packages</a></span>(<span class="dt">limit =</span> <span class="dv">10</span>)</a>
 <a class="sourceLine" id="cb2-3" data-line-number="3">packages</a>
-<a class="sourceLine" id="cb2-4" data-line-number="4"><span class="co">#&gt; # A tibble: 100 x 9</span></a>
-<a class="sourceLine" id="cb2-5" data-line-number="5"><span class="co">#&gt;    title id    topics excerpt dataset_category num_resources formats</span></a>
-<a class="sourceLine" id="cb2-6" data-line-number="6"><span class="co">#&gt;    &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;  &lt;chr&gt;   &lt;chr&gt;                    &lt;int&gt; &lt;chr&gt;  </span></a>
-<a class="sourceLine" id="cb2-7" data-line-number="7"><span class="co">#&gt;  1 Body… c405… City … This d… Table                        2 WEB,CS…</span></a>
-<a class="sourceLine" id="cb2-8" data-line-number="8"><span class="co">#&gt;  2 Stre… 1db3… City … Transi… Map                          1 CSV,GE…</span></a>
-<a class="sourceLine" id="cb2-9" data-line-number="9"><span class="co">#&gt;  3 Stre… 821f… City … Public… Map                          1 CSV,GE…</span></a>
-<a class="sourceLine" id="cb2-10" data-line-number="10"><span class="co">#&gt;  4 Stre… ccfd… City … Poster… Map                          1 CSV,GE…</span></a>
-<a class="sourceLine" id="cb2-11" data-line-number="11"><span class="co">#&gt;  5 Stre… 99b1… City … Inform… Map                          1 CSV,GE…</span></a>
-<a class="sourceLine" id="cb2-12" data-line-number="12"><span class="co">#&gt;  6 Stre… 71e6… Trans… "Bike … Map                          1 CSV,GE…</span></a>
-<a class="sourceLine" id="cb2-13" data-line-number="13"><span class="co">#&gt;  7 Stre… 0c4e… City … Bench … Map                          1 CSV,GE…</span></a>
-<a class="sourceLine" id="cb2-14" data-line-number="14"><span class="co">#&gt;  8 Poll… 7bce… City … Polls … Table                        2 XLSX,C…</span></a>
-<a class="sourceLine" id="cb2-15" data-line-number="15"><span class="co">#&gt;  9 Chem… ae8e… Envir… This d… Table                        3 WEB,XL…</span></a>
-<a class="sourceLine" id="cb2-16" data-line-number="16"><span class="co">#&gt; 10 Apar… 4ef8… Locat… This d… Table                        1 CSV,JS…</span></a>
-<a class="sourceLine" id="cb2-17" data-line-number="17"><span class="co">#&gt; # … with 90 more rows, and 2 more variables: refresh_rate &lt;chr&gt;,</span></a>
+<a class="sourceLine" id="cb2-4" data-line-number="4"><span class="co">#&gt; # A tibble: 10 x 10</span></a>
+<a class="sourceLine" id="cb2-5" data-line-number="5"><span class="co">#&gt;    title id    topics civic_issues excerpt dataset_category num_resources</span></a>
+<a class="sourceLine" id="cb2-6" data-line-number="6"><span class="co">#&gt;    &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;  &lt;chr&gt;        &lt;chr&gt;   &lt;chr&gt;                    &lt;int&gt;</span></a>
+<a class="sourceLine" id="cb2-7" data-line-number="7"><span class="co">#&gt;  1 Body… c405… City … &lt;NA&gt;         This d… Table                        2</span></a>
+<a class="sourceLine" id="cb2-8" data-line-number="8"><span class="co">#&gt;  2 Stre… 1db3… City … &lt;NA&gt;         Transi… Map                          1</span></a>
+<a class="sourceLine" id="cb2-9" data-line-number="9"><span class="co">#&gt;  3 Stre… 74f6… City … &lt;NA&gt;         Public… Map                          1</span></a>
+<a class="sourceLine" id="cb2-10" data-line-number="10"><span class="co">#&gt;  4 Stre… 821f… City … &lt;NA&gt;         Public… Map                          1</span></a>
+<a class="sourceLine" id="cb2-11" data-line-number="11"><span class="co">#&gt;  5 Stre… ccfd… City … &lt;NA&gt;         Poster… Map                          1</span></a>
+<a class="sourceLine" id="cb2-12" data-line-number="12"><span class="co">#&gt;  6 Stre… cf70… City … &lt;NA&gt;         Poster… Map                          1</span></a>
+<a class="sourceLine" id="cb2-13" data-line-number="13"><span class="co">#&gt;  7 Stre… 3944… City … &lt;NA&gt;         Litter… Map                          1</span></a>
+<a class="sourceLine" id="cb2-14" data-line-number="14"><span class="co">#&gt;  8 Stre… 99b1… City … &lt;NA&gt;         Inform… Map                          1</span></a>
+<a class="sourceLine" id="cb2-15" data-line-number="15"><span class="co">#&gt;  9 Stre… 71e6… Trans… &lt;NA&gt;         "Bike … Map                          1</span></a>
+<a class="sourceLine" id="cb2-16" data-line-number="16"><span class="co">#&gt; 10 Stre… 0c4e… City … &lt;NA&gt;         Bench … Map                          1</span></a>
+<a class="sourceLine" id="cb2-17" data-line-number="17"><span class="co">#&gt; # … with 3 more variables: formats &lt;chr&gt;, refresh_rate &lt;chr&gt;,</span></a>
 <a class="sourceLine" id="cb2-18" data-line-number="18"><span class="co">#&gt; #   last_refreshed &lt;date&gt;</span></a></code></pre></div>
 <p>You can also search packages by title:</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" data-line-number="1">ttc_packages &lt;-<span class="st"> </span><span class="kw"><a href="reference/search_packages.html">search_packages</a></span>(<span class="st">"ttc"</span>)</a>
 <a class="sourceLine" id="cb3-2" data-line-number="2"></a>
 <a class="sourceLine" id="cb3-3" data-line-number="3">ttc_packages</a>
-<a class="sourceLine" id="cb3-4" data-line-number="4"><span class="co">#&gt; # A tibble: 14 x 9</span></a>
-<a class="sourceLine" id="cb3-5" data-line-number="5"><span class="co">#&gt;    title id    topics excerpt dataset_category num_resources formats</span></a>
-<a class="sourceLine" id="cb3-6" data-line-number="6"><span class="co">#&gt;    &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;  &lt;chr&gt;   &lt;chr&gt;                    &lt;int&gt; &lt;chr&gt;  </span></a>
-<a class="sourceLine" id="cb3-7" data-line-number="7"><span class="co">#&gt;  1 TTC … 996c… Trans… TTC Su… Document                    29 XLSX   </span></a>
-<a class="sourceLine" id="cb3-8" data-line-number="8"><span class="co">#&gt;  2 TTC … b68c… Trans… TTC St… Document                     7 XLSX   </span></a>
-<a class="sourceLine" id="cb3-9" data-line-number="9"><span class="co">#&gt;  3 TTC … e271… Trans… TTC Bu… Document                     7 XLSX   </span></a>
-<a class="sourceLine" id="cb3-10" data-line-number="10"><span class="co">#&gt;  4 TTC … 7795… Trans… Data c… Document                     1 ZIP    </span></a>
-<a class="sourceLine" id="cb3-11" data-line-number="11"><span class="co">#&gt;  5 TTC … 4eb6… Trans… This d… Document                     5 XLSX   </span></a>
-<a class="sourceLine" id="cb3-12" data-line-number="12"><span class="co">#&gt;  6 TTC … ef35… Trans… This d… Document                     1 XLSX   </span></a>
-<a class="sourceLine" id="cb3-13" data-line-number="13"><span class="co">#&gt;  7 TTC … d9dc… Trans… This d… Document                     1 XLSX   </span></a>
-<a class="sourceLine" id="cb3-14" data-line-number="14"><span class="co">#&gt;  8 TTC … 8217… Trans… The NV… Document                     1 PDF    </span></a>
-<a class="sourceLine" id="cb3-15" data-line-number="15"><span class="co">#&gt;  9 TTC … 1444… Trans… This d… Website                      2 WEB,XLS</span></a>
-<a class="sourceLine" id="cb3-16" data-line-number="16"><span class="co">#&gt; 10 TTC … d2a7… Trans… This d… Website                      2 WEB,XLS</span></a>
-<a class="sourceLine" id="cb3-17" data-line-number="17"><span class="co">#&gt; 11 TTC … 4b80… Trans… This d… Website                      2 WEB,XLS</span></a>
-<a class="sourceLine" id="cb3-18" data-line-number="18"><span class="co">#&gt; 12 TTC … aedd… Trans… This d… Website                      2 WEB,XLS</span></a>
-<a class="sourceLine" id="cb3-19" data-line-number="19"><span class="co">#&gt; 13 TTC … 2c4c… Finan… This d… Website                      2 WEB,XLS</span></a>
-<a class="sourceLine" id="cb3-20" data-line-number="20"><span class="co">#&gt; 14 TTC … c01c… &lt;NA&gt;   "This … Document                     1 SHP    </span></a>
-<a class="sourceLine" id="cb3-21" data-line-number="21"><span class="co">#&gt; # … with 2 more variables: refresh_rate &lt;chr&gt;, last_refreshed &lt;date&gt;</span></a></code></pre></div>
+<a class="sourceLine" id="cb3-4" data-line-number="4"><span class="co">#&gt; # A tibble: 14 x 10</span></a>
+<a class="sourceLine" id="cb3-5" data-line-number="5"><span class="co">#&gt;    title id    topics civic_issues excerpt dataset_category num_resources</span></a>
+<a class="sourceLine" id="cb3-6" data-line-number="6"><span class="co">#&gt;    &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;  &lt;chr&gt;        &lt;chr&gt;   &lt;chr&gt;                    &lt;int&gt;</span></a>
+<a class="sourceLine" id="cb3-7" data-line-number="7"><span class="co">#&gt;  1 TTC … e271… Trans… Mobility     TTC Bu… Document                     7</span></a>
+<a class="sourceLine" id="cb3-8" data-line-number="8"><span class="co">#&gt;  2 TTC … aedd… Trans… Mobility     This d… Website                      2</span></a>
+<a class="sourceLine" id="cb3-9" data-line-number="9"><span class="co">#&gt;  3 TTC … d9dc… Trans… Mobility     This d… Document                     1</span></a>
+<a class="sourceLine" id="cb3-10" data-line-number="10"><span class="co">#&gt;  4 TTC … 8217… Trans… Mobility     The NV… Document                     1</span></a>
+<a class="sourceLine" id="cb3-11" data-line-number="11"><span class="co">#&gt;  5 TTC … 1444… Trans… Mobility     This d… Website                      2</span></a>
+<a class="sourceLine" id="cb3-12" data-line-number="12"><span class="co">#&gt;  6 TTC … 4eb6… Trans… Mobility     This d… Document                     5</span></a>
+<a class="sourceLine" id="cb3-13" data-line-number="13"><span class="co">#&gt;  7 TTC … 2c4c… Finan… Mobility     This d… Website                      2</span></a>
+<a class="sourceLine" id="cb3-14" data-line-number="14"><span class="co">#&gt;  8 TTC … c01c… &lt;NA&gt;   Mobility     "This … Document                     1</span></a>
+<a class="sourceLine" id="cb3-15" data-line-number="15"><span class="co">#&gt;  9 TTC … 7795… Trans… Mobility     Data c… Document                     1</span></a>
+<a class="sourceLine" id="cb3-16" data-line-number="16"><span class="co">#&gt; 10 TTC … ef35… Trans… Mobility     This d… Document                     1</span></a>
+<a class="sourceLine" id="cb3-17" data-line-number="17"><span class="co">#&gt; 11 TTC … d2a7… Trans… Mobility     This d… Website                      2</span></a>
+<a class="sourceLine" id="cb3-18" data-line-number="18"><span class="co">#&gt; 12 TTC … 4b80… Trans… Mobility     This d… Website                      2</span></a>
+<a class="sourceLine" id="cb3-19" data-line-number="19"><span class="co">#&gt; 13 TTC … b68c… Trans… Mobility     TTC St… Document                     7</span></a>
+<a class="sourceLine" id="cb3-20" data-line-number="20"><span class="co">#&gt; 14 TTC … 996c… Trans… Mobility     TTC Su… Document                    29</span></a>
+<a class="sourceLine" id="cb3-21" data-line-number="21"><span class="co">#&gt; # … with 3 more variables: formats &lt;chr&gt;, refresh_rate &lt;chr&gt;,</span></a>
+<a class="sourceLine" id="cb3-22" data-line-number="22"><span class="co">#&gt; #   last_refreshed &lt;date&gt;</span></a></code></pre></div>
 <p>Or see metadata for a specific package:</p>
 <div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" data-line-number="1"><span class="kw"><a href="reference/show_package.html">show_package</a></span>(<span class="st">"996cfe8d-fb35-40ce-b569-698d51fc683b"</span>)</a>
-<a class="sourceLine" id="cb4-2" data-line-number="2"><span class="co">#&gt; # A tibble: 1 x 9</span></a>
-<a class="sourceLine" id="cb4-3" data-line-number="3"><span class="co">#&gt;   title id    topics excerpt dataset_category num_resources formats</span></a>
-<a class="sourceLine" id="cb4-4" data-line-number="4"><span class="co">#&gt;   &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;  &lt;chr&gt;   &lt;chr&gt;                    &lt;int&gt; &lt;chr&gt;  </span></a>
-<a class="sourceLine" id="cb4-5" data-line-number="5"><span class="co">#&gt; 1 TTC … 996c… Trans… TTC Su… Document                    29 XLSX   </span></a>
-<a class="sourceLine" id="cb4-6" data-line-number="6"><span class="co">#&gt; # … with 2 more variables: refresh_rate &lt;chr&gt;, last_refreshed &lt;date&gt;</span></a></code></pre></div>
+<a class="sourceLine" id="cb4-2" data-line-number="2"><span class="co">#&gt; # A tibble: 1 x 10</span></a>
+<a class="sourceLine" id="cb4-3" data-line-number="3"><span class="co">#&gt;   title id    topics civic_issues excerpt dataset_category num_resources</span></a>
+<a class="sourceLine" id="cb4-4" data-line-number="4"><span class="co">#&gt;   &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;  &lt;chr&gt;        &lt;chr&gt;   &lt;chr&gt;                    &lt;int&gt;</span></a>
+<a class="sourceLine" id="cb4-5" data-line-number="5"><span class="co">#&gt; 1 TTC … 996c… Trans… Mobility     TTC Su… Document                    29</span></a>
+<a class="sourceLine" id="cb4-6" data-line-number="6"><span class="co">#&gt; # … with 3 more variables: formats &lt;chr&gt;, refresh_rate &lt;chr&gt;,</span></a>
+<a class="sourceLine" id="cb4-7" data-line-number="7"><span class="co">#&gt; #   last_refreshed &lt;date&gt;</span></a></code></pre></div>
 <p>Within a package, there are a number of <strong>resources</strong> - e.g. CSV, XSLX, JSON, SHP files, and more. Resources are the actual “data”.</p>
 <p>For a given package, you can get a list of resources using <code><a href="reference/list_package_resources.html">list_package_resources()</a></code>. You can pass it the package id (which is contained in <code>marriage_license_packages</code> below):</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" data-line-number="1"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(dplyr)</a>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" data-line-number="1">marriage_licence_packages &lt;-<span class="st"> </span><span class="kw"><a href="reference/search_packages.html">search_packages</a></span>(<span class="st">"Marriage Licence Statistics"</span>)</a>
 <a class="sourceLine" id="cb5-2" data-line-number="2"></a>
-<a class="sourceLine" id="cb5-3" data-line-number="3">marriage_licence_packages &lt;-<span class="st"> </span>packages <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb5-4" data-line-number="4"><span class="st">  </span><span class="kw"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span>(title <span class="op">==</span><span class="st"> "Marriage Licence Statistics"</span>)</a>
+<a class="sourceLine" id="cb5-3" data-line-number="3">marriage_licence_resources &lt;-<span class="st"> </span>marriage_licence_packages <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb5-4" data-line-number="4"><span class="st">  </span><span class="kw"><a href="reference/list_package_resources.html">list_package_resources</a></span>()</a>
 <a class="sourceLine" id="cb5-5" data-line-number="5"></a>
-<a class="sourceLine" id="cb5-6" data-line-number="6">marriage_licence_resources &lt;-<span class="st"> </span>marriage_licence_packages <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb5-7" data-line-number="7"><span class="st">  </span><span class="kw"><a href="reference/list_package_resources.html">list_package_resources</a></span>()</a>
-<a class="sourceLine" id="cb5-8" data-line-number="8"></a>
-<a class="sourceLine" id="cb5-9" data-line-number="9">marriage_licence_resources</a>
-<a class="sourceLine" id="cb5-10" data-line-number="10"><span class="co">#&gt; # A tibble: 1 x 4</span></a>
-<a class="sourceLine" id="cb5-11" data-line-number="11"><span class="co">#&gt;   name                      id                         format last_modified</span></a>
-<a class="sourceLine" id="cb5-12" data-line-number="12"><span class="co">#&gt;   &lt;chr&gt;                     &lt;chr&gt;                      &lt;chr&gt;  &lt;date&gt;       </span></a>
-<a class="sourceLine" id="cb5-13" data-line-number="13"><span class="co">#&gt; 1 Marriage Licence Statist… 4d985c1d-9c7e-4f74-9864-7… CSV    2019-08-01</span></a></code></pre></div>
+<a class="sourceLine" id="cb5-6" data-line-number="6">marriage_licence_resources</a>
+<a class="sourceLine" id="cb5-7" data-line-number="7"><span class="co">#&gt; # A tibble: 1 x 4</span></a>
+<a class="sourceLine" id="cb5-8" data-line-number="8"><span class="co">#&gt;   name                      id                         format last_modified</span></a>
+<a class="sourceLine" id="cb5-9" data-line-number="9"><span class="co">#&gt;   &lt;chr&gt;                     &lt;chr&gt;                      &lt;chr&gt;  &lt;date&gt;       </span></a>
+<a class="sourceLine" id="cb5-10" data-line-number="10"><span class="co">#&gt; 1 Marriage Licence Statist… 4d985c1d-9c7e-4f74-9864-7… CSV    2019-08-01</span></a></code></pre></div>
 <p>But you can also get a list of resources by using the package’s URL from the Portal:</p>
 <div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb6-1" data-line-number="1"><span class="kw"><a href="reference/list_package_resources.html">list_package_resources</a></span>(<span class="st">"https://open.toronto.ca/dataset/sexual-health-clinic-locations-hours-and-services/"</span>)</a>
 <a class="sourceLine" id="cb6-2" data-line-number="2"><span class="co">#&gt; # A tibble: 2 x 4</span></a>
