@@ -4,6 +4,7 @@ package_res_init <- tibble::tibble(
   title = character(),
   id = character(),
   topics = character(),
+  civic_issues = character(),
   excerpt = character(),
   dataset_category = character(),
   num_resources = integer(),
