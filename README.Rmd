@@ -44,11 +44,11 @@ devtools::install_github("sharlagelfand/opendatatoronto")
 
 ## Usage
 
-In the Portal, datasets are called **packages**. You can see a list of available packages by using `list_packages()`. This will show metadata about the package, including what topics (i.e. tags) the package covers, a description of it, how many resources there are (and their formats), how often it is is refreshed and when it was last refreshed.
+In the Portal, datasets are called **packages**. You can see a list of available packages by using `list_packages()`. This will show metadata about the package, including what topics (i.e. tags) the package covers, any civic issues it addresses, a description of it, how many resources there are (and their formats), how often it is is refreshed and when it was last refreshed.
 
 ```{r list-packages-example}
 library(opendatatoronto)
-packages <- list_packages(limit = 100)
+packages <- list_packages(limit = 10)
 packages
 ```
 
@@ -71,10 +71,7 @@ Within a package, there are a number of **resources** - e.g. CSV, XSLX, JSON, SH
 For a given package, you can get a list of resources using `list_package_resources()`. You can pass it the package id (which is contained in `marriage_license_packages` below):
 
 ```{r list-marriage-license-resources}
-library(dplyr)
-
-marriage_licence_packages <- packages %>%
-  filter(title == "Marriage Licence Statistics")
+marriage_licence_packages <- search_packages("Marriage Licence Statistics")
 
 marriage_licence_resources <- marriage_licence_packages %>%
   list_package_resources()

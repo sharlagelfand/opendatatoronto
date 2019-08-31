@@ -17,12 +17,12 @@ knitr::opts_chunk$set(
 
 `opendatatoronto` is an R interface to the [City of Toronto Open Data Portal](https://portal0.cf.opendata.inter.sandbox-toronto.ca/). The goal of the package is to help read data directly into R without needing to manually download it via the portal. 
 
-In the portal, datasets are called **packages**. You can see a list of available packages by using `list_packages()`. This will show metadata about the package, including what topics (i.e. tags) the package covers, a description of it, how many resources there are (and their formats), how often it is is refreshed and when it was last refreshed.
+In the portal, datasets are called **packages**. You can see a list of available packages by using `list_packages()`. This will show metadata about the package, including what topics (i.e. tags) the package covers, a description of it,  any civic issues it addresses, how many resources there are (and their formats), how often it is is refreshed and when it was last refreshed.
 
 ```{r list-packages-example}
 library(opendatatoronto)
 
-packages <- list_packages(limit = 50)
+packages <- list_packages(limit = 10)
 
 packages
 ```
@@ -46,10 +46,7 @@ Within a package, there are a number of **resources** - e.g. CSV, XSLX, JSON, SH
 For a given package, you can get a list of resources using `list_package_resources()`, either by using a package found via `search_packages()` or `list_packages()`:
 
 ```{r list-apartment-building-registration-resources}
-library(dplyr)
-
-apartment_building_registration_package <- apartment_packages %>%
-  filter(title == "Apartment Building Registration")
+apartment_building_registration_package <- search_packages("Apartment Building Registration")
 
 apartment_building_registration_resources <- apartment_building_registration_package %>%
   list_package_resources()

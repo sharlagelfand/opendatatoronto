@@ -51,28 +51,28 @@ devtools::install_github("sharlagelfand/opendatatoronto")
 In the Portal, datasets are called **packages**. You can see a list of
 available packages by using `list_packages()`. This will show metadata
 about the package, including what topics (i.e. tags) the package covers,
-a description of it, how many resources there are (and their formats),
-how often it is is refreshed and when it was last refreshed.
+any civic issues it addresses, a description of it, how many resources
+there are (and their formats), how often it is is refreshed and when it
+was last refreshed.
 
 ``` r
 library(opendatatoronto)
-packages <- list_packages(limit = 100)
+packages <- list_packages(limit = 10)
 packages
-#> # A tibble: 100 x 9
+#> # A tibble: 10 x 9
 #>    title id    topics excerpt dataset_category num_resources formats
 #>    <chr> <chr> <chr>  <chr>   <chr>                    <int> <chr>  
 #>  1 Body… c405… City … This d… Table                        2 WEB,CS…
 #>  2 Stre… 1db3… City … Transi… Map                          1 CSV,GE…
-#>  3 Stre… 821f… City … Public… Map                          1 CSV,GE…
-#>  4 Stre… ccfd… City … Poster… Map                          1 CSV,GE…
-#>  5 Stre… 99b1… City … Inform… Map                          1 CSV,GE…
-#>  6 Stre… 71e6… Trans… "Bike … Map                          1 CSV,GE…
-#>  7 Stre… 0c4e… City … Bench … Map                          1 CSV,GE…
-#>  8 Poll… 7bce… City … Polls … Table                        2 XLSX,C…
-#>  9 Chem… ae8e… Envir… This d… Table                        3 WEB,XL…
-#> 10 Apar… 4ef8… Locat… This d… Table                        1 CSV,JS…
-#> # … with 90 more rows, and 2 more variables: refresh_rate <chr>,
-#> #   last_refreshed <date>
+#>  3 Stre… 74f6… City … Public… Map                          1 CSV,GE…
+#>  4 Stre… 821f… City … Public… Map                          1 CSV,GE…
+#>  5 Stre… ccfd… City … Poster… Map                          1 CSV,GE…
+#>  6 Stre… cf70… City … Poster… Map                          1 CSV,GE…
+#>  7 Stre… 3944… City … Litter… Map                          1 CSV,GE…
+#>  8 Stre… 99b1… City … Inform… Map                          1 CSV,GE…
+#>  9 Stre… 71e6… Trans… "Bike … Map                          1 CSV,GE…
+#> 10 Stre… 0c4e… City … Bench … Map                          1 CSV,GE…
+#> # … with 2 more variables: refresh_rate <chr>, last_refreshed <date>
 ```
 
 You can also search packages by title:
@@ -84,20 +84,20 @@ ttc_packages
 #> # A tibble: 14 x 9
 #>    title id    topics excerpt dataset_category num_resources formats
 #>    <chr> <chr> <chr>  <chr>   <chr>                    <int> <chr>  
-#>  1 TTC … 996c… Trans… TTC Su… Document                    29 XLSX   
-#>  2 TTC … b68c… Trans… TTC St… Document                     7 XLSX   
-#>  3 TTC … e271… Trans… TTC Bu… Document                     7 XLSX   
-#>  4 TTC … 7795… Trans… Data c… Document                     1 ZIP    
-#>  5 TTC … 4eb6… Trans… This d… Document                     5 XLSX   
-#>  6 TTC … ef35… Trans… This d… Document                     1 XLSX   
-#>  7 TTC … d9dc… Trans… This d… Document                     1 XLSX   
-#>  8 TTC … 8217… Trans… The NV… Document                     1 PDF    
-#>  9 TTC … 1444… Trans… This d… Website                      2 WEB,XLS
-#> 10 TTC … d2a7… Trans… This d… Website                      2 WEB,XLS
-#> 11 TTC … 4b80… Trans… This d… Website                      2 WEB,XLS
-#> 12 TTC … aedd… Trans… This d… Website                      2 WEB,XLS
-#> 13 TTC … 2c4c… Finan… This d… Website                      2 WEB,XLS
-#> 14 TTC … c01c… <NA>   "This … Document                     1 SHP    
+#>  1 TTC … e271… Trans… TTC Bu… Document                     7 XLSX   
+#>  2 TTC … aedd… Trans… This d… Website                      2 WEB,XLS
+#>  3 TTC … d9dc… Trans… This d… Document                     1 XLSX   
+#>  4 TTC … 8217… Trans… The NV… Document                     1 PDF    
+#>  5 TTC … 1444… Trans… This d… Website                      2 WEB,XLS
+#>  6 TTC … 4eb6… Trans… This d… Document                     5 XLSX   
+#>  7 TTC … 2c4c… Finan… This d… Website                      2 WEB,XLS
+#>  8 TTC … c01c… <NA>   "This … Document                     1 SHP    
+#>  9 TTC … 7795… Trans… Data c… Document                     1 ZIP    
+#> 10 TTC … ef35… Trans… This d… Document                     1 XLSX   
+#> 11 TTC … d2a7… Trans… This d… Website                      2 WEB,XLS
+#> 12 TTC … 4b80… Trans… This d… Website                      2 WEB,XLS
+#> 13 TTC … b68c… Trans… TTC St… Document                     7 XLSX   
+#> 14 TTC … 996c… Trans… TTC Su… Document                    29 XLSX   
 #> # … with 2 more variables: refresh_rate <chr>, last_refreshed <date>
 ```
 
@@ -117,13 +117,11 @@ JSON, SHP files, and more. Resources are the actual “data”.
 
 For a given package, you can get a list of resources using
 `list_package_resources()`. You can pass it the package id (which is
-contained in `marriage_license_packages` below):
+contained in `marriage_license_packages`
+below):
 
 ``` r
-library(dplyr)
-
-marriage_licence_packages <- packages %>%
-  filter(title == "Marriage Licence Statistics")
+marriage_licence_packages <- search_packages("Marriage Licence Statistics")
 
 marriage_licence_resources <- marriage_licence_packages %>%
   list_package_resources()
