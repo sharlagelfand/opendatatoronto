@@ -86,25 +86,25 @@ test_that("check_found errors when the resource doesn't exist.", {
   )
 })
 
-test_that("list_packages returns error if limit is not a length 1 positive integer.", {
+test_that("check_limit returns error if limit is not a length 1 positive integer.", {
   expect_error(
-    list_packages(limit = -1),
+    check_limit(limit = -1),
     "`limit` must be a positive integer."
   )
   expect_error(
-    list_packages(limit = 0),
+    check_limit(limit = 0),
     "`limit` must be a positive integer."
   )
   expect_error(
-    list_packages(limit = -Inf),
+    check_limit(limit = -Inf),
     "`limit` must be a positive integer."
   )
   expect_error(
-    list_packages(limit = 1.2),
+    check_limit(limit = 1.2),
     "`limit` must be a positive integer."
   )
   expect_error(
-    list_packages(limit = c(1, 2)),
+    check_limit(limit = c(1, 2)),
     "`limit` must be a length 1 positive integer."
   )
 })
