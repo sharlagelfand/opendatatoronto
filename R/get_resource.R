@@ -33,9 +33,9 @@ get_resource <- function(resource) {
   if (inherits(res, "sf")) {
     res
   } else if (is.data.frame(res)) {
-    tibble::as_tibble(res)
+    tibble::as_tibble(res, .name_repair = "minimal")
   } else {
-    res <- lapply(X = res, FUN = tibble::as_tibble)
+    res <- nested_lapply_tibble(res)
     names(res) <- names(res)
     res
   }
@@ -105,4 +105,16 @@ check_for_sf_geojsonsf <- function(res, resource_id) {
     res[["geometry"]] <- sf_geometry[["geometry"]]
     sf::st_as_sf(res, sf_column_name = "geometry", crs = 4326)
   }
+}
+
+tibble_list_elements <- function(x) {
+  if (is.list(x) && !inherits(x, "data.frame")) {
+    lapply(x, FUN = tibble::as_tibble)
+  } else {
+    tibble::as_tibble(x)
+  }
+}
+
+nested_lapply_tibble <- function(x) {
+  lapply(x, FUN = tibble_list_elements)
 }

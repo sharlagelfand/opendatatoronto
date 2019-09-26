@@ -44,3 +44,42 @@ test_that("check_for_sf_geojsonsf return the right warnings when sf or geojson a
     expect_warning(check_for_sf_geojsonsf("abcd", "1234"), "The `geojsonsf` package is required to parse the geometry of the GeoJSON resource")
   )
 })
+
+test_that("tibble_list_elements makes data frame list elements into tibbles", {
+  x <- list(
+    a = data.frame(b = 1),
+    c = data.frame(d = 1)
+  )
+  x_tibble <- tibble_list_elements(x)
+  expect_equal(names(x), names(x_tibble))
+  expect_is(x_tibble[["a"]], "tbl_df")
+  expect_is(x_tibble[["c"]], "tbl_df")
+})
+
+test_that("tibble_list_elements does not make columns of data frames into tibbles", {
+  x <- data.frame(
+    b = 1,
+    c = 1
+  )
+  x_tibble <- tibble_list_elements(x)
+  expect_equal(names(x), names(x_tibble))
+  expect_is(x_tibble, "tbl_df")
+})
+
+test_that("nested_lapply_tibble makes data frame list elements into tibbles and doesn't make data frame columns into tibbles", {
+  x <- list(
+    a = data.frame(b = 1),
+    c = data.frame(d = 1)
+  )
+  y <- data.frame(
+    b = 1,
+    c = 1
+  )
+  z <- list(x = x, y = y)
+  z_tibble <- nested_lapply_tibble(z)
+  expect_equal(names(z), names(z_tibble))
+  expect_equal(names(z[["x"]]), names(z_tibble[["x"]]))
+  expect_is(z_tibble[["x"]][["a"]], "tbl_df")
+  expect_is(z_tibble[["x"]][["c"]], "tbl_df")
+  expect_is(z_tibble[["y"]], "tbl_df")
+})
