@@ -1,0 +1,13 @@
+pandoc: '2.2'
+pkgdown: 1.4.1
+pkgdown_sha: ~
+articles:
+  multifile_zip_resources: multifile_zip_resources.html
+  multiple_resources_purrr: multiple_resources_purrr.html
+  multisheet_resources: multisheet_resources.html
+  opendatatoronto: opendatatoronto.html
+  spatial_data: spatial_data.html
+urls:
+  reference: https://sharlagelfand.github.io/opendatatoronto//reference
+  article: https://sharlagelfand.github.io/opendatatoronto//articles
+
