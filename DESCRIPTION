@@ -3,40 +3,43 @@ Title: Access the City of Toronto Open Data Portal API
 Version: 0.0.0.9007
 Authors@R: 
     c(person(given = "Sharla",
-           family = "Gelfand",
-           role = c("aut", "cre"),
-           email = "sharla.gelfand@gmail.com"),
+             family = "Gelfand",
+             role = c("aut", "cre"),
+             email = "sharla.gelfand@gmail.com"),
       person(given = "City of Toronto",
              role = c("cph", "fnd")))
-Description: Search and retrieve data from the City of Toronto Open Data Portal
-    (<https://open.toronto.ca>) directly from R.
+Description: Search and retrieve data from the City of Toronto
+    Open Data Portal (<https://open.toronto.ca>) directly from R.
 License: MIT + file LICENSE
-URL: https://sharlagelfand.github.io/opendatatoronto/, https://github.com/sharlagelfand/opendatatoronto/
-BugReports: https://github.com/sharlagelfand/opendatatoronto/issues
+URL: https://sharlagelfand.github.io/opendatatoronto/,
+    https://github.com/sharlagelfand/opendatatoronto/
+BugReports: 
+    https://github.com/sharlagelfand/opendatatoronto/issues
 Depends: 
     R (>= 2.10)
 Imports: 
     ckanr (>= 0.3.3.9140),
-    tibble,
     httr,
     jsonlite,
-    magrittr
+    magrittr,
+    tibble
 Suggests: 
-    covr,
-    testthat,
-    sf,
-    readxl,
-    xml2,
-    knitr,
-    rmarkdown,
-    geojsonsf,
     cancensus,
+    covr,
     dplyr,
+    geojsonsf,
     ggplot2,
-    purrr
+    knitr,
+    purrr,
+    readxl,
+    rmarkdown,
+    sf,
+    testthat,
+    xml2
+VignetteBuilder: 
+    knitr
 Remotes: 
     ropensci/ckanr
 Encoding: UTF-8
 LazyData: true
 RoxygenNote: 6.1.1
-VignetteBuilder: knitr
