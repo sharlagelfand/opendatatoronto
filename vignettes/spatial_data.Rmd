@@ -40,7 +40,8 @@ library(cancensus)
 toronto <- get_census(
   dataset = "CA16", regions = list(CMA = "35535"),
   level = "CSD", geo_format = "sf", quiet = TRUE
-)
+) %>%
+  filter(name == "Toronto (C)")
 
 ggplot() +
   geom_sf(data = toronto) +
