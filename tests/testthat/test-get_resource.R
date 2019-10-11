@@ -27,6 +27,9 @@ test_that("get_resource returns the right output formats.", {
 
   output <- get_resource("684fdd81-dc1f-4636-a33d-0ede4f390684")
   expect_is(output, "sf")
+
+  output <- get_resource("199bba5c-242e-4968-ae7f-2e2147eaf235")
+  expect_is(output, "sf")
 })
 
 test_that("check_for_sf_geojsonsf return the right warnings when sf or geojson aren't installed.", {

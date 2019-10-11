@@ -74,7 +74,8 @@ get_datastore_resource <- function(resource_id) {
 }
 
 check_geometry_resource <- function(res, resource_id) {
-  if ("LATITUDE" %in% toupper(colnames(res)) && "LONGITUDE" %in% toupper(colnames(res))) {
+  if (("LATITUDE" %in% toupper(colnames(res)) && "LONGITUDE" %in% toupper(colnames(res))) |
+      "GEOMETRY" %in% toupper(colnames(res))) {
     res <- tibble::as_tibble(res)
     res <- check_for_sf_geojsonsf(res, resource_id)
   } else {

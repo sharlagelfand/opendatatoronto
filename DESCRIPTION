@@ -1,6 +1,6 @@
 Package: opendatatoronto
 Title: Access the City of Toronto Open Data Portal API
-Version: 0.0.0.9007
+Version: 0.0.0.9008
 Authors@R: 
     c(person(given = "Sharla",
              family = "Gelfand",
