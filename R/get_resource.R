@@ -2,7 +2,7 @@
 #'
 #' Download a resource from the portal directly into your R session. CSV, XLS, XLSX, XML, JSON, SHP, ZIP, and GeoJSON resources are supported. In most cases, the resource is returned as a tibble or list. If it is a spatial resource (i.e. SHP or GeoJSON), it is returned as an \code{sf} object.
 #'
-#' @param resource A way to identify the resource. Either a resource ID (passed as a character vector directly) or a single resource resulting from \code{\link{list_package_resources}}
+#' @param resource A way to identify the resource. Either a resource ID (passed as a character vector directly) or a single resource resulting from \code{\link{list_package_resources}}.
 #' @export
 #' @examples
 #' \dontrun{

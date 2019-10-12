@@ -1,6 +1,6 @@
 #' opendatatoronto
 #'
-#' opendatatoronto is an R interface to the \href{https://portal0.cf.opendata.inter.sandbox-toronto.ca/}{City of Toronto Open Data Portal}.
+#' opendatatoronto is an R interface to the \href{https://open.toronto.ca/}{City of Toronto's Open Data Portal}.
 #' The goal of the package is to help read data directly into R without needing
 #' to manually download it via the portal.
 #'

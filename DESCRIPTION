@@ -1,5 +1,5 @@
 Package: opendatatoronto
-Title: Access the City of Toronto Open Data Portal API
+Title: Access the City of Toronto Open Data Portal
 Version: 0.0.0.9008
 Authors@R: 
     c(person(given = "Sharla",
@@ -8,7 +8,7 @@ Authors@R:
              email = "sharla.gelfand@gmail.com"),
       person(given = "City of Toronto",
              role = c("cph", "fnd")))
-Description: Search and retrieve data from the City of Toronto
+Description: Search and retrieve data from the City of Toronto's
     Open Data Portal (<https://open.toronto.ca>) directly from R.
 License: MIT + file LICENSE
 URL: https://sharlagelfand.github.io/opendatatoronto/,
@@ -18,7 +18,7 @@ BugReports:
 Depends: 
     R (>= 2.10)
 Imports: 
-    ckanr (>= 0.3.3.9140),
+    ckanr (>= 0.4.0),
     httr,
     jsonlite,
     magrittr,
@@ -38,8 +38,6 @@ Suggests:
     xml2
 VignetteBuilder: 
     knitr
-Remotes: 
-    ropensci/ckanr
 Encoding: UTF-8
 LazyData: true
 RoxygenNote: 6.1.1
