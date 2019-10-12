@@ -11,7 +11,12 @@
 #' search_packages("ttc")
 #' }
 search_packages <- function(title, limit = 50) {
-  packages <- ckanr::package_search(fq = paste0("title:", '"', title, '"'), rows = limit, url = opendatatoronto_ckan_url, as = "table")
+  packages <- ckanr::package_search(
+    fq = paste0("title:", '"', title, '"'),
+    rows = limit,
+    url = opendatatoronto_ckan_url,
+    as = "table"
+  )
 
   if (length(packages[["results"]]) == 0) {
     package_res_init

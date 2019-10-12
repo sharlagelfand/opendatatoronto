@@ -15,7 +15,10 @@ get_resource <- function(resource) {
   resource_id <- as_id(resource)
 
   resource_res <- try(
-    ckanr::resource_show(resource_id, url = opendatatoronto_ckan_url, as = "list"),
+    ckanr::resource_show(resource_id,
+      url = opendatatoronto_ckan_url,
+      as = "list"
+    ),
     silent = TRUE
   )
 
@@ -27,7 +30,11 @@ get_resource <- function(resource) {
     res <- get_datastore_resource(resource_id)
     res <- check_geometry_resource(res, resource_id)
   } else {
-    res <- ckanr::ckan_fetch(x = resource_res[["url"]], store = "session", format = format)
+    res <- ckanr::ckan_fetch(
+      x = resource_res[["url"]],
+      store = "session",
+      format = format
+    )
   }
 
   if (inherits(res, "sf")) {
@@ -74,8 +81,9 @@ get_datastore_resource <- function(resource_id) {
 }
 
 check_geometry_resource <- function(res, resource_id) {
-  if (("LATITUDE" %in% toupper(colnames(res)) && "LONGITUDE" %in% toupper(colnames(res))) |
-      "GEOMETRY" %in% toupper(colnames(res))) {
+  if (("LATITUDE" %in% toupper(colnames(res)) &&
+    "LONGITUDE" %in% toupper(colnames(res))) |
+    "GEOMETRY" %in% toupper(colnames(res))) {
     res <- tibble::as_tibble(res)
     res <- check_for_sf_geojsonsf(res, resource_id)
   } else {

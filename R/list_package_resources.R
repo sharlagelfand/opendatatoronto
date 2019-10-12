@@ -14,7 +14,11 @@ list_package_resources <- function(package) {
   package_id <- as_id(package)
 
   package_res <- try(
-    ckanr::package_show(id = package_id, url = opendatatoronto_ckan_url, as = "table"),
+    ckanr::package_show(
+      id = package_id,
+      url = opendatatoronto_ckan_url,
+      as = "table"
+    ),
     silent = TRUE
   )
 

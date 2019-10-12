@@ -10,7 +10,10 @@
 #' }
 browse_portal <- function() {
   if (interactive()) {
-    utils::browseURL(url = "https://open.toronto.ca", browser = getOption("browser"))
+    utils::browseURL(
+      url = "https://open.toronto.ca",
+      browser = getOption("browser")
+    )
   }
 
   invisible("https://open.toronto.ca")
@@ -34,7 +37,11 @@ browse_package <- function(package) {
   package_id <- as_id(package)
 
   package_res <- try(
-    ckanr::package_show(id = package_id, url = opendatatoronto_ckan_url, as = "list"),
+    ckanr::package_show(
+      id = package_id,
+      url = opendatatoronto_ckan_url,
+      as = "list"
+    ),
     silent = TRUE
   )
   package_res <- check_found(package_res, package_id, "package")
@@ -68,7 +75,11 @@ browse_resource <- function(resource) {
   resource_id <- as_id(resource)
 
   resource_res <- try(
-    ckanr::resource_show(id = resource_id, url = opendatatoronto_ckan_url, as = "list"),
+    ckanr::resource_show(
+      id = resource_id,
+      url = opendatatoronto_ckan_url,
+      as = "list"
+    ),
     silent = TRUE
   )
   resource_res <- check_found(resource_res, resource_id, "resource")

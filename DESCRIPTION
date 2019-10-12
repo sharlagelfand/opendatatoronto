@@ -8,7 +8,7 @@ Authors@R:
              email = "sharla.gelfand@gmail.com"),
       person(given = "City of Toronto",
              role = c("cph", "fnd")))
-Description: Search and retrieve data from the City of Toronto's
+Description: Access data from the City of Toronto's
     Open Data Portal (<https://open.toronto.ca>) directly from R.
 License: MIT + file LICENSE
 URL: https://sharlagelfand.github.io/opendatatoronto/,
@@ -19,8 +19,6 @@ Depends:
     R (>= 2.10)
 Imports: 
     ckanr (>= 0.4.0),
-    httr,
-    jsonlite,
     magrittr,
     tibble
 Suggests: 
