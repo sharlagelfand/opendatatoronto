@@ -32,20 +32,22 @@ bike_parking_racks <- search_packages("Bicycle Parking Racks") %>%
 bike_parking_racks
 ```
 
-Using the [`cancensus` package](https://github.com/mountainMath/cancensus), we can plot the bike racks along with a map of Toronto!
+If we want to plot this data on a map of Toronto, data to map the different [neighbourhoods of Toronto](https://open.toronto.ca/dataset/neighbourhoods/) is also available from the portal!
+
+```{r}
+neighbourhoods <- list_package_resources("https://open.toronto.ca/dataset/neighbourhoods/") %>%
+  get_resource()
+
+neighbourhoods[c("AREA_NAME", "geometry")]
+```
+
+Then, we can plot the bike racks along with a map of Toronto:
 
 ```{r fig.width = 7}
 library(ggplot2)
-library(cancensus)
-
-toronto <- get_census(
-  dataset = "CA16", regions = list(CMA = "35535"),
-  level = "CSD", geo_format = "sf", quiet = TRUE
-) %>%
-  filter(name == "Toronto (C)")
 
 ggplot() +
-  geom_sf(data = toronto) +
+  geom_sf(data = neighbourhoods[["geometry"]]) +
   geom_sf(data = bike_parking_racks) +
   theme_minimal()
 ```
