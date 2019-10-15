@@ -19,21 +19,21 @@ Depends:
     R (>= 2.10)
 Imports: 
     ckanr (>= 0.4.0),
+    geojsonsf,
     magrittr,
-    tibble
+    readxl,
+    sf,
+    tibble,
+    xml2
 Suggests: 
     cancensus,
     covr,
     dplyr,
-    geojsonsf,
     ggplot2,
     knitr,
     purrr,
-    readxl,
     rmarkdown,
-    sf,
-    testthat,
-    xml2
+    testthat
 VignetteBuilder: 
     knitr
 Encoding: UTF-8

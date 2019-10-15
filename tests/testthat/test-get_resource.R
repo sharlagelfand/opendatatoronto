@@ -32,31 +32,6 @@ test_that("get_resource returns the right output formats.", {
   expect_is(output, "sf")
 })
 
-test_that("check_for_sf_geojsonsf return the right warnings when sf or geojson aren't installed.", {
-  with_mock(
-    "opendatatoronto:::is_sf_installed" = function() FALSE,
-    "opendatatoronto:::is_geojsonsf_installed" = function() FALSE,
-    expect_warning(
-      check_for_sf_geojsonsf("abcd", "1234"),
-      "The `sf` and `geojsonsf` packages are required to return the GeoJSON resource"
-    )
-  )
-  with_mock(
-    "opendatatoronto:::is_sf_installed" = function() FALSE,
-    expect_warning(
-      check_for_sf_geojsonsf("abcd", "1234"),
-      "The `sf` package is required to return the GeoJSON resource"
-    )
-  )
-  with_mock(
-    "opendatatoronto:::is_geojsonsf_installed" = function() FALSE,
-    expect_warning(
-      check_for_sf_geojsonsf("abcd", "1234"),
-      "The `geojsonsf` package is required to parse the geometry of the GeoJSON resource"
-    )
-  )
-})
-
 test_that("tibble_list_elements makes data frame list elements into tibbles", {
   x <- list(
     a = data.frame(b = 1),

@@ -85,35 +85,16 @@ check_geometry_resource <- function(res, resource_id) {
     "LONGITUDE" %in% toupper(colnames(res))) |
     "GEOMETRY" %in% toupper(colnames(res))) {
     res <- tibble::as_tibble(res)
-    res <- check_for_sf_geojsonsf(res, resource_id)
+    res <- covert_geometry_resource(res)
   } else {
     res
   }
 }
 
-is_sf_installed <- function() {
-  requireNamespace("sf", quietly = TRUE)
-}
-
-is_geojsonsf_installed <- function() {
-  requireNamespace("geojsonsf", quietly = TRUE)
-}
-
-check_for_sf_geojsonsf <- function(res, resource_id) {
-  if (!is_sf_installed() && !is_geojsonsf_installed()) {
-    warning(paste0('The `sf` and `geojsonsf` packages are required to return the GeoJSON resource "', resource_id, '" as an `sf` object. Without them, the resource is returned as a tibble where the geometry is a character field.'), call. = FALSE)
-    res
-  } else if (!is_sf_installed()) {
-    warning(paste0('The `sf` package is required to return the GeoJSON resource "', resource_id, '" as an `sf` object. Without it, the resource is returned as a tibble where the geometry is a character field.'), call. = FALSE)
-    res
-  } else if (!is_geojsonsf_installed()) {
-    warning(paste0('The `geojsonsf` package is required to parse the geometry of the GeoJSON resource "', resource_id, '". Without it, the resource is returned as a tibble where the geometry is a character field.'), call. = FALSE)
-    res
-  } else {
-    sf_geometry <- geojsonsf::geojson_sf(res[["geometry"]])
-    res[["geometry"]] <- sf_geometry[["geometry"]]
-    sf::st_as_sf(res, sf_column_name = "geometry", crs = 4326)
-  }
+covert_geometry_resource <- function(res) {
+  sf_geometry <- geojsonsf::geojson_sf(res[["geometry"]])
+  res[["geometry"]] <- sf_geometry[["geometry"]]
+  sf::st_as_sf(res, sf_column_name = "geometry", crs = 4326)
 }
 
 tibble_list_elements <- function(x) {
