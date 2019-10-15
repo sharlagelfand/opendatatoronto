@@ -141,21 +141,39 @@
 <a class="sourceLine" id="cb1-35" data-line-number="35"><span class="co">#&gt; #   CAPACITY &lt;int&gt;, MULTIMODAL &lt;chr&gt;, SEASONAL &lt;chr&gt;, SHELTERED &lt;chr&gt;,</span></a>
 <a class="sourceLine" id="cb1-36" data-line-number="36"><span class="co">#&gt; #   SURFACE &lt;chr&gt;, STATUS &lt;chr&gt;, LOCATION &lt;chr&gt;, NOTES &lt;chr&gt;,</span></a>
 <a class="sourceLine" id="cb1-37" data-line-number="37"><span class="co">#&gt; #   MAP_CLASS &lt;chr&gt;, geometry &lt;POINT [°]&gt;</span></a></code></pre></div>
-<p>Using the <a href="https://github.com/mountainMath/cancensus"><code>cancensus</code> package</a>, we can plot the bike racks along with a map of Toronto!</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(ggplot2)</a>
-<a class="sourceLine" id="cb2-2" data-line-number="2"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(cancensus)</a>
+<p>If we want to plot this data on a map of Toronto, data to map the different <a href="https://open.toronto.ca/dataset/neighbourhoods/">neighbourhoods of Toronto</a> is also available from the portal!</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" data-line-number="1">neighbourhoods &lt;-<span class="st"> </span><span class="kw"><a href="../reference/list_package_resources.html">list_package_resources</a></span>(<span class="st">"https://open.toronto.ca/dataset/neighbourhoods/"</span>) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb2-2" data-line-number="2"><span class="st">  </span><span class="kw"><a href="../reference/get_resource.html">get_resource</a></span>()</a>
 <a class="sourceLine" id="cb2-3" data-line-number="3"></a>
-<a class="sourceLine" id="cb2-4" data-line-number="4">toronto &lt;-<span class="st"> </span><span class="kw"><a href="https://rdrr.io/pkg/cancensus/man/get_census.html">get_census</a></span>(</a>
-<a class="sourceLine" id="cb2-5" data-line-number="5">  <span class="dt">dataset =</span> <span class="st">"CA16"</span>, <span class="dt">regions =</span> <span class="kw"><a href="https://rdrr.io/r/base/list.html">list</a></span>(<span class="dt">CMA =</span> <span class="st">"35535"</span>),</a>
-<a class="sourceLine" id="cb2-6" data-line-number="6">  <span class="dt">level =</span> <span class="st">"CSD"</span>, <span class="dt">geo_format =</span> <span class="st">"sf"</span>, <span class="dt">quiet =</span> <span class="ot">TRUE</span></a>
-<a class="sourceLine" id="cb2-7" data-line-number="7">) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb2-8" data-line-number="8"><span class="st">  </span><span class="kw"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span>(name <span class="op">==</span><span class="st"> "Toronto (C)"</span>)</a>
-<a class="sourceLine" id="cb2-9" data-line-number="9"></a>
-<a class="sourceLine" id="cb2-10" data-line-number="10"><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span>() <span class="op">+</span></a>
-<a class="sourceLine" id="cb2-11" data-line-number="11"><span class="st">  </span><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/ggsf.html">geom_sf</a></span>(<span class="dt">data =</span> toronto) <span class="op">+</span></a>
-<a class="sourceLine" id="cb2-12" data-line-number="12"><span class="st">  </span><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/ggsf.html">geom_sf</a></span>(<span class="dt">data =</span> bike_parking_racks) <span class="op">+</span></a>
-<a class="sourceLine" id="cb2-13" data-line-number="13"><span class="st">  </span><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_minimal</a></span>()</a></code></pre></div>
-<p><img src="spatial_data_files/figure-html/unnamed-chunk-2-1.png" width="672"></p>
+<a class="sourceLine" id="cb2-4" data-line-number="4">neighbourhoods[<span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"AREA_NAME"</span>, <span class="st">"geometry"</span>)]</a>
+<a class="sourceLine" id="cb2-5" data-line-number="5"><span class="co">#&gt; Simple feature collection with 140 features and 1 field</span></a>
+<a class="sourceLine" id="cb2-6" data-line-number="6"><span class="co">#&gt; geometry type:  POLYGON</span></a>
+<a class="sourceLine" id="cb2-7" data-line-number="7"><span class="co">#&gt; dimension:      XY</span></a>
+<a class="sourceLine" id="cb2-8" data-line-number="8"><span class="co">#&gt; bbox:           xmin: -79.63926 ymin: 43.581 xmax: -79.11545 ymax: 43.85546</span></a>
+<a class="sourceLine" id="cb2-9" data-line-number="9"><span class="co">#&gt; epsg (SRID):    4326</span></a>
+<a class="sourceLine" id="cb2-10" data-line-number="10"><span class="co">#&gt; proj4string:    +proj=longlat +datum=WGS84 +no_defs</span></a>
+<a class="sourceLine" id="cb2-11" data-line-number="11"><span class="co">#&gt; # A tibble: 140 x 2</span></a>
+<a class="sourceLine" id="cb2-12" data-line-number="12"><span class="co">#&gt;    AREA_NAME                                                       geometry</span></a>
+<a class="sourceLine" id="cb2-13" data-line-number="13"><span class="co">#&gt;    &lt;chr&gt;                                                      &lt;POLYGON [°]&gt;</span></a>
+<a class="sourceLine" id="cb2-14" data-line-number="14"><span class="co">#&gt;  1 Wychwood (94)        ((-79.43592 43.68015, -79.43492 43.68037, -79.4339…</span></a>
+<a class="sourceLine" id="cb2-15" data-line-number="15"><span class="co">#&gt;  2 Yonge-Eglinton (100) ((-79.41096 43.70408, -79.40962 43.70436, -79.4085…</span></a>
+<a class="sourceLine" id="cb2-16" data-line-number="16"><span class="co">#&gt;  3 Yonge-St.Clair (97)  ((-79.39119 43.68108, -79.39141 43.68097, -79.3932…</span></a>
+<a class="sourceLine" id="cb2-17" data-line-number="17"><span class="co">#&gt;  4 York University Hei… ((-79.50529 43.75987, -79.50488 43.75996, -79.5049…</span></a>
+<a class="sourceLine" id="cb2-18" data-line-number="18"><span class="co">#&gt;  5 Yorkdale-Glen Park … ((-79.43969 43.70561, -79.44011 43.70559, -79.4410…</span></a>
+<a class="sourceLine" id="cb2-19" data-line-number="19"><span class="co">#&gt;  6 Lambton Baby Point … ((-79.50552 43.66281, -79.50577 43.66291, -79.5061…</span></a>
+<a class="sourceLine" id="cb2-20" data-line-number="20"><span class="co">#&gt;  7 Lansing-Westgate (3… ((-79.43998 43.76156, -79.44004 43.76177, -79.4404…</span></a>
+<a class="sourceLine" id="cb2-21" data-line-number="21"><span class="co">#&gt;  8 Lawrence Park North… ((-79.39008 43.72768, -79.39199 43.72726, -79.3939…</span></a>
+<a class="sourceLine" id="cb2-22" data-line-number="22"><span class="co">#&gt;  9 Lawrence Park South… ((-79.41096 43.70408, -79.41165 43.70394, -79.4120…</span></a>
+<a class="sourceLine" id="cb2-23" data-line-number="23"><span class="co">#&gt; 10 Leaside-Bennington … ((-79.37749 43.71309, -79.37762 43.71385, -79.3779…</span></a>
+<a class="sourceLine" id="cb2-24" data-line-number="24"><span class="co">#&gt; # … with 130 more rows</span></a></code></pre></div>
+<p>Then, we can plot the bike racks along with a map of Toronto:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" data-line-number="1"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(ggplot2)</a>
+<a class="sourceLine" id="cb3-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb3-3" data-line-number="3"><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb3-4" data-line-number="4"><span class="st">  </span><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/ggsf.html">geom_sf</a></span>(<span class="dt">data =</span> neighbourhoods[[<span class="st">"geometry"</span>]]) <span class="op">+</span></a>
+<a class="sourceLine" id="cb3-5" data-line-number="5"><span class="st">  </span><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/ggsf.html">geom_sf</a></span>(<span class="dt">data =</span> bike_parking_racks) <span class="op">+</span></a>
+<a class="sourceLine" id="cb3-6" data-line-number="6"><span class="st">  </span><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_minimal</a></span>()</a></code></pre></div>
+<p><img src="spatial_data_files/figure-html/unnamed-chunk-3-1.png" width="672"></p>
   </div>
 
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
