@@ -93,7 +93,3 @@ marriage_licence_statistics <- marriage_licence_resources %>%
 
 marriage_licence_statistics
 ```
-
-Please note that the 'opendatatoronto' project is released with a
-[Contributor Code of Conduct](CODE_OF_CONDUCT.md).
-By contributing to this project, you agree to abide by its terms.

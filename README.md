@@ -59,20 +59,21 @@ was last refreshed.
 library(opendatatoronto)
 packages <- list_packages(limit = 10)
 packages
-#> # A tibble: 10 x 9
-#>    title id    topics excerpt dataset_category num_resources formats
-#>    <chr> <chr> <chr>  <chr>   <chr>                    <int> <chr>  
-#>  1 Body… c405… City … This d… Table                        2 WEB,CS…
-#>  2 Stre… 1db3… City … Transi… Map                          1 CSV,GE…
-#>  3 Stre… 74f6… City … Public… Map                          1 CSV,GE…
-#>  4 Stre… 821f… City … Public… Map                          1 CSV,GE…
-#>  5 Stre… ccfd… City … Poster… Map                          1 CSV,GE…
-#>  6 Stre… cf70… City … Poster… Map                          1 CSV,GE…
-#>  7 Stre… 3944… City … Litter… Map                          1 CSV,GE…
-#>  8 Stre… 99b1… City … Inform… Map                          1 CSV,GE…
-#>  9 Stre… 71e6… Trans… "Bike … Map                          1 CSV,GE…
-#> 10 Stre… 0c4e… City … Bench … Map                          1 CSV,GE…
-#> # … with 2 more variables: refresh_rate <chr>, last_refreshed <date>
+#> # A tibble: 10 x 10
+#>    title id    topics civic_issues excerpt dataset_category num_resources
+#>    <chr> <chr> <chr>  <chr>        <chr>   <chr>                    <int>
+#>  1 Mont… ec1f… Health <NA>         "This … Document                     5
+#>  2 Deve… 0aa7… Devel… <NA>         "This … Table                        1
+#>  3 Body… c405… City … <NA>         This d… Table                        2
+#>  4 Stre… 1db3… City … <NA>         Transi… Map                          1
+#>  5 Stre… 74f6… City … <NA>         Public… Map                          1
+#>  6 Stre… 821f… City … <NA>         Public… Map                          1
+#>  7 Stre… ccfd… City … <NA>         Poster… Map                          1
+#>  8 Stre… cf70… City … <NA>         Poster… Map                          1
+#>  9 Stre… 3944… City … <NA>         Litter… Map                          1
+#> 10 Stre… 99b1… City … <NA>         Inform… Map                          1
+#> # … with 3 more variables: formats <chr>, refresh_rate <chr>,
+#> #   last_refreshed <date>
 ```
 
 You can also search packages by title:
@@ -81,35 +82,37 @@ You can also search packages by title:
 ttc_packages <- search_packages("ttc")
 
 ttc_packages
-#> # A tibble: 14 x 9
-#>    title id    topics excerpt dataset_category num_resources formats
-#>    <chr> <chr> <chr>  <chr>   <chr>                    <int> <chr>  
-#>  1 TTC … e271… Trans… TTC Bu… Document                     7 XLSX   
-#>  2 TTC … aedd… Trans… This d… Website                      2 WEB,XLS
-#>  3 TTC … d9dc… Trans… This d… Document                     1 XLSX   
-#>  4 TTC … 8217… Trans… The NV… Document                     1 PDF    
-#>  5 TTC … 1444… Trans… This d… Website                      2 WEB,XLS
-#>  6 TTC … 4eb6… Trans… This d… Document                     5 XLSX   
-#>  7 TTC … 2c4c… Finan… This d… Website                      2 WEB,XLS
-#>  8 TTC … c01c… <NA>   "This … Document                     1 SHP    
-#>  9 TTC … 7795… Trans… Data c… Document                     1 ZIP    
-#> 10 TTC … ef35… Trans… This d… Document                     1 XLSX   
-#> 11 TTC … d2a7… Trans… This d… Website                      2 WEB,XLS
-#> 12 TTC … 4b80… Trans… This d… Website                      2 WEB,XLS
-#> 13 TTC … b68c… Trans… TTC St… Document                     7 XLSX   
-#> 14 TTC … 996c… Trans… TTC Su… Document                    29 XLSX   
-#> # … with 2 more variables: refresh_rate <chr>, last_refreshed <date>
+#> # A tibble: 14 x 10
+#>    title id    topics civic_issues excerpt dataset_category num_resources
+#>    <chr> <chr> <chr>  <chr>        <chr>   <chr>                    <int>
+#>  1 TTC … d2a7… Trans… Mobility     This d… Website                      2
+#>  2 TTC … 4b80… Trans… Mobility     This d… Website                      2
+#>  3 TTC … 7795… Trans… Mobility     Data c… Document                     1
+#>  4 TTC … e271… Trans… Mobility     TTC Bu… Document                     7
+#>  5 TTC … 4eb6… Trans… Mobility     This d… Document                     5
+#>  6 TTC … 996c… Trans… Mobility     TTC Su… Document                    32
+#>  7 TTC … b68c… Trans… Mobility     TTC St… Document                     7
+#>  8 TTC … aedd… Trans… Mobility     This d… Website                      2
+#>  9 TTC … d9dc… Trans… Mobility     This d… Document                     1
+#> 10 TTC … 8217… Trans… Mobility     The NV… Document                     1
+#> 11 TTC … 1444… Trans… Mobility     This d… Website                      2
+#> 12 TTC … 2c4c… Finan… Mobility     This d… Website                      2
+#> 13 TTC … c01c… <NA>   Mobility     "This … Document                     1
+#> 14 TTC … ef35… Trans… Mobility     This d… Document                     1
+#> # … with 3 more variables: formats <chr>, refresh_rate <chr>,
+#> #   last_refreshed <date>
 ```
 
 Or see metadata for a specific package:
 
 ``` r
 show_package("996cfe8d-fb35-40ce-b569-698d51fc683b")
-#> # A tibble: 1 x 9
-#>   title id    topics excerpt dataset_category num_resources formats
-#>   <chr> <chr> <chr>  <chr>   <chr>                    <int> <chr>  
-#> 1 TTC … 996c… Trans… TTC Su… Document                    29 XLSX   
-#> # … with 2 more variables: refresh_rate <chr>, last_refreshed <date>
+#> # A tibble: 1 x 10
+#>   title id    topics civic_issues excerpt dataset_category num_resources
+#>   <chr> <chr> <chr>  <chr>        <chr>   <chr>                    <int>
+#> 1 TTC … 996c… Trans… Mobility     TTC Su… Document                    32
+#> # … with 3 more variables: formats <chr>, refresh_rate <chr>,
+#> #   last_refreshed <date>
 ```
 
 Within a package, there are a number of **resources** - e.g. CSV, XSLX,
@@ -130,7 +133,7 @@ marriage_licence_resources
 #> # A tibble: 1 x 4
 #>   name                      id                         format last_modified
 #>   <chr>                     <chr>                      <chr>  <date>       
-#> 1 Marriage Licence Statist… 4d985c1d-9c7e-4f74-9864-7… CSV    2019-08-01
+#> 1 Marriage Licence Statist… 4d985c1d-9c7e-4f74-9864-7… CSV    2019-10-01
 ```
 
 But you can also get a list of resources by using the package’s URL from
@@ -154,22 +157,18 @@ marriage_licence_statistics <- marriage_licence_resources %>%
   get_resource()
 
 marriage_licence_statistics
-#> # A tibble: 412 x 4
+#> # A tibble: 420 x 4
 #>    `_id` CIVIC_CENTRE MARRIAGE_LICENSES TIME_PERIOD
 #>    <int> <chr>                    <int> <chr>      
-#>  1   409 ET                          80 2011-01    
-#>  2   410 NY                         136 2011-01    
-#>  3   411 SC                         159 2011-01    
-#>  4   412 TO                         367 2011-01    
-#>  5   413 ET                         109 2011-02    
-#>  6   414 NY                         150 2011-02    
-#>  7   415 SC                         154 2011-02    
-#>  8   416 TO                         383 2011-02    
-#>  9   417 ET                         177 2011-03    
-#> 10   418 NY                         231 2011-03    
-#> # … with 402 more rows
+#>  1  1237 ET                          80 2011-01    
+#>  2  1238 NY                         136 2011-01    
+#>  3  1239 SC                         159 2011-01    
+#>  4  1240 TO                         367 2011-01    
+#>  5  1241 ET                         109 2011-02    
+#>  6  1242 NY                         150 2011-02    
+#>  7  1243 SC                         154 2011-02    
+#>  8  1244 TO                         383 2011-02    
+#>  9  1245 ET                         177 2011-03    
+#> 10  1246 NY                         231 2011-03    
+#> # … with 410 more rows
 ```
-
-Please note that the ‘opendatatoronto’ project is released with a
-[Contributor Code of Conduct](CODE_OF_CONDUCT.md). By contributing to
-this project, you agree to abide by its terms.
