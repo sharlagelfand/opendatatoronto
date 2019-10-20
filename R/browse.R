@@ -2,6 +2,9 @@
 #'
 #' Opens a browser to \code{https://open.toronto.ca}.
 #'
+#' @return A browser is opened to the City of Toronto Open Data Portal website
+#' if the session is interactive. The URL is returned as a character string.
+#'
 #' @export
 #'
 #' @examples
@@ -24,6 +27,10 @@ browse_portal <- function() {
 #' Opens a browser to the package's page on the City of Toronto Open Data Portal.
 #'
 #' @param package A way to identify the package. Either a package ID (passed as a character vector directly), a single package resulting from \code{\link{list_packages}} or \code{\link{search_packages}}, or the package's URL from the portal.
+#'
+#' @return A browser is opened to the package's page  on the City of Toronto Open
+#' Data Portal website if the session is interactive. The URL is returned as a character
+#' string.
 #'
 #' @export
 #'
@@ -62,6 +69,10 @@ browse_package <- function(package) {
 #' Opens a browser to the resource's package page on the City of Toronto Open Data Portal.
 #'
 #' @param resource A way to identify the resource. Either a resource ID (passed as a character vector directly) or a single resource resulting from \code{\link{list_package_resources}}.
+#'
+#' @return A browser is opened to the resource's package page on the City of Toronto Open
+#' Data Portal website if the session is interactive. The URL is returned as a character
+#' string.
 #'
 #' @export
 #'

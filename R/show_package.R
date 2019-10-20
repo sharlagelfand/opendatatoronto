@@ -1,10 +1,17 @@
 #' Show a package's metadata
 #'
-#' Show a portal package's metadata, including \code{title}, \code{id}, \code{topics}, \code{civic_issues}, \code{dataset_category}, \code{num_resources} (the number of resources in the package), \code{formats} (the different formats of the resources), \code{refresh_rate} (how often the package is refreshed), and \code{last_refreshed} (the date it was last refreshed).
+#' Show a portal package's metadata.
 #'
 #' @param package A way to identify the package. Either a package ID (passed as a character vector directly) or the package's URL from the portal.
 #'
 #' @export
+#'
+#' @value A tibble including \code{title}, \code{id}, \code{topics},
+#' \code{civic_issues}, \code{dataset_category}, \code{num_resources}
+#' (the number of resources in the package), \code{formats} (the different
+#' formats of the resources), \code{refresh_rate} (how often the package is
+#' refreshed), and \code{last_refreshed} (the date it was last refreshed).
+#'
 #' @examples
 #' \dontrun{
 #' show_package("c01c6d71-de1f-493d-91ba-364ce64884ac")

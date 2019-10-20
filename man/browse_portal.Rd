@@ -6,6 +6,10 @@
 \usage{
 browse_portal()
 }
+\value{
+A browser is opened to the City of Toronto Open Data Portal website
+if the session is interactive. The URL is returned as a character string.
+}
 \description{
 Opens a browser to \code{https://open.toronto.ca}.
 }

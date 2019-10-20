@@ -9,6 +9,11 @@ browse_resource(resource)
 \arguments{
 \item{resource}{A way to identify the resource. Either a resource ID (passed as a character vector directly) or a single resource resulting from \code{\link{list_package_resources}}.}
 }
+\value{
+A browser is opened to the resource's package page on the City of Toronto Open
+Data Portal website if the session is interactive. The URL is returned as a character
+string.
+}
 \description{
 Opens a browser to the resource's package page on the City of Toronto Open Data Portal.
 }

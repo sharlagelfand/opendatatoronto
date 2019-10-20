@@ -9,8 +9,16 @@ list_packages(limit = 50)
 \arguments{
 \item{limit}{The maximum number of packages to return. The default is 50.}
 }
+\value{
+A tibble of available packages and metadata, including \code{title},
+\code{id}, \code{topics}, \code{civic_issues}, \code{dataset_category},
+\code{num_resources} (the number of resources in the package), \code{formats}
+(the different formats of the resources), \code{refresh_rate}
+(how often the package is refreshed), and \code{last_refreshed}
+(the date it was last refreshed).
+}
 \description{
-List packages available on the portal. Returns a tibble of available packages and metadata, including \code{title}, \code{id}, \code{topics}, \code{civic_issues}, \code{dataset_category}, \code{num_resources} (the number of resources in the package), \code{formats} (the different formats of the resources), \code{refresh_rate} (how often the package is refreshed), and \code{last_refreshed} (the date it was last refreshed).
+List packages available on the portal.
 }
 \examples{
 \dontrun{
