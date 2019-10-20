@@ -11,11 +11,19 @@ search_packages(title, limit = 50)
 
 \item{limit}{Maximum number of packages to return. The default is 50. The maximum limit is 1000.}
 }
+\value{
+A tibble of matching packages along with package metadata, including
+\code{title}, \code{id}, \code{topics}, \code{civic_issues},
+\code{dataset_category}, \code{num_resources} (the number of resources in the
+package), \code{formats} (the different formats of the resources),
+\code{refresh_rate} (how often the package is refreshed), and
+\code{last_refreshed} (the date it was last refreshed).
+}
 \description{
 Search portal packages by title.
 }
 \examples{
-\dontrun{
+\donttest{
 search_packages("ttc")
 }
 }

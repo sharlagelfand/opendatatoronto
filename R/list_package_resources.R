@@ -11,7 +11,7 @@
 #' \code{last_modified} (the date the resource was last modified).
 #'
 #' @examples
-#' \dontrun{
+#' \donttest{
 #' list_package_resources("1db34737-ffad-489d-a590-9171d500d453")
 #' list_package_resources("https://open.toronto.ca/dataset/ttc-subway-delay-data")
 #' }

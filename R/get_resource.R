@@ -10,7 +10,7 @@
 #' If it is a spatial resource (i.e. SHP or GeoJSON), it is returned as an sf object.
 #'
 #' @examples
-#' \dontrun{
+#' \donttest{
 #' res <- list_package_resources("1db34737-ffad-489d-a590-9171d500d453")
 #' get_resource(resource = res[1, "id"])
 #' res[["id"]]

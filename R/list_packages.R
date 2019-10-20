@@ -15,7 +15,7 @@
 #' (the date it was last refreshed).
 #'
 #' @examples
-#' \dontrun{
+#' \donttest{
 #' list_packages(5)
 #' }
 list_packages <- function(limit = 50) {

@@ -7,15 +7,15 @@
 #'
 #' @export
 #'
-#' @value A tibble of matching packages along with package metadata, including
+#' @return A tibble of matching packages along with package metadata, including
 #' \code{title}, \code{id}, \code{topics}, \code{civic_issues},
 #' \code{dataset_category}, \code{num_resources} (the number of resources in the
-#'  package), \code{formats} (the different formats of the resources),
-#'   \code{refresh_rate} (how often the package is refreshed), and
-#'   \code{last_refreshed} (the date it was last refreshed).
+#' package), \code{formats} (the different formats of the resources),
+#' \code{refresh_rate} (how often the package is refreshed), and
+#' \code{last_refreshed} (the date it was last refreshed).
 #'
 #' @examples
-#' \dontrun{
+#' \donttest{
 #' search_packages("ttc")
 #' }
 search_packages <- function(title, limit = 50) {

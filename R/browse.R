@@ -8,7 +8,7 @@
 #' @export
 #'
 #' @examples
-#' \dontrun{
+#' \donttest{
 #' browse_portal()
 #' }
 browse_portal <- function() {
@@ -35,7 +35,7 @@ browse_portal <- function() {
 #' @export
 #'
 #' @examples
-#' \dontrun{
+#' \donttest{
 #' ttc_subway_delays <- search_packages("ttc subway delay")
 #' browse_package(ttc_subway_delays)
 #' browse_package("https://open.toronto.ca/dataset/business-improvement-areas/")
@@ -77,7 +77,7 @@ browse_package <- function(package) {
 #' @export
 #'
 #' @examples
-#' \dontrun{
+#' \donttest{
 #' ttc_subway_delays <- search_packages("ttc subway delay")
 #' res <- list_package_resources(ttc_subway_delays)
 #' browse_resource(res[1, ])

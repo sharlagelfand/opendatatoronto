@@ -18,7 +18,7 @@ string.
 Opens a browser to the package's page on the City of Toronto Open Data Portal.
 }
 \examples{
-\dontrun{
+\donttest{
 ttc_subway_delays <- search_packages("ttc subway delay")
 browse_package(ttc_subway_delays)
 browse_package("https://open.toronto.ca/dataset/business-improvement-areas/")

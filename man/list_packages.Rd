@@ -21,7 +21,7 @@ A tibble of available packages and metadata, including \code{title},
 List packages available on the portal.
 }
 \examples{
-\dontrun{
+\donttest{
 list_packages(5)
 }
 }

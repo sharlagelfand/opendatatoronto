@@ -18,7 +18,7 @@ string.
 Opens a browser to the resource's package page on the City of Toronto Open Data Portal.
 }
 \examples{
-\dontrun{
+\donttest{
 ttc_subway_delays <- search_packages("ttc subway delay")
 res <- list_package_resources(ttc_subway_delays)
 browse_resource(res[1, ])

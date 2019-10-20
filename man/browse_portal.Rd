@@ -14,7 +14,7 @@ if the session is interactive. The URL is returned as a character string.
 Opens a browser to \code{https://open.toronto.ca}.
 }
 \examples{
-\dontrun{
+\donttest{
 browse_portal()
 }
 }

@@ -6,14 +6,14 @@
 #'
 #' @export
 #'
-#' @value A tibble including \code{title}, \code{id}, \code{topics},
+#' @return A tibble including \code{title}, \code{id}, \code{topics},
 #' \code{civic_issues}, \code{dataset_category}, \code{num_resources}
 #' (the number of resources in the package), \code{formats} (the different
 #' formats of the resources), \code{refresh_rate} (how often the package is
 #' refreshed), and \code{last_refreshed} (the date it was last refreshed).
 #'
 #' @examples
-#' \dontrun{
+#' \donttest{
 #' show_package("c01c6d71-de1f-493d-91ba-364ce64884ac")
 #' }
 show_package <- function(package) {
