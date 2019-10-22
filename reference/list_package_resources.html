@@ -38,7 +38,7 @@
   
 
 <meta property="og:title" content="List resources for a package — list_package_resources" />
-<meta property="og:description" content="List resources for a package on the portal. Returns a tibble of resources along with metadata, including name, id, format (the format of the resource file), and last_modified (the date the resource was last modified)." />
+<meta property="og:description" content="List resources for a package on the portal." />
 <meta name="twitter:card" content="summary" />
 
 
@@ -137,7 +137,7 @@
     </div>
 
     <div class="ref-description">
-    <p>List resources for a package on the portal. Returns a tibble of resources along with metadata, including <code>name</code>, <code>id</code>, <code>format</code> (the format of the resource file), and <code>last_modified</code> (the date the resource was last modified).</p>
+    <p>List resources for a package on the portal.</p>
     </div>
 
     <pre class="usage"><span class='fu'>list_package_resources</span>(<span class='no'>package</span>)</pre>
@@ -151,17 +151,38 @@
     </tr>
     </table>
 
+    <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
+
+    <p>A tibble of resources along with metadata, including <code>name</code>,
+<code>id</code>, <code>format</code> (the format of the resource file), and
+<code>last_modified</code> (the date the resource was last modified).</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='kw'>if</span> (<span class='fl'>FALSE</span>) {
-<span class='fu'>list_package_resources</span>(<span class='st'>"1db34737-ffad-489d-a590-9171d500d453"</span>)
-<span class='fu'>list_package_resources</span>(<span class='st'>"https://open.toronto.ca/dataset/ttc-subway-delay-data"</span>)
-}</div></pre>
+    <pre class="examples"><div class='input'><span class='co'># \donttest{</span>
+<span class='fu'>list_package_resources</span>(<span class='st'>"1db34737-ffad-489d-a590-9171d500d453"</span>)</div><div class='output co'>#&gt; # A tibble: 1 x 4
+#&gt;   name                 id                                   format last_modified
+#&gt;   &lt;chr&gt;                &lt;chr&gt;                                &lt;chr&gt;  &lt;date&gt;       
+#&gt; 1 Transit shelter data b9214fd7-60d1-45f3-8463-a6bd9828f8bf GeoJS… 2019-10-22   </div><div class='input'><span class='fu'>list_package_resources</span>(<span class='st'>"https://open.toronto.ca/dataset/ttc-subway-delay-data"</span>)</div><div class='output co'>#&gt; # A tibble: 32 x 4
+#&gt;    name                         id                          format last_modified
+#&gt;    &lt;chr&gt;                        &lt;chr&gt;                       &lt;chr&gt;  &lt;date&gt;       
+#&gt;  1 ttc-subway-delay-codes       fece136b-224a-412a-b191-8d… XLSX   2019-08-15   
+#&gt;  2 ttc-subway-delay-jan-2014-a… 6664420f-316f-4f94-9ba4-d4… XLSX   2019-08-15   
+#&gt;  3 ttc-subway-delay-may-2017    d1159888-0035-45a0-b238-86… XLSX   2019-08-15   
+#&gt;  4 ttc-subway-delay-june-2017   240d8e8c-d300-4f91-b94f-cb… XLSX   2019-08-15   
+#&gt;  5 ttc-subway-delay-july-2017   98d4ac77-aa9f-40a3-97ee-6f… XLSX   2019-08-15   
+#&gt;  6 ttc-subway-delay-august-2017 92e7649a-cf2f-4ac7-9802-b7… XLSX   2019-08-15   
+#&gt;  7 ttc-subway-delay-september-… 61412f10-656b-4992-9a1a-a1… XLSX   2019-08-15   
+#&gt;  8 ttc-subway-delay-october-20… 69a6db37-7982-49c7-8dbc-56… XLSX   2019-08-15   
+#&gt;  9 ttc-subway-delay-november-2… 10080217-8022-41c0-a8ba-2a… XLSX   2019-08-15   
+#&gt; 10 ttc-subway-delay-december-2… a731c4bb-630a-4530-b590-b3… XLSX   2019-08-15   
+#&gt; # … with 22 more rows</div><div class='input'># }
+</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
       <li><a href="#arguments">Arguments</a></li>
+      <li><a href="#value">Value</a></li>
       <li><a href="#examples">Examples</a></li>
     </ul>
 

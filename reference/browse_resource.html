@@ -151,18 +151,24 @@
     </tr>
     </table>
 
+    <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
+
+    <p>A browser is opened to the resource's package page on the City of Toronto Open
+Data Portal website if the session is interactive. The URL is returned as a character
+string.</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='kw'>if</span> (<span class='fl'>FALSE</span>) {
+    <pre class="examples"><div class='input'><span class='co'># \donttest{</span>
 <span class='no'>ttc_subway_delays</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='search_packages.html'>search_packages</a></span>(<span class='st'>"ttc subway delay"</span>)
 <span class='no'>res</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='list_package_resources.html'>list_package_resources</a></span>(<span class='no'>ttc_subway_delays</span>)
 <span class='fu'>browse_resource</span>(<span class='no'>res</span>[<span class='fl'>1</span>, ])
-}</div></pre>
+<span class='co'># }</span></div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
       <li><a href="#arguments">Arguments</a></li>
+      <li><a href="#value">Value</a></li>
       <li><a href="#examples">Examples</a></li>
     </ul>
 

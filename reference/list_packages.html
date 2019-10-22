@@ -38,7 +38,7 @@
   
 
 <meta property="og:title" content="List packages — list_packages" />
-<meta property="og:description" content="List packages available on the portal. Returns a tibble of available packages and metadata, including title, id, topics, civic_issues, dataset_category, num_resources (the number of resources in the package), formats (the different formats of the resources), refresh_rate (how often the package is refreshed), and last_refreshed (the date it was last refreshed)." />
+<meta property="og:description" content="List packages available on the portal." />
 <meta name="twitter:card" content="summary" />
 
 
@@ -137,7 +137,7 @@
     </div>
 
     <div class="ref-description">
-    <p>List packages available on the portal. Returns a tibble of available packages and metadata, including <code>title</code>, <code>id</code>, <code>topics</code>, <code>civic_issues</code>, <code>dataset_category</code>, <code>num_resources</code> (the number of resources in the package), <code>formats</code> (the different formats of the resources), <code>refresh_rate</code> (how often the package is refreshed), and <code>last_refreshed</code> (the date it was last refreshed).</p>
+    <p>List packages available on the portal.</p>
     </div>
 
     <pre class="usage"><span class='fu'>list_packages</span>(<span class='kw'>limit</span> <span class='kw'>=</span> <span class='fl'>50</span>)</pre>
@@ -151,16 +151,33 @@
     </tr>
     </table>
 
+    <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
+
+    <p>A tibble of available packages and metadata, including <code>title</code>,
+<code>id</code>, <code>topics</code>, <code>civic_issues</code>, <code>dataset_category</code>,
+<code>num_resources</code> (the number of resources in the package), <code>formats</code>
+(the different formats of the resources), <code>refresh_rate</code>
+(how often the package is refreshed), and <code>last_refreshed</code>
+(the date it was last refreshed).</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='kw'>if</span> (<span class='fl'>FALSE</span>) {
-<span class='fu'>list_packages</span>(<span class='fl'>5</span>)
-}</div></pre>
+    <pre class="examples"><div class='input'><span class='co'># \donttest{</span>
+<span class='fu'>list_packages</span>(<span class='fl'>5</span>)</div><div class='output co'>#&gt; # A tibble: 5 x 10
+#&gt;   title id    topics civic_issues excerpt dataset_category num_resources formats
+#&gt;   &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;  &lt;chr&gt;        &lt;chr&gt;   &lt;chr&gt;                    &lt;int&gt; &lt;chr&gt;  
+#&gt; 1 Body… c405… City … &lt;NA&gt;         This d… Table                        2 WEB,CS…
+#&gt; 2 Stre… 1db3… City … &lt;NA&gt;         Transi… Map                          1 CSV,GE…
+#&gt; 3 Stre… 74f6… City … &lt;NA&gt;         Public… Map                          1 CSV,GE…
+#&gt; 4 Stre… 821f… City … &lt;NA&gt;         Public… Map                          1 CSV,GE…
+#&gt; 5 Stre… ccfd… City … &lt;NA&gt;         Poster… Map                          1 CSV,GE…
+#&gt; # … with 2 more variables: refresh_rate &lt;chr&gt;, last_refreshed &lt;date&gt;</div><div class='input'># }
+</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
       <li><a href="#arguments">Arguments</a></li>
+      <li><a href="#value">Value</a></li>
       <li><a href="#examples">Examples</a></li>
     </ul>
 

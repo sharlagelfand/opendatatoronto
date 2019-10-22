@@ -38,7 +38,7 @@
   
 
 <meta property="og:title" content="Search packages by title — search_packages" />
-<meta property="og:description" content="Search portal packages by title. Returns a tibble of matching packages along with package metadata, including title, id, topics, civic_issues, dataset_category, num_resources (the number of resources in the package), formats (the different formats of the resources), refresh_rate (how often the package is refreshed), and last_refreshed (the date it was last refreshed)." />
+<meta property="og:description" content="Search portal packages by title." />
 <meta name="twitter:card" content="summary" />
 
 
@@ -137,7 +137,7 @@
     </div>
 
     <div class="ref-description">
-    <p>Search portal packages by title. Returns a tibble of matching packages along with package metadata, including <code>title</code>, <code>id</code>, <code>topics</code>, <code>civic_issues</code>, <code>dataset_category</code>, <code>num_resources</code> (the number of resources in the package), <code>formats</code> (the different formats of the resources), <code>refresh_rate</code> (how often the package is refreshed), and <code>last_refreshed</code> (the date it was last refreshed).</p>
+    <p>Search portal packages by title.</p>
     </div>
 
     <pre class="usage"><span class='fu'>search_packages</span>(<span class='no'>title</span>, <span class='kw'>limit</span> <span class='kw'>=</span> <span class='fl'>50</span>)</pre>
@@ -155,16 +155,43 @@
     </tr>
     </table>
 
+    <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
+
+    <p>A tibble of matching packages along with package metadata, including
+<code>title</code>, <code>id</code>, <code>topics</code>, <code>civic_issues</code>,
+<code>dataset_category</code>, <code>num_resources</code> (the number of resources in the
+package), <code>formats</code> (the different formats of the resources),
+<code>refresh_rate</code> (how often the package is refreshed), and
+<code>last_refreshed</code> (the date it was last refreshed).</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='kw'>if</span> (<span class='fl'>FALSE</span>) {
-<span class='fu'>search_packages</span>(<span class='st'>"ttc"</span>)
-}</div></pre>
+    <pre class="examples"><div class='input'><span class='co'># \donttest{</span>
+<span class='fu'>search_packages</span>(<span class='st'>"ttc"</span>)</div><div class='output co'>#&gt; # A tibble: 14 x 10
+#&gt;    title id    topics civic_issues excerpt dataset_category num_resources
+#&gt;    &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;  &lt;chr&gt;        &lt;chr&gt;   &lt;chr&gt;                    &lt;int&gt;
+#&gt;  1 TTC … d2a7… Trans… Mobility     This d… Website                      2
+#&gt;  2 TTC … 4b80… Trans… Mobility     This d… Website                      2
+#&gt;  3 TTC … 7795… Trans… Mobility     Data c… Document                     1
+#&gt;  4 TTC … e271… Trans… Mobility     TTC Bu… Document                     7
+#&gt;  5 TTC … 4eb6… Trans… Mobility     This d… Document                     5
+#&gt;  6 TTC … 996c… Trans… Mobility     TTC Su… Document                    32
+#&gt;  7 TTC … b68c… Trans… Mobility     TTC St… Document                     7
+#&gt;  8 TTC … aedd… Trans… Mobility     This d… Website                      2
+#&gt;  9 TTC … d9dc… Trans… Mobility     This d… Document                     1
+#&gt; 10 TTC … 8217… Trans… Mobility     The NV… Document                     1
+#&gt; 11 TTC … 1444… Trans… Mobility     This d… Website                      2
+#&gt; 12 TTC … 2c4c… Finan… Mobility     This d… Website                      2
+#&gt; 13 TTC … c01c… &lt;NA&gt;   Mobility     "This … Document                     1
+#&gt; 14 TTC … ef35… Trans… Mobility     This d… Document                     1
+#&gt; # … with 3 more variables: formats &lt;chr&gt;, refresh_rate &lt;chr&gt;,
+#&gt; #   last_refreshed &lt;date&gt;</div><div class='input'># }
+</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
       <li><a href="#arguments">Arguments</a></li>
+      <li><a href="#value">Value</a></li>
       <li><a href="#examples">Examples</a></li>
     </ul>
 
