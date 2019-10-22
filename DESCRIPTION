@@ -8,8 +8,8 @@ Authors@R:
              email = "sharla.gelfand@gmail.com"),
       person(given = "City of Toronto",
              role = c("cph", "fnd")))
-Description: Access data from the City of Toronto's
-    Open Data Portal (<https://open.toronto.ca>) directly from R.
+Description: Access data from the "City of Toronto
+    Open Data Portal" (<https://open.toronto.ca>) directly from R.
 License: MIT + file LICENSE
 URL: https://sharlagelfand.github.io/opendatatoronto/,
     https://github.com/sharlagelfand/opendatatoronto/

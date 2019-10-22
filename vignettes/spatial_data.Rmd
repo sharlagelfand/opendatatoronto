@@ -22,7 +22,6 @@ We can look at [bicycle parking](https://open.toronto.ca/dataset/bicycle-parking
 ```{r setup}
 library(opendatatoronto)
 library(dplyr)
-library(sf)
 
 bike_parking_racks <- search_packages("Bicycle Parking Racks") %>%
   list_package_resources() %>%
