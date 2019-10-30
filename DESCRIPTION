@@ -26,7 +26,6 @@ Imports:
     tibble,
     xml2
 Suggests: 
-    cancensus,
     covr,
     dplyr,
     ggplot2,
