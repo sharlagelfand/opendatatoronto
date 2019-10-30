@@ -14,7 +14,7 @@ coverage](https://codecov.io/gh/sharlagelfand/opendatatoronto/branch/master/grap
 [![CRAN
 status](https://www.r-pkg.org/badges/version/opendatatoronto)](https://cran.r-project.org/package=opendatatoronto)
 [![Lifecycle:
-experimental](https://img.shields.io/badge/lifecycle-maturing-blue.svg)](https://www.tidyverse.org/lifecycle/#experimental)
+maturing](https://img.shields.io/badge/lifecycle-maturing-blue.svg)](https://www.tidyverse.org/lifecycle/#maturing)
 <!-- badges: end -->
 
 `opendatatoronto` is an R interface to the [City of Toronto Open Data
@@ -62,16 +62,16 @@ packages
 #> # A tibble: 10 x 10
 #>    title id    topics civic_issues excerpt dataset_category num_resources
 #>    <chr> <chr> <chr>  <chr>        <chr>   <chr>                    <int>
-#>  1 Mont… ec1f… Health <NA>         "This … Document                     5
-#>  2 Deve… 0aa7… Devel… <NA>         "This … Table                        1
-#>  3 Body… c405… City … <NA>         This d… Table                        2
-#>  4 Stre… 1db3… City … <NA>         Transi… Map                          1
-#>  5 Stre… 74f6… City … <NA>         Public… Map                          1
-#>  6 Stre… 821f… City … <NA>         Public… Map                          1
-#>  7 Stre… ccfd… City … <NA>         Poster… Map                          1
-#>  8 Stre… cf70… City … <NA>         Poster… Map                          1
-#>  9 Stre… 3944… City … <NA>         Litter… Map                          1
-#> 10 Stre… 99b1… City … <NA>         Inform… Map                          1
+#>  1 Body… c405… City … <NA>         This d… Table                        2
+#>  2 Stre… 1db3… City … <NA>         Transi… Map                          1
+#>  3 Stre… 74f6… City … <NA>         Public… Map                          1
+#>  4 Stre… 821f… City … <NA>         Public… Map                          1
+#>  5 Stre… ccfd… City … <NA>         Poster… Map                          1
+#>  6 Stre… cf70… City … <NA>         Poster… Map                          1
+#>  7 Stre… 99b1… City … <NA>         Inform… Map                          1
+#>  8 Stre… 71e6… Trans… <NA>         "Bike … Map                          1
+#>  9 Stre… 0c4e… City … <NA>         Bench … Map                          1
+#> 10 Poll… 7bce… City … <NA>         Polls … Table                        2
 #> # … with 3 more variables: formats <chr>, refresh_rate <chr>,
 #> #   last_refreshed <date>
 ```
