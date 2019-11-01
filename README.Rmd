@@ -35,7 +35,13 @@ For more information, please visit the [package website](https://sharlagelfand.g
 
 ## Installation
 
-You can install the development version from GitHub with:
+You can intall the released version of opendatatoronto from CRAN:
+
+```r
+install.packages("opendatatoronto")
+```
+
+or the development version from GitHub with:
 
 ``` r
 # install.packages("devtools")

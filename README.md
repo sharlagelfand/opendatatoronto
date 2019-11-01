@@ -39,7 +39,13 @@ vignettes:
 
 ## Installation
 
-You can install the development version from GitHub with:
+You can intall the released version of opendatatoronto from CRAN:
+
+``` r
+install.packages("opendatatoronto")
+```
+
+or the development version from GitHub with:
 
 ``` r
 # install.packages("devtools")
@@ -62,16 +68,16 @@ packages
 #> # A tibble: 10 x 10
 #>    title id    topics civic_issues excerpt dataset_category num_resources
 #>    <chr> <chr> <chr>  <chr>        <chr>   <chr>                    <int>
-#>  1 Mont… ec1f… Health <NA>         "This … Document                     5
-#>  2 Deve… 0aa7… Devel… <NA>         "This … Table                        1
-#>  3 Body… c405… City … <NA>         This d… Table                        2
-#>  4 Stre… 1db3… City … <NA>         Transi… Map                          1
-#>  5 Stre… 74f6… City … <NA>         Public… Map                          1
-#>  6 Stre… 821f… City … <NA>         Public… Map                          1
-#>  7 Stre… ccfd… City … <NA>         Poster… Map                          1
-#>  8 Stre… cf70… City … <NA>         Poster… Map                          1
-#>  9 Stre… 3944… City … <NA>         Litter… Map                          1
-#> 10 Stre… 99b1… City … <NA>         Inform… Map                          1
+#>  1 Body… c405… City … <NA>         This d… Table                        2
+#>  2 Stre… 1db3… City … <NA>         Transi… Map                          1
+#>  3 Stre… 74f6… City … <NA>         Public… Map                          1
+#>  4 Stre… 821f… City … <NA>         Public… Map                          1
+#>  5 Stre… ccfd… City … <NA>         Poster… Map                          1
+#>  6 Stre… cf70… City … <NA>         Poster… Map                          1
+#>  7 Stre… 99b1… City … <NA>         Inform… Map                          1
+#>  8 Stre… 71e6… Trans… <NA>         "Bike … Map                          1
+#>  9 Stre… 0c4e… City … <NA>         Bench … Map                          1
+#> 10 Poll… 7bce… City … <NA>         Polls … Table                        2
 #> # … with 3 more variables: formats <chr>, refresh_rate <chr>,
 #> #   last_refreshed <date>
 ```
@@ -133,7 +139,7 @@ marriage_licence_resources
 #> # A tibble: 1 x 4
 #>   name                      id                         format last_modified
 #>   <chr>                     <chr>                      <chr>  <date>       
-#> 1 Marriage Licence Statist… 4d985c1d-9c7e-4f74-9864-7… CSV    2019-10-01
+#> 1 Marriage Licence Statist… 4d985c1d-9c7e-4f74-9864-7… CSV    2019-11-01
 ```
 
 But you can also get a list of resources by using the package’s URL from
@@ -157,18 +163,18 @@ marriage_licence_statistics <- marriage_licence_resources %>%
   get_resource()
 
 marriage_licence_statistics
-#> # A tibble: 420 x 4
+#> # A tibble: 424 x 4
 #>    `_id` CIVIC_CENTRE MARRIAGE_LICENSES TIME_PERIOD
 #>    <int> <chr>                    <int> <chr>      
-#>  1  1237 ET                          80 2011-01    
-#>  2  1238 NY                         136 2011-01    
-#>  3  1239 SC                         159 2011-01    
-#>  4  1240 TO                         367 2011-01    
-#>  5  1241 ET                         109 2011-02    
-#>  6  1242 NY                         150 2011-02    
-#>  7  1243 SC                         154 2011-02    
-#>  8  1244 TO                         383 2011-02    
-#>  9  1245 ET                         177 2011-03    
-#> 10  1246 NY                         231 2011-03    
-#> # … with 410 more rows
+#>  1  1657 ET                          80 2011-01    
+#>  2  1658 NY                         136 2011-01    
+#>  3  1659 SC                         159 2011-01    
+#>  4  1660 TO                         367 2011-01    
+#>  5  1661 ET                         109 2011-02    
+#>  6  1662 NY                         150 2011-02    
+#>  7  1663 SC                         154 2011-02    
+#>  8  1664 TO                         383 2011-02    
+#>  9  1665 ET                         177 2011-03    
+#> 10  1666 NY                         231 2011-03    
+#> # … with 414 more rows
 ```
