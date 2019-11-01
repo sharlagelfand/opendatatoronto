@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Open the resource's package page in your browser — browse_resource • opendatatoronto</title>
+<title>Changelog • opendatatoronto</title>
 
 
 <!-- jquery -->
@@ -37,9 +37,7 @@
   <link href="../extra.css" rel="stylesheet">
   
 
-<meta property="og:title" content="Open the resource's package page in your browser — browse_resource" />
-<meta property="og:description" content="Opens a browser to the resource's package page on the City of Toronto Open Data Portal." />
-<meta name="twitter:card" content="summary" />
+<meta property="og:title" content="Changelog" />
 
 
 
@@ -58,7 +56,7 @@
   </head>
 
   <body>
-    <div class="container template-reference-topic">
+    <div class="container template-news">
       <header>
       <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
   <div class="container">
@@ -134,48 +132,29 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Open the resource's package page in your browser</h1>
-    <small class="dont-index">Source: <a href='https://github.com/sharlagelfand/opendatatoronto/blob/master/R/browse.R'><code>R/browse.R</code></a></small>
-    <div class="hidden name"><code>browse_resource.Rd</code></div>
+      <h1>Changelog <small></small></h1>
+      <small>Source: <a href='https://github.com/sharlagelfand/opendatatoronto/blob/master/NEWS.md'><code>NEWS.md</code></a></small>
     </div>
 
-    <div class="ref-description">
-    <p>Opens a browser to the resource's package page on the City of Toronto Open Data Portal.</p>
-    </div>
-
-    <pre class="usage"><span class='fu'>browse_resource</span>(<span class='no'>resource</span>)</pre>
-
-    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
-    <table class="ref-arguments">
-    <colgroup><col class="name" /><col class="desc" /></colgroup>
-    <tr>
-      <th>resource</th>
-      <td><p>A way to identify the resource. Either a resource ID (passed as a character vector directly) or a single resource resulting from <code><a href='list_package_resources.html'>list_package_resources</a></code>.</p></td>
-    </tr>
-    </table>
-
-    <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
-
-    <p>A browser is opened to the resource's package page on the City of Toronto Open
-Data Portal website if the session is interactive. The URL is returned as a character
-string.</p>
-
-    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='co'># \donttest{</span>
-<span class='no'>ttc_subway_delays</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='search_packages.html'>search_packages</a></span>(<span class='st'>"ttc subway delay"</span>)
-<span class='no'>res</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='list_package_resources.html'>list_package_resources</a></span>(<span class='no'>ttc_subway_delays</span>)
-<span class='fu'>browse_resource</span>(<span class='no'>res</span>[<span class='fl'>1</span>, ])
-<span class='co'># }</span></div></pre>
+    <div id="opendatatoronto-0-1-0" class="section level1">
+<h1 class="page-header">
+<a href="#opendatatoronto-0-1-0" class="anchor"></a>opendatatoronto 0.1.0<small> 2019-10-28 </small>
+</h1>
+<ul>
+<li>Initial CRAN release.</li>
+</ul>
+</div>
   </div>
+
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
-    <h2>Contents</h2>
-    <ul class="nav nav-pills nav-stacked">
-      <li><a href="#arguments">Arguments</a></li>
-      <li><a href="#value">Value</a></li>
-      <li><a href="#examples">Examples</a></li>
-    </ul>
-
+    <div id="tocnav">
+      <h2>Contents</h2>
+      <ul class="nav nav-pills nav-stacked">
+        <li><a href="#opendatatoronto-0-1-0">0.1.0</a></li>
+      </ul>
+    </div>
   </div>
+
 </div>
 
 
