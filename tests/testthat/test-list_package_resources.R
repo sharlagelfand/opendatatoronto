@@ -1,6 +1,7 @@
 context("test-list_package_resources")
 
 test_that("list_package_resources returns an error if the package_id can't be found.", {
+  skip_on_cran()
   expect_error(
     list_package_resources("1234"),
     "not found"

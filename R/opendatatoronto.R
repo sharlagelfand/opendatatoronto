@@ -7,3 +7,8 @@
 #' For more information, please start with the vignettes: \code{browseVignettes(package = "opendatatoronto")} or visit the \href{https://sharlagelfand.github.io/opendatatoronto/}{package website}.
 #'
 "_PACKAGE"
+
+# Suppress R CMD check note
+#' @importFrom readxl read_excel
+#' @importFrom xml2 read_xml
+NULL

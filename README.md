@@ -14,7 +14,7 @@ coverage](https://codecov.io/gh/sharlagelfand/opendatatoronto/branch/master/grap
 [![CRAN
 status](https://www.r-pkg.org/badges/version/opendatatoronto)](https://cran.r-project.org/package=opendatatoronto)
 [![Lifecycle:
-experimental](https://img.shields.io/badge/lifecycle-maturing-blue.svg)](https://www.tidyverse.org/lifecycle/#experimental)
+maturing](https://img.shields.io/badge/lifecycle-maturing-blue.svg)](https://www.tidyverse.org/lifecycle/#maturing)
 <!-- badges: end -->
 
 `opendatatoronto` is an R interface to the [City of Toronto Open Data
