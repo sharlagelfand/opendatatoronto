@@ -58,7 +58,7 @@ check_found <- function(res, id, name) {
 }
 
 package_id_from_url <- function(package_url) {
-  if (!grepl("open.toronto.ca/dataset/", package_url)) {
+  if (!grepl("^open.toronto.ca/dataset/|^https://open.toronto.ca/dataset|^http://open.toronto.ca/dataset", package_url)) {
     stop("Package URL must start with open.toronto.ca/dataset/",
       call. = FALSE
     )

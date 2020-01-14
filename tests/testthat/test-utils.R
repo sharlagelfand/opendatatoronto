@@ -54,6 +54,28 @@ test_that('as_id returns the contents of the "id" column when it is passed a 1 r
   )
 })
 
+test_that("package_id_from_url errors when passed a URL that does not start with 'open.toronto.ca/dataset/' (+ some form of optional http/https)", {
+  expect_error(
+    package_id_from_url("abcde"),
+    "Package URL must start with open.toronto.ca/dataset/"
+  )
+  expect_error(
+    package_id_from_url("google.com/open.toronto.ca/dataset/"),
+    "Package URL must start with open.toronto.ca/dataset/"
+  )
+})
+
+test_that("package_id_from_url errors when passed a URL that does not have a package associated with it", {
+  expect_error(
+    package_id_from_url("open.toronto.ca/dataset/test"),
+    "No package id found matching the URL*"
+  )
+  expect_error(
+    package_id_from_url("open.toronto.ca/dataset/ttc"),
+    "No package id found matching the URL*"
+  )
+})
+
 test_that("parse_package_title replaces non-alphanumeric characters with '-', converts to lowercase, strips repeating -s, and doesn't allow ending with a -", {
   expect_equal(parse_package_title("here is a test"), "here-is-a-test")
   expect_equal(parse_package_title("HERE IS ANOTHER"), "here-is-another")
