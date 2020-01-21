@@ -33,7 +33,7 @@ get_resource <- function(resource) {
 
   if (resource_res[["datastore_active"]]) {
     res <- get_datastore_resource(resource_id)
-    res <- check_geometry_resource(res, resource_id)
+    res <- check_geometry_resource(res, format)
   } else {
     res <- ckanr::ckan_fetch(
       x = resource_res[["url"]],
@@ -85,10 +85,8 @@ get_datastore_resource <- function(resource_id) {
   res[["records"]]
 }
 
-check_geometry_resource <- function(res, resource_id) {
-  if (("LATITUDE" %in% toupper(colnames(res)) &&
-    "LONGITUDE" %in% toupper(colnames(res))) |
-    "GEOMETRY" %in% toupper(colnames(res))) {
+check_geometry_resource <- function(res, format) {
+  if (tolower(format) == "geojson") {
     res <- tibble::as_tibble(res)
     res <- covert_geometry_resource(res)
   } else {
