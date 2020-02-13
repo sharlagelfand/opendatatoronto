@@ -15,7 +15,7 @@ knitr::opts_chunk$set(
 )
 ```
 
-`opendatatoronto` is an R interface to the [City of Toronto Open Data Portal](https://portal0.cf.opendata.inter.sandbox-toronto.ca/). The goal of the package is to help read data directly into R without needing to manually download it via the portal. 
+`opendatatoronto` is an R interface to the [City of Toronto Open Data Portal](https://open.toronto.ca/). The goal of the package is to help read data directly into R without needing to manually download it via the portal. 
 
 In the portal, datasets are called **packages**. You can see a list of available packages by using `list_packages()`. This will show metadata about the package, including what topics (i.e. tags) the package covers, a description of it,  any civic issues it addresses, how many resources there are (and their formats), how often it is is refreshed and when it was last refreshed.
 
