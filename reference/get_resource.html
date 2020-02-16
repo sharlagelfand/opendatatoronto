@@ -8,6 +8,13 @@
 
 <title>Download a resource into your R session — get_resource • opendatatoronto</title>
 
+<!-- favicons -->
+<link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png">
+<link rel="apple-touch-icon" type="image/png" sizes="180x180" href="../apple-touch-icon.png" />
+<link rel="apple-touch-icon" type="image/png" sizes="120x120" href="../apple-touch-icon-120x120.png" />
+<link rel="apple-touch-icon" type="image/png" sizes="76x76" href="../apple-touch-icon-76x76.png" />
+<link rel="apple-touch-icon" type="image/png" sizes="60x60" href="../apple-touch-icon-60x60.png" />
 
 <!-- jquery -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
@@ -39,6 +46,7 @@
 
 <meta property="og:title" content="Download a resource into your R session — get_resource" />
 <meta property="og:description" content="Download a resource from the portal directly into your R session. CSV, XLS, XLSX, XML, JSON, SHP, ZIP, and GeoJSON resources are supported." />
+<meta property="og:image" content="https://sharlagelfand.github.io/opendatatoronto/logo.png" />
 <meta name="twitter:card" content="summary" />
 
 
@@ -171,16 +179,16 @@ If it is a spatial resource (i.e. SHP or GeoJSON), it is returned as an sf objec
 #&gt; # A tibble: 5,728 x 24
 #&gt;     `_id` OBJECTID ID    ADDRESSNUMBERTE… ADDRESSSTREET FRONTINGSTREET SIDE 
 #&gt;     &lt;int&gt;    &lt;int&gt; &lt;chr&gt; &lt;chr&gt;            &lt;chr&gt;         &lt;chr&gt;          &lt;chr&gt;
-#&gt;  1 948515        4 SH-0… 15               Damascus Dr   Finch Ave W    North
-#&gt;  2 948516       19 SH-0… 63               Hunting Ridge Kipling Ave    East 
-#&gt;  3 948517       24 SH-0… 8                Milner Ave    Mccowan Rd     East 
-#&gt;  4 948518       29 SH-0… 3760             Sheppard Ave… Sheppard Ave E North
-#&gt;  5 948519       32 SH-0… 63               Silversted Dr Mccowan Rd     West 
-#&gt;  6 948520       34 SH-0… 5810             Sheppard Ave… Sheppard Ave E North
-#&gt;  7 948521       38 SH-0… 4000             Jane St       Finch Ave W    North
-#&gt;  8 948522       40 SH-0… 1095             Neilson Rd    Neilson Rd     East 
-#&gt;  9 948523       44 SH-0… 47               Bathurst St   Bathurst St    East 
-#&gt; 10 948524       52 SH-0… 1524             Bathurst St   Bathurst St    West 
+#&gt;  1 959971        1 SH-0… 2500             Sheppard Ave… Victoria Park… West 
+#&gt;  2 959972        4 SH-0… 155              Culford Rd    Lawrence Ave W South
+#&gt;  3 959973        6 SH-0… 5359             Dundas St W   Dundas St W    South
+#&gt;  4 959974        7 SH-0… 3077             Weston Rd     Weston Rd      West 
+#&gt;  5 959975        8 SH-0… 1111A            College St    College St     South
+#&gt;  6 959976       13 SH-0… 781              Warden Ave    Warden Ave     West 
+#&gt;  7 959977       19 SH-0… 2200             Jane St       Jane St        East 
+#&gt;  8 959978       26 SH-0… 986              The Queensway The Queensway  North
+#&gt;  9 959979       29 SH-0… 300              The East Mall The East Mall  West 
+#&gt; 10 959980       47 SH-0… 1                Glen Watford… Sheppard Ave E North
 #&gt; # … with 5,718 more rows, and 17 more variables: FROMSTREET &lt;chr&gt;,
 #&gt; #   DIRECTION &lt;chr&gt;, SITEID &lt;chr&gt;, WARD &lt;chr&gt;, BIA &lt;chr&gt;, ASSETTYPE &lt;chr&gt;,
 #&gt; #   STATUS &lt;chr&gt;, STYLE &lt;chr&gt;, BARCODE &lt;chr&gt;, POSTERBOARD &lt;chr&gt;,
@@ -194,16 +202,16 @@ If it is a spatial resource (i.e. SHP or GeoJSON), it is returned as an sf objec
 #&gt; # A tibble: 5,728 x 24
 #&gt;     `_id` OBJECTID ID    ADDRESSNUMBERTE… ADDRESSSTREET FRONTINGSTREET SIDE 
 #&gt;     &lt;int&gt;    &lt;int&gt; &lt;chr&gt; &lt;chr&gt;            &lt;chr&gt;         &lt;chr&gt;          &lt;chr&gt;
-#&gt;  1 948515        4 SH-0… 15               Damascus Dr   Finch Ave W    North
-#&gt;  2 948516       19 SH-0… 63               Hunting Ridge Kipling Ave    East 
-#&gt;  3 948517       24 SH-0… 8                Milner Ave    Mccowan Rd     East 
-#&gt;  4 948518       29 SH-0… 3760             Sheppard Ave… Sheppard Ave E North
-#&gt;  5 948519       32 SH-0… 63               Silversted Dr Mccowan Rd     West 
-#&gt;  6 948520       34 SH-0… 5810             Sheppard Ave… Sheppard Ave E North
-#&gt;  7 948521       38 SH-0… 4000             Jane St       Finch Ave W    North
-#&gt;  8 948522       40 SH-0… 1095             Neilson Rd    Neilson Rd     East 
-#&gt;  9 948523       44 SH-0… 47               Bathurst St   Bathurst St    East 
-#&gt; 10 948524       52 SH-0… 1524             Bathurst St   Bathurst St    West 
+#&gt;  1 959971        1 SH-0… 2500             Sheppard Ave… Victoria Park… West 
+#&gt;  2 959972        4 SH-0… 155              Culford Rd    Lawrence Ave W South
+#&gt;  3 959973        6 SH-0… 5359             Dundas St W   Dundas St W    South
+#&gt;  4 959974        7 SH-0… 3077             Weston Rd     Weston Rd      West 
+#&gt;  5 959975        8 SH-0… 1111A            College St    College St     South
+#&gt;  6 959976       13 SH-0… 781              Warden Ave    Warden Ave     West 
+#&gt;  7 959977       19 SH-0… 2200             Jane St       Jane St        East 
+#&gt;  8 959978       26 SH-0… 986              The Queensway The Queensway  North
+#&gt;  9 959979       29 SH-0… 300              The East Mall The East Mall  West 
+#&gt; 10 959980       47 SH-0… 1                Glen Watford… Sheppard Ave E North
 #&gt; # … with 5,718 more rows, and 17 more variables: FROMSTREET &lt;chr&gt;,
 #&gt; #   DIRECTION &lt;chr&gt;, SITEID &lt;chr&gt;, WARD &lt;chr&gt;, BIA &lt;chr&gt;, ASSETTYPE &lt;chr&gt;,
 #&gt; #   STATUS &lt;chr&gt;, STYLE &lt;chr&gt;, BARCODE &lt;chr&gt;, POSTERBOARD &lt;chr&gt;,
