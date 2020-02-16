@@ -1,7 +1,7 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# opendatatoronto
+# opendatatoronto <img src="man/figures/logo.png" align="right" height="139" />
 
 <!-- badges: start -->
 
@@ -76,10 +76,10 @@ packages
 #>  4 Stre… 821f… City … <NA>         "Publi… Map                          1
 #>  5 Stre… ccfd… City … <NA>         "Poste… Map                          1
 #>  6 Stre… cf70… City … <NA>         "Poste… Map                          1
-#>  7 Stre… 99b1… City … <NA>         "Infor… Map                          1
-#>  8 Stre… 71e6… Trans… <NA>         "Bike … Map                          1
-#>  9 Stre… 0c4e… City … <NA>         "Bench… Map                          1
-#> 10 Poll… 7bce… City … <NA>         "Polls… Table                        2
+#>  7 Stre… 3944… City … <NA>         "Litte… Map                          1
+#>  8 Stre… 99b1… City … <NA>         "Infor… Map                          1
+#>  9 Stre… 71e6… Trans… <NA>         "Bike … Map                          1
+#> 10 Stre… 0c4e… City … <NA>         "Bench… Map                          1
 #> # … with 3 more variables: formats <chr>, refresh_rate <chr>,
 #> #   last_refreshed <date>
 ```
