@@ -95,8 +95,7 @@ check_geometry_resource <- function(res, format) {
 }
 
 covert_geometry_resource <- function(res) {
-  sf_geometry <- geojsonsf::geojson_sf(res[["geometry"]])
-  res[["geometry"]] <- sf_geometry[["geometry"]]
+  res[["geometry"]] <- sf::st_as_sfc(res[["geometry"]], GeoJSON = TRUE, crs = 4326)
   sf::st_as_sf(res, sf_column_name = "geometry", crs = 4326)
 }
 
