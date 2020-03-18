@@ -25,7 +25,7 @@ library(dplyr)
 
 bike_parking_racks <- search_packages("Bicycle Parking Racks") %>%
   list_package_resources() %>%
-  filter(name == "Bicycle Parking Racks Data") %>%
+  filter(name == "bicycle-parking-racks-wgs84") %>%
   get_resource()
 
 bike_parking_racks
