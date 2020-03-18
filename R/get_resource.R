@@ -43,7 +43,9 @@ get_resource <- function(resource) {
   }
 
   if (inherits(res, "sf")) {
-    res
+    res_crs <- sf::st_crs(res)
+    res <- tibble::as_tibble(res)
+    sf::st_as_sf(res)
   } else if (is.data.frame(res)) {
     tibble::as_tibble(res, .name_repair = "minimal")
   } else {
@@ -87,7 +89,6 @@ get_datastore_resource <- function(resource_id) {
 
 check_geometry_resource <- function(res, format) {
   if (tolower(format) == "geojson") {
-    res <- tibble::as_tibble(res)
     res <- covert_geometry_resource(res)
   } else {
     res
@@ -96,7 +97,7 @@ check_geometry_resource <- function(res, format) {
 
 covert_geometry_resource <- function(res) {
   res[["geometry"]] <- sf::st_as_sfc(res[["geometry"]], GeoJSON = TRUE, crs = 4326)
-  sf::st_as_sf(res, sf_column_name = "geometry", crs = 4326)
+  sf::st_as_sf(tibble::as_tibble(res), sf_column_name = "geometry", crs = 4326)
 }
 
 tibble_list_elements <- function(x) {
