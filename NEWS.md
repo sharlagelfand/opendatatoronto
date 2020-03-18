@@ -1,4 +1,4 @@
-# opendatatoronto (development version)
+# opendatatoronto 0.2.0
 
 # opendatatoronto 0.1.1
 
