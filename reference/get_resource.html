@@ -170,7 +170,53 @@ If it is a spatial resource (i.e. SHP or GeoJSON), it is returned as an sf objec
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='co'># \donttest{</span>
 <span class='no'>res</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='list_package_resources.html'>list_package_resources</a></span>(<span class='st'>"1db34737-ffad-489d-a590-9171d500d453"</span>)
-<span class='fu'>get_resource</span>(<span class='kw'>resource</span> <span class='kw'>=</span> <span class='no'>res</span>[<span class='fl'>1</span>, <span class='st'>"id"</span>])</div><div class='output co'>#&gt; <span class='warning'>Warning: GDAL Error 4: Failed to read GeoJSON data</span></div><div class='output co'>#&gt; <span class='error'>Error: Cannot open "/tmp/RtmpDJHbue/file5006214c07dc.geojson"; The source could be corrupt or not supported. See `st_drivers()` for a list of supported formats.</span></div><div class='input'><span class='no'>res</span><span class='kw'>[[</span><span class='st'>"id"</span>]]</div><div class='output co'>#&gt; [1] "b9214fd7-60d1-45f3-8463-a6bd9828f8bf"</div><div class='input'><span class='fu'>get_resource</span>(<span class='st'>"b9214fd7-60d1-45f3-8463-a6bd9828f8bf"</span>)</div><div class='output co'>#&gt; <span class='warning'>Warning: GDAL Error 4: Failed to read GeoJSON data</span></div><div class='output co'>#&gt; <span class='error'>Error: Cannot open "/tmp/RtmpDJHbue/file50063e53340.geojson"; The source could be corrupt or not supported. See `st_drivers()` for a list of supported formats.</span></div><div class='input'># }
+<span class='fu'>get_resource</span>(<span class='kw'>resource</span> <span class='kw'>=</span> <span class='no'>res</span>[<span class='fl'>1</span>, <span class='st'>"id"</span>])</div><div class='output co'>#&gt; Simple feature collection with 5727 features and 23 fields
+#&gt; geometry type:  POINT
+#&gt; dimension:      XY
+#&gt; bbox:           xmin: -79.63465 ymin: 43.59329 xmax: -79.1231 ymax: 43.84012
+#&gt; epsg (SRID):    4326
+#&gt; proj4string:    +proj=longlat +datum=WGS84 +no_defs
+#&gt; # A tibble: 5,727 x 24
+#&gt;     `_id` OBJECTID ID    ADDRESSNUMBERTE… ADDRESSSTREET FRONTINGSTREET SIDE 
+#&gt;     &lt;int&gt;    &lt;int&gt; &lt;chr&gt; &lt;chr&gt;            &lt;chr&gt;         &lt;chr&gt;          &lt;chr&gt;
+#&gt;  1 1.12e6        4 SH-0… 15               Damascus Dr   Finch Ave W    North
+#&gt;  2 1.12e6       19 SH-0… 63               Hunting Ridge Kipling Ave    East 
+#&gt;  3 1.12e6       24 SH-0… 8                Milner Ave    Mccowan Rd     East 
+#&gt;  4 1.12e6       29 SH-0… 3760             Sheppard Ave… Sheppard Ave E North
+#&gt;  5 1.12e6       32 SH-0… 63               Silversted Dr Mccowan Rd     West 
+#&gt;  6 1.12e6       34 SH-0… 5810             Sheppard Ave… Sheppard Ave E North
+#&gt;  7 1.12e6       38 SH-0… 4000             Jane St       Finch Ave W    North
+#&gt;  8 1.12e6       40 SH-0… 1095             Neilson Rd    Neilson Rd     East 
+#&gt;  9 1.12e6       44 SH-0… 47               Bathurst St   Bathurst St    East 
+#&gt; 10 1.12e6       52 SH-0… 1524             Bathurst St   Bathurst St    West 
+#&gt; # … with 5,717 more rows, and 17 more variables: FROMSTREET &lt;chr&gt;,
+#&gt; #   DIRECTION &lt;chr&gt;, SITEID &lt;chr&gt;, WARD &lt;chr&gt;, BIA &lt;chr&gt;, ASSETTYPE &lt;chr&gt;,
+#&gt; #   STATUS &lt;chr&gt;, STYLE &lt;chr&gt;, BARCODE &lt;chr&gt;, POSTERBOARD &lt;chr&gt;,
+#&gt; #   POSTERBOARDSTATUS &lt;chr&gt;, SDE_STATE_ID &lt;int&gt;, X &lt;dbl&gt;, Y &lt;dbl&gt;,
+#&gt; #   LONGITUDE &lt;dbl&gt;, LATITUDE &lt;dbl&gt;, geometry &lt;POINT [°]&gt;</div><div class='input'><span class='no'>res</span><span class='kw'>[[</span><span class='st'>"id"</span>]]</div><div class='output co'>#&gt; [1] "b9214fd7-60d1-45f3-8463-a6bd9828f8bf"</div><div class='input'><span class='fu'>get_resource</span>(<span class='st'>"b9214fd7-60d1-45f3-8463-a6bd9828f8bf"</span>)</div><div class='output co'>#&gt; Simple feature collection with 5727 features and 23 fields
+#&gt; geometry type:  POINT
+#&gt; dimension:      XY
+#&gt; bbox:           xmin: -79.63465 ymin: 43.59329 xmax: -79.1231 ymax: 43.84012
+#&gt; epsg (SRID):    4326
+#&gt; proj4string:    +proj=longlat +datum=WGS84 +no_defs
+#&gt; # A tibble: 5,727 x 24
+#&gt;     `_id` OBJECTID ID    ADDRESSNUMBERTE… ADDRESSSTREET FRONTINGSTREET SIDE 
+#&gt;     &lt;int&gt;    &lt;int&gt; &lt;chr&gt; &lt;chr&gt;            &lt;chr&gt;         &lt;chr&gt;          &lt;chr&gt;
+#&gt;  1 1.12e6        4 SH-0… 15               Damascus Dr   Finch Ave W    North
+#&gt;  2 1.12e6       19 SH-0… 63               Hunting Ridge Kipling Ave    East 
+#&gt;  3 1.12e6       24 SH-0… 8                Milner Ave    Mccowan Rd     East 
+#&gt;  4 1.12e6       29 SH-0… 3760             Sheppard Ave… Sheppard Ave E North
+#&gt;  5 1.12e6       32 SH-0… 63               Silversted Dr Mccowan Rd     West 
+#&gt;  6 1.12e6       34 SH-0… 5810             Sheppard Ave… Sheppard Ave E North
+#&gt;  7 1.12e6       38 SH-0… 4000             Jane St       Finch Ave W    North
+#&gt;  8 1.12e6       40 SH-0… 1095             Neilson Rd    Neilson Rd     East 
+#&gt;  9 1.12e6       44 SH-0… 47               Bathurst St   Bathurst St    East 
+#&gt; 10 1.12e6       52 SH-0… 1524             Bathurst St   Bathurst St    West 
+#&gt; # … with 5,717 more rows, and 17 more variables: FROMSTREET &lt;chr&gt;,
+#&gt; #   DIRECTION &lt;chr&gt;, SITEID &lt;chr&gt;, WARD &lt;chr&gt;, BIA &lt;chr&gt;, ASSETTYPE &lt;chr&gt;,
+#&gt; #   STATUS &lt;chr&gt;, STYLE &lt;chr&gt;, BARCODE &lt;chr&gt;, POSTERBOARD &lt;chr&gt;,
+#&gt; #   POSTERBOARDSTATUS &lt;chr&gt;, SDE_STATE_ID &lt;int&gt;, X &lt;dbl&gt;, Y &lt;dbl&gt;,
+#&gt; #   LONGITUDE &lt;dbl&gt;, LATITUDE &lt;dbl&gt;, geometry &lt;POINT [°]&gt;</div><div class='input'># }
 </div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
