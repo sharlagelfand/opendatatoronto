@@ -45,3 +45,10 @@ test_that("search_packages has the correct return format.", {
   expect_is(output$num_resources, "integer")
   expect_is(output$last_refreshed, "Date")
 })
+
+test_that("search_packages errors if offline", {
+  with_mock(
+    "curl::has_internet" = function() FALSE,
+    expect_error(search_packages("ttc", limit = 1), "does not work offline")
+  )
+})
