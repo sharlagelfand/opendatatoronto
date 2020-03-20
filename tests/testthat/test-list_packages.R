@@ -2,6 +2,7 @@ context("test-list_packages")
 
 test_that("list_packages returns the right output formats.", {
   skip_on_cran()
+  skip_if_offline()
   output <- list_packages(1)
   expect_is(output, "tbl_df")
   expect_equal(names(output), package_cols)

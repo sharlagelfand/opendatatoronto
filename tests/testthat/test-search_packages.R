@@ -2,6 +2,7 @@ context("test-search_packages")
 
 test_that("search_packages has the correct return format.", {
   skip_on_cran()
+  skip_if_offline()
   output <- search_packages("dsjhjsghkldg")
   expect_is(output, "tbl_df")
   expect_equal(names(output), package_cols)

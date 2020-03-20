@@ -17,6 +17,7 @@ test_that("check_format throws an error when format is not one of CSV, XLS, XLSX
 
 test_that("get_resource returns the right output formats.", {
   skip_on_cran()
+  skip_if_offline()
   output <- get_resource("4d985c1d-9c7e-4f74-9864-73214f45eb4a")
   expect_is(output, "tbl_df")
   expect_is(output, "tbl")

@@ -66,6 +66,7 @@ test_that("package_id_from_url errors when passed a URL that does not start with
 })
 
 test_that("package_id_from_url errors when passed a URL that does not have a package associated with it", {
+  skip_if_offline()
   expect_error(
     package_id_from_url("open.toronto.ca/dataset/test"),
     "No package id found matching the URL*"
@@ -101,6 +102,7 @@ test_that('check_id_in_df returns the "id" column when present.', {
 })
 
 test_that("check_found errors when the resource doesn't exist.", {
+  skip_if_offline()
   res <- try(ckanr::resource_show("12345"), silent = TRUE)
   expect_error(
     check_found(res, "12345", "resource"),
@@ -129,4 +131,16 @@ test_that("check_limit returns error if limit is not a length 1 positive integer
     check_limit(limit = c(1, 2)),
     "`limit` must be a length 1 positive integer."
   )
+})
+
+test_that("check_internet throws an error if there is no internet", {
+  with_mock(
+    "curl::has_internet" = function() FALSE,
+    expect_error(check_internet())
+  )
+})
+
+test_that("check_internet doesn't throw an error if there is internet", {
+  skip_if_offline()
+  expect_silent(check_internet())
 })
