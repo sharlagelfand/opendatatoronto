@@ -12,6 +12,7 @@
 #' browse_portal()
 #' }
 browse_portal <- function() {
+  check_internet()
   if (interactive()) {
     utils::browseURL(
       url = "https://open.toronto.ca",
@@ -41,6 +42,7 @@ browse_portal <- function() {
 #' browse_package("https://open.toronto.ca/dataset/business-improvement-areas/")
 #' }
 browse_package <- function(package) {
+  check_internet()
   package_id <- as_id(package)
 
   package_res <- try(
@@ -83,6 +85,7 @@ browse_package <- function(package) {
 #' browse_resource(res[1, ])
 #' }
 browse_resource <- function(resource) {
+  check_internet()
   resource_id <- as_id(resource)
 
   resource_res <- try(

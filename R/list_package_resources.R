@@ -16,6 +16,7 @@
 #' list_package_resources("https://open.toronto.ca/dataset/ttc-subway-delay-data")
 #' }
 list_package_resources <- function(package) {
+  check_internet()
   package_id <- as_id(package)
 
   package_res <- try(

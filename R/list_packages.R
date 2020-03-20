@@ -19,6 +19,7 @@
 #' list_packages(5)
 #' }
 list_packages <- function(limit = 50) {
+  check_internet()
   limit <- check_limit(limit)
 
   packages <- ckanr::package_list_current(

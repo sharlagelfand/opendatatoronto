@@ -23,7 +23,8 @@ Imports:
     readxl,
     sf,
     tibble,
-    xml2
+    xml2,
+    curl
 Suggests: 
     covr,
     dplyr,

@@ -19,6 +19,7 @@
 #' search_packages("ttc")
 #' }
 search_packages <- function(title, limit = 50) {
+  check_internet()
   packages <- ckanr::package_search(
     fq = paste0("title:", '"', title, '"'),
     rows = limit,

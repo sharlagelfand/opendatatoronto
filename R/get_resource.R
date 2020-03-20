@@ -17,6 +17,7 @@
 #' get_resource("b9214fd7-60d1-45f3-8463-a6bd9828f8bf")
 #' }
 get_resource <- function(resource) {
+  check_internet()
   resource_id <- as_id(resource)
 
   resource_res <- try(
@@ -68,6 +69,7 @@ check_format <- function(format) {
 }
 
 get_datastore_resource <- function(resource_id) {
+  check_internet()
   initial_res <- ckanr::ds_search(
     resource_id = resource_id,
     url = opendatatoronto_ckan_url,

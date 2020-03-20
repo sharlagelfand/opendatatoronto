@@ -17,6 +17,7 @@
 #' show_package("c01c6d71-de1f-493d-91ba-364ce64884ac")
 #' }
 show_package <- function(package) {
+  check_internet()
   package_id <- as_id(package)
 
   package_res <- try(

@@ -129,3 +129,11 @@ complete_package_res <- function(res) {
   }
   tibble::as_tibble(res[package_cols])
 }
+
+check_internet <- function() {
+  if (!curl::has_internet()) {
+    stop("`opendatatoronto` does not work offline. Please check your internet connection.",
+         call. = FALSE
+    )
+  }
+}
