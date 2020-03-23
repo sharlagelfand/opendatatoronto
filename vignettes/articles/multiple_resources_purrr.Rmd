@@ -1,10 +1,5 @@
 ---
 title: "Retrieving multiple resources using purrr"
-output: rmarkdown::html_vignette
-vignette: >
-  %\VignetteIndexEntry{Retrieving multiple resources using purrr}
-  %\VignetteEngine{knitr::rmarkdown}
-  %\VignetteEncoding{UTF-8}
 ---
 
 ```{r, include = FALSE}

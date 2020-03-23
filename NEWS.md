@@ -1,4 +1,11 @@
-# opendatatoronto 0.2.0
+# opendatatoronto 0.1.3
+
+* Moved vignettes to articles section
+
+# opendatatoronto 0.1.2
+
+* Fixed conversion of geojson resources
+* Updated resource in vignette that was no longer available
 
 # opendatatoronto 0.1.1
 

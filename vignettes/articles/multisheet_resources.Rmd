@@ -1,9 +1,5 @@
 ---
 title: "Retrieving multi-sheet XLS/XLSX resources"
-output: rmarkdown::html_vignette
-vignette: >
-  %\VignetteIndexEntry{Retrieving multi-sheet XLS/XLSX resources}
-  %\VignetteEngine{knitr::rmarkdown}
 ---
 
 ```{r, include = FALSE}
