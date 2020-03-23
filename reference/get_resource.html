@@ -92,9 +92,6 @@
   </a>
 </li>
 <li>
-  <a href="../articles/opendatatoronto.html">Get started</a>
-</li>
-<li>
   <a href="../reference/index.html">Reference</a>
 </li>
 <li class="dropdown">
@@ -105,16 +102,22 @@
   </a>
   <ul class="dropdown-menu" role="menu">
     <li>
-      <a href="../articles/multifile_zip_resources.html">Retrieving multi-file ZIP resources</a>
+      <a href="../articles/articles/multifile_zip_resources.html">Retrieving multi-file ZIP resources</a>
     </li>
     <li>
-      <a href="../articles/multiple_resources_purrr.html">Retrieving multiple resources using purrr</a>
+      <a href="../articles/articles/multiple_resources_purrr.html">Retrieving multiple resources using purrr</a>
     </li>
     <li>
-      <a href="../articles/multisheet_resources.html">Retrieving multi-sheet XLS/XLSX resources</a>
+      <a href="../articles/articles/multisheet_resources.html">Retrieving multi-sheet XLS/XLSX resources</a>
     </li>
     <li>
-      <a href="../articles/spatial_data.html">Working with spatial data from the portal</a>
+      <a href="../articles/articles/opendatatoronto.html">Introduction to opendatatoronto</a>
+    </li>
+    <li>
+      <a href="../articles/articles/spatial_data.html">Working with spatial data from the portal</a>
+    </li>
+    <li>
+      <a href="../articles/intro-opendatatoronto.html">opendatatoronto</a>
     </li>
   </ul>
 </li>
@@ -179,16 +182,16 @@ If it is a spatial resource (i.e. SHP or GeoJSON), it is returned as an sf objec
 #&gt; # A tibble: 5,729 x 24
 #&gt;     `_id` OBJECTID ID    ADDRESSNUMBERTE… ADDRESSSTREET FRONTINGSTREET SIDE 
 #&gt;     &lt;int&gt;    &lt;int&gt; &lt;chr&gt; &lt;chr&gt;            &lt;chr&gt;         &lt;chr&gt;          &lt;chr&gt;
-#&gt;  1 1.13e6        1 SH-0… 2500             Sheppard Ave… Victoria Park… West 
-#&gt;  2 1.13e6        4 SH-0… 155              Culford Rd    Lawrence Ave W South
-#&gt;  3 1.13e6        6 SH-0… 5359             Dundas St W   Dundas St W    South
-#&gt;  4 1.13e6        7 SH-0… 3077             Weston Rd     Weston Rd      West 
-#&gt;  5 1.13e6        8 SH-0… 1111A            College St    College St     South
-#&gt;  6 1.13e6       13 SH-0… 781              Warden Ave    Warden Ave     West 
-#&gt;  7 1.13e6       19 SH-0… 2200             Jane St       Jane St        East 
-#&gt;  8 1.13e6       26 SH-0… 986              The Queensway The Queensway  North
-#&gt;  9 1.13e6       29 SH-0… 300              The East Mall The East Mall  West 
-#&gt; 10 1.13e6       47 SH-0… 1                Glen Watford… Sheppard Ave E North
+#&gt;  1 1.15e6        2 SH-0… 245              Eglinton Ave… Eglinton Ave E South
+#&gt;  2 1.15e6        4 SH-0… 71               Fawndale Cres Warden Ave     West 
+#&gt;  3 1.15e6       10 SH-0… 2606             St Clair Ave… &lt;NA&gt;           &lt;NA&gt; 
+#&gt;  4 1.15e6       15 SH-0… 6705             Sheppard Ave… Neilson Rd     East 
+#&gt;  5 1.15e6       17 SH-0… 294              Yonge St      Dundas St W    South
+#&gt;  6 1.15e6       18 SH-0… 580              Rathburn Rd   Rathburn Rd    North
+#&gt;  7 1.15e6       19 SH-0… 7                Field Sparro… Finch Ave E    North
+#&gt;  8 1.15e6       21 SH-0… 66               Lunsfield Cr… Mccowan Rd     West 
+#&gt;  9 1.15e6       33 SH-0… 5810             Sheppard Ave… Sheppard Ave E North
+#&gt; 10 1.15e6       37 SH-0… 4000             Jane St       Finch Ave W    North
 #&gt; # … with 5,719 more rows, and 17 more variables: FROMSTREET &lt;chr&gt;,
 #&gt; #   DIRECTION &lt;chr&gt;, SITEID &lt;chr&gt;, WARD &lt;chr&gt;, BIA &lt;chr&gt;, ASSETTYPE &lt;chr&gt;,
 #&gt; #   STATUS &lt;chr&gt;, STYLE &lt;chr&gt;, BARCODE &lt;chr&gt;, POSTERBOARD &lt;chr&gt;,
@@ -202,16 +205,16 @@ If it is a spatial resource (i.e. SHP or GeoJSON), it is returned as an sf objec
 #&gt; # A tibble: 5,729 x 24
 #&gt;     `_id` OBJECTID ID    ADDRESSNUMBERTE… ADDRESSSTREET FRONTINGSTREET SIDE 
 #&gt;     &lt;int&gt;    &lt;int&gt; &lt;chr&gt; &lt;chr&gt;            &lt;chr&gt;         &lt;chr&gt;          &lt;chr&gt;
-#&gt;  1 1.13e6        1 SH-0… 2500             Sheppard Ave… Victoria Park… West 
-#&gt;  2 1.13e6        4 SH-0… 155              Culford Rd    Lawrence Ave W South
-#&gt;  3 1.13e6        6 SH-0… 5359             Dundas St W   Dundas St W    South
-#&gt;  4 1.13e6        7 SH-0… 3077             Weston Rd     Weston Rd      West 
-#&gt;  5 1.13e6        8 SH-0… 1111A            College St    College St     South
-#&gt;  6 1.13e6       13 SH-0… 781              Warden Ave    Warden Ave     West 
-#&gt;  7 1.13e6       19 SH-0… 2200             Jane St       Jane St        East 
-#&gt;  8 1.13e6       26 SH-0… 986              The Queensway The Queensway  North
-#&gt;  9 1.13e6       29 SH-0… 300              The East Mall The East Mall  West 
-#&gt; 10 1.13e6       47 SH-0… 1                Glen Watford… Sheppard Ave E North
+#&gt;  1 1.15e6        2 SH-0… 245              Eglinton Ave… Eglinton Ave E South
+#&gt;  2 1.15e6        4 SH-0… 71               Fawndale Cres Warden Ave     West 
+#&gt;  3 1.15e6       10 SH-0… 2606             St Clair Ave… &lt;NA&gt;           &lt;NA&gt; 
+#&gt;  4 1.15e6       15 SH-0… 6705             Sheppard Ave… Neilson Rd     East 
+#&gt;  5 1.15e6       17 SH-0… 294              Yonge St      Dundas St W    South
+#&gt;  6 1.15e6       18 SH-0… 580              Rathburn Rd   Rathburn Rd    North
+#&gt;  7 1.15e6       19 SH-0… 7                Field Sparro… Finch Ave E    North
+#&gt;  8 1.15e6       21 SH-0… 66               Lunsfield Cr… Mccowan Rd     West 
+#&gt;  9 1.15e6       33 SH-0… 5810             Sheppard Ave… Sheppard Ave E North
+#&gt; 10 1.15e6       37 SH-0… 4000             Jane St       Finch Ave W    North
 #&gt; # … with 5,719 more rows, and 17 more variables: FROMSTREET &lt;chr&gt;,
 #&gt; #   DIRECTION &lt;chr&gt;, SITEID &lt;chr&gt;, WARD &lt;chr&gt;, BIA &lt;chr&gt;, ASSETTYPE &lt;chr&gt;,
 #&gt; #   STATUS &lt;chr&gt;, STYLE &lt;chr&gt;, BARCODE &lt;chr&gt;, POSTERBOARD &lt;chr&gt;,

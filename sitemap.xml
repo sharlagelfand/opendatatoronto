@@ -34,18 +34,21 @@
     <loc>https://sharlagelfand.github.io/opendatatoronto//reference/show_package.html</loc>
   </url>
   <url>
-    <loc>https://sharlagelfand.github.io/opendatatoronto//articles/multifile_zip_resources.html</loc>
+    <loc>https://sharlagelfand.github.io/opendatatoronto//articles/articles/multifile_zip_resources.html</loc>
   </url>
   <url>
-    <loc>https://sharlagelfand.github.io/opendatatoronto//articles/multiple_resources_purrr.html</loc>
+    <loc>https://sharlagelfand.github.io/opendatatoronto//articles/articles/multiple_resources_purrr.html</loc>
   </url>
   <url>
-    <loc>https://sharlagelfand.github.io/opendatatoronto//articles/multisheet_resources.html</loc>
+    <loc>https://sharlagelfand.github.io/opendatatoronto//articles/articles/multisheet_resources.html</loc>
   </url>
   <url>
-    <loc>https://sharlagelfand.github.io/opendatatoronto//articles/opendatatoronto.html</loc>
+    <loc>https://sharlagelfand.github.io/opendatatoronto//articles/articles/opendatatoronto.html</loc>
   </url>
   <url>
-    <loc>https://sharlagelfand.github.io/opendatatoronto//articles/spatial_data.html</loc>
+    <loc>https://sharlagelfand.github.io/opendatatoronto//articles/articles/spatial_data.html</loc>
+  </url>
+  <url>
+    <loc>https://sharlagelfand.github.io/opendatatoronto//articles/intro-opendatatoronto.html</loc>
   </url>
 </urlset>
