@@ -19,4 +19,11 @@ reference:
     - browse_package
     - browse_resource
 
-
+articles:
+  - title: ~
+    navbar: Articles
+    contents:
+    - articles/multisheet_resources
+    - articles/multifile_zip_resources
+    - articles/multiple_resources_purrr
+    - articles/spatial_data

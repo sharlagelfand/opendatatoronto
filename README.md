@@ -31,13 +31,13 @@ vignettes:
   - [Introduction to
     `opendatatoronto`](https://sharlagelfand.github.io/opendatatoronto/articles/opendatatoronto.html)
   - [Retrieving multi-sheet XLS/XLSX
-    resources](https://sharlagelfand.github.io/opendatatoronto/articles/multisheet_resources.html)
+    resources](https://sharlagelfand.github.io/opendatatoronto/articles/articles/multisheet_resources.html)
   - [Retrieving multi-file ZIP
-    resources](https://sharlagelfand.github.io/opendatatoronto/articles/multifile_zip_resources.html)
+    resources](https://sharlagelfand.github.io/opendatatoronto/articles/articles/multifile_zip_resources.html)
   - [Retrieving multiple resources using
-    `purrr`](https://sharlagelfand.github.io/opendatatoronto/articles/multiple_resources_purrr.html)
+    `purrr`](https://sharlagelfand.github.io/opendatatoronto/articles/articles/multiple_resources_purrr.html)
   - [Working with spatial data from the
-    portal](https://sharlagelfand.github.io/opendatatoronto/articles/spatial_data.html)
+    portal](https://sharlagelfand.github.io/opendatatoronto/articles/articles/spatial_data.html)
 
 ## Installation
 
@@ -76,10 +76,10 @@ packages
 #>  4 Stre… 821f… City … <NA>         "Publi… Map                          1
 #>  5 Stre… ccfd… City … <NA>         "Poste… Map                          1
 #>  6 Stre… cf70… City … <NA>         "Poste… Map                          1
-#>  7 Stre… 3944… City … <NA>         "Litte… Map                          1
-#>  8 Stre… 99b1… City … <NA>         "Infor… Map                          1
-#>  9 Stre… 71e6… Trans… <NA>         "Bike … Map                          1
-#> 10 Stre… 0c4e… City … <NA>         "Bench… Map                          1
+#>  7 Stre… 99b1… City … <NA>         "Infor… Map                          1
+#>  8 Stre… 71e6… Trans… <NA>         "Bike … Map                          1
+#>  9 Stre… 0c4e… City … <NA>         "Bench… Map                          1
+#> 10 Poll… 7bce… City … <NA>         "Polls… Table                        2
 #> # … with 3 more variables: formats <chr>, refresh_rate <chr>,
 #> #   last_refreshed <date>
 ```
@@ -93,19 +93,19 @@ ttc_packages
 #> # A tibble: 14 x 10
 #>    title id    topics civic_issues excerpt dataset_category num_resources
 #>    <chr> <chr> <chr>  <chr>        <chr>   <chr>                    <int>
-#>  1 TTC … 996c… Trans… Mobility     "TTC S… Document                    35
-#>  2 TTC … b68c… Trans… Mobility     "TTC S… Document                     7
-#>  3 TTC … e271… Trans… Mobility     "TTC B… Document                     7
-#>  4 TTC … aedd… Trans… Mobility     "This … Website                      2
-#>  5 TTC … 1444… Trans… Mobility     "This … Website                      2
-#>  6 TTC … 4b80… Trans… Mobility     "This … Website                      2
-#>  7 TTC … d2a7… Trans… Mobility     "This … Website                      2
-#>  8 TTC … d9dc… Trans… Mobility     "This … Document                     1
-#>  9 TTC … ef35… Trans… Mobility     "This … Document                     1
-#> 10 TTC … 2c4c… Finan… Mobility,Fi… "This … Website                      2
-#> 11 TTC … 4eb6… Trans… Mobility     "This … Document                     5
-#> 12 TTC … c01c… <NA>   Mobility     "This … Document                     1
-#> 13 TTC … 7795… Trans… Mobility     "Data … Document                     1
+#>  1 TTC … 7795… Trans… Mobility     "Data … Document                     1
+#>  2 TTC … 996c… Trans… Mobility     "TTC S… Document                    35
+#>  3 TTC … b68c… Trans… Mobility     "TTC S… Document                     7
+#>  4 TTC … e271… Trans… Mobility     "TTC B… Document                     7
+#>  5 TTC … aedd… Trans… Mobility     "This … Website                      2
+#>  6 TTC … 1444… Trans… Mobility     "This … Website                      2
+#>  7 TTC … 4b80… Trans… Mobility     "This … Website                      2
+#>  8 TTC … d2a7… Trans… Mobility     "This … Website                      2
+#>  9 TTC … d9dc… Trans… Mobility     "This … Document                     1
+#> 10 TTC … ef35… Trans… Mobility     "This … Document                     1
+#> 11 TTC … 2c4c… Finan… Mobility,Fi… "This … Website                      2
+#> 12 TTC … 4eb6… Trans… Mobility     "This … Document                     5
+#> 13 TTC … c01c… <NA>   Mobility     "This … Document                     1
 #> 14 TTC … 8217… Trans… Mobility     "The N… Document                     1
 #> # … with 3 more variables: formats <chr>, refresh_rate <chr>,
 #> #   last_refreshed <date>

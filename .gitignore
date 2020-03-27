@@ -5,3 +5,4 @@ doc
 Meta
 docs/
 *.DS_Store
+.httr-oauth
