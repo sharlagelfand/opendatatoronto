@@ -11,10 +11,8 @@
 #'
 #' @examples
 #' \donttest{
-#' res <- list_package_resources("1db34737-ffad-489d-a590-9171d500d453")
-#' get_resource(resource = res[1, "id"])
-#' res[["id"]]
-#' get_resource("b9214fd7-60d1-45f3-8463-a6bd9828f8bf")
+#' list_package_resources("https://open.toronto.ca/dataset/neighbourhoods/") %>%
+#' get_resource()
 #' }
 get_resource <- function(resource) {
   check_internet()
