@@ -1,4 +1,4 @@
-In this version I have fixed a vignette that was producing errors.
+In this version I have removed a vignette that was producing errors.
 
 ## Test environments
 * local R installation, R 3.6.1
