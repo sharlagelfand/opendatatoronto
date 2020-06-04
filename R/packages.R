@@ -7,12 +7,7 @@
 #'
 #' @export
 #'
-#' @return A tibble of available packages and metadata, including \code{title},
-#' \code{id}, \code{topics}, \code{civic_issues}, \code{dataset_category},
-#' \code{num_resources} (the number of resources in the package), \code{formats}
-#' (the different formats of the resources), \code{refresh_rate}
-#' (how often the package is refreshed), and \code{last_refreshed}
-#' (the date it was last refreshed).
+#' @return A tibble of available packages and metadata, including \code{title}, \code{id}, \code{topics}, \code{civic_issues}, \code{excerpt}, \code{publisher}, \code{dataset_category}, \code{num_resources} (the number of resources in the package), \code{formats} (the different formats of the resources), \code{refresh_rate} (how often the package is refreshed), and \code{last_refreshed} (the date it was last refreshed).
 #'
 #' @examples
 #' \donttest{
@@ -40,12 +35,7 @@ list_packages <- function(limit = 50) {
 #'
 #' @export
 #'
-#' @return A tibble of matching packages along with package metadata, including
-#' \code{title}, \code{id}, \code{topics}, \code{civic_issues},
-#' \code{dataset_category}, \code{num_resources} (the number of resources in the
-#' package), \code{formats} (the different formats of the resources),
-#' \code{refresh_rate} (how often the package is refreshed), and
-#' \code{last_refreshed} (the date it was last refreshed).
+#' @return A tibble of matching packages along with package metadata, including \code{title}, \code{id}, \code{topics}, \code{civic_issues}, \code{excerpt}, \code{publisher}, \code{dataset_category}, \code{num_resources} (the number of resources in the package), \code{formats} (the different formats of the resources), \code{refresh_rate} (how often the package is refreshed), and \code{last_refreshed} (the date it was last refreshed).
 #'
 #' @examples
 #' \donttest{
@@ -61,6 +51,7 @@ search_packages <- function(title, limit = 50) {
   )
 
   if (length(packages[["results"]]) == 0) {
+    names(package_res_init)[which(names(package_res_init) == "owner_division")] <- "publisher"
     package_res_init
   } else {
     complete_package_res(as.list(packages[["results"]]))
@@ -75,11 +66,7 @@ search_packages <- function(title, limit = 50) {
 #'
 #' @export
 #'
-#' @return A tibble including \code{title}, \code{id}, \code{topics},
-#' \code{civic_issues}, \code{dataset_category}, \code{num_resources}
-#' (the number of resources in the package), \code{formats} (the different
-#' formats of the resources), \code{refresh_rate} (how often the package is
-#' refreshed), and \code{last_refreshed} (the date it was last refreshed).
+#' @return A tibble including \code{title}, \code{id}, \code{topics}, \code{civic_issues}, \code{excerpt}, \code{publisher}, \code{dataset_category}, \code{num_resources} (the number of resources in the package), \code{formats} (the different formats of the resources), \code{refresh_rate} (how often the package is refreshed), and \code{last_refreshed} (the date it was last refreshed).
 #'
 #' @examples
 #' \donttest{
@@ -104,6 +91,7 @@ package_res_init <- tibble::tibble(
   id = character(),
   topics = character(),
   civic_issues = character(),
+  owner_division = character(),
   excerpt = character(),
   dataset_category = character(),
   num_resources = integer(),
@@ -115,8 +103,8 @@ package_res_init <- tibble::tibble(
 package_cols <- names(package_res_init)
 
 complete_package_res <- function(res) {
-  res <- res[names(res) %in% names(package_res_init)]
-  for (i in names(package_res_init)) {
+  res <- res[names(res) %in% package_cols]
+  for (i in package_cols) {
     if (is.null(res[[i]])) {
       res[[i]] <- NA
     }
@@ -127,5 +115,9 @@ complete_package_res <- function(res) {
       class(res[[i]]) <- col_class
     }
   }
-  tibble::as_tibble(res[package_cols])
+  res_cols <- tibble::as_tibble(res[package_cols])
+
+  names(res_cols)[which(names(res_cols) == "owner_division")] <- "publisher"
+
+  res_cols
 }
