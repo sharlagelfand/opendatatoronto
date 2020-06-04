@@ -1,19 +1,5 @@
 opendatatoronto_ckan_url <- "https://ckan0.cf.opendata.inter.prod-toronto.ca/"
 
-package_res_init <- tibble::tibble(
-  title = character(),
-  id = character(),
-  topics = character(),
-  civic_issues = character(),
-  excerpt = character(),
-  dataset_category = character(),
-  num_resources = integer(),
-  formats = character(),
-  refresh_rate = character(),
-  last_refreshed = as.Date(character())
-)
-package_cols <- names(package_res_init)
-
 as_id <- function(x) {
   object_name <- deparse(substitute(x))
 
@@ -112,22 +98,6 @@ check_limit <- function(limit) {
   } else {
     limit
   }
-}
-
-complete_package_res <- function(res) {
-  res <- res[names(res) %in% names(package_res_init)]
-  for (i in names(package_res_init)) {
-    if (is.null(res[[i]])) {
-      res[[i]] <- NA
-    }
-    col_class <- class(package_res_init[[i]])
-    if (col_class == "Date") {
-      res[[i]] <- as.Date(res[[i]])
-    } else {
-      class(res[[i]]) <- col_class
-    }
-  }
-  tibble::as_tibble(res[package_cols])
 }
 
 check_internet <- function() {
