@@ -12,7 +12,8 @@ test_that("list_package_resources returns an error if the package_id can't be fo
 test_that("list_package_resources returns the right output formats.", {
   skip_on_cran()
   skip_if_offline()
-  output <- list_package_resources("263f54b6-5c60-434f-8958-4e11248f08ff")
+  package <- list_packages(limit = 1)
+  output <- list_package_resources(package)
   expect_is(output, "tbl_df")
   expect_is(output$name, "character")
   expect_is(output$id, "character")

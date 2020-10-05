@@ -105,7 +105,7 @@ test_that('check_id_in_df returns the "id" column when present.', {
 test_that("check_found errors when the resource doesn't exist.", {
   skip_on_cran()
   skip_if_offline()
-  res <- try(ckanr::resource_show("12345"), silent = TRUE)
+  res <- try(ckanr::resource_show("12345", url = opendatatoronto:::opendatatoronto_ckan_url), silent = TRUE)
   expect_error(
     check_found(res, "12345", "resource"),
     '`resource` "12345" was not found.'
