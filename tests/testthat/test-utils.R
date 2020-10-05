@@ -66,6 +66,7 @@ test_that("package_id_from_url errors when passed a URL that does not start with
 })
 
 test_that("package_id_from_url errors when passed a URL that does not have a package associated with it", {
+  skip_on_cran()
   skip_if_offline()
   expect_error(
     package_id_from_url("open.toronto.ca/dataset/test"),
@@ -102,6 +103,7 @@ test_that('check_id_in_df returns the "id" column when present.', {
 })
 
 test_that("check_found errors when the resource doesn't exist.", {
+  skip_on_cran()
   skip_if_offline()
   res <- try(ckanr::resource_show("12345"), silent = TRUE)
   expect_error(
@@ -141,6 +143,7 @@ test_that("check_internet throws an error if there is no internet", {
 })
 
 test_that("check_internet doesn't throw an error if there is internet", {
+  skip_on_cran()
   skip_if_offline()
   expect_silent(check_internet())
 })
