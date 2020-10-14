@@ -1,4 +1,6 @@
-# opendatatoronto (development version)
+# opendatatoronto 0.1.4
+
+* Fixed a failing test
 
 # opendatatoronto 0.1.3
 
