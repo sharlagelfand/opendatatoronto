@@ -46,7 +46,7 @@ or the development version from GitHub with:
 
 ``` r
 # install.packages("devtools")
-devtools::install_github("sharlagelfand/opendatatoronto")
+devtools::install_github("sharlagelfand/opendatatoronto", ref = "main")
 ```
 
 ## Usage
