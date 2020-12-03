@@ -1,6 +1,6 @@
 Package: opendatatoronto
 Title: Access the City of Toronto Open Data Portal
-Version: 0.1.4
+Version: 0.1.4.0001
 Authors@R: 
     c(person(given = "Sharla",
              family = "Gelfand",
@@ -18,7 +18,7 @@ BugReports:
 Depends: 
     R (>= 2.10)
 Imports: 
-    ckanr (>= 0.4.0),
+    ckanr (>= 0.5.2.91),
     magrittr,
     readxl,
     sf,
@@ -33,6 +33,8 @@ Suggests:
     purrr,
     rmarkdown,
     testthat
+Remotes: 
+    ropensci/ckanr
 VignetteBuilder: 
     knitr
 Encoding: UTF-8
