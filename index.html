@@ -140,16 +140,16 @@
 <span class="co">#&gt; # A tibble: 10 x 11</span>
 <span class="co">#&gt;    title id    topics civic_issues publisher excerpt dataset_category</span>
 <span class="co">#&gt;    &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;  &lt;chr&gt;        &lt;chr&gt;     &lt;chr&gt;   &lt;chr&gt;           </span>
-<span class="co">#&gt;  1 Pede… 4b5c… Trans… Affordable … Informat… This d… Map             </span>
-<span class="co">#&gt;  2 Bike… ac87… Devel… Mobility     Transpor… The To… Map             </span>
-<span class="co">#&gt;  3 Regi… da46… Commu… &lt;NA&gt;         Parks, F… This d… Document        </span>
-<span class="co">#&gt;  4 City… 5e7a… City … Mobility     City Cle… The Ci… Map             </span>
-<span class="co">#&gt;  5 Poll… 7bce… City … &lt;NA&gt;         City Cle… Polls … Table           </span>
-<span class="co">#&gt;  6 Dail… 8a6e… City … Affordable … Shelter,… Daily … Table           </span>
-<span class="co">#&gt;  7 Rain… f293… Locat… Climate cha… Toronto … This d… Document        </span>
-<span class="co">#&gt;  8 Safe… e0a8… Trans… Mobility     Transpor… A summ… Table           </span>
-<span class="co">#&gt;  9 Mobi… 0582… Trans… Mobility     Transpor… A summ… Table           </span>
-<span class="co">#&gt; 10 Clot… 58ef… Commu… Poverty red… Municipa… Toront… Map             </span>
+<span class="co">#&gt;  1 Cata… 473d… City … &lt;NA&gt;         Informat… Histor… Table           </span>
+<span class="co">#&gt;  2 Lobb… 6a87… City … &lt;NA&gt;         Lobbyist… The Lo… Document        </span>
+<span class="co">#&gt;  3 Addr… abed… Locat… Mobility     Informat… This d… Document        </span>
+<span class="co">#&gt;  4 Prop… 1aca… Locat… Mobility     Informat… This d… Document        </span>
+<span class="co">#&gt;  5 Buil… 108c… Devel… Affordable … Toronto … Provid… Document        </span>
+<span class="co">#&gt;  6 Buil… 8219… Devel… &lt;NA&gt;         Toronto … Provid… Document        </span>
+<span class="co">#&gt;  7 Muni… 5da2… City … Affordable … Municipa… This d… Document        </span>
+<span class="co">#&gt;  8 Shor… fc41… Permi… Affordable … Municipa… This d… Table           </span>
+<span class="co">#&gt;  9 Poll… 7bce… City … &lt;NA&gt;         City Cle… Polls … Table           </span>
+<span class="co">#&gt; 10 Dail… 8a6e… City … Affordable … Shelter,… Daily … Table           </span>
 <span class="co">#&gt; # … with 4 more variables: num_resources &lt;int&gt;, formats &lt;chr&gt;,</span>
 <span class="co">#&gt; #   refresh_rate &lt;chr&gt;, last_refreshed &lt;date&gt;</span></code></pre></div>
 <p>You can also search packages by title:</p>
@@ -197,7 +197,7 @@
 <span class="co">#&gt; # A tibble: 1 x 4</span>
 <span class="co">#&gt;   name                        id                            format last_modified</span>
 <span class="co">#&gt;   &lt;chr&gt;                       &lt;chr&gt;                         &lt;chr&gt;  &lt;date&gt;       </span>
-<span class="co">#&gt; 1 Marriage Licence Statistic… 4d985c1d-9c7e-4f74-9864-7321… CSV    2020-12-02</span></code></pre></div>
+<span class="co">#&gt; 1 Marriage Licence Statistic… 4d985c1d-9c7e-4f74-9864-7321… CSV    2021-01-01</span></code></pre></div>
 <p>But you can also get a list of resources by using the package’s URL from the Portal:</p>
 <div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="reference/list_package_resources.html">list_package_resources</a></span><span class="op">(</span><span class="st">"https://open.toronto.ca/dataset/sexual-health-clinic-locations-hours-and-services/"</span><span class="op">)</span>
@@ -212,20 +212,20 @@
   <span class="fu"><a href="reference/get_resource.html">get_resource</a></span><span class="op">(</span><span class="op">)</span>
 
 <span class="va">marriage_licence_statistics</span>
-<span class="co">#&gt; # A tibble: 459 x 4</span>
+<span class="co">#&gt; # A tibble: 461 x 4</span>
 <span class="co">#&gt;    `_id` CIVIC_CENTRE MARRIAGE_LICENSES TIME_PERIOD</span>
 <span class="co">#&gt;    &lt;int&gt; &lt;chr&gt;                    &lt;dbl&gt; &lt;chr&gt;      </span>
-<span class="co">#&gt;  1  7895 ET                          80 2011-01    </span>
-<span class="co">#&gt;  2  7896 NY                         136 2011-01    </span>
-<span class="co">#&gt;  3  7897 SC                         159 2011-01    </span>
-<span class="co">#&gt;  4  7898 TO                         367 2011-01    </span>
-<span class="co">#&gt;  5  7899 ET                         109 2011-02    </span>
-<span class="co">#&gt;  6  7900 NY                         150 2011-02    </span>
-<span class="co">#&gt;  7  7901 SC                         154 2011-02    </span>
-<span class="co">#&gt;  8  7902 TO                         383 2011-02    </span>
-<span class="co">#&gt;  9  7903 ET                         177 2011-03    </span>
-<span class="co">#&gt; 10  7904 NY                         231 2011-03    </span>
-<span class="co">#&gt; # … with 449 more rows</span></code></pre></div>
+<span class="co">#&gt;  1  8354 ET                          80 2011-01    </span>
+<span class="co">#&gt;  2  8355 NY                         136 2011-01    </span>
+<span class="co">#&gt;  3  8356 SC                         159 2011-01    </span>
+<span class="co">#&gt;  4  8357 TO                         367 2011-01    </span>
+<span class="co">#&gt;  5  8358 ET                         109 2011-02    </span>
+<span class="co">#&gt;  6  8359 NY                         150 2011-02    </span>
+<span class="co">#&gt;  7  8360 SC                         154 2011-02    </span>
+<span class="co">#&gt;  8  8361 TO                         383 2011-02    </span>
+<span class="co">#&gt;  9  8362 ET                         177 2011-03    </span>
+<span class="co">#&gt; 10  8363 NY                         231 2011-03    </span>
+<span class="co">#&gt; # … with 451 more rows</span></code></pre></div>
 </div>
 </div>
   </div>
@@ -267,7 +267,7 @@
   <div class="dev-status">
 <h2>Dev status</h2>
 <ul class="list-unstyled">
-<li><a href="https://travis-ci.org/sharlagelfand/opendatatoronto"><img src="https://travis-ci.org/sharlagelfand/opendatatoronto.svg?branch=main" alt="Travis build status"></a></li>
+<li><a href="https://github.com/sharlagelfand/opendatatoronto/actions"><img src="https://github.com/sharlagelfand/opendatatoronto/workflows/R-CMD-check/badge.svg" alt="R build status"></a></li>
 <li><a href="https://ci.appveyor.com/project/sharlagelfand/opendatatoronto"><img src="https://ci.appveyor.com/api/projects/status/github/sharlagelfand/opendatatoronto?branch=main&amp;svg=true" alt="AppVeyor build status"></a></li>
 <li><a href="https://codecov.io/gh/sharlagelfand/opendatatoronto?branch=main"><img src="https://codecov.io/gh/sharlagelfand/opendatatoronto/branch/main/graph/badge.svg" alt="Codecov test coverage"></a></li>
 <li><a href="https://cran.r-project.org/package=opendatatoronto"><img src="https://www.r-pkg.org/badges/version/opendatatoronto" alt="CRAN status"></a></li>
