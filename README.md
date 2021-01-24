@@ -5,8 +5,8 @@
 
 <!-- badges: start -->
 
-[![Travis build
-status](https://travis-ci.org/sharlagelfand/opendatatoronto.svg?branch=main)](https://travis-ci.org/sharlagelfand/opendatatoronto)
+[![R build
+status](https://github.com/sharlagelfand/opendatatoronto/workflows/R-CMD-check/badge.svg)](https://github.com/sharlagelfand/opendatatoronto/actions)
 [![AppVeyor build
 status](https://ci.appveyor.com/api/projects/status/github/sharlagelfand/opendatatoronto?branch=main&svg=true)](https://ci.appveyor.com/project/sharlagelfand/opendatatoronto)
 [![Codecov test
@@ -69,16 +69,16 @@ packages
 #> # A tibble: 10 x 11
 #>    title id    topics civic_issues publisher excerpt dataset_category
 #>    <chr> <chr> <chr>  <chr>        <chr>     <chr>   <chr>           
-#>  1 Pede… 4b5c… Trans… Affordable … Informat… This d… Map             
-#>  2 Bike… ac87… Devel… Mobility     Transpor… The To… Map             
-#>  3 Regi… da46… Commu… <NA>         Parks, F… This d… Document        
-#>  4 City… 5e7a… City … Mobility     City Cle… The Ci… Map             
-#>  5 Poll… 7bce… City … <NA>         City Cle… Polls … Table           
-#>  6 Dail… 8a6e… City … Affordable … Shelter,… Daily … Table           
-#>  7 Rain… f293… Locat… Climate cha… Toronto … This d… Document        
-#>  8 Safe… e0a8… Trans… Mobility     Transpor… A summ… Table           
-#>  9 Mobi… 0582… Trans… Mobility     Transpor… A summ… Table           
-#> 10 Clot… 58ef… Commu… Poverty red… Municipa… Toront… Map             
+#>  1 Cata… 473d… City … <NA>         Informat… Histor… Table           
+#>  2 Lobb… 6a87… City … <NA>         Lobbyist… The Lo… Document        
+#>  3 Addr… abed… Locat… Mobility     Informat… This d… Document        
+#>  4 Prop… 1aca… Locat… Mobility     Informat… This d… Document        
+#>  5 Buil… 108c… Devel… Affordable … Toronto … Provid… Document        
+#>  6 Buil… 8219… Devel… <NA>         Toronto … Provid… Document        
+#>  7 Muni… 5da2… City … Affordable … Municipa… This d… Document        
+#>  8 Shor… fc41… Permi… Affordable … Municipa… This d… Table           
+#>  9 Poll… 7bce… City … <NA>         City Cle… Polls … Table           
+#> 10 Dail… 8a6e… City … Affordable … Shelter,… Daily … Table           
 #> # … with 4 more variables: num_resources <int>, formats <chr>,
 #> #   refresh_rate <chr>, last_refreshed <date>
 ```
@@ -139,7 +139,7 @@ marriage_licence_resources
 #> # A tibble: 1 x 4
 #>   name                        id                            format last_modified
 #>   <chr>                       <chr>                         <chr>  <date>       
-#> 1 Marriage Licence Statistic… 4d985c1d-9c7e-4f74-9864-7321… CSV    2020-12-02
+#> 1 Marriage Licence Statistic… 4d985c1d-9c7e-4f74-9864-7321… CSV    2021-01-01
 ```
 
 But you can also get a list of resources by using the package’s URL from
@@ -162,18 +162,18 @@ marriage_licence_statistics <- marriage_licence_resources %>%
   get_resource()
 
 marriage_licence_statistics
-#> # A tibble: 459 x 4
+#> # A tibble: 461 x 4
 #>    `_id` CIVIC_CENTRE MARRIAGE_LICENSES TIME_PERIOD
 #>    <int> <chr>                    <dbl> <chr>      
-#>  1  7895 ET                          80 2011-01    
-#>  2  7896 NY                         136 2011-01    
-#>  3  7897 SC                         159 2011-01    
-#>  4  7898 TO                         367 2011-01    
-#>  5  7899 ET                         109 2011-02    
-#>  6  7900 NY                         150 2011-02    
-#>  7  7901 SC                         154 2011-02    
-#>  8  7902 TO                         383 2011-02    
-#>  9  7903 ET                         177 2011-03    
-#> 10  7904 NY                         231 2011-03    
-#> # … with 449 more rows
+#>  1  8354 ET                          80 2011-01    
+#>  2  8355 NY                         136 2011-01    
+#>  3  8356 SC                         159 2011-01    
+#>  4  8357 TO                         367 2011-01    
+#>  5  8358 ET                         109 2011-02    
+#>  6  8359 NY                         150 2011-02    
+#>  7  8360 SC                         154 2011-02    
+#>  8  8361 TO                         383 2011-02    
+#>  9  8362 ET                         177 2011-03    
+#> 10  8363 NY                         231 2011-03    
+#> # … with 451 more rows
 ```
