@@ -28,6 +28,7 @@ Imports:
 Suggests: 
     covr,
     dplyr,
+    ggiraph,
     ggplot2,
     knitr,
     purrr,

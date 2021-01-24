@@ -16,3 +16,4 @@
 ^CRAN-RELEASE$
 ^man/figures/logo-full\.png$
 ^\.httr-oauth$
+^\.github$
