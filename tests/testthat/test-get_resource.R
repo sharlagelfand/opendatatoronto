@@ -35,7 +35,7 @@ test_that("get_resource returns the right output formats.", {
   output <- get_resource("a083c865-6d60-4d1d-b6c6-b0c8a85f9c15")
   expect_is(output, "sf")
 
-  output <- get_resource("1bdfba3d-4ae3-4228-8a9c-1c1296471ee6")
+  output <- get_resource("15e8d3bf-39eb-4769-a439-935a7dbbb57a")
   expect_is(output, "tbl_df")
 })
 
