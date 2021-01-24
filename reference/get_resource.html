@@ -17,23 +17,27 @@
 <link rel="apple-touch-icon" type="image/png" sizes="60x60" href="../apple-touch-icon-60x60.png" />
 
 <!-- jquery -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
 <!-- Bootstrap -->
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha256-916EbMg70RQy9LHiGkXzG8hSg9EdNy97GazNG/aiY1w=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha256-bZLfwXAP04zRMK2BjiO8iu9pf4FbLqX6zitd+tIvLhE=" crossorigin="anonymous" />
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha256-U5ZEeKfGNOja007MMD3YBI0A3OSZOQbeG6z2f2Y0hu8=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha256-nuL8/2cJ5NDSSwnKD8VqreErSWHtnEP9E7AySL+1ev4=" crossorigin="anonymous"></script>
+
+<!-- bootstrap-toc -->
+<link rel="stylesheet" href="../bootstrap-toc.css">
+<script src="../bootstrap-toc.js"></script>
 
 <!-- Font Awesome icons -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.1/css/all.min.css" integrity="sha256-nAmazAk6vS34Xqo0BSrTb+abbtFlgsFK7NKSi6o7Y78=" crossorigin="anonymous" />
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.1/css/v4-shims.min.css" integrity="sha256-6qHlizsOWFskGlwVOKuns+D1nB6ssZrHQrNj1wGplHc=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/v4-shims.min.css" integrity="sha256-wZjR52fzng1pJHwx4aV2AO3yyTOXrcDW7jBpJtTwVxw=" crossorigin="anonymous" />
 
 <!-- clipboard.js -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" integrity="sha256-FiZwavyI2V6+EXO1U+xzLG3IKldpiTFf3153ea9zikQ=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script>
 
 <!-- headroom.js -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.9.4/headroom.min.js" integrity="sha256-DJFC1kqIhelURkuza0AvYal5RxMtpzLjFhsnVIeuk+U=" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.9.4/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script>
 
 <!-- pkgdown -->
 <link href="../pkgdown.css" rel="stylesheet">
@@ -47,7 +51,6 @@
 <meta property="og:title" content="Download a resource into your R session — get_resource" />
 <meta property="og:description" content="Download a resource from the portal directly into your R session. CSV, XLS, XLSX, XML, JSON, SHP, ZIP, and GeoJSON resources are supported." />
 <meta property="og:image" content="https://sharlagelfand.github.io/opendatatoronto/logo.png" />
-<meta name="twitter:card" content="summary" />
 
 
 
@@ -65,7 +68,7 @@
 
   </head>
 
-  <body>
+  <body data-spy="scroll" data-target="#toc">
     <div class="container template-reference-topic">
       <header>
       <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
@@ -79,7 +82,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">opendatatoronto</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.2.9000</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.4.0001</span>
       </span>
     </div>
 
@@ -87,9 +90,12 @@
       <ul class="nav navbar-nav">
         <li>
   <a href="../index.html">
-    <span class="fas fa fas fa-home fa-lg"></span>
+    <span class="fas fa-home fa-lg"></span>
      
   </a>
+</li>
+<li>
+  <a href="../articles/articles/opendatatoronto.html">Get started</a>
 </li>
 <li>
   <a href="../reference/index.html">Reference</a>
@@ -101,6 +107,11 @@
     <span class="caret"></span>
   </a>
   <ul class="dropdown-menu" role="menu">
+    <li class="divider"></li>
+    <li class="dropdown-header">Articles</li>
+    <li>
+      <a href="../articles/articles/multisheet_resources.html">Retrieving multi-sheet XLS/XLSX resources</a>
+    </li>
     <li>
       <a href="../articles/articles/multifile_zip_resources.html">Retrieving multi-file ZIP resources</a>
     </li>
@@ -108,16 +119,7 @@
       <a href="../articles/articles/multiple_resources_purrr.html">Retrieving multiple resources using purrr</a>
     </li>
     <li>
-      <a href="../articles/articles/multisheet_resources.html">Retrieving multi-sheet XLS/XLSX resources</a>
-    </li>
-    <li>
-      <a href="../articles/articles/opendatatoronto.html">Introduction to opendatatoronto</a>
-    </li>
-    <li>
       <a href="../articles/articles/spatial_data.html">Working with spatial data from the portal</a>
-    </li>
-    <li>
-      <a href="../articles/intro-opendatatoronto.html">opendatatoronto</a>
     </li>
   </ul>
 </li>
@@ -127,8 +129,8 @@
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li>
-  <a href="https://github.com/sharlagelfand/opendatatoronto">
-    <span class="fab fa fab fa-github fa-lg"></span>
+  <a href="https://github.com/sharlagelfand/opendatatoronto/">
+    <span class="fab fa-github fa-lg"></span>
      
   </a>
 </li>
@@ -154,7 +156,7 @@
     <p>Download a resource from the portal directly into your R session. CSV, XLS, XLSX, XML, JSON, SHP, ZIP, and GeoJSON resources are supported.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>get_resource</span>(<span class='no'>resource</span>)</pre>
+    <pre class="usage"><span class='fu'>get_resource</span><span class='op'>(</span><span class='va'>resource</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -172,64 +174,36 @@ If it is a spatial resource (i.e. SHP or GeoJSON), it is returned as an sf objec
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='co'># \donttest{</span>
-<span class='no'>res</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='list_package_resources.html'>list_package_resources</a></span>(<span class='st'>"1db34737-ffad-489d-a590-9171d500d453"</span>)
-<span class='fu'>get_resource</span>(<span class='kw'>resource</span> <span class='kw'>=</span> <span class='no'>res</span>[<span class='fl'>1</span>, <span class='st'>"id"</span>])</div><div class='output co'>#&gt; Simple feature collection with 5729 features and 23 fields
-#&gt; geometry type:  POINT
+<span class='fu'><a href='list_package_resources.html'>list_package_resources</a></span><span class='op'>(</span><span class='st'>"https://open.toronto.ca/dataset/neighbourhoods/"</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+<span class='fu'>get_resource</span><span class='op'>(</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; Simple feature collection with 140 features and 17 fields
+#&gt; geometry type:  POLYGON
 #&gt; dimension:      XY
-#&gt; bbox:           xmin: -79.63465 ymin: 43.59329 xmax: -79.1231 ymax: 43.84012
-#&gt; epsg (SRID):    4326
-#&gt; proj4string:    +proj=longlat +datum=WGS84 +no_defs
-#&gt; # A tibble: 5,729 x 24
-#&gt;     `_id` OBJECTID ID    ADDRESSNUMBERTE… ADDRESSSTREET FRONTINGSTREET SIDE 
-#&gt;     &lt;int&gt;    &lt;int&gt; &lt;chr&gt; &lt;chr&gt;            &lt;chr&gt;         &lt;chr&gt;          &lt;chr&gt;
-#&gt;  1 1.15e6        2 SH-0… 245              Eglinton Ave… Eglinton Ave E South
-#&gt;  2 1.15e6        4 SH-0… 71               Fawndale Cres Warden Ave     West 
-#&gt;  3 1.15e6       10 SH-0… 2606             St Clair Ave… &lt;NA&gt;           &lt;NA&gt; 
-#&gt;  4 1.15e6       15 SH-0… 6705             Sheppard Ave… Neilson Rd     East 
-#&gt;  5 1.15e6       17 SH-0… 294              Yonge St      Dundas St W    South
-#&gt;  6 1.15e6       18 SH-0… 580              Rathburn Rd   Rathburn Rd    North
-#&gt;  7 1.15e6       19 SH-0… 7                Field Sparro… Finch Ave E    North
-#&gt;  8 1.15e6       21 SH-0… 66               Lunsfield Cr… Mccowan Rd     West 
-#&gt;  9 1.15e6       33 SH-0… 5810             Sheppard Ave… Sheppard Ave E North
-#&gt; 10 1.15e6       37 SH-0… 4000             Jane St       Finch Ave W    North
-#&gt; # … with 5,719 more rows, and 17 more variables: FROMSTREET &lt;chr&gt;,
-#&gt; #   DIRECTION &lt;chr&gt;, SITEID &lt;chr&gt;, WARD &lt;chr&gt;, BIA &lt;chr&gt;, ASSETTYPE &lt;chr&gt;,
-#&gt; #   STATUS &lt;chr&gt;, STYLE &lt;chr&gt;, BARCODE &lt;chr&gt;, POSTERBOARD &lt;chr&gt;,
-#&gt; #   POSTERBOARDSTATUS &lt;chr&gt;, SDE_STATE_ID &lt;int&gt;, X &lt;dbl&gt;, Y &lt;dbl&gt;,
-#&gt; #   LONGITUDE &lt;dbl&gt;, LATITUDE &lt;dbl&gt;, geometry &lt;POINT [°]&gt;</div><div class='input'><span class='no'>res</span><span class='kw'>[[</span><span class='st'>"id"</span>]]</div><div class='output co'>#&gt; [1] "b9214fd7-60d1-45f3-8463-a6bd9828f8bf"</div><div class='input'><span class='fu'>get_resource</span>(<span class='st'>"b9214fd7-60d1-45f3-8463-a6bd9828f8bf"</span>)</div><div class='output co'>#&gt; Simple feature collection with 5729 features and 23 fields
-#&gt; geometry type:  POINT
-#&gt; dimension:      XY
-#&gt; bbox:           xmin: -79.63465 ymin: 43.59329 xmax: -79.1231 ymax: 43.84012
-#&gt; epsg (SRID):    4326
-#&gt; proj4string:    +proj=longlat +datum=WGS84 +no_defs
-#&gt; # A tibble: 5,729 x 24
-#&gt;     `_id` OBJECTID ID    ADDRESSNUMBERTE… ADDRESSSTREET FRONTINGSTREET SIDE 
-#&gt;     &lt;int&gt;    &lt;int&gt; &lt;chr&gt; &lt;chr&gt;            &lt;chr&gt;         &lt;chr&gt;          &lt;chr&gt;
-#&gt;  1 1.15e6        2 SH-0… 245              Eglinton Ave… Eglinton Ave E South
-#&gt;  2 1.15e6        4 SH-0… 71               Fawndale Cres Warden Ave     West 
-#&gt;  3 1.15e6       10 SH-0… 2606             St Clair Ave… &lt;NA&gt;           &lt;NA&gt; 
-#&gt;  4 1.15e6       15 SH-0… 6705             Sheppard Ave… Neilson Rd     East 
-#&gt;  5 1.15e6       17 SH-0… 294              Yonge St      Dundas St W    South
-#&gt;  6 1.15e6       18 SH-0… 580              Rathburn Rd   Rathburn Rd    North
-#&gt;  7 1.15e6       19 SH-0… 7                Field Sparro… Finch Ave E    North
-#&gt;  8 1.15e6       21 SH-0… 66               Lunsfield Cr… Mccowan Rd     West 
-#&gt;  9 1.15e6       33 SH-0… 5810             Sheppard Ave… Sheppard Ave E North
-#&gt; 10 1.15e6       37 SH-0… 4000             Jane St       Finch Ave W    North
-#&gt; # … with 5,719 more rows, and 17 more variables: FROMSTREET &lt;chr&gt;,
-#&gt; #   DIRECTION &lt;chr&gt;, SITEID &lt;chr&gt;, WARD &lt;chr&gt;, BIA &lt;chr&gt;, ASSETTYPE &lt;chr&gt;,
-#&gt; #   STATUS &lt;chr&gt;, STYLE &lt;chr&gt;, BARCODE &lt;chr&gt;, POSTERBOARD &lt;chr&gt;,
-#&gt; #   POSTERBOARDSTATUS &lt;chr&gt;, SDE_STATE_ID &lt;int&gt;, X &lt;dbl&gt;, Y &lt;dbl&gt;,
-#&gt; #   LONGITUDE &lt;dbl&gt;, LATITUDE &lt;dbl&gt;, geometry &lt;POINT [°]&gt;</div><div class='input'># }
-</div></pre>
+#&gt; bbox:           xmin: -79.63926 ymin: 43.581 xmax: -79.11527 ymax: 43.85546
+#&gt; geographic CRS: WGS 84
+#&gt; <span style='color: #555555;'># A tibble: 140 x 18</span><span>
+#&gt;    `_id` AREA_ID AREA_ATTR_ID PARENT_AREA_ID AREA_SHORT_CODE AREA_LONG_CODE
+#&gt;    </span><span style='color: #555555;font-style: italic;'>&lt;int&gt;</span><span>   </span><span style='color: #555555;font-style: italic;'>&lt;int&gt;</span><span>        </span><span style='color: #555555;font-style: italic;'>&lt;int&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;lgl&gt;</span><span>          </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>           </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>         
+#&gt; </span><span style='color: #555555;'> 1</span><span> </span><span style='text-decoration: underline;'>10</span><span>361 2</span><span style='text-decoration: underline;'>480</span><span>141     26</span><span style='text-decoration: underline;'>005</span><span>521 </span><span style='color: #BB0000;'>NA</span><span>             096             096           
+#&gt; </span><span style='color: #555555;'> 2</span><span> </span><span style='text-decoration: underline;'>10</span><span>362 2</span><span style='text-decoration: underline;'>480</span><span>140     26</span><span style='text-decoration: underline;'>005</span><span>520 </span><span style='color: #BB0000;'>NA</span><span>             095             095           
+#&gt; </span><span style='color: #555555;'> 3</span><span> </span><span style='text-decoration: underline;'>10</span><span>363 2</span><span style='text-decoration: underline;'>480</span><span>139     26</span><span style='text-decoration: underline;'>005</span><span>519 </span><span style='color: #BB0000;'>NA</span><span>             109             109           
+#&gt; </span><span style='color: #555555;'> 4</span><span> </span><span style='text-decoration: underline;'>10</span><span>364 2</span><span style='text-decoration: underline;'>480</span><span>064     26</span><span style='text-decoration: underline;'>005</span><span>444 </span><span style='color: #BB0000;'>NA</span><span>             064             064           
+#&gt; </span><span style='color: #555555;'> 5</span><span> </span><span style='text-decoration: underline;'>10</span><span>365 2</span><span style='text-decoration: underline;'>480</span><span>063     26</span><span style='text-decoration: underline;'>005</span><span>443 </span><span style='color: #BB0000;'>NA</span><span>             103             103           
+#&gt; </span><span style='color: #555555;'> 6</span><span> </span><span style='text-decoration: underline;'>10</span><span>366 2</span><span style='text-decoration: underline;'>480</span><span>062     26</span><span style='text-decoration: underline;'>005</span><span>442 </span><span style='color: #BB0000;'>NA</span><span>             130             130           
+#&gt; </span><span style='color: #555555;'> 7</span><span> </span><span style='text-decoration: underline;'>10</span><span>367 2</span><span style='text-decoration: underline;'>480</span><span>138     26</span><span style='text-decoration: underline;'>005</span><span>518 </span><span style='color: #BB0000;'>NA</span><span>             053             053           
+#&gt; </span><span style='color: #555555;'> 8</span><span> </span><span style='text-decoration: underline;'>10</span><span>368 2</span><span style='text-decoration: underline;'>480</span><span>137     26</span><span style='text-decoration: underline;'>005</span><span>517 </span><span style='color: #BB0000;'>NA</span><span>             026             026           
+#&gt; </span><span style='color: #555555;'> 9</span><span> </span><span style='text-decoration: underline;'>10</span><span>369 2</span><span style='text-decoration: underline;'>480</span><span>136     26</span><span style='text-decoration: underline;'>005</span><span>516 </span><span style='color: #BB0000;'>NA</span><span>             006             006           
+#&gt; </span><span style='color: #555555;'>10</span><span> </span><span style='text-decoration: underline;'>10</span><span>370 2</span><span style='text-decoration: underline;'>480</span><span>135     26</span><span style='text-decoration: underline;'>005</span><span>515 </span><span style='color: #BB0000;'>NA</span><span>             124             124           
+#&gt; </span><span style='color: #555555;'># … with 130 more rows, and 12 more variables: AREA_NAME </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span style='color: #555555;'>,</span><span>
+#&gt; </span><span style='color: #555555;'>#   AREA_DESC </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span style='color: #555555;'>, X </span><span style='color: #555555;font-style: italic;'>&lt;lgl&gt;</span><span style='color: #555555;'>, Y </span><span style='color: #555555;font-style: italic;'>&lt;lgl&gt;</span><span style='color: #555555;'>, LONGITUDE </span><span style='color: #555555;font-style: italic;'>&lt;lgl&gt;</span><span style='color: #555555;'>, LATITUDE </span><span style='color: #555555;font-style: italic;'>&lt;lgl&gt;</span><span style='color: #555555;'>,</span><span>
+#&gt; </span><span style='color: #555555;'>#   OBJECTID </span><span style='color: #555555;font-style: italic;'>&lt;int&gt;</span><span style='color: #555555;'>, Shape__Area </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #555555;'>, Shape__Length </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #555555;'>, geometry </span><span style='color: #555555;font-style: italic;'>&lt;POLYGON</span><span>
+#&gt; </span><span style='color: #555555;'># </span><span style='color: #555555;font-style: italic;'>  [°]&gt;</span><span style='color: #555555;'>, CLASSIFICATION </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span style='color: #555555;'>, CLASSIFICATION_CODE </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span></div><div class='input'><span class='co'># }</span>
+</div></span></pre>
   </div>
-  <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
-    <h2>Contents</h2>
-    <ul class="nav nav-pills nav-stacked">
-      <li><a href="#arguments">Arguments</a></li>
-      <li><a href="#value">Value</a></li>
-      <li><a href="#examples">Examples</a></li>
-    </ul>
-
+  <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
+    <nav id="toc" data-toggle="toc" class="sticky-top">
+      <h2 data-toc-skip>Contents</h2>
+    </nav>
   </div>
 </div>
 
@@ -240,7 +214,7 @@ If it is a spatial resource (i.e. SHP or GeoJSON), it is returned as an sf objec
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.4.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
 </div>
 
       </footer>
