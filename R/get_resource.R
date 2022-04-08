@@ -12,6 +12,7 @@
 #' @examples
 #' \donttest{
 #' list_package_resources("https://open.toronto.ca/dataset/neighbourhoods/") %>%
+#' head(1) %>%
 #' get_resource()
 #' }
 get_resource <- function(resource) {

@@ -19,7 +19,7 @@ test_that("browse_resource returns the resource's package page URL", {
   skip_on_cran()
   skip_if_offline()
   expect_equal(
-    browse_resource("655a138c-d381-4fe7-b3b3-a6620825161f"),
+    browse_resource("d69671ad-ff9b-4495-8ed5-36f2c4a4452a"),
     "https://open.toronto.ca/dataset/ttc-subway-delay-data"
   )
 })

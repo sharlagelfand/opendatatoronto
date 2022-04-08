@@ -6,3 +6,5 @@ Meta
 docs/
 *.DS_Store
 .httr-oauth
+/doc/
+/Meta/

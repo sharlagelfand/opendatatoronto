@@ -25,7 +25,7 @@ earlyon_centres <- search_packages("EarlyON Child and Family Centres") %>%
 earlyon_centres
 ```
 
-If we want to plot this data on a map of Toronto, data to map the different [neighbourhoods of Toronto](https://open.toronto.ca/dataset/neighbourhoods/) is also available from the portal:
+If we want to plot this data on a map of Toronto, a shapefile to map the different [neighbourhoods of Toronto](https://open.toronto.ca/dataset/neighbourhoods/) is also available from the portal:
 
 ```{r}
 neighbourhoods <- list_package_resources("https://open.toronto.ca/dataset/neighbourhoods/") %>%

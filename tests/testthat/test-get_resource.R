@@ -23,7 +23,7 @@ test_that("get_resource returns the right output formats.", {
   expect_is(output, "tbl")
   expect_is(output, "data.frame")
 
-  output <- get_resource("bb21e1b8-a466-41c6-8bc3-3c362cb1ed55")
+  output <- get_resource("e93a7088-d37b-484e-addb-0f9eec4dfa19")
   expect_is(output, "list")
 
   output <- get_resource("684fdd81-dc1f-4636-a33d-0ede4f390684")
@@ -35,7 +35,7 @@ test_that("get_resource returns the right output formats.", {
   output <- get_resource("a083c865-6d60-4d1d-b6c6-b0c8a85f9c15")
   expect_is(output, "sf")
 
-  output <- get_resource("15e8d3bf-39eb-4769-a439-935a7dbbb57a")
+  output <- get_resource("585c1ca2-9195-452e-ad76-8c982b0941aa")
   expect_is(output, "tbl_df")
 })
 
