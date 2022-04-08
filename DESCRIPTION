@@ -1,6 +1,6 @@
 Package: opendatatoronto
 Title: Access the City of Toronto Open Data Portal
-Version: 0.1.4.0001
+Version: 0.1.5
 Authors@R: 
     c(person(given = "Sharla",
              family = "Gelfand",
@@ -18,7 +18,7 @@ BugReports:
 Depends: 
     R (>= 2.10)
 Imports: 
-    ckanr (>= 0.5.2.91),
+    ckanr (>= 0.6.0),
     magrittr,
     readxl,
     sf,
