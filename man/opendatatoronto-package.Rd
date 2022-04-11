@@ -18,7 +18,6 @@ Useful links:
 \itemize{
   \item \url{https://sharlagelfand.github.io/opendatatoronto/}
   \item \url{https://github.com/sharlagelfand/opendatatoronto/}
-  \item \url{https://sharlagelfand.github.io/opendatatoronto}
   \item Report bugs at \url{https://github.com/sharlagelfand/opendatatoronto/issues}
 }
 
