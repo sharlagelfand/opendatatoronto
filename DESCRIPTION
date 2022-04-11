@@ -35,8 +35,6 @@ Suggests:
     tidyr,
     rmarkdown,
     testthat
-Remotes: 
-    ropensci/ckanr
 VignetteBuilder: 
     knitr
 Encoding: UTF-8

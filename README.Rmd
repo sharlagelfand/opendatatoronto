@@ -18,9 +18,9 @@ knitr::opts_chunk$set(
 <!-- badges: start -->
 [![R build status](https://github.com/sharlagelfand/opendatatoronto/workflows/R-CMD-check/badge.svg)](https://github.com/sharlagelfand/opendatatoronto/actions)
 [![AppVeyor build status](https://ci.appveyor.com/api/projects/status/github/sharlagelfand/opendatatoronto?branch=main&svg=true)](https://ci.appveyor.com/project/sharlagelfand/opendatatoronto)
-[![Codecov test coverage](https://codecov.io/gh/sharlagelfand/opendatatoronto/branch/main/graph/badge.svg)](https://codecov.io/gh/sharlagelfand/opendatatoronto?branch=main)
+[![Codecov test coverage](https://codecov.io/gh/sharlagelfand/opendatatoronto/branch/main/graph/badge.svg)](https://app.codecov.io/gh/sharlagelfand/opendatatoronto?branch=main)
 [![CRAN status](https://www.r-pkg.org/badges/version/opendatatoronto)](https://cran.r-project.org/package=opendatatoronto)
-[![Lifecycle: stable](https://img.shields.io/badge/lifecycle-stable-brightgreen.svg)](https://www.tidyverse.org/lifecycle/#stable)
+[![Lifecycle: stable](https://img.shields.io/badge/lifecycle-stable-brightgreen.svg)](https://lifecycle.r-lib.org/articles/stages.html#stable)
 [![CRAN RStudio mirror downloads](https://cranlogs.r-pkg.org/badges/grand-total/opendatatoronto?color=blue)](https://r-pkg.org/pkg/opendatatoronto)
 <!-- badges: end -->
 
@@ -95,6 +95,7 @@ Finally (and most usefully!), you can download the resource (i.e., the actual da
 
 ```{r get-marriage-licenses}
 marriage_licence_statistics <- marriage_licence_resources %>%
+  head(1) %>%
   get_resource()
 
 marriage_licence_statistics

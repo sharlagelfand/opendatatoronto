@@ -34,7 +34,7 @@ check_id_in_df <- function(x, name) {
 }
 
 check_found <- function(res, id, name) {
-  if (class(res) == "try-error" && (grepl("404", res) || grepl("403", res))) {
+  if (inherits(res, "try-error") && (grepl("404", res) || grepl("403", res))) {
     stop(paste0("`", name, '` "', id, '" was not found.'),
       call. = FALSE
     )
