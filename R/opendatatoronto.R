@@ -6,6 +6,7 @@
 #'
 #' For more information, please start with the vignettes: \code{browseVignettes(package = "opendatatoronto")} or visit the \href{https://sharlagelfand.github.io/opendatatoronto/}{package website}.
 #'
+#' @keywords internal
 "_PACKAGE"
 
 # Suppress R CMD check note
