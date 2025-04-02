@@ -18,9 +18,10 @@ test_that("list_packages returns the right output formats.", {
 })
 
 test_that("list_packages errors if offline", {
-  with_mock(
-    "curl::has_internet" = function() FALSE,
-    expect_error(list_packages(1), "does not work offline")
+  with_mocked_bindings(
+    has_internet = function() FALSE,
+    .package = "curl",
+    code = expect_error(list_packages(1), "does not work offline")
   )
 })
 
@@ -79,9 +80,10 @@ test_that("search_packages has the correct return format.", {
 })
 
 test_that("search_packages errors if offline", {
-  with_mock(
-    "curl::has_internet" = function() FALSE,
-    expect_error(search_packages("ttc", limit = 1), "does not work offline")
+  with_mocked_bindings(
+    has_internet = function() FALSE,
+    .package = "curl",
+    code = expect_error(search_packages("ttc", limit = 1), "does not work offline")
   )
 })
 
@@ -140,8 +142,9 @@ test_that("show_package has the correct return format.", {
 })
 
 test_that("show_package errors if offline", {
-  with_mock(
-    "curl::has_internet" = function() FALSE,
-    expect_error(show_package("c01c6d71-de1f-493d-91ba-364ce64884ac"), "does not work offline")
+  with_mocked_bindings(
+    has_internet = function() FALSE,
+    .package = "curl",
+    code = expect_error(show_package("c01c6d71-de1f-493d-91ba-364ce64884ac"), "does not work offline")
   )
 })

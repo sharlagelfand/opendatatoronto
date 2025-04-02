@@ -28,8 +28,9 @@ test_that("list_package_resources returns the right output formats.", {
 # })
 
 test_that("list_package_resources errors if offline", {
-  with_mock(
-    "curl::has_internet" = function() FALSE,
-    expect_error(list_package_resources("263f54b6-5c60-434f-8958-4e11248f08ff"), "does not work offline")
+  with_mocked_bindings(
+    has_internet = function() FALSE,
+    .package = "curl",
+    code = expect_error(list_package_resources("263f54b6-5c60-434f-8958-4e11248f08ff"), "does not work offline")
   )
 })

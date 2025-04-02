@@ -25,10 +25,13 @@ test_that("browse_resource returns the resource's package page URL", {
 })
 
 test_that("browse_portal, browse_resource, browse_package error if offline", {
-  with_mock(
-    "curl::has_internet" = function() FALSE,
-    expect_error(browse_portal(), "does not work offline"),
-    expect_error(browse_resource(), "does not work offline"),
-    expect_error(browse_package(), "does not work offline")
+  with_mocked_bindings(
+    has_internet = function() FALSE,
+    .package = "curl",
+    code = {
+      expect_error(browse_portal(), "does not work offline")
+      expect_error(browse_resource(), "does not work offline")
+      expect_error(browse_package(), "does not work offline")
+    }
   )
 })

@@ -78,8 +78,9 @@ test_that("nested_lapply_tibble makes data frame list elements into tibbles and 
 })
 
 test_that("get_resource errors if offline", {
-  with_mock(
-    "curl::has_internet" = function() FALSE,
-    expect_error(get_resource("4d985c1d-9c7e-4f74-9864-73214f45eb4a"), "does not work offline")
+  with_mocked_bindings(
+    has_internet = function() FALSE,
+    .package = "curl",
+    code = expect_error(get_resource("4d985c1d-9c7e-4f74-9864-73214f45eb4a"), "does not work offline")
   )
 })
