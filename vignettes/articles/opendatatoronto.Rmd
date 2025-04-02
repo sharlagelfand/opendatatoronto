@@ -1,5 +1,7 @@
 ---
 title: "Introduction to opendatatoronto"
+vignette: >
+  %\VignetteEngine{knitr::rmarkdown}
 ---
 
 ```{r, include = FALSE}
