@@ -1,5 +1,7 @@
 ---
 title: "Working with spatial data from the portal"
+editor_options: 
+  chunk_output_type: console
 ---
 
 ```{r, include = FALSE}
@@ -17,9 +19,11 @@ We can look at the locations of [EarlyON Child and Family Centres](https://open.
 
 ```{r setup}
 library(opendatatoronto)
+library(dplyr)
 
 earlyon_centres <- search_packages("EarlyON Child and Family Centres") %>%
   list_package_resources() %>%
+  filter(name == "EarlyON Child and Family Centres Locations - geometry - 4326.zip") %>%
   get_resource()
 
 earlyon_centres
@@ -29,9 +33,10 @@ If we want to plot this data on a map of Toronto, a shapefile to map the differe
 
 ```{r}
 neighbourhoods <- list_package_resources("https://open.toronto.ca/dataset/neighbourhoods/") %>%
+  filter(name == "Neighbourhoods - 4326.zip") %>%
   get_resource()
 
-neighbourhoods[c("AREA_NAME", "geometry")]
+neighbourhoods[c("AREA_NA7", "geometry")]
 ```
 
 Then, we can plot the EarlyON centres along with a map of Toronto:
@@ -55,8 +60,8 @@ library(glue)
 
 earlyon_by_neighbourhood <- neighbourhoods %>%
   st_join(earlyon_centres) %>%
-  group_by(neighbourhood = AREA_NAME) %>%
-  summarise(n_earlyon = n_distinct(program, na.rm = TRUE)) %>%
+  group_by(neighbourhood = AREA_NA7) %>%
+  summarise(n_earlyon = n_distinct(program5, na.rm = TRUE)) %>%
   mutate(tooltip = glue(("{neighbourhood}: {n_earlyon}")))
 
 p <- ggplot() +
@@ -66,7 +71,7 @@ p <- ggplot() +
 girafe(code = print(p))
 ```
 
-This shows us, for example, that there are 10 EarlyON Centres in West Hill, 7 in South Riverdale, and 5 in Moss Park:
+This shows us, for example, that there are 9 EarlyON Centres in West Hill, 5 in Kensington-Chinatown, and 5 in South Riverdale:
 
 ```{r}
 earlyon_by_neighbourhood %>%
@@ -75,79 +80,3 @@ earlyon_by_neighbourhood %>%
   arrange(-n_earlyon) %>%
   head()
 ```
-
-But it does not tell us anything about whether these neighbourhoods are over- or under-served in terms of child and family centres. 
-
-Instead, it may be better to normalize the number of EarlyON Centres, by something like the population - or better yet, the number of children in each neighbourhood, assuming that families are able to attend programs at the EarlyON Centres in the neighbourhoods they live in.
-
-For this, we can integrate the [Neighbourhood Profiles dataset](https://open.toronto.ca/dataset/neighbourhood-profiles/), in which the City of Toronto uses the Census data to provide a profile of the demographic, social, and economic characteristics of the people and households in Toronto neighbourhoods. Note that the latest data is from the 2016 Census, while the EarlyON centres data is up to date - this analysis is purely for illustrative purposes.
-
-We can pull in the Neighbourhood Profiles data, and focus the number of children in each neighbourhood. We make additional use of the `tidyr` and `stringr` packages to reshape and clean the data.
-
-```{r}
-library(tidyr)
-library(stringr)
-
-neighbourhood_profiles <- list_package_resources("https://open.toronto.ca/dataset/neighbourhood-profiles/") %>%
-  filter(name == "neighbourhood-profiles-2016-csv") %>%
-  get_resource()
-
-neighbourhoods_children <- neighbourhood_profiles %>%
-  filter(Characteristic == "Children (0-14 years)") %>%
-  select(`Agincourt North`:`Yorkdale-Glen Park`) %>%
-  pivot_longer(cols = everything(), names_to = "neighbourhood", values_to = "children") %>%
-  mutate(
-    children = str_remove_all(children, ","),
-    children = as.numeric(children)
-  )
-
-neighbourhoods_children
-```
-
-There are some differences in how the neighbourhoods are named between the two datasets, so additional cleaning is required, such as removing the neighbourhood numbers from the spatial data set, and fixing inconsistencies and misspellings, before we can combine them.
-
-```{r}
-earlyon_by_neighbourhood <- earlyon_by_neighbourhood %>%
-  separate(neighbourhood, into = "neighbourhood", sep = " \\(") %>%
-  mutate(neighbourhood = case_when(
-    neighbourhood == "Cabbagetown-South St.James Town" ~ "Cabbagetown-South St. James Town",
-    neighbourhood == "North St.James Town" ~ "North St. James Town",
-    TRUE ~ neighbourhood
-  ))
-
-neighbourhoods_children <- neighbourhoods_children %>%
-  mutate(neighbourhood = case_when(
-    neighbourhood == "Mimico (includes Humber Bay Shores)" ~ "Mimico",
-    neighbourhood == "Weston-Pelham Park" ~ "Weston-Pellam Park",
-    TRUE ~ neighbourhood
-  ))
-```
-
-Finally, we can combine the data sets, and calculate the number of EarlyON Centres per 1,000 children:
-
-```{r}
-earlyon_by_neighbourhood_with_children <- earlyon_by_neighbourhood %>%
-  left_join(neighbourhoods_children, by = "neighbourhood") %>%
-  mutate(n_earlyon_per_child = n_earlyon / children,
-    n_earlyon_per_1k_children = round(n_earlyon_per_child * 1000, 2),
-    tooltip = glue(("{neighbourhood}: {n_earlyon_per_1k_children}"))
-  )
-```
-
-And visualize that along with the locations of the centres themselves, adjusting the colour scheme to better highlight neighbourhoods without any:
-
-```{r}
-p <- ggplot() +
-  geom_sf_interactive(data = earlyon_by_neighbourhood_with_children, aes(fill = n_earlyon_per_1k_children, tooltip = tooltip)) +
-  geom_sf_interactive(data = earlyon_centres, size = 0.25) + 
-  scale_fill_gradient(low = "white", high = "#992a2a") + 
-  labs(title = "Number of EarlyON Child and Family Centres, per 1,000 Children") + 
-  theme_void() + 
-  theme(legend.title = element_blank())
-
-girafe(code = print(p))
-```
-
-Now, we can see that most neighbourhoods have less than 1 EarlyON Centre per 1,000 children, with a number having zero. Moss Park, one of the neighbourhoods we highlighted before, has 3.25 centres per 1,000, and Kensington-Chinatown has the highest, at 3.8 per 1,000 children.
-
-It could be interesting to further quantify the number of children in neighbourhoods who *don't* have any centres, since they are all just left at zero in this visualization - but that's an exercise for another day!
