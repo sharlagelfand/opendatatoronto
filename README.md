@@ -17,7 +17,6 @@ status](https://www.r-pkg.org/badges/version/opendatatoronto)](https://cran.r-pr
 stable](https://img.shields.io/badge/lifecycle-stable-brightgreen.svg)](https://lifecycle.r-lib.org/articles/stages.html#stable)
 [![CRAN RStudio mirror
 downloads](https://cranlogs.r-pkg.org/badges/grand-total/opendatatoronto?color=blue)](https://r-pkg.org/pkg/opendatatoronto)
-[![R-CMD-check](https://github.com/sharlagelfand/opendatatoronto/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/sharlagelfand/opendatatoronto/actions/workflows/R-CMD-check.yaml)
 <!-- badges: end -->
 
 `opendatatoronto` is an R interface to the [City of Toronto Open Data
@@ -68,16 +67,16 @@ packages
 #> # A tibble: 10 × 11
 #>    title            id    topics civic_issues publisher excerpt dataset_category
 #>    <chr>            <chr> <chr>  <chr>        <chr>     <chr>   <chr>           
-#>  1 Dinesafe         b6b4… "c(\"… "NULL"       Toronto … "Snaps… Table           
-#>  2 Toronto Island … toro… "Tran… "NULL"       Parks, F… "This … Table           
-#>  3 Committee of Ad… 260e… "City… "NULL"       City Pla… "This … Table           
-#>  4 Toronto's Dashb… c6d6… "City… "NULL"       City Man… "This … Table           
-#>  5 Noise Exemption… nois… "Busi… "NULL"       Municipa… "This … Table           
-#>  6 Traffic Volumes… traf… "Tran… "NULL"       Transpor… "This … Table           
-#>  7 Property Bounda… 1aca… "Loca… "NULL"       Informat… "This … Map             
-#>  8 Green Spaces     9a28… "c(\"… "NULL"       Parks, F… "Parks… Map             
-#>  9 Municipal Licen… 5da2… "c(\"… "c(\"Afford… Municipa… "This … Document        
-#> 10 Lobbyist Regist… 6a87… "City… "NULL"       Lobbyist… "The L… Document        
+#>  1 Licensed Dogs a… lice… "Comm… NULL         Municipa… "The r… Table           
+#>  2 Multi-Tenant (R… mult… "Perm… NULL         Municipa… "This … Table           
+#>  3 Polls conducted… 7bce… "City… NULL         City Cle… "Polls… Table           
+#>  4 Rain Gauge Loca… f293… "c(\"… NULL         Toronto … "This … Document        
+#>  5 Sidewalk Constr… side… "Tran… NULL         Transpor… "The C… Map             
+#>  6 Traffic Signal … 7dda… "Tran… Mobility     Transpor… "This … Document        
+#>  7 Daily Shelter &… 21c8… "c(\"… NULL         Toronto … "Daily… Table           
+#>  8 Traffic Volumes… traf… "Tran… Mobility     Transpor… "This … Table           
+#>  9 Toronto Island … toro… "Tran… NULL         Parks, F… "This … Table           
+#> 10 Toronto Open Da… open… "City… NULL         Informat… "This … Table           
 #> # ℹ 4 more variables: num_resources <int>, formats <chr>, refresh_rate <chr>,
 #> #   last_refreshed <date>
 ```
