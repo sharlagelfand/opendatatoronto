@@ -18,7 +18,7 @@ test_that("check_format throws an error when format is not one of CSV, XLS, XLSX
 test_that("get_resource returns the right output formats.", {
   skip_on_cran()
   skip_if_offline()
-  output <- get_resource("4d985c1d-9c7e-4f74-9864-73214f45eb4a")
+  output <- get_resource("fed58a09-14bc-403f-9166-00397c7822a7")
   expect_is(output, "tbl_df")
   expect_is(output, "tbl")
   expect_is(output, "data.frame")
@@ -26,13 +26,12 @@ test_that("get_resource returns the right output formats.", {
   output <- get_resource("e93a7088-d37b-484e-addb-0f9eec4dfa19")
   expect_is(output, "list")
 
-  output <- get_resource("684fdd81-dc1f-4636-a33d-0ede4f390684")
+  # SHP
+  output <- get_resource("75caaa71-0a7b-4f89-a573-7cfe07c1aa3d")
   expect_is(output, "sf")
 
+  # GeoJSON
   output <- get_resource("199bba5c-242e-4968-ae7f-2e2147eaf235")
-  expect_is(output, "sf")
-
-  output <- get_resource("a083c865-6d60-4d1d-b6c6-b0c8a85f9c15")
   expect_is(output, "sf")
 
   output <- get_resource("585c1ca2-9195-452e-ad76-8c982b0941aa")
