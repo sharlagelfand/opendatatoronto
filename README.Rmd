@@ -31,7 +31,6 @@ For more information, please visit the [package website](https://sharlagelfand.g
 * [Introduction to `opendatatoronto`](https://sharlagelfand.github.io/opendatatoronto/articles/opendatatoronto.html)
 * [Retrieving multi-sheet XLS/XLSX resources](https://sharlagelfand.github.io/opendatatoronto/articles/articles/multisheet_resources.html)
 * [Retrieving multi-file ZIP resources](https://sharlagelfand.github.io/opendatatoronto/articles/articles/multifile_zip_resources.html)
-* [Retrieving multiple resources using `purrr`](https://sharlagelfand.github.io/opendatatoronto/articles/articles/multiple_resources_purrr.html)
 * [Working with spatial data from the portal](https://sharlagelfand.github.io/opendatatoronto/articles/articles/spatial_data.html)
 
 ## Installation

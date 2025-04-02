@@ -17,3 +17,4 @@
 ^man/figures/logo-full\.png$
 ^\.httr-oauth$
 ^\.github$
+^revdep$
