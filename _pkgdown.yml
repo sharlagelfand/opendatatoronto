@@ -2,6 +2,8 @@ destination: docs
 url: https://sharlagelfand.github.io/opendatatoronto/
 navbar:
   type: inverse
+template:
+  bootstrap: 5
 
 reference:
   - title: List or search packages and resources
@@ -25,5 +27,5 @@ articles:
     contents:
     - articles/multisheet_resources
     - articles/multifile_zip_resources
-    - articles/multiple_resources_purrr
     - articles/spatial_data
+    - intro-opendatatoronto

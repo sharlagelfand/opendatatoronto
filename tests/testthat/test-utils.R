@@ -136,9 +136,10 @@ test_that("check_limit returns error if limit is not a length 1 positive integer
 })
 
 test_that("check_internet throws an error if there is no internet", {
-  with_mock(
-    "curl::has_internet" = function() FALSE,
-    expect_error(check_internet(), "does not work offline")
+  with_mocked_bindings(
+    has_internet = function() FALSE,
+    .package = "curl",
+    code = expect_error(check_internet(), "does not work offline")
   )
 })
 

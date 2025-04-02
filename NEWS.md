@@ -1,3 +1,7 @@
+# opendatatoronto 0.1.6
+
+* Fix tests for CRAN, upates to documentation based on changes in datasets on portal
+
 # opendatatoronto 0.1.4
 
 * Fixed a failing test

@@ -25,5 +25,4 @@ articles:
     contents:
     - articles/multisheet_resources
     - articles/multifile_zip_resources
-    - articles/multiple_resources_purrr
     - articles/spatial_data

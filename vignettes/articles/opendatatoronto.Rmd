@@ -58,7 +58,10 @@ list_package_resources("https://open.toronto.ca/dataset/apartment-building-regis
 Finally (and most usefully!), you can download the resource (i.e., the actual data) directly into R using `get_resource()`:
 
 ```{r get-apartment-building-registration}
+library(dplyr)
+
 apartment_building_registration_data <- apartment_building_registration_resources %>%
+  filter(name == "Apartment Building Registration Data") %>%
   get_resource()
 
 apartment_building_registration_data
@@ -68,5 +71,4 @@ The `opendatatoronto` package can currently handle the download of CSV, XLS/XLSX
 
 * [Retrieving multi-sheet XLS/XLSX resources](multisheet_resources.html)
 * [Retrieving multi-file ZIP resources](multifile_zip_resources.html)
-* [Retrieving multiple resources using `purrr`](multiple_resources_purrr.html)
 * [Working with spatial data from the portal](spatial_data.html)

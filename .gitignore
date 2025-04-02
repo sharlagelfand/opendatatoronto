@@ -1,6 +1,5 @@
 .Rproj.user
 .Rhistory
-inst/doc
 doc
 Meta
 docs/
@@ -9,3 +8,4 @@ docs/
 /doc/
 /Meta/
 docs
+revdep
