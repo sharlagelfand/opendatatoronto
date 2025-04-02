@@ -1,6 +1,5 @@
 ---
 title: "Retrieving multi-file ZIP resources"
-output: pdf_document
 ---
 
 ```{r, include = FALSE}

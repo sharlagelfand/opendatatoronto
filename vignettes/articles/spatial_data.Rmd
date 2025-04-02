@@ -1,6 +1,5 @@
 ---
 title: "Working with spatial data from the portal"
-always_allow_html: true
 ---
 
 ```{r, include = FALSE}
